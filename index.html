@@ -72,6 +72,11 @@ main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .mail h3.sec::after{content:"";flex:1;height:2px;background:color-mix(in srgb,var(--h) 35%,transparent)}
 .card{--edge:var(--other);background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--edge);border-radius:10px;padding:12px 14px;display:block;font-size:15px;min-width:0;scroll-margin-top:130px}
 .card b:first-of-type{font-family:var(--f-display);font-size:19px;font-weight:700;letter-spacing:.02em}
+.card > div:first-child{display:flex;align-items:flex-start;flex-wrap:wrap;gap:4px 6px}
+.card > div:first-child b{flex:1 1 auto;min-width:0}
+.card > div:first-child .badge{order:3;margin-left:auto}
+.card > div:first-child .cat{order:2}
+.kv .v li .badge{margin-left:auto}
 .parlay{--edge:var(--accent)}
 .parlay b:first-of-type{color:var(--accent)}
 .chip{display:inline-block;font:700 12px/1.6 var(--f-body);letter-spacing:.04em;color:#fff;background:var(--sp,var(--other));border-radius:4px;padding:0 7px;vertical-align:2px;white-space:nowrap}
@@ -152,6 +157,14 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .tp-body tr.wk td{background:color-mix(in srgb,var(--ink) 6%,var(--surface));font-weight:700}
 .tp-body tr.dy td:first-child{padding-left:26px;color:var(--muted)}
 .wk-btn{display:flex;align-items:center;gap:6px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;min-height:28px}
+.sites{display:grid;margin:8px 0 4px}
+.sites-h{font:700 12px var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:2px 0 4px}
+.site{display:grid;grid-template-columns:minmax(5.5rem,7.5rem) minmax(0,1fr) auto;gap:2px 10px;align-items:start;padding:7px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.35}
+.site-n{font-weight:700}
+.site-d{color:var(--muted);min-width:0}
+.vd{font:700 11px/1.9 var(--f-body);letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:0 9px;color:#fff;white-space:nowrap;justify-self:end;background:var(--muted)}
+.vd.vd-agree{background:var(--good)} .vd.vd-disagree{background:var(--bad)}
+@media (max-width:480px){.site{grid-template-columns:minmax(0,1fr) auto}.site-d{grid-column:1/-1;order:3}}
 @media (min-width:1000px){
   .wrap{max-width:1020px}
   .brand,.tabs{max-width:640px}
@@ -582,7 +595,45 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const firstP = box.querySelector(":scope > p:not(.notice)");
     if (firstP && /stream|started|\bmin\b/i.test(firstP.textContent) && box.querySelector(".card")) firstP.remove();
     stackTables(box);
+    tidySites(box);
     return box;
+  }
+  // "Sites: Name - detail - Agrees; ..." -> aligned table (trial: Montreal @ Toronto card only)
+  function tidySites(box){
+    box.querySelectorAll(".card").forEach(card => {
+      const b = card.querySelector("b");
+      if (!b || !/^Montreal @ Toronto/i.test(b.textContent.trim())) return;
+      const row = Array.from(card.children).find(d => d.tagName === "DIV" && /^\s*Sites:/i.test(d.textContent));
+      if (!row) return;
+      const entries = []; let cur = { pre: "" };
+      for (const n of row.childNodes) {
+        if (n.nodeType === 3) {
+          n.nodeValue.replace(/^\s*Sites:\s*/i, "").split(";").forEach((seg, i) => {
+            if (i === 0) cur.pre += seg; else { entries.push(cur); cur = { pre: seg }; }
+          });
+        } else if (n.nodeType === 1) {
+          const t = n.textContent.trim();
+          if (/^agrees?$/i.test(t)) cur.verdict = "Agrees";
+          else if (/^disagrees?$/i.test(t)) cur.verdict = "Disagrees";
+          else if (/^neutral$/i.test(t)) cur.verdict = "Neutral";
+          else cur.pre += n.textContent;
+        }
+      }
+      entries.push(cur);
+      const parsed = entries.map(e => {
+        const parts = e.pre.trim().replace(/\s*-\s*$/, "").split(/\s+-\s+/);
+        return { name: parts[0] || "", detail: parts.slice(1).join(" - "), verdict: e.verdict || "" };
+      }).filter(e => e.name);
+      if (!parsed.length) return;
+      const wrap = el("div","sites"); wrap.append(el("div","sites-h","Sites"));
+      parsed.forEach(x => {
+        const r = el("div","site"); r.append(el("span","site-n",x.name), el("span","site-d",x.detail));
+        const v = x.verdict.toLowerCase();
+        r.append(x.verdict ? el("span","vd " + (v.startsWith("agree") ? "vd-agree" : v.startsWith("disagree") ? "vd-disagree" : "vd-neutral"), x.verdict) : el("span"));
+        wrap.append(r);
+      });
+      row.replaceWith(wrap);
+    });
   }
   function stackTables(box){
     box.querySelectorAll(".scroll").forEach(wrap => {

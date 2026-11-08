@@ -1,0 +1,269 @@
+sport,game_id,date,week,home,away,home_abbr,away_abbr,home_score,away_score,extra,spread_detail,over_under,home_ml,away_ml,venue
+nhl,401891781,2026-10-01T23:00Z,,Columbus Blue Jackets,Buffalo Sabres,CBJ,BUF,6,3,,BUF -118,6.5,-102,-118,Nationwide Arena
+nhl,401891817,2026-10-01T23:00Z,,New Jersey Devils,Philadelphia Flyers,NJ,PHI,3,2,OT,NJ -180,5.5,-180,150,Prudential Center
+nhl,401891819,2026-10-01T23:00Z,,New York Rangers,Tampa Bay Lightning,NYR,TB,5,1,,TB -148,5.5,124,-148,Madison Square Garden
+nhl,401891816,2026-10-02T00:00Z,,Nashville Predators,Minnesota Wild,NSH,MIN,1,3,,MIN -148,6.5,124,-148,Bridgestone Arena
+nhl,401891777,2026-10-02T01:00Z,,Calgary Flames,Seattle Kraken,CGY,SEA,1,6,,CGY -112,5.5,-112,-108,Scotiabank Saddledome
+nhl,401891828,2026-10-02T01:30Z,,Utah Mammoth,Chicago Blackhawks,UTA,CHI,6,0,,UTAH -230,6.5,-230,190,Delta Center
+nhl,401891823,2026-10-02T02:00Z,,San Jose Sharks,Florida Panthers,SJ,FLA,4,3,OT,FLA -148,6.5,124,-148,SAP Center at San Jose
+nhl,401891829,2026-10-02T02:00Z,,Vancouver Canucks,Edmonton Oilers,VAN,EDM,7,9,,EDM -218,6.5,180,-218,Rogers Arena
+nhl,401891803,2026-10-02T22:30Z,,Detroit Red Wings,New York Rangers,DET,NYR,0,2,,DET -125,5.5,-125,105,Little Caesars Arena
+nhl,401892432,2026-10-02T23:00Z,,Carolina Hurricanes,Washington Capitals,CAR,WSH,2,5,,CAR -148,6.5,-148,124,Lenovo Center
+nhl,401891831,2026-10-03T00:00Z,,Winnipeg Jets,Boston Bruins,WPG,BOS,3,4,OT,WPG -122,5.5,-122,102,Canada Life Centre
+nhl,401891782,2026-10-03T01:00Z,,Dallas Stars,St. Louis Blues,DAL,STL,0,4,,DAL -185,5.5,-185,154,American Airlines Center
+nhl,401892433,2026-10-03T02:00Z,,Vegas Golden Knights,Anaheim Ducks,VGK,ANA,3,4,,VGK -218,6.5,-218,180,T-Mobile Arena
+nhl,401891776,2026-10-03T23:00Z,,Buffalo Sabres,Chicago Blackhawks,BUF,CHI,4,3,,BUF -230,5.5,-230,190,KeyBank Center
+nhl,401891822,2026-10-03T23:00Z,,Pittsburgh Penguins,Montreal Canadiens,PIT,MTL,6,5,OT,MTL -115,6.5,-105,-115,PPG Paints Arena
+nhl,401891826,2026-10-03T23:00Z,,Tampa Bay Lightning,Washington Capitals,TB,WSH,3,1,,TB -205,6.5,-205,170,Benchmark International Arena
+nhl,401892434,2026-10-03T23:00Z,,Toronto Maple Leafs,Ottawa Senators,TOR,OTT,2,3,,TOR -115,6.5,-115,-105,Scotiabank Arena
+nhl,401892435,2026-10-03T23:00Z,,Philadelphia Flyers,Carolina Hurricanes,PHI,CAR,2,3,OT,CAR -135,5.5,114,-135,Xfinity Mobile Arena
+nhl,401892436,2026-10-03T23:00Z,,Columbus Blue Jackets,Utah Mammoth,CBJ,UTA,1,4,,UTAH -118,6.5,-102,-118,Nationwide Arena
+nhl,401892437,2026-10-03T23:00Z,,Edmonton Oilers,Seattle Kraken,EDM,SEA,3,1,,EDM -205,6.5,-205,170,Rogers Place
+nhl,401891818,2026-10-03T23:30Z,,New York Islanders,New Jersey Devils,NYI,NJ,6,0,,NJ -135,5.5,114,-135,UBS Arena
+nhl,401891814,2026-10-04T00:00Z,,Minnesota Wild,Boston Bruins,MIN,BOS,4,1,,MIN -218,6.5,-218,180,Grand Casino Arena
+nhl,401892438,2026-10-04T00:00Z,,Nashville Predators,Dallas Stars,NSH,DAL,2,1,,DAL -142,6.5,120,-142,Bridgestone Arena
+nhl,401892439,2026-10-04T01:00Z,,Colorado Avalanche,St. Louis Blues,COL,STL,6,1,,COL -298,6.5,-298,240,Ball Arena
+nhl,401892440,2026-10-04T02:00Z,,Vancouver Canucks,Calgary Flames,VAN,CGY,4,1,,VAN -110,6.5,-110,-110,Rogers Arena
+nhl,401892441,2026-10-04T02:00Z,,San Jose Sharks,Los Angeles Kings,SJ,LA,5,4,OT,SJ -110,6.5,-110,-110,SAP Center at San Jose
+nhl,401892442,2026-10-04T17:00Z,,Detroit Red Wings,Winnipeg Jets,DET,WPG,2,3,,WPG -118,5.5,-102,-118,Little Caesars Arena
+nhl,401892443,2026-10-04T22:00Z,,New York Rangers,Utah Mammoth,NYR,UTA,4,2,,NYR -120,5.5,-120,100,Madison Square Garden
+nhl,401891778,2026-10-05T00:00Z,,Anaheim Ducks,Florida Panthers,ANA,FLA,3,2,OT,FLA -142,6.5,120,-142,Honda Center
+nhl,401891824,2026-10-05T00:00Z,,Seattle Kraken,Calgary Flames,SEA,CGY,6,1,,SEA -162,5.5,-162,136,Climate Pledge Arena
+nhl,401892444,2026-10-05T01:00Z,,Vancouver Canucks,Vegas Golden Knights,VAN,VGK,2,3,,VGK -290,6.5,235,-290,Rogers Arena
+nhl,401892445,2026-10-05T23:00Z,,Tampa Bay Lightning,Philadelphia Flyers,TB,PHI,4,1,,TB -218,5.5,-218,180,Benchmark International Arena
+nhl,401892446,2026-10-05T23:30Z,,Boston Bruins,Ottawa Senators,BOS,OTT,1,4,,OTT -118,5.5,-102,-118,TD Garden
+nhl,401892447,2026-10-05T23:30Z,,Pittsburgh Penguins,Winnipeg Jets,PIT,WPG,2,3,,PIT -175,6.5,-175,145,PPG Paints Arena
+nhl,401892448,2026-10-06T00:00Z,,Dallas Stars,San Jose Sharks,DAL,SJ,5,0,,DAL -218,6.5,-218,180,American Airlines Center
+nhl,401891815,2026-10-06T23:00Z,,Montreal Canadiens,Carolina Hurricanes,MTL,CAR,4,6,,CAR -130,6.5,110,-130,Bell Centre
+nhl,401892449,2026-10-06T23:00Z,,Toronto Maple Leafs,Nashville Predators,TOR,NSH,5,4,OT,TOR -166,5.5,-166,140,Scotiabank Arena
+nhl,401892450,2026-10-06T23:00Z,,Detroit Red Wings,Ottawa Senators,DET,OTT,5,3,,DET -130,6.5,-130,110,Little Caesars Arena
+nhl,401892451,2026-10-06T23:00Z,,New Jersey Devils,Utah Mammoth,NJ,UTA,3,5,,NJ -125,6.5,-125,105,Prudential Center
+nhl,401892453,2026-10-06T23:00Z,,Buffalo Sabres,Minnesota Wild,BUF,MIN,3,2,OT,MIN -112,6.5,-108,-112,KeyBank Center
+nhl,401892452,2026-10-06T23:30Z,,New York Rangers,New York Islanders,NYR,NYI,5,2,,NYR -162,5.5,-162,136,Madison Square Garden
+nhl,401891779,2026-10-07T00:00Z,,Chicago Blackhawks,St. Louis Blues,CHI,STL,4,2,,STL -148,5.5,124,-148,United Center
+nhl,401892454,2026-10-07T01:40Z,,Seattle Kraken,Vegas Golden Knights,SEA,VGK,2,6,,VGK -166,6.5,140,-166,Climate Pledge Arena
+nhl,401891806,2026-10-07T02:20Z,,Los Angeles Kings,Florida Panthers,LA,FLA,1,2,,FLA -118,5.5,-102,-118,crypto.com Arena
+nhl,401891830,2026-10-07T23:30Z,,Washington Capitals,Pittsburgh Penguins,WSH,PIT,5,3,,WSH -155,6.5,-155,130,Capital One Arena
+nhl,401892455,2026-10-07T23:30Z,,Winnipeg Jets,Colorado Avalanche,WPG,COL,3,2,,COL -198,6.5,164,-198,Canada Life Centre
+nhl,401892456,2026-10-08T02:00Z,,Anaheim Ducks,Edmonton Oilers,ANA,EDM,2,5,,EDM -135,6.5,114,-135,Honda Center
+nhl,401891820,2026-10-08T23:00Z,,Ottawa Senators,Philadelphia Flyers,OTT,PHI,2,1,,OTT -180,5.5,-180,150,Canadian Tire Centre
+nhl,401892457,2026-10-08T23:00Z,,Boston Bruins,Utah Mammoth,BOS,UTA,6,1,,UTAH -142,6.5,120,-142,TD Garden
+nhl,401892458,2026-10-08T23:00Z,,Buffalo Sabres,Dallas Stars,BUF,DAL,0,4,,DAL -122,6.5,102,-122,KeyBank Center
+nhl,401892459,2026-10-08T23:00Z,,Montreal Canadiens,Nashville Predators,MTL,NSH,2,5,,MTL -166,6.5,-166,140,Bell Centre
+nhl,401892460,2026-10-08T23:00Z,,Tampa Bay Lightning,Minnesota Wild,TB,MIN,3,2,,TB -142,6.5,-142,120,Benchmark International Arena
+nhl,401892461,2026-10-08T23:00Z,,Carolina Hurricanes,Vancouver Canucks,CAR,VAN,7,2,,CAR -380,6.5,-380,300,Lenovo Center
+nhl,401892462,2026-10-08T23:30Z,,New York Islanders,Chicago Blackhawks,NYI,CHI,4,1,,NYI -185,5.5,-185,154,UBS Arena
+nhl,401891825,2026-10-09T00:00Z,,St. Louis Blues,San Jose Sharks,STL,SJ,2,3,OT,STL -162,5.5,-162,136,Enterprise Center
+nhl,401892463,2026-10-09T01:00Z,,Calgary Flames,Colorado Avalanche,CGY,COL,3,7,,COL -238,6.5,195,-238,Scotiabank Saddledome
+nhl,401892464,2026-10-09T02:00Z,,Vegas Golden Knights,Toronto Maple Leafs,VGK,TOR,4,3,OT,VGK -170,6.5,-170,142,T-Mobile Arena
+nhl,401892465,2026-10-09T23:00Z,,Detroit Red Wings,Seattle Kraken,DET,SEA,3,6,,DET -155,5.5,-155,130,Little Caesars Arena
+nhl,401892466,2026-10-09T23:00Z,,Washington Capitals,New York Rangers,WSH,NYR,3,1,,WSH -142,5.5,-142,120,Capital One Arena
+nhl,401892467,2026-10-09T23:00Z,,Columbus Blue Jackets,Pittsburgh Penguins,CBJ,PIT,3,2,OT,CBJ -112,6.5,-112,-108,Nationwide Arena
+nhl,401892468,2026-10-10T00:00Z,,Winnipeg Jets,Anaheim Ducks,WPG,ANA,1,5,,WPG -120,6.5,-120,100,Canada Life Centre
+nhl,401892469,2026-10-10T17:00Z,,Boston Bruins,Philadelphia Flyers,BOS,PHI,5,1,,BOS -148,5.5,-148,124,TD Garden
+nhl,401892470,2026-10-10T19:30Z,,New Jersey Devils,Vancouver Canucks,NJ,VAN,4,1,,NJ -298,6.5,-298,240,Prudential Center
+nhl,401892471,2026-10-10T20:00Z,,San Jose Sharks,Edmonton Oilers,SJ,EDM,1,3,,EDM -155,6.5,130,-155,SAP Center at San Jose
+nhl,401891805,2026-10-10T22:00Z,,Florida Panthers,Minnesota Wild,FLA,MIN,1,4,,FLA -135,5.5,-135,114,Amerant Bank Arena
+nhl,401892472,2026-10-10T23:00Z,,Buffalo Sabres,Utah Mammoth,BUF,UTA,1,4,,UTAH -112,6.5,-108,-112,KeyBank Center
+nhl,401892473,2026-10-10T23:00Z,,Montreal Canadiens,Detroit Red Wings,MTL,DET,1,0,OT,MTL -192,6.5,-192,160,Bell Centre
+nhl,401892474,2026-10-10T23:00Z,,Ottawa Senators,Nashville Predators,OTT,NSH,3,2,OT,OTT -170,5.5,-170,142,Canadian Tire Centre
+nhl,401892475,2026-10-10T23:00Z,,Pittsburgh Penguins,Dallas Stars,PIT,DAL,2,1,OT,DAL -180,6.5,150,-180,PPG Paints Arena
+nhl,401892476,2026-10-10T23:00Z,,Chicago Blackhawks,Carolina Hurricanes,CHI,CAR,2,5,,CAR -258,5.5,210,-258,United Center
+nhl,401892477,2026-10-10T23:00Z,,St. Louis Blues,Columbus Blue Jackets,STL,CBJ,5,3,,STL -115,5.5,-115,-105,Enterprise Center
+nhl,401892478,2026-10-10T23:00Z,,Colorado Avalanche,Toronto Maple Leafs,COL,TOR,3,6,,COL -225,6.5,-225,185,Ball Arena
+nhl,401892479,2026-10-10T23:30Z,,New York Islanders,Tampa Bay Lightning,NYI,TB,3,5,,TB -180,5.5,150,-180,UBS Arena
+nhl,401892480,2026-10-11T02:00Z,,Calgary Flames,Anaheim Ducks,CGY,ANA,2,4,,ANA -122,6.5,102,-122,Scotiabank Saddledome
+nhl,401892481,2026-10-11T02:00Z,,Vegas Golden Knights,Los Angeles Kings,VGK,LA,2,1,OT,VGK -170,6.5,-170,142,T-Mobile Arena
+nhl,401892482,2026-10-11T21:00Z,,Washington Capitals,Seattle Kraken,WSH,SEA,3,5,,WSH -205,6.5,-205,170,Capital One Arena
+nhl,401892483,2026-10-11T22:00Z,,New York Rangers,Vancouver Canucks,NYR,VAN,6,2,,NYR -290,6.5,-290,235,Madison Square Garden
+nhl,401892484,2026-10-11T23:00Z,,Philadelphia Flyers,Carolina Hurricanes,PHI,CAR,1,4,,CAR -230,5.5,190,-230,Xfinity Mobile Arena
+nhl,401892485,2026-10-12T17:00Z,,Buffalo Sabres,Florida Panthers,BUF,FLA,5,3,,BUF -115,5.5,-115,-105,KeyBank Center
+nhl,401892486,2026-10-12T23:00Z,,New Jersey Devils,Ottawa Senators,NJ,OTT,1,4,,NJ -118,5.5,-118,-102,Prudential Center
+nhl,401892487,2026-10-13T00:00Z,,Minnesota Wild,Vegas Golden Knights,MIN,VGK,4,2,,MIN -112,5.5,-112,-108,Grand Casino Arena
+nhl,401892488,2026-10-13T22:00Z,,Detroit Red Wings,New Jersey Devils,DET,NJ,4,5,OT,DET -115,6.5,-115,-105,Little Caesars Arena
+nhl,401892489,2026-10-13T22:15Z,,Columbus Blue Jackets,Florida Panthers,CBJ,FLA,3,7,,CBJ -130,5.5,-130,110,Nationwide Arena
+nhl,401892490,2026-10-13T22:30Z,,Montreal Canadiens,Buffalo Sabres,MTL,BUF,4,3,OT,MTL -155,6.5,-155,130,Bell Centre
+nhl,401892491,2026-10-13T22:45Z,,Carolina Hurricanes,Washington Capitals,CAR,WSH,4,2,,CAR -155,6.5,-155,130,Lenovo Center
+nhl,401892492,2026-10-13T23:00Z,,Philadelphia Flyers,Seattle Kraken,PHI,SEA,2,3,OT,PHI -112,5.5,-112,-108,Xfinity Mobile Arena
+nhl,401892493,2026-10-13T23:15Z,,New York Rangers,Tampa Bay Lightning,NYR,TB,4,1,,TB -162,5.5,136,-162,Madison Square Garden
+nhl,401892494,2026-10-13T23:30Z,,Ottawa Senators,St. Louis Blues,OTT,STL,2,7,,STL -130,5.5,110,-130,Canadian Tire Centre
+nhl,401892495,2026-10-13T23:45Z,,New York Islanders,Vancouver Canucks,NYI,VAN,3,2,,NYI -205,5.5,-205,170,UBS Arena
+nhl,401892496,2026-10-14T00:00Z,,Chicago Blackhawks,Pittsburgh Penguins,CHI,PIT,5,3,,PIT -162,6.5,136,-162,United Center
+nhl,401892497,2026-10-14T00:15Z,,Winnipeg Jets,Minnesota Wild,WPG,MIN,5,2,,MIN -110,6.5,-110,-110,Canada Life Centre
+nhl,401892498,2026-10-14T00:45Z,,Dallas Stars,Colorado Avalanche,DAL,COL,2,3,,DAL -115,5.5,-115,-105,American Airlines Center
+nhl,401892499,2026-10-14T00:45Z,,Nashville Predators,Vegas Golden Knights,NSH,VGK,2,5,,VGK -135,6.5,114,-135,Bridgestone Arena
+nhl,401892500,2026-10-14T01:00Z,,Utah Mammoth,Toronto Maple Leafs,UTA,TOR,5,4,,UTAH -162,6.5,-162,136,Delta Center
+nhl,401892501,2026-10-14T01:45Z,,Anaheim Ducks,Calgary Flames,ANA,CGY,2,4,,ANA -175,6.5,-175,145,Honda Center
+nhl,401892502,2026-10-14T02:30Z,,Los Angeles Kings,Edmonton Oilers,LA,EDM,1,4,,EDM -125,6.5,105,-125,crypto.com Arena
+nhl,401892503,2026-10-14T03:15Z,,San Jose Sharks,Boston Bruins,SJ,BOS,3,6,,BOS -135,6.5,114,-135,SAP Center at San Jose
+nhl,401892504,2026-10-14T23:30Z,,Washington Capitals,Montreal Canadiens,WSH,MTL,5,4,,WSH -110,6.5,-110,-110,Capital One Arena
+nhl,401892505,2026-10-15T00:30Z,,Colorado Avalanche,Dallas Stars,COL,DAL,2,3,OT,COL -162,5.5,-162,136,Ball Arena
+nhl,401892506,2026-10-15T23:00Z,,Toronto Maple Leafs,Buffalo Sabres,TOR,BUF,4,5,OT,TOR -115,6.5,-115,-105,Scotiabank Arena
+nhl,401892507,2026-10-15T23:00Z,,Ottawa Senators,New York Islanders,OTT,NYI,2,1,OT,OTT -162,5.5,-162,136,Canadian Tire Centre
+nhl,401892509,2026-10-15T23:00Z,,Tampa Bay Lightning,Seattle Kraken,TB,SEA,4,3,OT,TB -278,6.5,-278,225,Benchmark International Arena
+nhl,401892510,2026-10-15T23:00Z,,Florida Panthers,Vancouver Canucks,FLA,VAN,3,2,OT,FLA -298,6.5,-298,240,Amerant Bank Arena
+nhl,401892511,2026-10-15T23:00Z,,New Jersey Devils,New York Rangers,NJ,NYR,7,1,,NJ -130,6.5,-130,110,Prudential Center
+nhl,401892508,2026-10-15T23:30Z,,Detroit Red Wings,Philadelphia Flyers,DET,PHI,2,1,,DET -148,5.5,-148,124,Little Caesars Arena
+nhl,401892512,2026-10-16T00:00Z,,Chicago Blackhawks,Winnipeg Jets,CHI,WPG,4,3,OT,WPG -125,6.5,105,-125,United Center
+nhl,401892513,2026-10-16T00:00Z,,Nashville Predators,San Jose Sharks,NSH,SJ,2,3,OT,NSH -130,6.5,-130,110,Bridgestone Arena
+nhl,401892514,2026-10-16T00:00Z,,Minnesota Wild,St. Louis Blues,MIN,STL,5,4,,MIN -142,5.5,-142,120,Grand Casino Arena
+nhl,401892515,2026-10-16T01:00Z,,Edmonton Oilers,Utah Mammoth,EDM,UTA,2,4,,UTAH -115,6.5,-105,-115,Rogers Place
+nhl,401892516,2026-10-16T02:00Z,,Vegas Golden Knights,Calgary Flames,VGK,CGY,6,2,,VGK -285,6.5,-285,230,T-Mobile Arena
+nhl,401892517,2026-10-17T01:00Z,,Colorado Avalanche,Pittsburgh Penguins,COL,PIT,5,2,,COL -205,6.5,-205,170,Ball Arena
+nhl,401892518,2026-10-17T02:00Z,,Anaheim Ducks,Boston Bruins,ANA,BOS,2,4,,BOS -112,6.5,-108,-112,Honda Center
+nhl,401892519,2026-10-17T17:00Z,,Washington Capitals,New Jersey Devils,WSH,NJ,4,2,,WSH -118,6.5,-118,-102,Capital One Arena
+nhl,401892520,2026-10-17T19:30Z,,Winnipeg Jets,Carolina Hurricanes,WPG,CAR,2,3,,CAR -205,6.5,170,-205,Canada Life Centre
+nhl,401892521,2026-10-17T20:00Z,,Tampa Bay Lightning,Vancouver Canucks,TB,VAN,4,2,,TB -395,6.5,-395,310,Benchmark International Arena
+nhl,401892522,2026-10-17T22:00Z,,Florida Panthers,Seattle Kraken,FLA,SEA,8,3,,FLA -185,6.5,-185,154,Amerant Bank Arena
+nhl,401892523,2026-10-17T23:00Z,,Toronto Maple Leafs,New York Islanders,TOR,NYI,1,4,,TOR -130,6.5,-130,110,Scotiabank Arena
+nhl,401892524,2026-10-17T23:00Z,,Montreal Canadiens,Buffalo Sabres,MTL,BUF,4,3,OT,MTL -142,6.5,-142,120,Bell Centre
+nhl,401892525,2026-10-17T23:00Z,,Detroit Red Wings,San Jose Sharks,DET,SJ,4,3,OT,DET -148,6.5,-148,124,Little Caesars Arena
+nhl,401892526,2026-10-17T23:00Z,,Philadelphia Flyers,Ottawa Senators,PHI,OTT,3,1,,OTT -166,5.5,140,-166,Xfinity Mobile Arena
+nhl,401892527,2026-10-17T23:00Z,,Columbus Blue Jackets,New York Rangers,CBJ,NYR,1,0,OT,CBJ -135,6.5,-135,114,Nationwide Arena
+nhl,401892528,2026-10-17T23:00Z,,Chicago Blackhawks,Dallas Stars,CHI,DAL,0,4,,DAL -218,5.5,180,-218,United Center
+nhl,401892529,2026-10-18T00:00Z,,Nashville Predators,St. Louis Blues,NSH,STL,5,2,,STL -115,5.5,-105,-115,Bridgestone Arena
+nhl,401892530,2026-10-18T01:00Z,,Los Angeles Kings,Boston Bruins,LA,BOS,1,4,,LA -155,5.5,-155,130,crypto.com Arena
+nhl,401892531,2026-10-18T02:00Z,,Utah Mammoth,Edmonton Oilers,UTA,EDM,2,6,,UTAH -155,6.5,-155,130,Delta Center
+nhl,401892532,2026-10-18T02:00Z,,Vegas Golden Knights,Pittsburgh Penguins,VGK,PIT,6,2,,VGK -218,6.5,-218,180,T-Mobile Arena
+nhl,401892533,2026-10-18T22:00Z,,Minnesota Wild,Columbus Blue Jackets,MIN,CBJ,2,1,,MIN -192,6.5,-192,160,Grand Casino Arena
+nhl,401892534,2026-10-19T00:00Z,,Calgary Flames,Carolina Hurricanes,CGY,CAR,3,2,,CAR -205,6.5,170,-205,Scotiabank Saddledome
+nhl,401892535,2026-10-19T23:00Z,,New York Rangers,Anaheim Ducks,NYR,ANA,5,2,,NYR -155,6.5,-155,130,Madison Square Garden
+nhl,401892536,2026-10-19T23:00Z,,Philadelphia Flyers,Colorado Avalanche,PHI,COL,3,2,,COL -250,6.5,205,-250,Xfinity Mobile Arena
+nhl,401892537,2026-10-19T23:30Z,,Toronto Maple Leafs,San Jose Sharks,TOR,SJ,3,1,,TOR -148,6.5,-148,124,Scotiabank Arena
+nhl,401892538,2026-10-20T01:00Z,,Utah Mammoth,Pittsburgh Penguins,UTA,PIT,5,4,,UTAH -185,6.5,-185,154,Delta Center
+nhl,401892539,2026-10-20T23:00Z,,Montreal Canadiens,San Jose Sharks,MTL,SJ,3,4,OT,MTL -225,6.5,-225,185,Bell Centre
+nhl,401892540,2026-10-20T23:00Z,,New Jersey Devils,Colorado Avalanche,NJ,COL,4,3,,NJ -115,6.5,-115,-105,Prudential Center
+nhl,401892541,2026-10-20T23:00Z,,New York Islanders,Anaheim Ducks,NYI,ANA,3,2,,NYI -155,5.5,-155,130,UBS Arena
+nhl,401892542,2026-10-20T23:00Z,,Washington Capitals,Los Angeles Kings,WSH,LA,2,5,,WSH -162,5.5,-162,136,Capital One Arena
+nhl,401892543,2026-10-20T23:00Z,,Columbus Blue Jackets,Toronto Maple Leafs,CBJ,TOR,2,6,,CBJ -166,6.5,-166,140,Nationwide Arena
+nhl,401892544,2026-10-21T00:00Z,,St. Louis Blues,Winnipeg Jets,STL,WPG,2,1,,STL -135,5.5,-135,114,Enterprise Center
+nhl,401892545,2026-10-21T00:00Z,,Dallas Stars,Boston Bruins,DAL,BOS,3,2,OT,DAL -170,5.5,-170,142,American Airlines Center
+nhl,401892546,2026-10-21T01:00Z,,Edmonton Oilers,Minnesota Wild,EDM,MIN,4,3,OT,EDM -125,6.5,-125,105,Rogers Place
+nhl,401892547,2026-10-21T01:40Z,,Seattle Kraken,Detroit Red Wings,SEA,DET,4,3,OT,DET -122,6.5,102,-122,Climate Pledge Arena
+nhl,401892548,2026-10-21T02:00Z,,Vancouver Canucks,Carolina Hurricanes,VAN,CAR,3,6,,CAR -285,6.5,230,-285,Rogers Arena
+nhl,401892549,2026-10-21T02:45Z,,Vegas Golden Knights,Tampa Bay Lightning,VGK,TB,2,6,,VGK -110,6.5,-110,-110,T-Mobile Arena
+nhl,401892550,2026-10-21T23:30Z,,Buffalo Sabres,Philadelphia Flyers,BUF,PHI,1,3,,BUF -218,6.5,-218,180,KeyBank Center
+nhl,401892551,2026-10-21T23:30Z,,Ottawa Senators,Florida Panthers,OTT,FLA,5,1,,OTT -110,5.5,-110,-110,Canadian Tire Centre
+nhl,401892552,2026-10-22T23:00Z,,Boston Bruins,Nashville Predators,BOS,NSH,6,0,,BOS -148,6.5,-148,124,TD Garden
+nhl,401892553,2026-10-22T23:00Z,,Toronto Maple Leafs,New York Rangers,TOR,NYR,5,4,,NYR -112,6.5,-108,-112,Scotiabank Arena
+nhl,401892554,2026-10-22T23:00Z,,Ottawa Senators,San Jose Sharks,OTT,SJ,2,6,,OTT -135,6.5,-135,114,Canadian Tire Centre
+nhl,401892555,2026-10-22T23:00Z,,New Jersey Devils,Anaheim Ducks,NJ,ANA,4,1,,NJ -218,6.5,-218,180,Prudential Center
+nhl,401892556,2026-10-22T23:00Z,,Pittsburgh Penguins,Florida Panthers,PIT,FLA,4,0,,PIT -108,6.5,-108,-112,PPG Paints Arena
+nhl,401892557,2026-10-22T23:30Z,,New York Islanders,Los Angeles Kings,NYI,LA,2,3,OT,LA -115,5.5,-105,-115,UBS Arena
+nhl,401892558,2026-10-23T00:00Z,,St. Louis Blues,Vegas Golden Knights,STL,VGK,6,2,,VGK -125,5.5,105,-125,Enterprise Center
+nhl,401892559,2026-10-23T00:00Z,,Dallas Stars,Winnipeg Jets,DAL,WPG,3,2,OT,DAL -198,5.5,-198,164,American Airlines Center
+nhl,401892560,2026-10-23T01:00Z,,Calgary Flames,Minnesota Wild,CGY,MIN,2,1,,MIN -218,6.5,180,-218,Scotiabank Saddledome
+nhl,401892561,2026-10-23T01:00Z,,Edmonton Oilers,Carolina Hurricanes,EDM,CAR,6,5,OT,CAR -135,6.5,114,-135,Rogers Place
+nhl,401892562,2026-10-23T02:00Z,,Seattle Kraken,Utah Mammoth,SEA,UTA,5,3,,UTAH -192,6.5,160,-192,Climate Pledge Arena
+nhl,401892563,2026-10-23T02:00Z,,Vancouver Canucks,Detroit Red Wings,VAN,DET,2,5,,DET -170,6.5,142,-170,Rogers Arena
+nhl,401892564,2026-10-24T00:00Z,,Chicago Blackhawks,Montreal Canadiens,CHI,MTL,1,4,,MTL -170,6.5,142,-170,United Center
+nhl,401892565,2026-10-24T01:00Z,,Colorado Avalanche,Tampa Bay Lightning,COL,TB,6,3,,COL -122,6.5,-122,102,Ball Arena
+nhl,401892566,2026-10-24T17:00Z,,Philadelphia Flyers,Anaheim Ducks,PHI,ANA,4,5,,PHI -122,5.5,-122,102,Xfinity Mobile Arena
+nhl,401892567,2026-10-24T19:30Z,,New Jersey Devils,Los Angeles Kings,NJ,LA,3,1,,NJ -185,5.5,-185,154,Prudential Center
+nhl,401892568,2026-10-24T23:00Z,,Boston Bruins,San Jose Sharks,BOS,SJ,6,4,,BOS -192,6.5,-192,160,TD Garden
+nhl,401892569,2026-10-24T23:00Z,,Ottawa Senators,New York Rangers,OTT,NYR,7,4,,OTT -125,6.5,-125,105,Canadian Tire Centre
+nhl,401892570,2026-10-24T23:00Z,,Pittsburgh Penguins,Nashville Predators,PIT,NSH,3,2,OT,PIT -125,6.5,-125,105,PPG Paints Arena
+nhl,401892571,2026-10-24T23:00Z,,Washington Capitals,Buffalo Sabres,WSH,BUF,4,3,OT,WSH -120,6.5,-120,100,Capital One Arena
+nhl,401892572,2026-10-24T23:00Z,,Columbus Blue Jackets,Vegas Golden Knights,CBJ,VGK,2,1,OT,VGK -135,6.5,114,-135,Nationwide Arena
+nhl,401892573,2026-10-24T23:00Z,,St. Louis Blues,Carolina Hurricanes,STL,CAR,0,4,,CAR -155,6.5,130,-155,Enterprise Center
+nhl,401892574,2026-10-24T23:00Z,,Edmonton Oilers,Toronto Maple Leafs,EDM,TOR,2,7,,EDM -148,6.5,-148,124,Rogers Place
+nhl,401892575,2026-10-25T01:00Z,,Utah Mammoth,Tampa Bay Lightning,UTA,TB,5,4,OT,UTAH -148,6.5,-148,124,Delta Center
+nhl,401892576,2026-10-25T02:00Z,,Calgary Flames,Detroit Red Wings,CGY,DET,4,1,,DET -130,5.5,110,-130,Scotiabank Saddledome
+nhl,401892577,2026-10-25T02:00Z,,Seattle Kraken,Minnesota Wild,SEA,MIN,1,5,,MIN -192,6.5,160,-192,Climate Pledge Arena
+nhl,401892578,2026-10-25T19:00Z,,Chicago Blackhawks,Florida Panthers,CHI,FLA,2,3,,FLA -198,6.5,164,-198,United Center
+nhl,401892579,2026-10-25T22:00Z,,Dallas Stars,New York Islanders,DAL,NYI,6,3,,DAL -185,5.5,-185,154,American Airlines Center
+nhl,401891807,2026-10-25T23:00Z,,Winnipeg Jets,Montreal Canadiens,WPG,MTL,1,2,,MTL -122,5.5,102,-122,Princess Auto Stadium
+nhl,401892580,2026-10-26T00:00Z,,Nashville Predators,Colorado Avalanche,NSH,COL,6,2,,COL -238,6.5,195,-238,Bridgestone Arena
+nhl,401892581,2026-10-26T02:00Z,,Vancouver Canucks,Minnesota Wild,VAN,MIN,2,4,,MIN -205,6.5,170,-205,Rogers Arena
+nhl,401892582,2026-10-26T23:00Z,,New York Rangers,Los Angeles Kings,NYR,LA,3,6,,NYR -130,5.5,-130,110,Madison Square Garden
+nhl,401892583,2026-10-27T00:30Z,,Calgary Flames,Toronto Maple Leafs,CGY,TOR,5,2,,TOR -135,6.5,114,-135,Scotiabank Saddledome
+nhl,401892584,2026-10-27T01:30Z,,Edmonton Oilers,Detroit Red Wings,EDM,DET,3,4,OT,EDM -170,6.5,-170,142,Rogers Place
+nhl,401892585,2026-10-27T23:00Z,,Philadelphia Flyers,Columbus Blue Jackets,PHI,CBJ,3,4,OT,CBJ -120,5.5,100,-120,Xfinity Mobile Arena
+nhl,401892586,2026-10-28T00:00Z,,Carolina Hurricanes,Boston Bruins,CAR,BOS,2,1,,CAR -192,6.5,-192,160,Lenovo Center
+nhl,401892587,2026-10-28T00:00Z,,Chicago Blackhawks,Los Angeles Kings,CHI,LA,2,1,,CHI -112,5.5,-112,-108,United Center
+nhl,401892588,2026-10-28T00:00Z,,St. Louis Blues,Montreal Canadiens,STL,MTL,0,2,,MTL -120,6.5,100,-120,Enterprise Center
+nhl,401892589,2026-10-28T00:00Z,,Nashville Predators,New York Islanders,NSH,NYI,3,4,OT,NSH -122,5.5,-122,102,Bridgestone Arena
+nhl,401892590,2026-10-28T00:00Z,,Dallas Stars,New Jersey Devils,DAL,NJ,1,5,,DAL -118,5.5,-118,-102,American Airlines Center
+nhl,401892591,2026-10-28T00:00Z,,Winnipeg Jets,Florida Panthers,WPG,FLA,1,5,,FLA -125,6.5,105,-125,Canada Life Centre
+nhl,401892592,2026-10-28T01:00Z,,Utah Mammoth,Minnesota Wild,UTA,MIN,1,3,,UTAH -118,6.5,-118,-102,Delta Center
+nhl,401892593,2026-10-28T02:00Z,,Vegas Golden Knights,Ottawa Senators,VGK,OTT,4,1,,VGK -170,6.5,-170,142,T-Mobile Arena
+nhl,401892594,2026-10-28T02:00Z,,Anaheim Ducks,Vancouver Canucks,ANA,VAN,5,6,OT,ANA -218,6.5,-218,180,Honda Center
+nhl,401892595,2026-10-28T02:30Z,,San Jose Sharks,Buffalo Sabres,SJ,BUF,0,2,,BUF -155,6.5,130,-155,SAP Center at San Jose
+nhl,401892596,2026-10-28T23:30Z,,Washington Capitals,Philadelphia Flyers,WSH,PHI,5,2,,WSH -245,5.5,-245,200,Capital One Arena
+nhl,401892597,2026-10-29T00:30Z,,Edmonton Oilers,Calgary Flames,EDM,CGY,4,0,,EDM -185,6.5,-185,154,Rogers Place
+nhl,401892598,2026-10-29T01:00Z,,Colorado Avalanche,New Jersey Devils,COL,NJ,5,2,,COL -148,6.5,-148,124,Ball Arena
+nhl,401892599,2026-10-29T02:00Z,,Seattle Kraken,Toronto Maple Leafs,SEA,TOR,5,4,,TOR -130,6.5,110,-130,Climate Pledge Arena
+nhl,401892601,2026-10-29T23:00Z,,Tampa Bay Lightning,Winnipeg Jets,TB,WPG,6,4,,TB -225,5.5,-225,185,Benchmark International Arena
+nhl,401892602,2026-10-29T23:00Z,,Pittsburgh Penguins,Utah Mammoth,PIT,UTA,3,4,OT,UTAH -130,6.5,110,-130,PPG Paints Arena
+nhl,401892603,2026-10-29T23:00Z,,Carolina Hurricanes,Columbus Blue Jackets,CAR,CBJ,3,2,,CAR -258,6.5,-258,210,Lenovo Center
+nhl,401892600,2026-10-29T23:30Z,,Detroit Red Wings,Chicago Blackhawks,DET,CHI,4,1,,DET -162,5.5,-162,136,Little Caesars Arena
+nhl,401892604,2026-10-30T00:00Z,,St. Louis Blues,Boston Bruins,STL,BOS,4,1,,STL -115,5.5,-115,-105,Enterprise Center
+nhl,401892605,2026-10-30T00:00Z,,Nashville Predators,Washington Capitals,NSH,WSH,3,4,,WSH -115,6.5,-105,-115,Bridgestone Arena
+nhl,401892606,2026-10-30T00:00Z,,Dallas Stars,Montreal Canadiens,DAL,MTL,2,5,,DAL -175,5.5,-175,145,American Airlines Center
+nhl,401892607,2026-10-30T00:00Z,,Minnesota Wild,New York Islanders,MIN,NYI,3,4,OT,MIN -218,5.5,-218,180,Grand Casino Arena
+nhl,401892608,2026-10-30T02:00Z,,Anaheim Ducks,Buffalo Sabres,ANA,BUF,6,7,,BUF -162,6.5,136,-162,Honda Center
+nhl,401892609,2026-10-30T02:00Z,,Los Angeles Kings,Ottawa Senators,LA,OTT,6,5,OT,OTT -125,5.5,105,-125,crypto.com Arena
+nhl,401892610,2026-10-30T02:00Z,,San Jose Sharks,Vancouver Canucks,SJ,VAN,3,2,,SJ -166,6.5,-166,140,SAP Center at San Jose
+nhl,401892611,2026-10-30T22:00Z,,Vegas Golden Knights,New Jersey Devils,VGK,NJ,2,5,,VGK -115,6.5,-115,-105,T-Mobile Arena
+nhl,401892612,2026-10-30T23:00Z,,Florida Panthers,Winnipeg Jets,FLA,WPG,5,2,,FLA -218,6.5,-218,180,Amerant Bank Arena
+nhl,401892613,2026-10-31T00:00Z,,Calgary Flames,Seattle Kraken,CGY,SEA,6,2,,SEA -115,6.5,-105,-115,Scotiabank Saddledome
+nhl,401892614,2026-10-31T17:00Z,,Boston Bruins,Chicago Blackhawks,BOS,CHI,5,4,OT,BOS -238,6.5,-238,195,TD Garden
+nhl,401892615,2026-10-31T17:00Z,,Detroit Red Wings,St. Louis Blues,DET,STL,4,5,,DET -118,5.5,-118,-102,Little Caesars Arena
+nhl,401892616,2026-10-31T18:00Z,,Nashville Predators,Tampa Bay Lightning,NSH,TB,5,4,OT,TB -180,6.5,150,-180,Bridgestone Arena
+nhl,401892617,2026-10-31T18:00Z,,New York Islanders,Edmonton Oilers,NYI,EDM,0,4,,EDM -110,6.5,-110,-110,UBS Arena
+nhl,401892618,2026-10-31T20:00Z,,Los Angeles Kings,Buffalo Sabres,LA,BUF,2,3,,BUF -135,5.5,114,-135,crypto.com Arena
+nhl,401892619,2026-10-31T20:00Z,,San Jose Sharks,Ottawa Senators,SJ,OTT,1,5,,OTT -148,6.5,124,-148,SAP Center at San Jose
+nhl,401892620,2026-10-31T23:00Z,,Montreal Canadiens,Pittsburgh Penguins,MTL,PIT,5,4,,MTL -120,6.5,-120,100,Bell Centre
+nhl,401892621,2026-10-31T23:00Z,,Vancouver Canucks,Toronto Maple Leafs,VAN,TOR,2,4,,TOR -192,6.5,160,-192,Rogers Arena
+nhl,401892622,2026-11-01T00:00Z,,Dallas Stars,Columbus Blue Jackets,DAL,CBJ,3,1,,DAL -185,5.5,-185,154,American Airlines Center
+nhl,401892623,2026-11-01T02:00Z,,Colorado Avalanche,Calgary Flames,COL,CGY,5,2,,COL -375,6.5,-375,295,Ball Arena
+nhl,401892624,2026-11-01T18:00Z,,Carolina Hurricanes,Winnipeg Jets,CAR,WPG,7,0,,CAR -278,6.5,-278,225,Lenovo Center
+nhl,401892625,2026-11-01T20:30Z,,Washington Capitals,Minnesota Wild,WSH,MIN,1,5,,MIN -122,6.5,102,-122,Capital One Arena
+nhl,401892626,2026-11-01T21:00Z,,Philadelphia Flyers,Utah Mammoth,PHI,UTA,6,3,,UTAH -166,6.5,140,-166,Xfinity Mobile Arena
+nhl,401892627,2026-11-01T23:00Z,,New York Rangers,Edmonton Oilers,NYR,EDM,1,4,,NYR -125,6.5,-125,105,Madison Square Garden
+nhl,401892628,2026-11-02T01:00Z,,Anaheim Ducks,Ottawa Senators,ANA,OTT,6,3,,OTT -122,6.5,102,-122,Honda Center
+nhl,401892629,2026-11-03T00:00Z,,Boston Bruins,Vegas Golden Knights,BOS,VGK,3,2,OT,VGK -118,6.5,-102,-118,TD Garden
+nhl,401892630,2026-11-03T00:00Z,,Florida Panthers,Detroit Red Wings,FLA,DET,3,5,,FLA -185,5.5,-185,154,Amerant Bank Arena
+nhl,401892631,2026-11-03T01:00Z,,Chicago Blackhawks,Colorado Avalanche,CHI,COL,2,5,,COL -230,6.5,190,-230,United Center
+nhl,401892632,2026-11-03T02:00Z,,San Jose Sharks,Calgary Flames,SJ,CGY,1,2,,SJ -125,6.5,-125,105,SAP Center at San Jose
+nhl,401892633,2026-11-04T00:00Z,,Toronto Maple Leafs,Utah Mammoth,TOR,UTA,2,3,,UTAH -148,6.5,124,-148,Scotiabank Arena
+nhl,401892634,2026-11-04T00:00Z,,Montreal Canadiens,Winnipeg Jets,MTL,WPG,4,5,OT,MTL -175,5.5,-175,145,Bell Centre
+nhl,401892635,2026-11-04T00:00Z,,Tampa Bay Lightning,Detroit Red Wings,TB,DET,4,2,,TB -290,6.5,-290,235,Benchmark International Arena
+nhl,401892637,2026-11-04T00:00Z,,New York Rangers,St. Louis Blues,NYR,STL,3,1,,NYR -120,5.5,-120,100,Madison Square Garden
+nhl,401892638,2026-11-04T00:00Z,,Philadelphia Flyers,Minnesota Wild,PHI,MIN,2,4,,MIN -185,5.5,154,-185,Xfinity Mobile Arena
+nhl,401892639,2026-11-04T00:00Z,,Pittsburgh Penguins,Vegas Golden Knights,PIT,VGK,2,3,,PIT -115,6.5,-115,-105,PPG Paints Arena
+nhl,401892640,2026-11-04T00:00Z,,Washington Capitals,Dallas Stars,WSH,DAL,5,6,,WSH -118,5.5,-118,-102,Capital One Arena
+nhl,401892641,2026-11-04T00:00Z,,Columbus Blue Jackets,Colorado Avalanche,CBJ,COL,7,2,,COL -125,6.5,105,-125,Nationwide Arena
+nhl,401892636,2026-11-04T00:30Z,,New Jersey Devils,Edmonton Oilers,NJ,EDM,4,3,OT,NJ -162,6.5,-162,136,Prudential Center
+nhl,401892642,2026-11-04T01:00Z,,Nashville Predators,Carolina Hurricanes,NSH,CAR,4,1,,CAR -198,6.5,164,-198,Bridgestone Arena
+nhl,401892643,2026-11-04T02:00Z,,Vancouver Canucks,Anaheim Ducks,VAN,ANA,4,5,,ANA -192,6.5,160,-192,Rogers Arena
+nhl,401892644,2026-11-05T00:30Z,,Buffalo Sabres,Ottawa Senators,BUF,OTT,1,2,,BUF -130,6.5,-130,110,KeyBank Center
+nhl,401892645,2026-11-05T00:30Z,,Florida Panthers,Chicago Blackhawks,FLA,CHI,5,3,,FLA -258,5.5,-258,210,Amerant Bank Arena
+nhl,401892646,2026-11-05T03:00Z,,Los Angeles Kings,San Jose Sharks,LA,SJ,7,2,,LA -166,6.5,-166,140,crypto.com Arena
+nhl,401892647,2026-11-05T03:00Z,,Seattle Kraken,Calgary Flames,SEA,CGY,2,1,OT,SEA -135,6.5,-135,114,Climate Pledge Arena
+nhl,401892648,2026-11-06T00:00Z,,Montreal Canadiens,Utah Mammoth,MTL,UTA,5,4,OT,UTAH -125,6.5,105,-125,Bell Centre
+nhl,401892649,2026-11-06T00:00Z,,Detroit Red Wings,Vegas Golden Knights,DET,VGK,1,2,,VGK -148,6.5,124,-148,Little Caesars Arena
+nhl,401892650,2026-11-06T00:00Z,,Tampa Bay Lightning,Chicago Blackhawks,TB,CHI,4,1,,TB -485,6.5,-485,370,Benchmark International Arena
+nhl,401892651,2026-11-06T00:00Z,,New Jersey Devils,St. Louis Blues,NJ,STL,5,4,OT,NJ -238,5.5,-238,195,Prudential Center
+nhl,401892652,2026-11-06T00:00Z,,New York Islanders,Carolina Hurricanes,NYI,CAR,3,5,,CAR -205,6.5,170,-205,UBS Arena
+nhl,401892653,2026-11-06T00:00Z,,New York Rangers,Philadelphia Flyers,NYR,PHI,3,2,,NYR -148,5.5,-148,124,Madison Square Garden
+nhl,401892654,2026-11-06T00:00Z,,Pittsburgh Penguins,Boston Bruins,PIT,BOS,2,6,,BOS +102,6.5,-122,102,PPG Paints Arena
+nhl,401892655,2026-11-06T00:00Z,,Columbus Blue Jackets,Dallas Stars,CBJ,DAL,2,1,OT,DAL -125,5.5,105,-125,Nationwide Arena
+nhl,401892656,2026-11-06T00:00Z,,Winnipeg Jets,Vancouver Canucks,WPG,VAN,6,2,,WPG -218,6.5,-218,180,Canada Life Centre
+nhl,401892657,2026-11-06T01:00Z,,Edmonton Oilers,Anaheim Ducks,EDM,ANA,4,5,,EDM -192,6.5,-192,160,Rogers Place
+nhl,401892658,2026-11-06T02:30Z,,Colorado Avalanche,Nashville Predators,COL,NSH,2,3,OT,COL -218,6.5,-218,180,Ball Arena
+nhl,401892659,2026-11-07T00:00Z,,Buffalo Sabres,Columbus Blue Jackets,BUF,CBJ,5,2,,BUF -180,6.5,-180,150,KeyBank Center
+nhl,401892660,2026-11-07T01:00Z,,Minnesota Wild,San Jose Sharks,MIN,SJ,4,1,,MIN -285,6.5,-285,230,Grand Casino Arena
+nhl,401892661,2026-11-07T01:00Z,,Calgary Flames,Anaheim Ducks,CGY,ANA,3,5,,CGY -148,6.5,-148,124,Scotiabank Saddledome
+nhl,401892662,2026-11-07T17:30Z,,Washington Capitals,Florida Panthers,WSH,FLA,4,3,,WSH -130,6.5,-130,110,Capital One Arena
+nhl,401892663,2026-11-07T18:00Z,,Nashville Predators,St. Louis Blues,NSH,STL,3,1,,STL -110,5.5,-110,-110,Bridgestone Arena
+nhl,401892664,2026-11-07T22:00Z,,Seattle Kraken,New York Rangers,SEA,NYR,3,4,,NYR -135,6.5,114,-135,Climate Pledge Arena
+nhl,401892665,2026-11-08T00:00Z,,Toronto Maple Leafs,Montreal Canadiens,TOR,MTL,2,4,,MTL -122,6.5,102,-122,Scotiabank Arena
+nhl,401892666,2026-11-08T00:00Z,,Ottawa Senators,Utah Mammoth,OTT,UTA,4,2,,UTAH -120,6.5,100,-120,Canadian Tire Centre
+nhl,401892667,2026-11-08T00:00Z,,New York Islanders,New Jersey Devils,NYI,NJ,4,5,OT,NJ -148,5.5,124,-148,UBS Arena
+nhl,401892668,2026-11-08T01:00Z,,Carolina Hurricanes,Chicago Blackhawks,CAR,CHI,9,2,,CAR -440,6.5,-440,340,Lenovo Center
+nhl,401892669,2026-11-08T01:00Z,,Dallas Stars,San Jose Sharks,DAL,SJ,4,3,,DAL -290,6.5,-290,235,American Airlines Center
+nhl,401892670,2026-11-08T01:00Z,,Minnesota Wild,Tampa Bay Lightning,MIN,TB,3,4,OT,TB -142,6.5,120,-142,Grand Casino Arena
+nhl,401892671,2026-11-08T02:00Z,,Colorado Avalanche,Detroit Red Wings,COL,DET,4,0,,COL -225,6.5,-225,185,Ball Arena
+nhl,401892672,2026-11-08T02:00Z,,Los Angeles Kings,Pittsburgh Penguins,LA,PIT,2,5,,LA -118,6.5,-118,-102,crypto.com Arena
+nhl,401892673,2026-11-08T03:00Z,,Edmonton Oilers,Vancouver Canucks,EDM,VAN,4,2,,EDM -375,6.5,-375,295,Rogers Place

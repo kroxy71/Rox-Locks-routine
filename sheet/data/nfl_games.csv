@@ -1,0 +1,123 @@
+sport,game_id,date,week,home,away,home_abbr,away_abbr,home_score,away_score,extra,spread_detail,over_under,home_ml,away_ml,venue
+nfl,401872656,2026-09-10T00:20Z,1,Seattle Seahawks,New England Patriots,SEA,NE,13,10,,SEA -3,44.5,-170,142,Lumen Field
+nfl,401872657,2026-09-11T00:35Z,1,Los Angeles Rams,San Francisco 49ers,LAR,SF,7,27,,LAR -3.5,47.5,-218,180,Melbourne Cricket Ground
+nfl,401872925,2026-09-13T17:00Z,1,Cincinnati Bengals,Tampa Bay Buccaneers,CIN,TB,33,27,,CIN -3.5,50.5,-198,164,Paycor Stadium
+nfl,401872923,2026-09-13T17:00Z,1,Detroit Lions,New Orleans Saints,DET,NO,31,30,OT,DET -7,49.5,-340,270,Ford Field
+nfl,401872924,2026-09-13T17:00Z,1,Tennessee Titans,New York Jets,TEN,NYJ,10,23,,TEN -1.5,39.5,-118,-102,Nissan Stadium
+nfl,401872659,2026-09-13T17:00Z,1,Indianapolis Colts,Baltimore Ravens,IND,BAL,23,41,,BAL -3,48.5,136,-162,Lucas Oil Stadium
+nfl,401872658,2026-09-13T17:00Z,1,Pittsburgh Steelers,Atlanta Falcons,PIT,ATL,20,13,,PIT -6.5,40.5,-298,240,Acrisure Stadium
+nfl,401872661,2026-09-13T17:00Z,1,Carolina Panthers,Chicago Bears,CAR,CHI,37,59,,CHI -3,47.5,140,-166,Bank of America Stadium
+nfl,401872922,2026-09-13T17:00Z,1,Jacksonville Jaguars,Cleveland Browns,JAX,CLE,34,10,,JAX -8.5,40.5,-470,360,EverBank Stadium
+nfl,401872660,2026-09-13T17:00Z,1,Houston Texans,Buffalo Bills,HOU,BUF,31,36,,BUF -1.5,44.5,-110,-110,Reliant Stadium
+nfl,401872928,2026-09-13T20:25Z,1,Las Vegas Raiders,Miami Dolphins,LV,MIA,27,13,,LV -3,40.5,-170,142,Allegiant Stadium
+nfl,401872927,2026-09-13T20:25Z,1,Minnesota Vikings,Green Bay Packers,MIN,GB,39,22,,MIN -2.5,46.5,-142,120,U.S. Bank Stadium
+nfl,401872929,2026-09-13T20:25Z,1,Philadelphia Eagles,Washington Commanders,PHI,WSH,24,22,,PHI -6,43.5,-238,195,Lincoln Financial Field
+nfl,401872926,2026-09-13T20:25Z,1,Los Angeles Chargers,Arizona Cardinals,LAC,ARI,14,26,,LAC -8.5,47.5,-485,370,SoFi Stadium
+nfl,401872930,2026-09-14T00:20Z,1,New York Giants,Dallas Cowboys,NYG,DAL,28,20,,DAL -3,47.5,140,-166,MetLife Stadium
+nfl,401872931,2026-09-15T00:15Z,1,Kansas City Chiefs,Denver Broncos,KC,DEN,31,10,,KC -2.5,42.5,-130,110,Arrowhead Stadium
+nfl,401872932,2026-09-18T00:15Z,2,Buffalo Bills,Detroit Lions,BUF,DET,41,31,,BUF -5.5,54.5,-245,200,Highmark Stadium
+nfl,401872933,2026-09-20T17:00Z,2,Atlanta Falcons,Carolina Panthers,ATL,CAR,3,34,,CAR -2.5,43.5,120,-142,Mercedes-Benz Stadium
+nfl,401872937,2026-09-20T17:00Z,2,Chicago Bears,Minnesota Vikings,CHI,MIN,3,9,,CHI -4.5,46.5,-218,180,Soldier Field
+nfl,401872939,2026-09-20T17:00Z,2,Tennessee Titans,Philadelphia Eagles,TEN,PHI,20,24,,PHI -7,39.5,260,-325,Nissan Stadium
+nfl,401872946,2026-09-20T17:00Z,2,New England Patriots,Pittsburgh Steelers,NE,PIT,20,3,,NE -4.5,41.5,-218,180,Gillette Stadium
+nfl,401872936,2026-09-20T17:00Z,2,New York Jets,Green Bay Packers,NYJ,GB,17,20,OT,GB -3.5,44.5,154,-185,MetLife Stadium
+nfl,401872935,2026-09-20T17:00Z,2,Tampa Bay Buccaneers,Cleveland Browns,TB,CLE,19,23,,TB -8.5,41.5,-425,330,Raymond James Stadium
+nfl,401872938,2026-09-20T17:00Z,2,Baltimore Ravens,New Orleans Saints,BAL,NO,17,24,,BAL -8.5,45.5,-360,285,M&T Bank Stadium
+nfl,401872934,2026-09-20T17:00Z,2,Houston Texans,Cincinnati Bengals,HOU,CIN,6,20,,HOU -3,45.5,-148,124,Reliant Stadium
+nfl,401872940,2026-09-20T20:05Z,2,Denver Broncos,Jacksonville Jaguars,DEN,JAX,20,13,,DEN -2.5,45.5,-142,120,Empower Field at Mile High
+nfl,401872941,2026-09-20T20:05Z,2,Los Angeles Chargers,Las Vegas Raiders,LAC,LV,14,26,,LAC -6.5,43.5,-325,260,SoFi Stadium
+nfl,401872944,2026-09-20T20:25Z,2,Dallas Cowboys,Washington Commanders,DAL,WSH,37,20,,DAL -4.5,51.5,-225,185,AT&T Stadium
+nfl,401872943,2026-09-20T20:25Z,2,Arizona Cardinals,Seattle Seahawks,ARI,SEA,7,31,,SEA -3.5,40.5,180,-218,State Farm Stadium
+nfl,401872942,2026-09-20T20:25Z,2,San Francisco 49ers,Miami Dolphins,SF,MIA,35,13,,SF -12.5,44.5,-900,600,Levi's Stadium
+nfl,401872945,2026-09-21T00:20Z,2,Kansas City Chiefs,Indianapolis Colts,KC,IND,33,30,OT,KC -6,46.5,-265,215,Arrowhead Stadium
+nfl,401872947,2026-09-22T00:15Z,2,Los Angeles Rams,New York Giants,LAR,NYG,28,6,,LAR -7,47.5,-310,250,SoFi Stadium
+nfl,401872948,2026-09-25T00:15Z,3,Green Bay Packers,Atlanta Falcons,GB,ATL,14,35,,GB -4.5,43.5,-238,195,Lambeau Field
+nfl,401872953,2026-09-27T17:00Z,3,Buffalo Bills,Los Angeles Chargers,BUF,LAC,24,16,,BUF -7,50.5,-345,275,Highmark Stadium
+nfl,401872949,2026-09-27T17:00Z,3,Cleveland Browns,Carolina Panthers,CLE,CAR,21,18,,CAR -2.5,41.5,110,-130,Huntington Bank Field
+nfl,401872954,2026-09-27T17:00Z,3,Detroit Lions,New York Jets,DET,NYJ,31,24,,DET -7,49.5,-355,280,Ford Field
+nfl,401872951,2026-09-27T17:00Z,3,Indianapolis Colts,Houston Texans,IND,HOU,19,17,,HOU -1.5,42.5,100,-120,Lucas Oil Stadium
+nfl,401872952,2026-09-27T17:00Z,3,Miami Dolphins,Kansas City Chiefs,MIA,KC,10,24,,KC -10,45.5,440,-600,Hard Rock Stadium
+nfl,401872956,2026-09-27T17:00Z,3,New York Giants,Tennessee Titans,NYG,TEN,12,7,,NYG -2.5,37.5,-135,114,MetLife Stadium
+nfl,401872950,2026-09-27T17:00Z,3,Pittsburgh Steelers,Cincinnati Bengals,PIT,CIN,30,27,,CIN -3.5,42.5,154,-185,Acrisure Stadium
+nfl,401872955,2026-09-27T17:00Z,3,Washington Commanders,Seattle Seahawks,WSH,SEA,33,31,,SEA -8.5,40.5,320,-410,Northwest Stadium
+nfl,401872957,2026-09-27T17:00Z,3,Jacksonville Jaguars,New England Patriots,JAX,NE,35,6,,JAX -3,46.5,-155,130,EverBank Stadium
+nfl,401872958,2026-09-27T20:05Z,3,San Francisco 49ers,Arizona Cardinals,SF,ARI,36,30,,SF -7.5,48.5,-395,310,Levi's Stadium
+nfl,401872959,2026-09-27T20:05Z,3,Tampa Bay Buccaneers,Minnesota Vikings,TB,MIN,16,23,,TB -1.5,42.5,-115,-105,Raymond James Stadium
+nfl,401872960,2026-09-27T20:25Z,3,Dallas Cowboys,Baltimore Ravens,DAL,BAL,31,34,,BAL -3,54.5,136,-162,Maracanã Stadium
+nfl,401872961,2026-09-27T20:25Z,3,New Orleans Saints,Las Vegas Raiders,NO,LV,27,35,,NO -3.5,44.5,-198,164,Caesars Superdome
+nfl,401872962,2026-09-28T00:20Z,3,Denver Broncos,Los Angeles Rams,DEN,LAR,30,26,,DEN -1.5,44.5,-118,-102,Empower Field at Mile High
+nfl,401872963,2026-09-29T00:15Z,3,Chicago Bears,Philadelphia Eagles,CHI,PHI,27,7,,PHI -3,42.5,154,-185,Soldier Field
+nfl,401872964,2026-10-02T00:15Z,4,Cleveland Browns,Pittsburgh Steelers,CLE,PIT,27,24,,PIT -2.5,38.5,124,-148,Huntington Bank Field
+nfl,401872965,2026-10-04T13:30Z,4,Washington Commanders,Indianapolis Colts,WSH,IND,13,30,,IND -4.5,46.5,185,-225,Tottenham Hotspur Stadium
+nfl,401872971,2026-10-04T17:00Z,4,Buffalo Bills,New England Patriots,BUF,NE,26,29,,BUF -7,49.5,-345,275,Highmark Stadium
+nfl,401872972,2026-10-04T17:00Z,4,Chicago Bears,New York Jets,CHI,NYJ,23,12,,CHI -3.5,43.5,-198,164,Soldier Field
+nfl,401872969,2026-10-04T17:00Z,4,Cincinnati Bengals,Jacksonville Jaguars,CIN,JAX,17,22,,CIN -2.5,51.5,-148,124,Paycor Stadium
+nfl,401872966,2026-10-04T17:00Z,4,New York Giants,Arizona Cardinals,NYG,ARI,36,24,,ARI -2.5,43.5,110,-130,MetLife Stadium
+nfl,401872970,2026-10-04T17:00Z,4,Philadelphia Eagles,Los Angeles Rams,PHI,LAR,20,24,,LAR -4.5,42.5,164,-198,Lincoln Financial Field
+nfl,401872968,2026-10-04T17:00Z,4,Tampa Bay Buccaneers,Green Bay Packers,TB,GB,14,17,,GB -2.5,38.5,124,-148,Raymond James Stadium
+nfl,401872973,2026-10-04T17:00Z,4,Baltimore Ravens,Tennessee Titans,BAL,TEN,24,18,,BAL -11.5,41.5,-800,550,M&T Bank Stadium
+nfl,401872967,2026-10-04T17:00Z,4,Houston Texans,Dallas Cowboys,HOU,DAL,30,34,,HOU -3,48.5,-155,130,Reliant Stadium
+nfl,401872974,2026-10-04T20:05Z,4,Minnesota Vikings,Miami Dolphins,MIN,MIA,15,10,,MIN -10,38.5,-535,400,U.S. Bank Stadium
+nfl,401872976,2026-10-04T20:25Z,4,Las Vegas Raiders,Kansas City Chiefs,LV,KC,27,30,,KC -3.5,47.5,170,-205,Allegiant Stadium
+nfl,401872975,2026-10-04T20:25Z,4,San Francisco 49ers,Denver Broncos,SF,DEN,24,14,,SF -3,48.5,-166,140,Levi's Stadium
+nfl,401872977,2026-10-04T20:25Z,4,Seattle Seahawks,Los Angeles Chargers,SEA,LAC,30,23,,SEA -7,43.5,-345,275,Lumen Field
+nfl,401872978,2026-10-05T00:20Z,4,Carolina Panthers,Detroit Lions,CAR,DET,32,26,,DET -3.5,52.5,160,-192,Bank of America Stadium
+nfl,401872979,2026-10-06T00:15Z,4,New Orleans Saints,Atlanta Falcons,NO,ATL,24,45,,NO -1.5,48.5,-115,-105,Caesars Superdome
+nfl,401872980,2026-10-09T00:15Z,5,Dallas Cowboys,Tampa Bay Buccaneers,DAL,TB,16,24,,DAL -8.5,49.5,-500,380,AT&T Stadium
+nfl,401872981,2026-10-11T13:30Z,5,Jacksonville Jaguars,Philadelphia Eagles,JAX,PHI,19,17,,JAX -7.5,41.5,-360,285,Tottenham Hotspur Stadium
+nfl,401872990,2026-10-11T17:00Z,5,Green Bay Packers,Chicago Bears,GB,CHI,31,7,,CHI -1.5,46.5,110,-130,Lambeau Field
+nfl,401872984,2026-10-11T17:00Z,5,Tennessee Titans,Houston Texans,TEN,HOU,3,26,,HOU -6.5,37.5,240,-298,Nissan Stadium
+nfl,401872982,2026-10-11T17:00Z,5,Miami Dolphins,Cincinnati Bengals,MIA,CIN,24,31,,CIN -7.5,45.5,295,-375,Hard Rock Stadium
+nfl,401872986,2026-10-11T17:00Z,5,New England Patriots,Las Vegas Raiders,NE,LV,45,17,,NE -3.5,45.5,-360,285,Gillette Stadium
+nfl,401872987,2026-10-11T17:00Z,5,New Orleans Saints,Minnesota Vikings,NO,MIN,13,23,,MIN -2.5,41.5,114,-135,Caesars Superdome
+nfl,401872983,2026-10-11T17:00Z,5,New York Jets,Cleveland Browns,NYJ,CLE,17,12,,NYJ -2.5,38.5,-135,114,MetLife Stadium
+nfl,401872985,2026-10-11T17:00Z,5,Pittsburgh Steelers,Indianapolis Colts,PIT,IND,34,22,,PIT -3,42.5,-162,136,Acrisure Stadium
+nfl,401872988,2026-10-11T17:00Z,5,Washington Commanders,New York Giants,WSH,NYG,27,27,OT,WSH -3.5,41.5,-185,154,Northwest Stadium
+nfl,401872989,2026-10-11T20:05Z,5,Los Angeles Chargers,Denver Broncos,LAC,DEN,17,23,,DEN -3,42.5,142,-170,SoFi Stadium
+nfl,401872991,2026-10-11T20:25Z,5,Arizona Cardinals,Detroit Lions,ARI,DET,21,45,,DET -4.5,55.5,200,-245,State Farm Stadium
+nfl,401872992,2026-10-11T20:25Z,5,Seattle Seahawks,San Francisco 49ers,SEA,SF,29,32,,SEA -3,46.5,-166,140,Lumen Field
+nfl,401872993,2026-10-12T00:20Z,5,Atlanta Falcons,Baltimore Ravens,ATL,BAL,23,30,OT,ATL -3,44.5,-170,142,Mercedes-Benz Stadium
+nfl,401872994,2026-10-13T00:15Z,5,Los Angeles Rams,Buffalo Bills,LAR,BUF,34,37,OT,LAR -3.5,55.5,-185,154,SoFi Stadium
+nfl,401872995,2026-10-16T00:15Z,6,Denver Broncos,Seattle Seahawks,DEN,SEA,17,14,OT,SEA -3,40.5,130,-155,Empower Field at Mile High
+nfl,401872996,2026-10-18T13:30Z,6,Jacksonville Jaguars,Houston Texans,JAX,HOU,31,34,,JAX -2.5,42.5,-142,120,Wembley Stadium
+nfl,401872999,2026-10-18T17:00Z,6,Atlanta Falcons,Chicago Bears,ATL,CHI,23,31,,CHI -1.5,50.5,-105,-115,Mercedes-Benz Stadium
+nfl,401872997,2026-10-18T17:00Z,6,Cleveland Browns,Baltimore Ravens,CLE,BAL,13,10,,BAL -3,40.5,140,-166,Huntington Bank Field
+nfl,401873003,2026-10-18T17:00Z,6,Indianapolis Colts,Tennessee Titans,IND,TEN,20,26,,IND -6.5,43.5,-298,240,Lucas Oil Stadium
+nfl,401873001,2026-10-18T17:00Z,6,New England Patriots,New York Jets,NE,NYJ,26,19,,NE -7.5,42.5,-345,275,Gillette Stadium
+nfl,401873000,2026-10-18T17:00Z,6,New York Giants,New Orleans Saints,NYG,NO,27,34,,NO -1.5,46.5,-112,-108,MetLife Stadium
+nfl,401872998,2026-10-18T17:00Z,6,Philadelphia Eagles,Carolina Panthers,PHI,CAR,14,25,,CAR -3,39.5,136,-162,Lincoln Financial Field
+nfl,401873002,2026-10-18T17:00Z,6,Tampa Bay Buccaneers,Pittsburgh Steelers,TB,PIT,19,26,OT,PIT -2.5,37.5,114,-135,Raymond James Stadium
+nfl,401873004,2026-10-18T20:05Z,6,Los Angeles Rams,Arizona Cardinals,LAR,ARI,16,18,,LAR -13.5,51.5,-900,600,SoFi Stadium
+nfl,401873006,2026-10-18T20:25Z,6,Kansas City Chiefs,Los Angeles Chargers,KC,LAC,22,6,,KC -7.5,41.5,-425,330,Arrowhead Stadium
+nfl,401873005,2026-10-18T20:25Z,6,Las Vegas Raiders,Buffalo Bills,LV,BUF,30,33,,BUF -5.5,54.5,200,-245,Allegiant Stadium
+nfl,401873007,2026-10-19T00:20Z,6,Green Bay Packers,Dallas Cowboys,GB,DAL,23,13,,DAL -1.5,54.5,102,-122,Lambeau Field
+nfl,401873008,2026-10-20T00:15Z,6,San Francisco 49ers,Washington Commanders,SF,WSH,23,17,,SF -7.5,51.5,-410,320,Levi's Stadium
+nfl,401873010,2026-10-23T00:15Z,7,Chicago Bears,New England Patriots,CHI,NE,30,24,,CHI -3,50.5,-155,130,Soldier Field
+nfl,401873011,2026-10-25T13:30Z,7,New Orleans Saints,Pittsburgh Steelers,NO,PIT,10,16,,PIT -3,42.5,136,-162,Stade de France
+nfl,401873017,2026-10-25T17:00Z,7,Atlanta Falcons,San Francisco 49ers,ATL,SF,29,20,,SF -2.5,49.5,120,-142,Mercedes-Benz Stadium
+nfl,401873013,2026-10-25T17:00Z,7,Tennessee Titans,Cleveland Browns,TEN,CLE,24,27,,CLE -2.5,37.5,114,-135,Nissan Stadium
+nfl,401873014,2026-10-25T17:00Z,7,Minnesota Vikings,Indianapolis Colts,MIN,IND,16,10,,MIN -6.5,41.5,-340,270,U.S. Bank Stadium
+nfl,401873015,2026-10-25T17:00Z,7,New York Jets,Miami Dolphins,NYJ,MIA,25,28,,NYJ -3.5,39.5,-218,180,MetLife Stadium
+nfl,401873018,2026-10-25T17:00Z,7,Carolina Panthers,Tampa Bay Buccaneers,CAR,TB,13,43,,CAR -3,44.5,-170,142,Bank of America Stadium
+nfl,401873012,2026-10-25T17:00Z,7,Baltimore Ravens,Cincinnati Bengals,BAL,CIN,13,35,,CIN -3,46.5,136,-162,M&T Bank Stadium
+nfl,401873016,2026-10-25T17:00Z,7,Houston Texans,New York Giants,HOU,NYG,21,27,OT,HOU -10,43.5,-520,390,Reliant Stadium
+nfl,401873019,2026-10-25T20:05Z,7,Arizona Cardinals,Denver Broncos,ARI,DEN,16,30,,DEN -4.5,44.5,195,-238,State Farm Stadium
+nfl,401873020,2026-10-25T20:25Z,7,Detroit Lions,Green Bay Packers,DET,GB,20,17,,DET -3.5,55.5,-192,160,Ford Field
+nfl,401873021,2026-10-25T20:25Z,7,Las Vegas Raiders,Los Angeles Rams,LV,LAR,21,35,,LAR -3.5,49.5,160,-192,Allegiant Stadium
+nfl,401873022,2026-10-26T00:20Z,7,Seattle Seahawks,Kansas City Chiefs,SEA,KC,20,3,,SEA -3,43.5,-162,136,Lumen Field
+nfl,401873009,2026-10-27T00:15Z,7,Philadelphia Eagles,Dallas Cowboys,PHI,DAL,21,38,,DAL -4.5,43.5,185,-225,Lincoln Financial Field
+nfl,401873023,2026-10-30T00:15Z,8,Green Bay Packers,Carolina Panthers,GB,CAR,27,19,,GB -3.5,47.5,-185,154,Lambeau Field
+nfl,401873026,2026-11-01T18:00Z,8,Buffalo Bills,Baltimore Ravens,BUF,BAL,36,10,,BUF -3,54.5,-162,136,Highmark Stadium
+nfl,401873031,2026-11-01T18:00Z,8,Cincinnati Bengals,Tennessee Titans,CIN,TEN,43,36,OT,CIN -13.5,45.5,-950,625,Paycor Stadium
+nfl,401873024,2026-11-01T18:00Z,8,Dallas Cowboys,Arizona Cardinals,DAL,ARI,30,33,OT,DAL -7,54.5,-340,270,AT&T Stadium
+nfl,401873030,2026-11-01T18:00Z,8,Detroit Lions,Minnesota Vikings,DET,MIN,19,15,,DET -3.5,45.5,-175,145,Ford Field
+nfl,401873029,2026-11-01T18:00Z,8,New York Jets,Las Vegas Raiders,NYJ,LV,33,38,,NYJ -1.5,46.5,-130,110,MetLife Stadium
+nfl,401873027,2026-11-01T18:00Z,8,Pittsburgh Steelers,Cleveland Browns,PIT,CLE,27,6,,PIT -3.5,38.5,-192,160,Acrisure Stadium
+nfl,401873025,2026-11-01T18:00Z,8,Tampa Bay Buccaneers,Atlanta Falcons,TB,ATL,16,0,,TB -2.5,43.5,-130,110,Raymond James Stadium
+nfl,401873028,2026-11-01T18:00Z,8,Jacksonville Jaguars,Indianapolis Colts,JAX,IND,42,7,,JAX -10.5,45.5,-500,380,EverBank Stadium
+nfl,401873032,2026-11-01T21:05Z,8,Los Angeles Rams,Los Angeles Chargers,LAR,LAC,24,9,,LAR -6.5,45.5,-278,225,SoFi Stadium
+nfl,401873033,2026-11-01T21:25Z,8,Denver Broncos,Kansas City Chiefs,DEN,KC,28,24,,DEN -1.5,41.5,-115,-105,Empower Field at Mile High
+nfl,401873034,2026-11-01T21:25Z,8,Miami Dolphins,New England Patriots,MIA,NE,19,24,,NE -7,41.5,275,-345,Hard Rock Stadium
+nfl,401873035,2026-11-02T01:20Z,8,Washington Commanders,Philadelphia Eagles,WSH,PHI,27,10,,WSH -5.5,40.5,-250,205,Northwest Stadium
+nfl,401873036,2026-11-03T01:15Z,8,Seattle Seahawks,Chicago Bears,SEA,CHI,17,34,,SEA -3,46.5,-166,140,Lumen Field
+nfl,401873037,2026-11-06T01:15Z,9,Baltimore Ravens,Jacksonville Jaguars,BAL,JAX,10,33,,JAX -9.5,40.5,350,-455,M&T Bank Stadium

@@ -1,0 +1,20 @@
+{
+ "built_utc": "2026-11-08T14:17:18.763994+00:00",
+ "source": "ESPN public JSON (site.api.espn.com)",
+ "nfl": {
+  "games": 122,
+  "team_rows": 244,
+  "player_rows": 2614,
+  "upcoming": 28,
+  "first": "2026-09-10",
+  "last": "2026-11-06"
+ },
+ "nhl": {
+  "games": 268,
+  "team_rows": 536,
+  "player_rows": 10213,
+  "upcoming": 56,
+  "first": "2026-10-01",
+  "last": "2026-11-08"
+ }
+}

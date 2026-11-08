@@ -56,8 +56,14 @@ header .wrap{padding-block:12px 0;display:grid;gap:10px}
 @media (prefers-reduced-motion:reduce){.refresh.spin svg{animation:none;opacity:.5}}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block}
 .tab:focus-visible,.day:focus-visible,.btn:focus-visible,.row:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr)}
-@media (max-width:440px){.tab{font-size:15px;letter-spacing:.02em;padding:10px 2px 9px}}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr)}
+@media (max-width:520px){.tab{font-size:14px;letter-spacing:.01em;padding:10px 1px 9px}}
+@media (max-width:360px){.tab{font-size:13px;letter-spacing:0}}
+#stats{display:none}
+body.stats-mode #stats{display:block}
+body.stats-mode main,body.stats-mode footer{display:none}
+body.stats-mode .brand,body.stats-mode .tabs{margin-left:auto;margin-right:auto}
+#stats iframe{display:block;width:100%;border:0;background:#000;height:calc(100vh - 120px)}
 .tab{font:700 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 60%,transparent);background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px 9px;cursor:pointer;min-height:44px}
 .tab[aria-selected="true"]{color:var(--head-ink);border-bottom-color:var(--accent)}
 main .wrap{padding-block:14px 40px;display:grid;gap:14px}
@@ -244,6 +250,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
       <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">ML Parlay</button>
       <button class="tab" role="tab" id="tab-bot" data-tab="bot" aria-selected="false">Computer</button>
+      <button class="tab" role="tab" id="tab-stats" data-tab="stats" aria-selected="false">Stats</button>
     </div>
   </div>
 </header>
@@ -257,6 +264,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     <aside id="side" aria-label="Accuracy tracker" hidden></aside>
   </div>
 </main>
+<div id="stats"></div>
 <footer class="wrap">KingCap stream picks, checked against the betting sites · updates on its own · for fun, not betting advice · 21+, gamble responsibly</footer>
 
 <script>
@@ -265,7 +273,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     picks:  { name: "Picks", empty: "No picks yet." },
     results:{ name: "Results", empty: "No results updates yet." },
     ml:     { name: "ML Parlay", empty: "No ML parlay yet." },
-    bot:    { name: "Computer", empty: "" }
+    bot:    { name: "Computer", empty: "" },
+    stats:  { name: "Stats", empty: "" }
   };
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
   const $ = id => document.getElementById(id);
@@ -281,6 +290,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     st.tab = t;
     document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
     if (push) { try { history.replaceState(null, "", "#" + t); } catch(e) { location.hash = t; } }
+    showStats(t === "stats");
     render();
   }
   document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab, true)));
@@ -334,7 +344,19 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     return box;
   }
 
-  function render(){ renderMain(); renderSide(); renderBotSide(); }
+  function render(){ if (st.tab === "stats") return; renderMain(); renderSide(); renderBotSide(); }
+  // Sharp Sheet (sheet/ folder) shown full width in the Stats tab; the frame is created once and kept
+  function sizeStats(){ const f = $("stats").firstElementChild; if (f) f.style.height = Math.max(320, window.innerHeight - document.querySelector("header").getBoundingClientRect().height) + "px"; }
+  function showStats(on){
+    document.body.classList.toggle("stats-mode", on);
+    if (on && !$("stats").firstElementChild) {
+      const f = document.createElement("iframe");
+      f.src = "sheet/index.html"; f.title = "Sharp Sheet stats"; f.loading = "lazy";
+      $("stats").append(f);
+    }
+    if (on) { sizeStats(); window.scrollTo(0, 0); }
+  }
+  window.addEventListener("resize", sizeStats);
   function renderMain(){
     const t = st.tab, view = $("view"), days = $("days");
     days.replaceChildren(); view.replaceChildren();

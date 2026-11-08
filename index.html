@@ -72,7 +72,7 @@ main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .mail h3.sec::after{content:"";flex:1;height:2px;background:color-mix(in srgb,var(--h) 35%,transparent)}
 .card{--edge:var(--other);background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--edge);border-radius:10px;padding:12px 14px;display:block;font-size:15px;min-width:0;scroll-margin-top:130px}
 .card b:first-of-type{font-family:var(--f-display);font-size:19px;font-weight:700;letter-spacing:.02em}
-.card > div:first-child{display:flex;align-items:flex-start;flex-wrap:wrap;gap:4px 6px}
+.card > div:first-child{display:flex;align-items:center;flex-wrap:wrap;gap:4px 6px}
 .card > div:first-child b{flex:1 1 auto;min-width:0}
 .card > div:first-child .badge{order:3;margin-left:auto}
 .card > div:first-child .cat{order:2}
@@ -158,6 +158,14 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .tp-body tr.dy td:first-child{padding-left:26px;color:var(--muted)}
 .wk-btn{display:flex;align-items:center;gap:6px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;min-height:28px}
 .sites{display:grid;margin:8px 0 4px}
+.gm{margin:6px 0 2px}
+.gm-top{font-size:13px;color:var(--muted)}
+.gm-key{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-weight:700;font-size:15px;margin-top:1px}
+.gm-st{font:600 11px/1.7 var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 8px}
+.site-d.val{color:var(--ink);font-weight:700}
+.site.kc .site-n{color:var(--accent)}
+.site.kc .site-d{color:var(--ink)}
+.gm-note{font-size:13px;color:var(--muted);padding:6px 0;border-top:1px solid var(--line)}
 .sites-h{font:700 12px var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:2px 0 4px}
 .site{display:grid;grid-template-columns:minmax(5.5rem,7.5rem) minmax(0,1fr) auto;gap:2px 10px;align-items:start;padding:7px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.35}
 .site-n{font-weight:700}
@@ -595,44 +603,91 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const firstP = box.querySelector(":scope > p:not(.notice)");
     if (firstP && /stream|started|\bmin\b/i.test(firstP.textContent) && box.querySelector(".card")) firstP.remove();
     stackTables(box);
-    tidySites(box);
+    tidyCards(box);
     return box;
   }
-  // "Sites: Name - detail - Agrees; ..." -> aligned table (trial: Montreal @ Toronto card only)
-  function tidySites(box){
-    box.querySelectorAll(".card").forEach(card => {
-      const b = card.querySelector("b");
-      if (!b || !/^Montreal @ Toronto/i.test(b.textContent.trim())) return;
-      const row = Array.from(card.children).find(d => d.tagName === "DIV" && /^\s*Sites:/i.test(d.textContent));
-      if (!row) return;
-      const entries = []; let cur = { pre: "" };
-      for (const n of row.childNodes) {
-        if (n.nodeType === 3) {
-          n.nodeValue.replace(/^\s*Sites:\s*/i, "").split(";").forEach((seg, i) => {
-            if (i === 0) cur.pre += seg; else { entries.push(cur); cur = { pre: seg }; }
-          });
-        } else if (n.nodeType === 1) {
-          const t = n.textContent.trim();
-          if (/^agrees?$/i.test(t)) cur.verdict = "Agrees";
-          else if (/^disagrees?$/i.test(t)) cur.verdict = "Disagrees";
-          else if (/^neutral$/i.test(t)) cur.verdict = "Neutral";
-          else cur.pre += n.textContent;
-        }
+  // Pick cards: game line, one row per odds source, KingCap row, Sites table (all left-aligned columns)
+  const SRC_WORD = /^(Covers|ESPN|Kalshi|Dimers|Polymarket|OddsShark|BetMGM|Caesars|Action|[A-Z][a-z]+[A-Z][A-Za-z]+)$/;
+  function siteRow(name, detail, cls, verdict){
+    const r = el("div","site" + (cls ? " " + cls : ""));
+    r.append(el("span","site-n",name), el("span","site-d" + (cls === "oddsrow" ? " val" : ""),detail));
+    if (verdict) { const v = verdict.toLowerCase(); r.append(el("span","vd " + (v.startsWith("agree") ? "vd-agree" : v.startsWith("disagree") ? "vd-disagree" : "vd-neutral"), verdict)); }
+    else r.append(el("span"));
+    return r;
+  }
+  function tidyMeta(row){
+    const segs = row.textContent.trim().split(/\s+·\s+/);
+    if (segs.length < 3) return;
+    const ti = segs.findIndex(x => /\b\d{1,2}:\d{2}\s*(AM|PM)\b/i.test(x));
+    const isStatus = x => /^(not started|final|in progress|live|halftime|started|postponed|delayed|end of)/i.test(x);
+    const isOdds = x => /[+-]\d{2,}|\btotal\s+\d|o\/u|\bspread\b|\(.*(via|draftkings|fanduel|betmgm|caesars).*\)/i.test(x);
+    let chan = -1;
+    if (ti >= 0 && segs[ti+1] && segs[ti+1].length <= 22 && !isOdds(segs[ti+1]) && !isStatus(segs[ti+1])) chan = ti + 1;
+    const top = segs.slice(0, ti >= 0 ? ti : 2), key = [], odds = [], notes = []; let status = "";
+    segs.forEach((x, k) => {
+      if (k < top.length) return;
+      if (k === ti || k === chan) key.push(x);
+      else if (isStatus(x)) status = x;
+      else if (isOdds(x) && !/not found/i.test(x)) x.split(/;\s*/).forEach(o => odds.push(o.trim()));
+      else notes.push(x);
+    });
+    const box = el("div","gm");
+    box.append(el("div","gm-top", top.join(" · ")));
+    const kl = el("div","gm-key"); kl.append(el("span","", key.join(" · ") || "Time TBD"));
+    if (status) kl.append(el("span","gm-st",status));
+    box.append(kl);
+    const rows = el("div","sites");
+    odds.filter(Boolean).forEach(o => {
+      let m = /^(.*?)\s*\(([^)]*(?:via|DraftKings|FanDuel|ESPN|BetMGM|Caesars|book)[^)]*)\)\s*$/i.exec(o);
+      if (m) return rows.append(siteRow(m[2].replace(/s+vias+.*$/i, ""), m[1], "oddsrow"));
+      m = /^(\S+)\s+(.*)$/.exec(o);
+      if (m && SRC_WORD.test(m[1])) return rows.append(siteRow(m[1], m[2], "oddsrow"));
+      rows.append(siteRow("Line", o, "oddsrow"));
+    });
+    if (rows.children.length) box.append(rows);
+    notes.forEach(n => box.append(el("div","gm-note",n)));
+    row.replaceWith(box);
+    return box;
+  }
+  function tidySites(row){
+    const entries = []; let cur = { pre: "" };
+    for (const n of row.childNodes) {
+      if (n.nodeType === 3) {
+        n.nodeValue.replace(/^\s*Sites:\s*/i, "").split(";").forEach((seg, i) => {
+          if (i === 0) cur.pre += seg; else { entries.push(cur); cur = { pre: seg }; }
+        });
+      } else if (n.nodeType === 1) {
+        const t = n.textContent.trim();
+        if (/^agrees?$/i.test(t)) cur.verdict = "Agrees";
+        else if (/^disagrees?$/i.test(t)) cur.verdict = "Disagrees";
+        else if (/^neutral$/i.test(t)) cur.verdict = "Neutral";
+        else cur.pre += n.textContent;
       }
-      entries.push(cur);
-      const parsed = entries.map(e => {
-        const parts = e.pre.trim().replace(/\s*-\s*$/, "").split(/\s+-\s+/);
-        return { name: parts[0] || "", detail: parts.slice(1).join(" - "), verdict: e.verdict || "" };
-      }).filter(e => e.name);
-      if (!parsed.length) return;
-      const wrap = el("div","sites"); wrap.append(el("div","sites-h","Sites"));
-      parsed.forEach(x => {
-        const r = el("div","site"); r.append(el("span","site-n",x.name), el("span","site-d",x.detail));
-        const v = x.verdict.toLowerCase();
-        r.append(x.verdict ? el("span","vd " + (v.startsWith("agree") ? "vd-agree" : v.startsWith("disagree") ? "vd-disagree" : "vd-neutral"), x.verdict) : el("span"));
-        wrap.append(r);
-      });
-      row.replaceWith(wrap);
+    }
+    entries.push(cur);
+    const parsed = entries.map(e => {
+      const parts = e.pre.trim().replace(/\s*-\s*$/, "").split(/\s+-\s+/);
+      return { name: parts[0] || "", detail: parts.slice(1).join(" - "), verdict: e.verdict || "" };
+    }).filter(e => e.name);
+    if (!parsed.length) return;
+    const wrap = el("div","sites"); wrap.append(el("div","sites-h","Sites"));
+    parsed.forEach(x => wrap.append(siteRow(x.name, x.detail, "", x.verdict)));
+    row.replaceWith(wrap);
+  }
+  function tidyCards(box){
+    box.querySelectorAll(".card:not(.parlay):not(.slip)").forEach(card => {
+      try {
+        const kids = Array.from(card.children).filter(d => d.tagName === "DIV");
+        const meta = kids[1];
+        if (meta && / · /.test(meta.textContent) && !/^\s*(KingCap|Sites):/i.test(meta.textContent)) tidyMeta(meta);
+        kids.forEach(d => {
+          const t = d.textContent;
+          if (/^\s*KingCap:/i.test(t)) {
+            const w = el("div","sites"); w.append(siteRow("KingCap", t.replace(/^\s*KingCap:\s*/i, "").trim(), "kc"));
+            d.replaceWith(w);
+          } else if (/^\s*Sites:/i.test(t)) tidySites(d);
+        });
+      } catch (e) { /* leave card as-is */ }
     });
   }
   function stackTables(box){

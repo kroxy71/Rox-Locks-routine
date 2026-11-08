@@ -949,7 +949,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   }
   async function load(){
     try {
-      const [emails, slips, bot] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON("data/bot.json").catch(() => null)]);
+      const [emails, slips, bot] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/bot.json" : "data/bot.json").catch(() => null)]);
       st.bot = bot && typeof bot === "object" ? bot : null;
       onSlips(slips);
       onEmails(Array.isArray(emails) ? emails : []);

@@ -56,7 +56,8 @@ header .wrap{padding-block:12px 0;display:grid;gap:10px}
 @media (prefers-reduced-motion:reduce){.refresh.spin svg{animation:none;opacity:.5}}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block}
 .tab:focus-visible,.day:focus-visible,.btn:focus-visible,.row:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr)}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr)}
+@media (max-width:440px){.tab{font-size:15px;letter-spacing:.02em;padding:10px 2px 9px}}
 .tab{font:700 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 60%,transparent);background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px 9px;cursor:pointer;min-height:44px}
 .tab[aria-selected="true"]{color:var(--head-ink);border-bottom-color:var(--accent)}
 main .wrap{padding-block:14px 40px;display:grid;gap:14px}
@@ -181,11 +182,50 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .vd{font:700 11px/1.9 var(--f-body);letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:0 9px;color:#fff;white-space:nowrap;justify-self:end;background:var(--muted)}
 .vd.vd-agree{background:var(--good)} .vd.vd-disagree{background:var(--bad)}
 @media (max-width:480px){.site{grid-template-columns:minmax(0,1fr) auto}.site-d{grid-column:1/-1;order:3}}
+.bot{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.bot-h{display:flex;flex-direction:column;gap:1px}
+.bot-h b{font:800 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase}
+.bot-h small{font-size:12px;color:var(--muted)}
+.bot-bank{display:flex;align-items:baseline;gap:10px;margin:8px 0 2px;flex-wrap:wrap}
+.bot-bank strong{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.up{color:var(--good)} .down{color:var(--bad)} .flat{color:var(--muted)}
+.bot-bank .delta{font:700 17px var(--f-display)}
+.bot-vs{display:grid;grid-template-columns:auto 1fr auto;gap:2px 12px;font-size:14px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.bot-vs .n{font-weight:700} .bot-vs .r{text-align:right;color:var(--muted)}
+.bot-lead{font-size:13px;font-weight:700;margin-top:6px}
+.bot-meta{font-size:12px;color:var(--muted);margin-top:4px}
+.bot-sec{font:700 12px var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
+.gfi{margin-top:12px;border:1px solid color-mix(in srgb,var(--mid) 55%,var(--line));background:color-mix(in srgb,var(--mid) 10%,var(--surface));border-radius:10px;padding:10px 12px}
+.gfi-l{font:800 12px var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.gfi-c{font:700 17px/1.25 var(--f-display);margin:4px 0 2px}
+.bb{padding:9px 0;border-top:1px solid var(--line)}
+.bb-top{display:flex;align-items:center;gap:6px}
+.bb-top b{flex:1 1 auto;min-width:0;font-size:15px}
+.bb-odds{font-size:13px;margin-top:2px;font-variant-numeric:tabular-nums}
+.bb-why{font-size:12px;color:var(--muted);margin-top:2px}
+.bb-res{font-size:12px;margin-top:2px;font-weight:600}
+.bb-legs{list-style:none;margin:4px 0 0;padding:0}
+.bb-legs li{display:flex;align-items:center;gap:6px;font-size:13px;padding:2px 0}
+.bb-legs li span.s{flex:1 1 auto;min-width:0}
+.bb-legs .mk{font-weight:800;width:14px;text-align:center}
+.bot-days{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.bot-days th,.bot-days td{padding:5px 4px;border-top:1px solid var(--line);text-align:right}
+.bot-days th:first-child,.bot-days td:first-child{text-align:left}
+.bot-days th{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-top:0}
+.bot-empty{font-size:14px;color:var(--muted);margin-top:10px}
+#bot{display:none}
 @media (min-width:1000px){
   .wrap{max-width:1020px}
   .brand,.tabs{max-width:640px}
   main .wrap{grid-template-columns:minmax(0,640px) 340px;gap:20px;align-items:start}
   #side{position:sticky;top:126px;max-height:calc(100vh - 146px);overflow-y:auto}
+}
+@media (min-width:1340px){
+  .wrap{max-width:1340px}
+  .brand,.tabs{margin-left:320px}
+  main .wrap{grid-template-columns:300px minmax(0,640px) 340px}
+  #bot{display:block;position:sticky;top:126px;max-height:calc(100vh - 146px);overflow-y:auto}
+  #bot:empty{display:none}
 }
 </style>
 </head>
@@ -203,11 +243,13 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       <button class="tab" role="tab" id="tab-picks" data-tab="picks" aria-selected="true">Picks</button>
       <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
       <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">ML Parlay</button>
+      <button class="tab" role="tab" id="tab-bot" data-tab="bot" aria-selected="false">Computer</button>
     </div>
   </div>
 </header>
 <main>
   <div class="wrap">
+    <aside id="bot" aria-label="Rox Locks Computer"></aside>
     <div id="col">
       <div class="days" id="days" aria-label="Earlier days"></div>
       <div id="view"><div class="skel"></div><div class="skel"></div></div>
@@ -222,7 +264,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   const TABS = {
     picks:  { name: "Picks", empty: "No picks yet." },
     results:{ name: "Results", empty: "No results updates yet." },
-    ml:     { name: "ML Parlay", empty: "No ML parlay yet." }
+    ml:     { name: "ML Parlay", empty: "No ML parlay yet." },
+    bot:    { name: "Computer", empty: "" }
   };
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
   const $ = id => document.getElementById(id);
@@ -291,13 +334,14 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     return box;
   }
 
-  function render(){ renderMain(); renderSide(); }
+  function render(){ renderMain(); renderSide(); renderBotSide(); }
   function renderMain(){
     const t = st.tab, view = $("view"), days = $("days");
     days.replaceChildren(); view.replaceChildren();
     if (st.err) { view.append(stateBox(st.err)); return; }
     if (!st.loaded) { view.append(el("div","skel"), el("div","skel")); return; }
     if (t === "results") { renderResults(view); return; }
+    if (t === "bot") { view.append(botPanel(true)); return; }
     const list = st.lists[t] || [];
     if (!list.length) { view.append(stateBox({ h: TABS[t].empty, p: "New ones show up here on their own after each KingCap stream." })); return; }
     list.forEach(g => {
@@ -799,6 +843,104 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     return box;
   }
 
+  // ---------- Rox Locks Computer (data/bot.json, written by its own daily routine) ----------
+  const EMO = { NFL:"🏈", NCAAF:"🏈", NHL:"🏒", NBA:"🏀", MLB:"⚾" };
+  const money = n => { const v = Number(n) || 0; return (v < 0 ? "−" : "") + "$" + Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); };
+  const signed = n => { const v = Number(n) || 0; return (v > 0 ? "+" : v < 0 ? "−" : "") + "$" + Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); };
+  const tone = n => (Number(n) || 0) > 0.004 ? "up" : (Number(n) || 0) < -0.004 ? "down" : "flat";
+  const am = o => { const v = Number(o); return isFinite(v) && v ? (v > 0 ? "+" + v : String(v)) : ""; };
+  const pc = p => { const v = Number(p); return isFinite(v) && v > 0 ? Math.round(v * 100) + "%" : ""; };
+  const recTxt = r => r ? (r.w|0) + "-" + (r.l|0) + ((r.p|0) ? "-" + (r.p|0) : "") : "0-0";
+  function sportChip(sp){
+    const k = String(sp || "").toUpperCase(), c = el("span","chip", ((EMO[k] ? EMO[k] + " " : "") + (k || "?")));
+    c.style.setProperty("--sp", "var(" + (SPORT[k] || "--other") + ")"); return c;
+  }
+  function statusChip(s){
+    const v = String(s || "pending").toLowerCase();
+    return el("span","vd " + (v === "won" ? "vd-agree" : v === "lost" ? "vd-disagree" : "vd-neutral"), v === "won" ? "Won" : v === "lost" ? "Lost" : v === "void" ? "Void" : v === "push" ? "Push" : "Pending");
+  }
+  function betRow(b){
+    const row = el("div","bb"), top = el("div","bb-top"), legs = Array.isArray(b.legs) ? b.legs : [];
+    top.append(sportChip(legs[0] && legs[0].sp), el("b", null, String(b.title || "")), statusChip(b.status));
+    row.append(top);
+    const parts = [am(b.odds), money(b.stake) + " to win " + money(b.to_win)];
+    if (b.model_p) parts.push("model " + pc(b.model_p));
+    row.append(el("div","bb-odds", parts.filter(Boolean).join(" · ")));
+    if (legs.length > 1) {
+      const ul = el("ul","bb-legs");
+      legs.forEach(l => {
+        const li = el("li"), ls = String(l.status || "pending");
+        li.append(el("span","mk " + (ls === "won" ? "up" : ls === "lost" ? "down" : "flat"), ls === "won" ? "✓" : ls === "lost" ? "✗" : "·"), sportChip(l.sp), el("span","s", String(l.sel || "") + (l.odds ? " (" + am(l.odds) + ")" : "")));
+        ul.append(li);
+      });
+      row.append(ul);
+    }
+    if (b.status && b.status !== "pending") {
+      const pr = Number(b.profit) || 0;
+      row.append(el("div","bb-res " + tone(pr), signed(pr) + (b.result ? " · " + b.result : "")));
+    }
+    if (b.why) row.append(el("div","bb-why", String(b.why)));
+    return row;
+  }
+  function botPanel(full){
+    const d = st.bot, box = el("section","bot");
+    const h = el("div","bot-h"); h.append(el("b",null,"Rox Locks Computer"), el("small",null,"paper bets · $1,000 start"));
+    box.append(h);
+    if (!d || !Array.isArray(d.bets)) {
+      box.append(el("p","bot-empty","The computer makes its own picks from odds, prediction markets, models and public betting data, every day at 11 AM ET. Its first bets will show up here."));
+      return box;
+    }
+    const start = Number(d.start) || 1000, bank = Number(d.bankroll) || start, pub = Number(d.public_bankroll) || start;
+    const bk = el("div","bot-bank"); bk.append(el("strong", tone(bank - start), money(bank)), el("span","delta " + tone(bank - start), signed(bank - start)));
+    box.append(bk);
+    const vs = el("div","bot-vs");
+    vs.append(el("span","n","Computer"), el("span", tone(bank - start), money(bank)), el("span","r", recTxt(d.record)));
+    vs.append(el("span","n","Public"), el("span", tone(pub - start), money(pub)), el("span","r", recTxt(d.public_record)));
+    box.append(vs);
+    const diff = bank - pub;
+    box.append(el("div","bot-lead " + tone(diff), Math.abs(diff) < 0.005 ? "Even with the public so far" : (diff > 0 ? "Computer leads the public by " : "Public leads the computer by ") + money(Math.abs(diff))));
+    const up = d.updated ? new Date(d.updated) : null;
+    box.append(el("div","bot-meta", [d.at_risk ? money(d.at_risk) + " at risk" : "", up && !isNaN(up) ? "updated " + fmtDay(up) + ", " + fmtTime(up) + " ET" : ""].filter(Boolean).join(" · ")));
+    const bets = d.bets.slice().sort((a,b) => String(b.date).localeCompare(String(a.date)));
+    const latest = bets.length ? bets[0].date : null;
+    const day = bets.filter(b => b.date === latest);
+    const shot = day.find(b => b.cat === "longshot");
+    if (shot) {
+      const g = el("div","gfi"), l = el("div","gfi-l");
+      l.append(el("span",null,"Going for it"), statusChip(shot.status));
+      g.append(l, el("div","gfi-c", String(shot.call || shot.title || "").replace(/^\s*going for it\s*[:\-–]\s*/i, "")));
+      g.append(el("div","bb-odds", [am(shot.odds), money(shot.stake) + " to win " + money(shot.to_win), shot.model_p ? "model " + pc(shot.model_p) : ""].filter(Boolean).join(" · ")));
+      if (shot.status && shot.status !== "pending") g.append(el("div","bb-res " + tone(shot.profit), signed(shot.profit) + (shot.result ? " · " + shot.result : "")));
+      if (full && shot.why) g.append(el("div","bb-why", String(shot.why)));
+      box.append(g);
+    }
+    if (latest) {
+      const today = dayKey(new Date()) === latest, rest = day.filter(b => b !== shot);
+      box.append(el("div","bot-sec", (today ? "Today's bets" : "Bets for " + fmtDay(new Date(latest + "T12:00:00"))) + " (" + rest.length + ")"));
+      const order = { ml: 0, parlay: 1, prop: 2, longshot: 3 };
+      rest.sort((a,b) => (order[a.cat] ?? 9) - (order[b.cat] ?? 9)).forEach(b => box.append(betRow(b)));
+    }
+    const days = Array.isArray(d.days) ? d.days.slice().sort((a,b) => String(b.date).localeCompare(String(a.date))) : [];
+    if (days.length) {
+      box.append(el("div","bot-sec","By day"));
+      const t = el("table","bot-days"), hr = el("tr");
+      ["Day","Computer","Public"].forEach(x => hr.append(el("th",null,x))); t.append(hr);
+      days.slice(0, full ? 60 : 7).forEach(x => {
+        const tr = el("tr"), bp = x.bot ? x.bot.profit : 0, pp = x.public ? x.public.profit : 0;
+        tr.append(el("td",null, fmtDay(new Date(x.date + "T12:00:00"))), el("td", tone(bp), signed(bp) + " (" + recTxt(x.bot) + ")"), el("td", tone(pp), signed(pp) + " (" + recTxt(x.public) + ")"));
+        t.append(tr);
+      });
+      box.append(t);
+    }
+    if (full) {
+      const older = bets.filter(b => b.date !== latest);
+      if (older.length) { box.append(el("div","bot-sec","Earlier bets")); older.slice(0, 80).forEach(b => box.append(betRow(b))); }
+    }
+    box.append(el("div","bot-meta","Public = $25 on whichever side most bettors took, on the same games. Paper money only; not betting advice."));
+    return box;
+  }
+  function renderBotSide(){ const a = $("bot"); a.replaceChildren(); if (st.tab !== "bot") a.append(botPanel(false)); }
+
   // ---------- load (and refresh every 5 minutes) ----------
   async function getJSON(path){
     const r = await fetch(path + "?t=" + Date.now(), { cache: "no-store" });
@@ -807,7 +949,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   }
   async function load(){
     try {
-      const [emails, slips] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => [])]);
+      const [emails, slips, bot] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON("data/bot.json").catch(() => null)]);
+      st.bot = bot && typeof bot === "object" ? bot : null;
       onSlips(slips);
       onEmails(Array.isArray(emails) ? emails : []);
     } catch(e) {

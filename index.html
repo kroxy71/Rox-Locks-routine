@@ -133,6 +133,31 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .pay{background:color-mix(in srgb,var(--good) 12%,var(--surface));border-radius:6px;padding:6px 10px;font-size:14px}
 .shot{display:block;width:100%;max-width:420px;height:auto;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
 .shot-missing{font-size:13px;color:var(--muted)}
+#col{display:grid;gap:14px;min-width:0}
+#side{min-width:0}
+.tp{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tp-head{display:flex;align-items:center;gap:8px;width:100%;text-align:left;font:inherit;color:var(--ink);background:none;border:0;padding:12px 14px;min-height:48px;cursor:pointer}
+.tp-title{font:800 20px var(--f-display);letter-spacing:.05em;text-transform:uppercase}
+.tp-when{font-size:12px;color:var(--muted);margin-left:auto}
+.chev{display:inline-block;width:1em;color:var(--muted);flex:none}
+.tp-head:focus-visible,.wk-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tp-body{padding:2px 14px 14px;display:grid;gap:10px;border-top:1px solid var(--line)}
+.tp-body[hidden]{display:none}
+.tp-body p{margin:0}
+.tp-body p b{font:700 16px var(--f-display);letter-spacing:.04em}
+.tp-body > p:first-child{margin-top:10px}
+.tp-body > p:first-child b{font:800 30px/1 var(--f-display)}
+.tp-body .scroll{background:none}
+.tp-body td:not(:first-child),.tp-body th:not(:first-child){text-align:right;white-space:nowrap}
+.tp-body tr.wk td{background:color-mix(in srgb,var(--ink) 6%,var(--surface));font-weight:700}
+.tp-body tr.dy td:first-child{padding-left:26px;color:var(--muted)}
+.wk-btn{display:flex;align-items:center;gap:6px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;min-height:28px}
+@media (min-width:1000px){
+  .wrap{max-width:1020px}
+  .brand,.tabs{max-width:640px}
+  main .wrap{grid-template-columns:minmax(0,640px) 340px;gap:20px;align-items:start}
+  #side{position:sticky;top:126px;max-height:calc(100vh - 146px);overflow-y:auto}
+}
 </style>
 </head>
 <body>
@@ -151,8 +176,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 </header>
 <main>
   <div class="wrap">
-    <div class="days" id="days" aria-label="Earlier days"></div>
-    <div id="view"><div class="skel"></div><div class="skel"></div></div>
+    <div id="col">
+      <div class="days" id="days" aria-label="Earlier days"></div>
+      <div id="view"><div class="skel"></div><div class="skel"></div></div>
+    </div>
+    <aside id="side" aria-label="Accuracy tracker" hidden></aside>
   </div>
 </main>
 <footer class="wrap">KingCap stream picks, checked against the betting sites · updates on its own · for fun, not betting advice · 21+, gamble responsibly</footer>
@@ -194,7 +222,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const key = v.id + ":" + v.sent + ":" + String((v.html || v.text || "").length);
       if (!st.msgs[v.id] || st.msgs[v.id].key !== key) {
         const node = typeof v.html === "string" && v.html ? fromHtml(v.html) : fromPlain(typeof v.text === "string" ? v.text : "");
-        st.msgs[v.id] = { key, node, text: typeof v.text === "string" && v.text ? v.text : node.textContent || "" };
+        st.msgs[v.id] = { key, node, tracker: extractTracker(node), text: typeof v.text === "string" && v.text ? v.text : node.textContent || "" };
       }
       by[v.kind].push({ id: v.id, subject: String(v.subject || ""), date });
       if (!newest || date > newest) newest = date;
@@ -231,7 +259,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     return box;
   }
 
-  function render(){
+  function render(){ renderMain(); renderSide(); }
+  function renderMain(){
     const t = st.tab, view = $("view"), days = $("days");
     days.replaceChildren(); view.replaceChildren();
     if (st.err) { view.append(stateBox(st.err)); return; }
@@ -404,6 +433,59 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     });
     view.append(list);
     view.append(el("p","fine", "Finals come from the results updates, posted through the evening and again in the morning. Live in-game scores aren't shown here."));
+  }
+
+  // ---------- accuracy tracker: lifted out of the emails into its own side panel ----------
+  function collapsibleWeeks(box){
+    box.querySelectorAll("table").forEach(t => {
+      const isWk = r => /^\s*Wk\s/i.test(r.textContent);
+      const rows = Array.from(t.querySelectorAll("tr")).filter(r => !r.querySelector("th"));
+      if (!rows.some(isWk)) return;
+      const groups = []; let cur = null;
+      rows.forEach(r => {
+        if (isWk(r)) {
+          r.classList.add("wk");
+          const cell = r.children[0], btn = el("button","wk-btn"), chev = el("span","chev");
+          btn.type = "button"; btn.append(chev, ...Array.from(cell.childNodes)); cell.replaceChildren(btn);
+          cur = { days: [], open: groups.length === 0 };
+          cur.apply = (g => () => { btn.setAttribute("aria-expanded", String(g.open)); chev.textContent = g.open ? "▾" : "▸"; g.days.forEach(d => { d.hidden = !g.open; }); })(cur);
+          btn.addEventListener("click", (g => () => { g.open = !g.open; g.apply(); })(cur));
+          groups.push(cur);
+        } else if (cur) { r.classList.add("dy"); cur.days.push(r); }
+      });
+      groups.forEach(g => g.apply());
+    });
+  }
+  function extractTracker(box){
+    const h = Array.from(box.children).find(c => c.tagName === "H3" && /accuracy tracker/i.test(c.textContent));
+    if (!h) return null;
+    const nodes = [];
+    for (let n = h.nextElementSibling; n; n = n.nextElementSibling) {
+      if (n.tagName === "H3" || (n.tagName === "P" && /^\s*Confidence\s*=/i.test(n.textContent))) break;
+      nodes.push(n);
+    }
+    h.remove();
+    const body = el("div","tp-body"); nodes.forEach(x => body.append(x));
+    collapsibleWeeks(body);
+    return body;
+  }
+  function renderSide(){
+    const side = $("side"); side.replaceChildren();
+    let best = null;
+    ["picks","results"].forEach(k => (st.lists[k] || []).forEach(g => g.items.forEach(it => {
+      const m = st.msgs[it.id]; if (m && m.tracker && (!best || it.date > best.date)) best = { m, date: it.date };
+    })));
+    if (!best) { side.hidden = true; return; }
+    side.hidden = false;
+    if (st.tpOpen == null) st.tpOpen = matchMedia("(min-width:1000px)").matches;
+    const panel = el("section","tp"), head = el("button","tp-head"), chev = el("span","chev");
+    head.type = "button";
+    head.append(el("span","tp-title","Accuracy tracker"), el("span","tp-when","as of " + fmtDay(best.date)), chev);
+    const body = best.m.tracker;
+    const apply = () => { body.hidden = !st.tpOpen; head.setAttribute("aria-expanded", String(st.tpOpen)); chev.textContent = st.tpOpen ? "▾" : "▸"; };
+    head.addEventListener("click", () => { st.tpOpen = !st.tpOpen; apply(); });
+    apply();
+    panel.append(head, body); side.append(panel);
   }
 
   function cleanSubject(s){

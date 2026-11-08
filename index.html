@@ -130,6 +130,8 @@ button.row::after{content:"›";margin-left:auto;color:var(--muted);font-size:20
 .res-list{display:grid;gap:8px}
 .res-row{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--muted);border-radius:10px;padding:10px 14px;display:grid;gap:4px;min-width:0}
 .res-row.hit{border-left-color:var(--good)} .res-row.miss{border-left-color:var(--bad)} .res-row.pending{border-left-color:var(--mid)}
+.res-row.hit{background:color-mix(in srgb,var(--good) 18%,var(--surface));border-color:color-mix(in srgb,var(--good) 45%,var(--line));border-left-color:var(--good)}
+.res-row.miss{background:color-mix(in srgb,var(--bad) 18%,var(--surface));border-color:color-mix(in srgb,var(--bad) 45%,var(--line));border-left-color:var(--bad)}
 .res-top{display:flex;align-items:center;gap:6px 8px;flex-wrap:wrap}
 .res-title{font:700 18px/1.15 var(--f-display);letter-spacing:.02em;flex:1 1 140px;min-width:0}
 .pill{font:700 12px/1.8 var(--f-body);letter-spacing:.05em;border-radius:999px;padding:0 10px;color:#fff;background:var(--muted);white-space:nowrap}
@@ -529,7 +531,6 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const row = el("div","res-row " + r.status.toLowerCase()), top = el("div","res-top");
       if (r.chip) top.append(r.chip.cloneNode(true));
       top.append(el("span","res-title", r.title));
-      if (r.badge) top.append(r.badge.cloneNode(true));
       top.append(el("span","pill " + r.status.toLowerCase(), PILL[r.status] || r.status));
       row.append(top, el("div","res-note", r.note));
       list.append(row);

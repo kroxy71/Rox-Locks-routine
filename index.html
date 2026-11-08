@@ -700,6 +700,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const firstP = box.querySelector(":scope > p:not(.notice)");
     if (firstP && /stream|started|\bmin\b/i.test(firstP.textContent) && box.querySelector(".card")) firstP.remove();
     stackTables(box);
+    tidyIndex(box);
     tidyCards(box);
     return box;
   }
@@ -785,6 +786,23 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
           } else if (/^\s*Sites:/i.test(t)) tidySites(d);
         });
       } catch (e) { /* leave card as-is */ }
+    });
+  }
+  // Category index: expand short codes like "Caufield atg" using the email's own pick-card titles
+  const CODES = { atg: "anytime goal", atd: "anytime TD", ml: "ML", pra: "PRA" };
+  function tidyIndex(box){
+    const titles = Array.from(box.querySelectorAll(".card > div:first-child b")).map(b => b.textContent.replace(/\s*\(.*$/, "").trim()).filter(Boolean);
+    box.querySelectorAll(".kv .v li").forEach(li => {
+      const walker = document.createTreeWalker(li, NodeFilter.SHOW_TEXT);
+      const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(n => {
+        const m = /^(\s*)(.+?)\s+(atg|atd)\b(.*)$/i.exec(n.nodeValue);
+        if (!m) return;
+        const who = m[2].trim(), last = who.split(/\s+/).pop().toLowerCase(), kind = m[3].toLowerCase();
+        const want = kind === "atg" ? /goal/i : /\bTD\b|touchdown/i;
+        const hit = titles.find(t => t.toLowerCase().split(/\s+/).includes(last) && want.test(t));
+        n.nodeValue = m[1] + (hit || (who + " " + CODES[kind])) + m[4];
+      });
     });
   }
   function stackTables(box){

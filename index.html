@@ -639,7 +639,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const rows = el("div","sites");
     odds.filter(Boolean).forEach(o => {
       let m = /^(.*?)\s*\(([^)]*(?:via|DraftKings|FanDuel|ESPN|BetMGM|Caesars|book)[^)]*)\)\s*$/i.exec(o);
-      if (m) return rows.append(siteRow(m[2].replace(/s+vias+.*$/i, ""), m[1], "oddsrow"));
+      if (m) return rows.append(siteRow(m[2].replace(/\s+via\s+.*$/i, ""), m[1], "oddsrow"));
       m = /^(\S+)\s+(.*)$/.exec(o);
       if (m && SRC_WORD.test(m[1])) return rows.append(siteRow(m[1], m[2], "oddsrow"));
       rows.append(siteRow("Line", o, "oddsrow"));

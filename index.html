@@ -65,6 +65,7 @@ body.stats-mode main,body.stats-mode footer{display:none}
 body.stats-mode .brand,body.stats-mode .tabs{margin-left:auto;margin-right:auto}
 #stats iframe{display:block;width:100%;border:0;background:#000;height:calc(100vh - 120px)}
 .tab{font:700 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 60%,transparent);background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px 9px;cursor:pointer;min-height:44px}
+.tab{line-height:1.05}
 .tab[aria-selected="true"]{color:var(--head-ink);border-bottom-color:var(--accent)}
 main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .days{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
@@ -249,8 +250,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       <button class="tab" role="tab" id="tab-picks" data-tab="picks" aria-selected="true">Picks</button>
       <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
       <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">ML Parlay</button>
-      <button class="tab" role="tab" id="tab-bot" data-tab="bot" aria-selected="false">Computer</button>
-      <button class="tab" role="tab" id="tab-stats" data-tab="stats" aria-selected="false">Stats</button>
+      <button class="tab" role="tab" id="tab-bot" data-tab="bot" aria-selected="false">Accuracy Tracker</button>
+      <button class="tab" role="tab" id="tab-stats" data-tab="stats" aria-selected="false">SharpSheet</button>
     </div>
   </div>
 </header>
@@ -273,8 +274,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     picks:  { name: "Picks", empty: "No picks yet." },
     results:{ name: "Results", empty: "No results updates yet." },
     ml:     { name: "ML Parlay", empty: "No ML parlay yet." },
-    bot:    { name: "Computer", empty: "" },
-    stats:  { name: "Stats", empty: "" }
+    bot:    { name: "Accuracy Tracker", empty: "" },
+    stats:  { name: "SharpSheet", empty: "" }
   };
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
   const $ = id => document.getElementById(id);

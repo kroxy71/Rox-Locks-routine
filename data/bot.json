@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "start": 1000,
+ "bankroll": 1000.0,
+ "at_risk": 10.0,
+ "updated": "2026-11-08T14:00:35Z",
+ "record": {
+  "w": 0,
+  "l": 0,
+  "p": 0
+ },
+ "public_record": {
+  "w": 0,
+  "l": 0,
+  "p": 0
+ },
+ "public_bankroll": 1000.0,
+ "note": "First run. Graded 0; placed 1 bet ($10 at risk). No ML single or parlay cleared the edge bar, no prop data this run, no public split for Jets-Chiefs.",
+ "bets": [
+  {
+   "id": "2026-11-08-1",
+   "date": "2026-11-08",
+   "placed": "2026-11-08T14:00:35Z",
+   "cat": "longshot",
+   "title": "Jets ML longshot",
+   "call": "Going for it: Jets upset the Chiefs (+400) - $10 pays $40.00",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "New York Jets @ Kansas City Chiefs",
+     "start": "2026-11-08T18:00:00Z",
+     "sel": "New York Jets ML",
+     "team": "New York Jets",
+     "opp": "Kansas City Chiefs",
+     "odds": 400,
+     "book": "DraftKings",
+     "model_p": 0.196,
+     "implied_p": 0.2,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 400,
+   "book": "DraftKings",
+   "stake": 10,
+   "to_win": 40.0,
+   "model_p": 0.196,
+   "edge": -0.004,
+   "sources": "Market 19.5%, Kalshi 19.5%, ESPN 19.7%",
+   "why": "Best expected return on the slate (model 19.6% x 5.0 = 0.98, just under break-even); no moneyline single had a +2.5% edge, so this is the daily shot.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  }
+ ],
+ "public": [],
+ "days": []
+}

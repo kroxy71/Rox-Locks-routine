@@ -914,7 +914,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (full && shot.why) g.append(el("div","bb-why", String(shot.why)));
       box.append(g);
     }
-    if (latest) {
+    if (latest && day.some(b => b !== shot)) {
       const today = dayKey(new Date()) === latest, rest = day.filter(b => b !== shot);
       box.append(el("div","bot-sec", (today ? "Today's bets" : "Bets for " + fmtDay(new Date(latest + "T12:00:00"))) + " (" + rest.length + ")"));
       const order = { ml: 0, parlay: 1, prop: 2, longshot: 3 };

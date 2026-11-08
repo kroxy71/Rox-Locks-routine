@@ -55,7 +55,7 @@
     });
   }
 
-  function normName(s) { return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z]/g, ''); }
+  function normName(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]/g, ''); }
   // how a named starting goalie changes the goals his team allows, vs the team's usual goaltending
   function goalieFactor(M, team, name) {
     if (!name || !M.goalieSv) return { f: 1, info: null };

@@ -24,13 +24,17 @@
     jobs.push(optCsv('injuries.csv').then((rows) => ['inj', 'inj', rows]));
     jobs.push(optCsv('goalies.csv').then((rows) => ['gk', 'gk', rows]));
     jobs.push(optCsv('dk_props.csv').then((rows) => ['dk', 'dk', rows]));
+    jobs.push(optCsv('nfl_adv.csv').then((rows) => ['advnfl', 'adv', rows]));
+    jobs.push(optCsv('nhl_skaters.csv').then((rows) => ['advnhl', 'adv', rows]));
     jobs.push(fetch('data/teams.csv').then((r) => (r.ok ? r.text() : '')).then((x) => ['teams', 'teams', x ? K.parseCSV(x) : []]).catch(() => ['teams', 'teams', []]));
     const out = await Promise.all(jobs); const raw = { nfl: {}, nhl: {} };
-    S.colors = { nfl: {}, nhl: {} }; S.inj = { nfl: {}, nhl: {} }; let gkRows = [];
+    S.colors = { nfl: {}, nhl: {} }; S.inj = { nfl: {}, nhl: {} }; S.adv = { nfl: [], nhl: [] }; let gkRows = [];
     out.forEach(([sp, t, rows]) => {
       if (sp === 'meta') S.meta = rows;
       else if (sp === 'inj') rows.forEach((r) => { if (S.inj[r.sport]) S.inj[r.sport][K.normName(r.name) + '|' + r.team] = r; });
       else if (sp === 'gk') gkRows = rows;
+      else if (sp === 'advnfl') S.adv.nfl = rows;
+      else if (sp === 'advnhl') S.adv.nhl = rows;
       else if (sp === 'dk') {
         // DraftKings props: one-sided "X or more" and anytime odds, plus each player's main over/under line
         S.dk = { nfl: { ms: {}, ladder: {}, ou: {} }, nhl: { ms: {}, ladder: {}, ou: {} } };
@@ -689,9 +693,11 @@
   const PCATS = {
     nfl: {
       rec: { label: 'Receiving', cols: ['gp', 'tgt', 'rec', 'recy', 'rectd', 'ypr'] }, rush: { label: 'Rushing', cols: ['gp', 'att', 'rushy', 'ypa', 'rushtd'] },
-      pass: { label: 'Passing', cols: ['gp', 'cmp', 'att2', 'passy', 'passtd', 'int'] }, td: { label: 'Touchdowns', cols: ['gp', 'tds', 'rushtd', 'rectd', 'tdpg'] }
+      pass: { label: 'Passing', cols: ['gp', 'cmp', 'att2', 'passy', 'passtd', 'int'] }, td: { label: 'Touchdowns', cols: ['gp', 'tds', 'rushtd', 'rectd', 'tdpg'] },
+      use: { label: 'Usage', adv: 1, cols: ['xgp', 'xtsh', 'xwopr', 'xays', 'xtouch', 'xrecepa', 'xrushepa', 'xtds', 'xl4', 'xtdp'] }
     },
-    nhl: { sk: { label: 'Skaters', cols: ['gp', 'g', 'a', 'pts', 'sh', 'shp', 'toi'] }, gk: { label: 'Goalies', cols: ['gp', 'sv', 'sa', 'svp', 'ga'] } }
+    nhl: { sk: { label: 'Skaters', cols: ['gp', 'g', 'a', 'pts', 'sh', 'shp', 'toi'] }, gk: { label: 'Goalies', cols: ['gp', 'sv', 'sa', 'svp', 'ga'] },
+      shoot: { label: 'Shooting', adv: 1, cols: ['xgp', 'xg', 'xsh', 'xshpg', 'xshp', 'xppg', 'xtoi', 'xgoalp'] } }
   };
   const CD = {
     gp: { h: 'GP', f: (a) => a.gp }, tgt: { h: 'Targets', f: (a) => a.tgt }, rec: { h: 'Rec', f: (a) => a.rec }, recy: { h: 'Rec yds', f: (a) => a.recy }, rectd: { h: 'Rec TD', f: (a) => a.rectd }, ypr: { h: 'Yds/rec', f: (a) => a.rec ? a.recy / a.rec : 0, d: 1 },
@@ -699,6 +705,14 @@
     cmp: { h: 'Comp', f: (a) => a.cmp }, att2: { h: 'Att', f: (a) => a.patt }, passy: { h: 'Pass yds', f: (a) => a.passy }, passtd: { h: 'Pass TD', f: (a) => a.passtd }, int: { h: 'INT', f: (a) => a.ints },
     tds: { h: 'Total TD', f: (a) => a.tds }, tdpg: { h: 'TD/game', f: (a) => a.gp ? a.tds / a.gp : 0, d: 2 },
     g: { h: 'Goals', f: (a) => a.g }, a: { h: 'Assists', f: (a) => a.a }, pts: { h: 'Points', f: (a) => a.g + a.a }, sh: { h: 'Shots', f: (a) => a.sh }, shp: { h: 'Shot %', f: (a) => a.sh ? 100 * a.g / a.sh : 0, d: 1 }, toi: { h: 'TOI/G', f: (a) => a.gp ? a.toi / a.gp : 0, d: 1 },
+    // advanced (nflverse / NHL stats API rows; a = raw CSV row)
+    xgp: { h: 'GP', f: (a) => +a.gp }, xtsh: { h: 'Target share', f: (a) => 100 * (+a.target_share || 0), d: 1 }, xwopr: { h: 'WOPR', f: (a) => +a.wopr || 0, d: 2 },
+    xays: { h: 'Air yds share', f: (a) => 100 * (+a.air_yards_share || 0), d: 1 }, xtouch: { h: 'Touches/G', f: (a) => (+a.targets + +a.carries) / Math.max(1, +a.gp), d: 1 },
+    xrecepa: { h: 'Rec EPA', f: (a) => +a.rec_epa || 0, d: 1 }, xrushepa: { h: 'Rush EPA', f: (a) => +a.rush_epa || 0, d: 1 }, xtds: { h: 'TD', f: (a) => +a.tds },
+    xl4: { h: 'TD last 4', f: (a) => +a.l4_tds }, xtdp: { h: 'TD chance', f: (a) => 100 * (1 - Math.exp(-(+a.tds + 0.5 * (+a.l4_tds) + 0.3) / (+a.gp + 0.5 * (+a.l4_gp) + 2))), d: 0 },
+    xg: { h: 'Goals', f: (a) => +a.goals }, xsh: { h: 'Shots', f: (a) => +a.shots }, xshpg: { h: 'Shots/G', f: (a) => +a.shots / Math.max(1, +a.gp), d: 1 },
+    xshp: { h: 'Shot %', f: (a) => +a.shots ? 100 * +a.goals / +a.shots : 0, d: 1 }, xppg: { h: 'PP goals', f: (a) => +a.pp_goals }, xtoi: { h: 'TOI/G', f: (a) => +a.toi_pg, d: 1 },
+    xgoalp: { h: 'Goal chance', f: (a) => 100 * (1 - Math.exp(-(+a.shots / Math.max(1, +a.gp)) * ((+a.goals + 2) / (+a.shots + 20)))), d: 0 },
     sv: { h: 'Saves', f: (a) => a.sv }, sa: { h: 'Shots against', f: (a) => a.sa }, svp: { h: 'Save %', f: (a) => a.sa ? a.sv / a.sa : 0, d: 3 }, ga: { h: 'GA', f: (a) => a.ga }
   };
   function aggPlayer(M, p) {
@@ -711,6 +725,7 @@
   function renderPlayers() {
     const sp = S.sp, M = S.M[sp]; const cats = PCATS[sp]; const cat = S.players.cat[sp] || Object.keys(cats)[0]; S.players.cat[sp] = cat;
     const q = S.players.q.trim().toLowerCase();
+    if (cats[cat].adv) return renderAdvPlayers(sp, cats, cat, q);
     let list = Object.values(M.players).map((p) => ({ p, a: aggPlayer(M, p) }));
     list = list.filter((x) => {
       if (q && !(x.p.name.toLowerCase().includes(q) || x.p.team.toLowerCase().includes(q))) return false;
@@ -724,6 +739,22 @@
     if (S.players.sel && M.players[S.players.sel]) h += playerPanel(M, M.players[S.players.sel]);
     list = list.slice(0, 400);
     h += table(tid, cols, list, S.players.sort, 'players');
+    return h;
+  }
+  // Usage (nflverse) and Shooting (NHL stats API) views: season rows straight from the extra data files
+  function renderAdvPlayers(sp, cats, cat, q) {
+    const rows = (S.adv && S.adv[sp]) || [];
+    let list = rows.map((r) => ({ p: { name: r.name, team: r.team, pos: r.pos }, a: r }));
+    if (q) list = list.filter((x) => (x.p.name || '').toLowerCase().includes(q) || (x.p.team || '').toLowerCase().includes(q));
+    if (sp === 'nfl') list = list.filter((x) => x.p.pos !== 'QB' || +x.a.carries >= 20);
+    const cols = [{ k: 'name', h: 'Player', v: (r) => r.p.name, f: (r) => r.p.name }, { k: 'team', h: 'Team', v: (r) => r.p.team, f: (r) => r.p.team + (r.p.pos ? ' ' + r.p.pos : '') }].concat(cats[cat].cols.map((c) => ({ k: c, h: CD[c].h, n: 1, v: (r) => CD[c].f(r.a), f: (r) => { const v = CD[c].f(r.a); return CD[c].d != null ? v.toFixed(CD[c].d) + (/chance|share/i.test(CD[c].h) ? '%' : '') : v; } })));
+    const tid = 'players-' + sp + cat; if (!S.players.sort[tid]) S.players.sort[tid] = { key: sp === 'nfl' ? 'xtdp' : 'xgoalp', dir: 'desc' };
+    let h = '<div class="toolbar"><div class="seg-ctl" role="tablist">' + Object.keys(cats).map((k) => '<button type="button" data-cat="' + k + '" class="' + (k === cat ? 'on' : '') + '">' + cats[k].label + '</button>').join('') + '</div><label class="f grow">Search<input id="p-q" type="search" placeholder="Player or team" value="' + esc(S.players.q) + '"></label></div>';
+    if (!rows.length) return h + '<p class="lede">This data has not loaded yet. It refreshes with the rest of the stats each morning and afternoon.</p>';
+    h += '<p class="lede">' + (sp === 'nfl'
+      ? 'Season usage from nflverse (free open NFL data). Target share and WOPR show how much of the passing game runs through a player; EPA is expected points added. TD chance is a rough per-game estimate from season and last-4-game touchdowns, pulled toward average early in the season.'
+      : 'Season shooting from the NHL\'s own stats. Goal chance is a rough per-game estimate: shots per game times shooting %, with shooting % pulled toward the league norm because it swings a lot over small samples.') + '</p>';
+    h += table(tid, cols, list.slice(0, 400), S.players.sort, 'players');
     return h;
   }
   function playerPanel(M, p) {

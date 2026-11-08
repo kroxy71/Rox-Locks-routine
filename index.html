@@ -801,7 +801,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
         const who = m[2].trim(), last = who.split(/\s+/).pop().toLowerCase(), kind = m[3].toLowerCase();
         const want = kind === "atg" ? /goal/i : /\bTD\b|touchdown/i;
         const hit = titles.find(t => t.toLowerCase().split(/\s+/).includes(last) && want.test(t));
-        n.nodeValue = m[1] + (hit || (who + " " + CODES[kind])) + m[4];
+        n.nodeValue = m[1] + (hit ? hit.replace(/\s+(anytime|to score|first)\b.*$/i, "") : who) + m[4];
       });
     });
   }

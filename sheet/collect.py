@@ -292,3 +292,62 @@ def write_dk_props(out):
 
 
 print('dk props', write_dk_props(OUT))
+
+
+# ---- Extra player data (added Nov 8 2026): nflverse weekly player stats + NHL official skater stats ----
+def fetch_text(u, tries=3):
+    for i in range(tries):
+        try:
+            return urllib.request.urlopen(urllib.request.Request(u, headers=H), timeout=60).read().decode('utf8')
+        except Exception:
+            time.sleep(2 + i)
+    return None
+
+
+def write_nfl_adv(out):
+    """Season usage per player from nflverse (free open NFL data, github.com/nflverse)."""
+    yr = SPORTS['nfl'][1].year
+    txt = fetch_text(f'https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{yr}.csv')
+    if not txt:
+        return 'nflverse unavailable'
+    rows = [r for r in csv.DictReader(txt.splitlines()) if r.get('season_type') == 'REG']
+    f = lambda r, k: float(r.get(k) or 0)
+    by = {}
+    for r in rows:
+        by.setdefault(r['player_id'], []).append(r)
+    out_rows = []
+    for pid, rs in by.items():
+        rs.sort(key=lambda r: int(r['week']))
+        tgt = sum(f(r, 'targets') for r in rs); car = sum(f(r, 'carries') for r in rs)
+        if tgt + car < 5:
+            continue
+        last = rs[-1]; l4 = rs[-4:]
+        td = lambda r: f(r, 'rushing_tds') + f(r, 'receiving_tds')
+        avg = lambda k: round(sum(f(r, k) for r in rs) / len(rs), 4)
+        out_rows.append(dict(player_id=pid, name=last.get('player_display_name') or last['player_name'], team=last['team'], pos=last['position'], gp=len(rs),
+            targets=int(tgt), rec=int(sum(f(r, 'receptions') for r in rs)), rec_yds=int(sum(f(r, 'receiving_yards') for r in rs)), rec_td=int(sum(f(r, 'receiving_tds') for r in rs)),
+            carries=int(car), rush_yds=int(sum(f(r, 'rushing_yards') for r in rs)), rush_td=int(sum(f(r, 'rushing_tds') for r in rs)), tds=int(sum(td(r) for r in rs)),
+            target_share=avg('target_share'), air_yards_share=avg('air_yards_share'), wopr=avg('wopr'),
+            rec_epa=round(sum(f(r, 'receiving_epa') for r in rs), 2), rush_epa=round(sum(f(r, 'rushing_epa') for r in rs), 2),
+            l4_tds=int(sum(td(r) for r in l4)), l4_touches=int(sum(f(r, 'targets') + f(r, 'carries') for r in l4)), l4_gp=len(l4), last_week=last['week']))
+    write(os.path.join(out, 'nfl_adv.csv'), out_rows, list(out_rows[0].keys()) if out_rows else ['player_id'])
+    return len(out_rows)
+
+
+def write_nhl_skaters(out):
+    """Season skater stats from the NHL's own public stats API."""
+    y = SPORTS['nhl'][1].year
+    u = f'https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=false&isGame=false&limit=-1&cayenneExp=seasonId={y}{y + 1}%20and%20gameTypeId=2'
+    txt = fetch_text(u)
+    if not txt:
+        return 'NHL stats API unavailable'
+    data = json.loads(txt).get('data', [])
+    rows = [dict(player_id=d['playerId'], name=d['skaterFullName'], team=(d.get('teamAbbrevs') or '').split(',')[-1].strip(), pos=d.get('positionCode', ''),
+                 gp=d['gamesPlayed'], goals=d['goals'], assists=d['assists'], shots=d['shots'], pp_goals=d.get('ppGoals', 0),
+                 toi_pg=round((d.get('timeOnIcePerGame') or 0) / 60, 2)) for d in data if d.get('gamesPlayed')]
+    write(os.path.join(out, 'nhl_skaters.csv'), rows, ['player_id', 'name', 'team', 'pos', 'gp', 'goals', 'assists', 'shots', 'pp_goals', 'toi_pg'])
+    return len(rows)
+
+
+print('nflverse players', write_nfl_adv(OUT))
+print('nhl skaters', write_nhl_skaters(OUT))

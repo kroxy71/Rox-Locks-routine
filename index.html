@@ -63,6 +63,9 @@ header .wrap{padding-block:12px 0;display:grid;gap:10px}
 body.stats-mode #stats{display:block}
 body.stats-mode main,body.stats-mode footer{display:none}
 body.stats-mode .brand,body.stats-mode .tabs{margin-left:auto;margin-right:auto}
+body[data-tab="bot"] main .wrap{grid-template-columns:minmax(0,1fr)!important;max-width:1020px}
+@media (min-width:1340px){body[data-tab="bot"] .brand,body[data-tab="bot"] .tabs{margin-left:auto;margin-right:auto}}
+@media (min-width:860px){body[data-tab="bot"] #view{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}body[data-tab="bot"] #view .tp{margin-bottom:0!important}}
 #stats iframe{display:block;width:100%;border:0;background:#000;height:calc(100vh - 120px)}
 .tab{font:700 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 60%,transparent);background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px 9px;cursor:pointer;min-height:44px}
 .tab{line-height:1.05}
@@ -291,6 +294,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     st.tab = t;
     document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
     if (push) { try { history.replaceState(null, "", "#" + t); } catch(e) { location.hash = t; } }
+    document.body.dataset.tab = t;
     showStats(t === "stats");
     render();
   }
@@ -345,7 +349,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     return box;
   }
 
-  function render(){ if (st.tab === "stats") return; renderMain(); renderSide(); renderBotSide(); }
+  function render(){ if (st.tab === "stats") return; renderSide(); renderMain(); renderBotSide(); }
   // Sharp Sheet (sheet/ folder) shown full width in the Stats tab; the frame is created once and kept
   function sizeStats(){ const f = $("stats").firstElementChild; if (f) f.style.height = Math.max(320, window.innerHeight - document.querySelector("header").getBoundingClientRect().height) + "px"; }
   function showStats(on){
@@ -364,7 +368,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     if (st.err) { view.append(stateBox(st.err)); return; }
     if (!st.loaded) { view.append(el("div","skel"), el("div","skel")); return; }
     if (t === "results") { renderResults(view); return; }
-    if (t === "bot") { view.append(botPanel(true)); return; }
+    if (t === "bot") { const tf = trackerFull(); if (tf) view.append(tf); view.append(botPanel(true)); return; }
     const list = st.lists[t] || [];
     if (!list.length) { view.append(stateBox({ h: TABS[t].empty, p: "New ones show up here on their own after each KingCap stream." })); return; }
     list.forEach(g => {
@@ -568,12 +572,27 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     collapsibleWeeks(body);
     return body;
   }
-  function renderSide(){
-    const side = $("side"); side.replaceChildren();
+  function latestTracker(){
     let best = null;
     ["picks","results"].forEach(k => (st.lists[k] || []).forEach(g => g.items.forEach(it => {
       const m = st.msgs[it.id]; if (m && m.tracker && (!best || it.date > best.date)) best = { m, date: it.date };
     })));
+    return best;
+  }
+  // KingCap's tracker, open, for the Accuracy Tracker tab
+  function trackerFull(){
+    const best = latestTracker();
+    if (!best) return null;
+    const panel = el("section","tp"), head = el("div","tp-head");
+    head.append(el("span","tp-title","KingCap accuracy tracker"), el("span","tp-when","as of " + fmtDay(best.date)));
+    best.m.tracker.hidden = false;
+    panel.append(head, best.m.tracker);
+    panel.style.marginBottom = "16px";
+    return panel;
+  }
+  function renderSide(){
+    const side = $("side"); side.replaceChildren();
+    const best = st.tab === "bot" ? null : latestTracker();
     if (!best) { side.hidden = true; return; }
     side.hidden = false;
     if (st.tpOpen == null) st.tpOpen = matchMedia("(min-width:1000px)").matches;

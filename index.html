@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rox Locks</title>
+<meta name="description" content="KingCap stream picks, checked against the betting sites.">
+<meta property="og:title" content="Rox Locks">
+<meta property="og:description" content="Today's KingCap picks, results and ML parlay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;padding:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#13202B; --muted:#5B6873; --line:#D9DFE1;
+  --accent:#C2185B; --accent-ink:#FFFFFF; --head:#13202B; --head-ink:#F3F5F4; --gold:#FFC21A;
+  --good:#2E7D32; --mid:#A87700; --bad:#C62828;
+  --nfl:#1A3C8C; --nhl:#00838F; --nba:#E65100; --mlb:#6A1B9A; --ncaaf:#6D4C41; --other:#546E7A;
+  --f-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1519; --surface:#172127; --ink:#E6ECEE; --muted:#9AA8B1; --line:#2A3740;
+  --accent:#F06292; --accent-ink:#1A0710; --head:#0A1014; --head-ink:#E6ECEE;
+  --good:#66BB6A; --mid:#E0B03A; --bad:#EF5350;
+  --nfl:#5C7FD6; --nhl:#26A6B4; --nba:#FF8A3D; --mlb:#AB6BD6; --ncaaf:#B08463; --other:#8DA2AE; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1519; --surface:#172127; --ink:#E6ECEE; --muted:#9AA8B1; --line:#2A3740;
+  --accent:#F06292; --accent-ink:#1A0710; --head:#0A1014; --head-ink:#E6ECEE;
+  --good:#66BB6A; --mid:#E0B03A; --bad:#EF5350;
+  --nfl:#5C7FD6; --nhl:#26A6B4; --nba:#FF8A3D; --mlb:#AB6BD6; --ncaaf:#B08463; --other:#8DA2AE; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--head)}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--head);color:var(--head-ink)}
+header .wrap{padding-block:12px 0;display:grid;gap:10px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mark{font-family:var(--f-display);font-weight:800;font-size:30px;letter-spacing:.02em;line-height:1;text-transform:uppercase;margin:0;font-style:italic;transform:skewX(-6deg);transform-origin:left bottom}
+.mark span{color:var(--gold);text-shadow:0 0 14px color-mix(in srgb,var(--gold) 45%,transparent)}
+.mark small{display:block;font-style:normal;transform:skewX(6deg);transform-origin:left bottom;font-family:var(--f-body);font-weight:600;font-size:12px;letter-spacing:.08em;color:color-mix(in srgb,var(--head-ink) 65%,transparent);margin-top:4px}
+.live{font:600 13px var(--f-body);color:color-mix(in srgb,var(--head-ink) 75%,transparent);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block}
+.tab:focus-visible,.day:focus-visible,.btn:focus-visible,.row:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr)}
+.tab{font:700 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 60%,transparent);background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px 9px;cursor:pointer;min-height:44px}
+.tab[aria-selected="true"]{color:var(--head-ink);border-bottom-color:var(--accent)}
+main .wrap{padding-block:14px 40px;display:grid;gap:14px}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.days::-webkit-scrollbar{display:none}
+.day{flex:none;font:600 14px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px;white-space:nowrap}
+.day[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.slip-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.slip-head h2{font:800 24px/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.02em;margin:0;text-wrap:balance}
+.when{font-size:13px;color:var(--muted)}
+.state{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:10px}
+.state h3{margin:0;font:800 20px var(--f-display);text-transform:uppercase}
+.state p{margin:0;color:var(--muted)}
+.btn{justify-self:start;font:700 15px var(--f-body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:10px 16px;cursor:pointer;min-height:44px}
+.skel{height:84px;border-radius:12px;background:linear-gradient(90deg,var(--surface),color-mix(in srgb,var(--line) 60%,var(--surface)),var(--surface));background-size:200% 100%;animation:sh 1.4s infinite linear}
+@keyframes sh{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
+.mail{display:grid;gap:10px;min-width:0;overflow-wrap:anywhere}
+.mail p{margin:0}
+.mail h3.sec{--h:var(--ink);margin:10px 0 0;font:800 19px var(--f-display);letter-spacing:.05em;text-transform:uppercase;color:color-mix(in srgb,var(--h) 75%,var(--ink));display:flex;align-items:center;gap:8px}
+.mail h3.sec::after{content:"";flex:1;height:2px;background:color-mix(in srgb,var(--h) 35%,transparent)}
+.card{--edge:var(--other);background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--edge);border-radius:10px;padding:12px 14px;display:block;font-size:15px;min-width:0;scroll-margin-top:130px}
+.card b:first-of-type{font-family:var(--f-display);font-size:19px;font-weight:700;letter-spacing:.02em}
+.parlay{--edge:var(--accent)}
+.parlay b:first-of-type{color:var(--accent)}
+.chip{display:inline-block;font:700 12px/1.6 var(--f-body);letter-spacing:.04em;color:#fff;background:var(--sp,var(--other));border-radius:4px;padding:0 7px;vertical-align:2px;white-space:nowrap}
+.badge{display:inline-block;font:700 12px/1.7 var(--f-body);letter-spacing:.05em;color:#fff;border-radius:999px;padding:0 9px;vertical-align:2px;background:var(--muted)}
+.badge.high{background:var(--good)} .badge.medium{background:var(--mid)} .badge.low{background:var(--bad)}
+.cat{display:inline-block;font:600 12px/1.6 var(--f-body);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 6px;vertical-align:2px}
+.meta{color:var(--muted);font-size:14px}
+.fine{color:var(--muted);font-size:13px}
+.hit{color:var(--good)} .miss{color:var(--bad)}
+.agree{color:var(--good);font-weight:600} .disagree{color:var(--bad);font-weight:600}
+.notice{background:color-mix(in srgb,var(--mid) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--mid) 45%,transparent);border-radius:8px;padding:8px 12px;font-size:14px}
+.scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.scroll table{border-collapse:collapse;font-size:14px;width:100%;font-variant-numeric:tabular-nums}
+.scroll td,.scroll th{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.scroll tr:last-child td{border-bottom:0}
+.mail ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:15px}
+.mail a{color:var(--accent)}
+.odds{font-family:var(--f-mono);font-size:.92em}
+.glance{display:grid;gap:8px}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tile{background:var(--head);color:var(--head-ink);border-radius:10px;padding:10px 10px 9px;display:grid;align-content:start;gap:1px;min-width:0}
+.tile b{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums;color:var(--head-ink)}
+.tile span{font:700 13px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 75%,transparent)}
+.tile small{font-size:12px;color:color-mix(in srgb,var(--head-ink) 60%,transparent);overflow-wrap:anywhere}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;width:100%;text-align:left;font:inherit;font-size:15px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-height:44px}
+button.row{cursor:pointer}
+button.row::after{content:"›";margin-left:auto;color:var(--muted);font-size:20px;line-height:1}
+.row .lbl{font:700 14px var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);flex:none}
+.row .val{font-weight:600;min-width:0}
+.row .val.muted{color:var(--muted);font-weight:400}
+.row .val b{font:800 18px var(--f-display);font-variant-numeric:tabular-nums}
+.res-list{display:grid;gap:8px}
+.res-row{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--muted);border-radius:10px;padding:10px 14px;display:grid;gap:4px;min-width:0}
+.res-row.hit{border-left-color:var(--good)} .res-row.miss{border-left-color:var(--bad)} .res-row.pending{border-left-color:var(--mid)}
+.res-top{display:flex;align-items:center;gap:6px 8px;flex-wrap:wrap}
+.res-title{font:700 18px/1.15 var(--f-display);letter-spacing:.02em;flex:1 1 140px;min-width:0}
+.pill{font:700 12px/1.8 var(--f-body);letter-spacing:.05em;border-radius:999px;padding:0 10px;color:#fff;background:var(--muted);white-space:nowrap}
+.pill.hit{background:var(--good)} .pill.miss{background:var(--bad)} .pill.pending{background:var(--mid)}
+.res-note{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.res-row.hit .res-note,.res-row.miss .res-note,.res-row.push .res-note{color:var(--ink);font-weight:600}
+.kvs{display:grid;gap:10px}
+.kv{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:0}
+.kv .k{font:700 17px var(--f-display);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.kv .k b{font:inherit}
+.kv .v{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.kv .v li{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:15px;padding:7px 0;border-top:1px solid var(--line)}
+.kv .v li:first-child{border-top:0;padding-top:2px}
+.divider{font:700 15px var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-top:10px}
+.divider::after{content:"";flex:1;height:2px;background:color-mix(in srgb,var(--accent) 35%,transparent)}
+.plain{white-space:pre-wrap;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
+.slips{display:grid;gap:10px}
+.slip{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--good);border-radius:10px;padding:12px 14px;display:grid;gap:8px;min-width:0}
+.slip-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.slip-top b{font:700 19px var(--f-display);letter-spacing:.02em}
+.slip-legs{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.slip-legs li{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:15px;padding:6px 0;border-top:1px solid var(--line)}
+.slip-legs li:first-child{border-top:0;padding-top:0}
+.pay{background:color-mix(in srgb,var(--good) 12%,var(--surface));border-radius:6px;padding:6px 10px;font-size:14px}
+.shot{display:block;width:100%;max-width:420px;height:auto;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.shot-missing{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <h1 class="mark">Rox <span>Locks</span><small id="checked">Loading picks…</small></h1>
+      <span class="live" id="live" hidden><i aria-hidden="true"></i>Live</span>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-picks" data-tab="picks" aria-selected="true">Picks</button>
+      <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
+      <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">ML Parlay</button>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="days" id="days" aria-label="Earlier days"></div>
+    <div id="view"><div class="skel"></div><div class="skel"></div></div>
+  </div>
+</main>
+<footer class="wrap">KingCap stream picks, checked against the betting sites · updates on its own · for fun, not betting advice · 21+, gamble responsibly</footer>
+
+<script>
+(function(){
+  const TABS = {
+    picks:  { name: "Picks", empty: "No picks yet." },
+    results:{ name: "Results", empty: "No results updates yet." },
+    ml:     { name: "ML Parlay", empty: "No ML parlay yet." }
+  };
+  const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
+  const $ = id => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+  const fmtDay = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",month:"numeric",day:"numeric"}).format(d);
+  const fmtTime = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"numeric",minute:"2-digit"}).format(d);
+  const dayKey = d => new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York"}).format(d);
+  function stamp(){ if (!st.checked) return; $("checked").textContent = "Last update " + fmtDay(st.checked) + ", " + fmtTime(st.checked) + " ET"; }
+
+  function setTab(t, push){
+    if (!TABS[t]) t = "picks";
+    st.tab = t;
+    document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
+    if (push) { try { history.replaceState(null, "", "#" + t); } catch(e) { location.hash = t; } }
+    render();
+  }
+  document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab, true)));
+  window.addEventListener("hashchange", () => setTab(location.hash.slice(1), false));
+
+  // each email: { id, kind: picks|results|ml, subject, sent (ISO), html, text }
+  function onEmails(list){
+    const by = { picks: [], results: [], ml: [] };
+    let newest = null;
+    list.forEach(v => {
+      if (!v || !by[v.kind] || typeof v.sent !== "string" || typeof v.id !== "string") return;
+      const date = new Date(v.sent);
+      if (isNaN(date)) return;
+      const key = v.id + ":" + v.sent + ":" + String((v.html || v.text || "").length);
+      if (!st.msgs[v.id] || st.msgs[v.id].key !== key) {
+        const node = typeof v.html === "string" && v.html ? fromHtml(v.html) : fromPlain(typeof v.text === "string" ? v.text : "");
+        st.msgs[v.id] = { key, node, text: typeof v.text === "string" && v.text ? v.text : node.textContent || "" };
+      }
+      by[v.kind].push({ id: v.id, subject: String(v.subject || ""), date });
+      if (!newest || date > newest) newest = date;
+    });
+    Object.keys(by).forEach(t => {
+      st.lists[t] = group(by[t], t);
+      if (!st.sel[t] || !st.lists[t].some(x => x.key === st.sel[t])) st.sel[t] = st.lists[t][0] && st.lists[t][0].key;
+    });
+    st.loaded = true; st.err = null;
+    if (newest) { st.checked = newest; stamp(); } else $("checked").textContent = "Waiting for the first picks";
+    $("live").hidden = false;
+    render();
+  }
+  function group(list, t){
+    const groups = new Map();
+    list.forEach(x => {
+      const k = dayKey(x.date);
+      if (!groups.has(k)) groups.set(k, { key: k, date: x.date, items: [] });
+      const g = groups.get(k); g.items.push(x); if (x.date > g.date) g.date = x.date;
+    });
+    const arr = Array.from(groups.values()).sort((a,b) => b.date - a.date);
+    arr.forEach(g => g.items.sort((a,b) => t === "picks" ? a.date - b.date : b.date - a.date));
+    return arr.slice(0, 5);
+  }
+
+  function stateBox(info){
+    const box = el("div","state");
+    box.append(el("h3",null,info.h), el("p",null,info.p));
+    if (info.retry) {
+      const b = el("button","btn","Try again"); b.type = "button";
+      b.addEventListener("click", () => location.reload());
+      box.append(b);
+    }
+    return box;
+  }
+
+  function render(){
+    const t = st.tab, view = $("view"), days = $("days");
+    days.replaceChildren(); view.replaceChildren();
+    if (st.err) { view.append(stateBox(st.err)); return; }
+    if (!st.loaded) { view.append(el("div","skel"), el("div","skel")); return; }
+    if (t === "results") { renderResults(view); return; }
+    const list = st.lists[t] || [];
+    if (!list.length) { view.append(stateBox({ h: TABS[t].empty, p: "New ones show up here on their own after each KingCap stream." })); return; }
+    list.forEach(g => {
+      const b = el("button","day", fmtDay(g.date));
+      b.type = "button"; b.setAttribute("aria-pressed", String(g.key === st.sel[t]));
+      b.addEventListener("click", () => { st.sel[t] = g.key; render(); });
+      days.append(b);
+    });
+    const g = list.find(x => x.key === st.sel[t]) || list[0];
+    const head = el("div","slip-head");
+    head.append(el("h2", null, cleanSubject(g.items[0].subject).replace(/\s*\(Update\)\s*$/i, "")));
+    const n = g.items.length;
+    head.append(el("span","when", (n > 1 ? n + " updates · last " : "Sent ") + fmtTime(g.date) + " ET"));
+    view.append(head);
+    if (t === "picks") { const gl = glance(g); if (gl) view.append(gl); const sl = slipSection(g.key); if (sl) view.append(sl); }
+    g.items.forEach((item, i) => {
+      if (n > 1) {
+        const label = t === "picks" ? (i === 0 ? "First picks" : "Update " + i) : (i === 0 ? "Latest" : "Earlier");
+        view.append(el("div","divider", label + " · " + fmtTime(item.date) + " ET"));
+      }
+      const msg = st.msgs[item.id];
+      if (msg) view.append(msg.node);
+    });
+  }
+
+  const toMin = s => { const m = /(\d{1,2}):(\d{2})\s*([AP])M/i.exec(s); if (!m) return null; let h = +m[1] % 12; if (/p/i.test(m[3])) h += 12; return h * 60 + +m[2]; };
+  function tile(big, label, sub){
+    const d = el("div","tile"); d.append(el("b",null,big), el("span",null,label)); if (sub) d.append(el("small",null,sub)); return d;
+  }
+  function glance(g){
+    const nodes = g.items.map(i => st.msgs[i.id]);
+    if (nodes.some(m => !m || !m.node)) return null;
+    const roots = nodes.map(m => m.node);
+    const cards = roots.flatMap(n => Array.from(n.querySelectorAll(".card:not(.parlay):not(.slip)")));
+    if (!cards.length) return null;
+    const sports = {};
+    let high = 0, first = null, firstTxt = "";
+    cards.forEach(c => {
+      const chip = c.querySelector(".chip"); const sp = chip ? chip.textContent.replace(/[^A-Za-z]/g,"").toUpperCase() : "OTHER";
+      sports[sp] = (sports[sp] || 0) + 1;
+      if (c.querySelector(".badge.high")) high++;
+      const meta = c.querySelector(".meta"); const mt = meta && /(\d{1,2}:\d{2}\s*[AP]M)\s*ET/i.exec(meta.textContent);
+      if (mt) { const v = toMin(mt[1]); if (v != null && (first == null || v < first)) { first = v; firstTxt = mt[1].toUpperCase(); } }
+    });
+    const box = el("section","glance"); box.setAttribute("aria-label","At a glance");
+    const tiles = el("div","tiles");
+    tiles.append(
+      tile(String(cards.length), cards.length === 1 ? "pick" : "picks", Object.keys(sports).map(k => sports[k] + " " + k).join(" · ")),
+      tile(String(high), "high confidence", high ? null : "none rated high"),
+      tile(firstTxt ? firstTxt.replace(/\s*[AP]M/,"") : "—", firstTxt ? firstTxt.slice(-2) + " ET first game" : "game time not found")
+    );
+    box.append(tiles);
+    const best = cards[0], bt = best.querySelector("b");
+    if (bt) {
+      const row = el("button","row best"); row.type = "button";
+      row.append(el("span","lbl","Best bet"), el("span","val", bt.textContent.trim()));
+      const bd = best.querySelector(".badge"); if (bd) row.append(el("span", bd.className, bd.textContent));
+      row.addEventListener("click", () => { best.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }); });
+      box.append(row);
+    }
+    box.append(recordRow());
+    return box;
+  }
+  function record(){
+    const rl = st.lists.results;
+    if (!rl) return null;
+    let h = 0, m = 0;
+    rl.forEach(g => g.items.forEach(it => {
+      const msg = st.msgs[it.id];
+      if (!msg) return;
+      const r = /(\d+)\s*HIT,\s*(\d+)\s*MISS/i.exec(msg.text || "");
+      if (r) { h += +r[1]; m += +r[2]; }
+    }));
+    return { h, m };
+  }
+  function recordRow(){
+    const r = record(), row = el("div","row rec");
+    row.append(el("span","lbl","Last 5 Days"));
+    if (!r || !(r.h + r.m)) row.append(el("span","val muted","No graded picks yet"));
+    else {
+      const pct = Math.round(100 * r.h / (r.h + r.m));
+      const v = el("span","val"); v.append(el("b", r.h >= r.m ? "hit" : "miss", r.h + "–" + r.m), document.createTextNode(" · " + pct + "% hit"));
+      row.append(v);
+    }
+    return row;
+  }
+
+  const STOP = new Set("to win the and ml at vs over under anytime goal scorer moneyline spread total game half first pick plus".split(" "));
+  const toks = s => s.toLowerCase().replace(/[^a-z0-9\s]/g," ").split(/\s+/).filter(w => w.length >= 3 && !STOP.has(w) && !/^\d/.test(w));
+  const dir = s => /\bover\b/i.test(s) ? "over" : /\bunder\b/i.test(s) ? "under" : "";
+  const fmtMD = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric"}).format(d);
+  const PILL = { HIT:"✓ HIT", MISS:"✗ MISS", PUSH:"PUSH", VOID:"VOID", PENDING:"PENDING", UPCOMING:"UPCOMING", NORESULT:"NO RESULT" };
+  function renderResults(view){
+    const pl = st.lists.picks || [], rl = st.lists.results || [];
+    if (!pl.length) { view.append(stateBox({ h: "No picks yet", p: "Once there are picks, each one shows here with its result." })); return; }
+    if (!st.resDay || !pl.some(x => x.key === st.resDay)) st.resDay = pl[0].key;
+    const days = $("days");
+    pl.forEach(d => {
+      const b = el("button","day", dayKey(new Date()) === d.key ? "Today" : fmtDay(d.date));
+      b.type = "button"; b.setAttribute("aria-pressed", String(d.key === st.resDay));
+      b.addEventListener("click", () => { st.resDay = d.key; render(); });
+      days.append(b);
+    });
+    const g = pl.find(x => x.key === st.resDay) || pl[0];
+    const head = el("div","slip-head");
+    head.append(el("h2", null, "Results · " + fmtDay(g.date)), el("span","when", dayKey(new Date()) === g.key ? "Today's picks" : "Picks from " + fmtDay(g.date)));
+    view.append(head);
+    const resItems = rl.flatMap(x => x.items).filter(i => i.date >= g.items[0].date);
+    const cards = g.items.map(i => st.msgs[i.id]).filter(m => m && m.node).flatMap(m => Array.from(m.node.querySelectorAll(".card:not(.parlay):not(.slip)")));
+    if (!cards.length) { view.append(stateBox({ h: "No firm picks", p: "KingCap didn't make any firm picks on this stream." })); return; }
+    const md = fmtMD(g.date), graded = [];
+    resItems.forEach(i => {
+      const m = st.msgs[i.id];
+      if (!m || !m.text) return;
+      let inDay = false;
+      m.text.split(/\r?\n/).forEach(raw => {
+        const line = raw.trim();
+        const h = /^(?:[A-Za-z]{3}\s+)?([A-Za-z]{3}\s+\d{1,2})\s+stream\b/i.exec(line);
+        if (h) { inDay = h[1].replace(/\s+/," ").toLowerCase() === md.toLowerCase(); return; }
+        const r = /^(HIT|MISS|PUSH|VOID):\s*\[([^\]]+)\]\s*(.+?)\s*(?:\[[^\]]*\])?\s*-\s*(.*)$/i.exec(line);
+        if (r && inDay) { graded.push({ res: r[1].toUpperCase(), sp: r[2].replace(/[^A-Za-z]/g,"").toUpperCase(), title: r[3], score: r[4], used: false }); return; }
+        const r2 = /^\[([^\]]+)\]\s*(.+?)\s*\([^)]*\):\s*(HIT|MISS|PUSH|VOID),?\s*(.*)$/i.exec(line);
+        if (r2 && inDay) graded.push({ res: r2[3].toUpperCase(), sp: r2[1].replace(/[^A-Za-z]/g,"").toUpperCase(), title: r2[2], score: r2[4], used: false });
+      });
+    });
+    const now = new Date(), isToday = dayKey(now) === g.key, nowMin = toMin(fmtTime(now));
+    const rows = cards.map(c => {
+      const b = c.querySelector("b"), title = b ? b.textContent.trim() : "Pick";
+      const chip = c.querySelector(".chip"), sp = chip ? chip.textContent.replace(/[^A-Za-z]/g,"").toUpperCase() : "";
+      const tk = toks(title);
+      let best = null;
+      graded.forEach(gr => {
+        if (gr.used || (sp && gr.sp && gr.sp !== sp) || dir(title) !== dir(gr.title)) return;
+        const gt = new Set(toks(gr.title)); const sc = tk.length ? tk.filter(w => gt.has(w)).length / tk.length : 0;
+        if (sc >= 0.5 && (!best || sc > best.sc)) best = { gr, sc };
+      });
+      let status, note;
+      if (best) { best.gr.used = true; status = best.gr.res; note = best.gr.score; }
+      else {
+        const meta = c.querySelector(".meta"), mt = meta && /(\d{1,2}:\d{2}\s*[AP]M)\s*ET/i.exec(meta.textContent), sm = mt ? toMin(mt[1]) : null;
+        if (isToday && sm != null && nowMin != null && nowMin < sm) { status = "UPCOMING"; note = "Starts " + mt[1].toUpperCase() + " ET"; }
+        else if (isToday || (now - g.date) < 36e5 * 18) { status = "PENDING"; note = isToday ? "Under way or just ended · waiting for the final" : "Waiting for the final result"; }
+        else { status = "NORESULT"; note = "No result reported · usually a pick with no line, so it can't be graded"; }
+      }
+      return { c, chip, title, status, note, badge: c.querySelector(".badge") };
+    });
+    const n = s => rows.filter(r => s.includes(r.status)).length;
+    const tiles = el("div","tiles");
+    tiles.append(tile(String(n(["HIT"])), "hit"), tile(String(n(["MISS"])), "miss"), tile(String(n(["PENDING","UPCOMING"])), "still to go"));
+    const gl = el("section","glance"); gl.append(tiles, recordRow()); view.append(gl);
+    const list = el("div","res-list");
+    rows.forEach(r => {
+      const row = el("div","res-row " + r.status.toLowerCase()), top = el("div","res-top");
+      if (r.chip) top.append(r.chip.cloneNode(true));
+      top.append(el("span","res-title", r.title));
+      if (r.badge) top.append(r.badge.cloneNode(true));
+      top.append(el("span","pill " + r.status.toLowerCase(), PILL[r.status] || r.status));
+      row.append(top, el("div","res-note", r.note));
+      list.append(row);
+    });
+    view.append(list);
+    view.append(el("p","fine", "Finals come from the results updates, posted through the evening and again in the morning. Live in-game scores aren't shown here."));
+  }
+
+  function cleanSubject(s){
+    return s.replace(/^\[TEST\][^-]*-\s*/i, "Test · ").replace(/^KingCap's Picks for\s*/i, "Picks · ").replace(/^KingCap (Results Update|Morning Results)\s*-\s*/i, "Results · ").replace(/^Daily ML Parlay(\s*&\s*Best Bets)?\s*-\s*/i, "ML Parlay · ") || "Rox Locks";
+  }
+
+  // ---------- safe re-set of the email HTML (only known tags, no scripts, no images) ----------
+  const SPORT = { NFL:"--nfl", NHL:"--nhl", NBA:"--nba", MLB:"--mlb", NCAAF:"--ncaaf", NCAAB:"--other", UFC:"--other", WNBA:"--nba", CBB:"--other" };
+  const ALLOWED = new Set(["P","B","STRONG","I","EM","BR","SPAN","UL","OL","LI","TABLE","THEAD","TBODY","TR","TD","TH","H3","H4","DIV","A","SMALL","U"]);
+  const hexIn = (style, prop) => { const m = new RegExp(prop + "\\s*:[^;]*?(#[0-9a-fA-F]{3,6})\\b").exec(style || ""); return m ? m[1] : null; };
+  function realHref(h){
+    try {
+      let u = new URL(h);
+      if (/(^|\.)google\.com$/.test(u.hostname) && u.pathname === "/url" && u.searchParams.get("q")) u = new URL(u.searchParams.get("q"));
+      if (/(^|\.)mail\.google\.com$/.test(u.hostname)) return null;
+      return /^https?:$/.test(u.protocol) ? u.href : null;
+    } catch(e) { return null; }
+  }
+  function classify(src, out){
+    const style = src.getAttribute("style") || "";
+    const txt = (src.textContent || "").trim();
+    const tag = src.tagName;
+    if (tag === "SPAN") {
+      const word = txt.replace(/[^\x20-\x7E]/g,"").trim().toUpperCase();
+      if (SPORT[word] || (/border-radius:\s*4px/.test(style) && /color:\s*#fff/i.test(style) && /^[A-Z ]{2,8}$/.test(word))) {
+        out.className = "chip"; out.style.setProperty("--sp", "var(" + (SPORT[word] || "--other") + ")"); return;
+      }
+      if (/^(HIGH|MEDIUM|MED|LOW)$/i.test(txt)) { out.className = "badge " + ({MED:"medium"}[txt.toUpperCase()] || txt.toLowerCase()); return; }
+      if (/border:\s*1px solid/.test(style) && /border-radius:\s*4px/.test(style)) { out.className = "cat"; return; }
+      if (/^agrees/i.test(txt)) { out.className = "agree"; return; }
+      if (/^disagrees/i.test(txt)) { out.className = "disagree"; return; }
+      if (/font-size:\s*1[23]px/.test(style) || /color:\s*#(555|777|666|888)/i.test(style)) { out.className = /12px/.test(style) ? "fine" : "meta"; return; }
+      if (/^[+-]\d{3,4}$/.test(txt)) { out.className = "odds"; return; }
+    }
+    if (tag === "B" || tag === "STRONG") {
+      if (/(✓)?\s*(PARLAY\s+)?HIT\b/.test(txt) && !/MISS/.test(txt)) out.className = "hit";
+      else if (/(✗)?\s*(PARLAY\s+)?MISS\b/.test(txt)) out.className = "miss";
+      return;
+    }
+    if (tag === "DIV" && /border-left/.test(style)) {
+      out.className = "card";
+      const c = (hexIn(style, "border-left") || "").toLowerCase();
+      const map = {"#1a3c8c":"--nfl","#00838f":"--nhl","#e65100":"--nba","#6a1b9a":"--mlb","#6d4c41":"--ncaaf","#ad1457":"--accent","#2e7d32":"--good","#c62828":"--bad","#b8860b":"--mid"};
+      if (c === "#ad1457") out.classList.add("parlay");
+      if (c === "#2e7d32" && /\[\d{1,2}:\d{2}(?::\d{2})?\]/.test(txt)) out.classList.add("slip");
+      out.style.setProperty("--edge", map[c] ? "var(" + map[c] + ")" : "var(--other)");
+      return;
+    }
+    if (tag === "DIV" && /background:\s*#E8F5E9/i.test(style)) { out.className = "pay"; return; }
+    if (tag === "P") {
+      if (/border:\s*1px solid/.test(style)) out.className = "notice";
+      else if (/font-size:\s*12px/.test(style) || /color:\s*#777/i.test(style)) out.className = "fine";
+      return;
+    }
+    if (tag === "H3" || tag === "H4") {
+      out.className = "sec";
+      const c = hexIn(style, "(?:^|;)\\s*color");
+      const map = {"#c62828":"--bad","#b8860b":"--mid","#1565c0":"--nfl","#ad1457":"--accent","#2e7d32":"--good","#777":"--muted"};
+      out.style.setProperty("--h", c && map[c.toLowerCase()] ? "var(" + map[c.toLowerCase()] + ")" : "var(--ink)");
+    }
+  }
+  function copy(src, parent){
+    for (const n of Array.from(src.childNodes)) {
+      if (n.nodeType === 3) {
+        const lines = n.nodeValue;
+        if (/^\s*(KCDATA|KCPAR|KCRES|KCSLIP|MLP|Videos):/m.test(lines)) continue;
+        parent.append(document.createTextNode(lines));
+        continue;
+      }
+      if (n.nodeType !== 1) continue;
+      const tag = n.tagName;
+      if (!ALLOWED.has(tag)) { if (!/^(SCRIPT|STYLE|IFRAME|OBJECT|EMBED|svg|SVG|IMG|LINK|META|FORM|INPUT|BUTTON|TEXTAREA|SELECT|TEMPLATE)$/.test(tag)) copy(n, parent); continue; }
+      if (tag === "TABLE") {
+        const wrap = el("div","scroll"); const t = document.createElement("table");
+        copy(n, t); wrap.append(t); parent.append(wrap); continue;
+      }
+      const out = document.createElement(tag === "H4" ? "h3" : tag.toLowerCase());
+      if (tag === "A") {
+        const h = realHref(n.getAttribute("href") || "");
+        if (h) { out.href = h; out.target = "_blank"; out.rel = "noopener noreferrer"; }
+      }
+      classify(n, out);
+      copy(n, out);
+      parent.append(out);
+    }
+  }
+  function fromHtml(html){
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const box = el("div","mail");
+    let root = doc.body;
+    while (root.children.length === 1 && root.firstElementChild.tagName === "DIV" && !/border-left/.test(root.firstElementChild.getAttribute("style")||"")) root = root.firstElementChild;
+    copy(root, box);
+    Array.from(box.childNodes).forEach(n => { if (n.nodeType === 3 && !n.nodeValue.trim()) n.remove(); });
+    const firstP = box.querySelector(":scope > p:not(.notice)");
+    if (firstP && /stream|started|\bmin\b/i.test(firstP.textContent) && box.querySelector(".card")) firstP.remove();
+    stackTables(box);
+    return box;
+  }
+  function stackTables(box){
+    box.querySelectorAll(".scroll").forEach(wrap => {
+      const rows = Array.from(wrap.querySelectorAll("tr"));
+      if (!rows.length || !rows.every(r => r.children.length === 2)) return;
+      const stack = el("div","kvs");
+      rows.forEach(r => {
+        const k = r.children[0], v = r.children[1];
+        const blk = el("div","kv"), kh = el("div","k"), ul = el("ul","v");
+        kh.append(...Array.from(k.childNodes));
+        let li = el("li");
+        const push = () => { if (li.textContent.trim()) ul.append(badgeify(li)); li = el("li"); };
+        Array.from(v.childNodes).forEach(node => {
+          if (node.nodeType === 3 && node.nodeValue.indexOf(";") !== -1) {
+            node.nodeValue.split(";").forEach((part, i) => {
+              if (i > 0) push();
+              const s = i > 0 ? part.replace(/^\s+/, "") : part;
+              if (s) li.append(document.createTextNode(s));
+            });
+          } else li.append(node);
+        });
+        push();
+        blk.append(kh, ul); stack.append(blk);
+      });
+      wrap.replaceWith(stack);
+    });
+  }
+  function badgeify(li){
+    Array.from(li.childNodes).forEach(node => {
+      if (node.nodeType !== 3) return;
+      const m = /\((HIGH|MEDIUM|MED|LOW)\)/i.exec(node.nodeValue);
+      if (!m) return;
+      const after = node.splitText(m.index); after.nodeValue = after.nodeValue.slice(m[0].length);
+      const w = m[1].toUpperCase(), cls = w === "MED" ? "medium" : w.toLowerCase();
+      li.insertBefore(el("span","badge " + cls, w === "MED" ? "MEDIUM" : w), after);
+    });
+    return li;
+  }
+  function fromPlain(text){
+    const keep = text.split(/\r?\n/).filter(l => !/^\s*(KCDATA|KCPAR|KCRES|KCSLIP|MLP|Videos):/.test(l)).join("\n").trim();
+    const box = el("div","mail"); box.append(el("div","plain", keep || "Nothing to show for this one."));
+    return box;
+  }
+
+  // ---------- parlays he showed on stream (data/slips.json + slips/*.jpg) ----------
+  const SPV = { NFL:"--nfl", NHL:"--nhl", NBA:"--nba", MLB:"--mlb", NCAAF:"--ncaaf" };
+  const secs = t => { const p = String(t || "").split(":").map(Number); return p.reduce((a, b) => a * 60 + (b || 0), 0); };
+  function onSlips(list){
+    const by = {};
+    (Array.isArray(list) ? list : []).forEach(v => { if (v && typeof v.date === "string") (by[v.date] = by[v.date] || []).push(v); });
+    Object.values(by).forEach(a => a.sort((x, y) => secs(x.t) - secs(y.t)));
+    st.slips = by;
+  }
+  function twitchLink(u){
+    try { const x = new URL(u); return x.protocol === "https:" && /(^|\.)twitch\.tv$/.test(x.hostname) ? x.href : null; } catch(e) { return null; }
+  }
+  function slipSection(day){
+    const list = st.slips[day];
+    if (!list || !list.length) return null;
+    const items = (st.lists.picks || []).find(x => x.key === day);
+    if (items) items.items.forEach(i => { const m = st.msgs[i.id]; if (!m || !m.node) return;
+      m.node.querySelectorAll(".card.slip").forEach(c => c.hidden = true);
+      m.node.querySelectorAll("h3.sec").forEach(h => { if (/ON STREAM/i.test(h.textContent)) h.hidden = true; }); });
+    const box = el("section","slips"); box.setAttribute("aria-label","Parlays he showed on stream");
+    const h = el("h3","sec","Parlays he showed on stream"); h.style.setProperty("--h","var(--good)");
+    const wrap = el("div","mail"); wrap.append(h); box.append(wrap);
+    list.forEach(v => {
+      const c = el("div","slip"), top = el("div","slip-top");
+      top.append(el("b", null, String(v.book || "Sportsbook")));
+      top.append(el("span","meta", [v.t ? "[" + v.t + "]" : "", v.title, v.odds ? "odds " + v.odds : "", v.wager].filter(Boolean).map(String).join(" · ")));
+      c.append(top);
+      const ul = el("ul","slip-legs");
+      (Array.isArray(v.legs) ? v.legs : []).forEach(l => {
+        const li = el("li"), sp = String((l && l.sp) || "").toUpperCase();
+        if (sp) { const ch = el("span","chip", sp); ch.style.setProperty("--sp","var(" + (SPV[sp] || "--other") + ")"); li.append(ch); }
+        li.append(document.createTextNode(String((l && l.text) || "")));
+        ul.append(li);
+      });
+      c.append(ul);
+      if (v.pays10) {
+        const p = el("div","pay");
+        p.append(el("b", null, [v.live_odds ? "Live odds " + v.live_odds : "", String(v.pays10)].filter(Boolean).join(" · ")));
+        const tail = [v.odds_at ? "FanDuel as of " + v.odds_at : "", v.flags].filter(Boolean).join(" · ");
+        if (tail) p.append(document.createTextNode(" · " + tail));
+        c.append(p);
+      }
+      if (v.note) c.append(el("p","fine", String(v.note)));
+      if (typeof v.img === "string" && /^slips\/[A-Za-z0-9_.-]+\.jpg$/.test(v.img)) {
+        const img = el("img","shot"); img.alt = "Bet slip as shown on stream" + (v.t ? " at " + v.t : ""); img.loading = "lazy"; img.src = v.img;
+        img.addEventListener("error", () => img.replaceWith(el("p","shot-missing","Screenshot not available")));
+        c.append(img);
+      }
+      const href = twitchLink(v.link);
+      if (href) { const a = el("a", null, "Watch this moment on Twitch"); a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer"; const p = el("p","fine"); p.append(a); c.append(p); }
+      box.append(c);
+    });
+    return box;
+  }
+
+  // ---------- load (and refresh every 5 minutes) ----------
+  async function getJSON(path){
+    const r = await fetch(path + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(path + " " + r.status);
+    return r.json();
+  }
+  async function load(){
+    try {
+      const [emails, slips] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => [])]);
+      onSlips(slips);
+      onEmails(Array.isArray(emails) ? emails : []);
+    } catch(e) {
+      if (!st.loaded) { $("checked").textContent = "Couldn't load"; st.err = { h: "Couldn't load the picks", p: "Check your connection and try again.", retry: true }; render(); }
+    }
+  }
+  setTab(location.hash.slice(1) || "picks", false);
+  load();
+  setInterval(load, 5 * 60 * 1000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) load(); });
+})();
+</script>
+</body>
+</html>

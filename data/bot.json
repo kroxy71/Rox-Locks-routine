@@ -1,12 +1,12 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1000.0,
- "at_risk": 10.0,
- "updated": "2026-11-08T14:00:35Z",
+ "bankroll": 990.0,
+ "at_risk": 80,
+ "updated": "2026-11-09T16:15:59Z",
  "record": {
   "w": 0,
-  "l": 0,
+  "l": 1,
   "p": 0
  },
  "public_record": {
@@ -14,8 +14,8 @@
   "l": 0,
   "p": 0
  },
- "public_bankroll": 1000.0,
- "note": "First run. Graded 0; placed 1 bet ($10 at risk). No ML single or parlay cleared the edge bar, no prop data this run, no public split for Jets-Chiefs.",
+ "public_bankroll": 1000,
+ "note": "Graded 1 (0-1, -$10.00); placed 5 bets, $80 at risk (Monday: MNF + 8 NBA + 3 NHL games, no college). Only Dallas cleared the edge bar; the rest are leans. No NHL pick: no edge. NHL FanDuel prices excluded (3-way); sharp-money adjustment skipped (split parse unclear); only Hockenson priced among TD props, none hit +4%. Public shadow: 5 games.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -37,8 +37,8 @@
      "book": "DraftKings",
      "model_p": 0.196,
      "implied_p": 0.2,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Chiefs 35-12"
     }
    ],
    "odds": 400,
@@ -49,11 +49,337 @@
    "edge": -0.004,
    "sources": "Market 19.5%, Kalshi 19.5%, ESPN 19.7%",
    "why": "Best expected return on the slate (model 19.6% x 5.0 = 0.98, just under break-even); no moneyline single had a +2.5% edge, so this is the daily shot.",
+   "status": "lost",
+   "profit": -10.0,
+   "result": "Chiefs 35, Jets 12"
+  },
+  {
+   "id": "2026-11-09-1",
+   "date": "2026-11-09",
+   "placed": "2026-11-09T16:15:59Z",
+   "cat": "ml",
+   "title": "Dallas Mavericks ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Indiana Pacers @ Dallas Mavericks",
+     "start": "2026-11-10T01:00:00Z",
+     "sel": "Dallas Mavericks ML",
+     "team": "Dallas Mavericks",
+     "opp": "Indiana Pacers",
+     "odds": -148,
+     "book": "FanDuel",
+     "model_p": 0.618,
+     "implied_p": 0.597,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -148,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 16.89,
+   "model_p": 0.618,
+   "edge": 0.021,
+   "sources": "Market 58%, Kalshi 60%, Polymarket 60%, ESPN 74%, OddsShark 59%",
+   "why": "Model 62% vs FanDuel -148 (60%): the market, Kalshi and Polymarket agree and ESPN is higher on Dallas.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-2",
+   "date": "2026-11-09",
+   "placed": "2026-11-09T16:15:59Z",
+   "cat": "ml",
+   "title": "Memphis Grizzlies ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Memphis Grizzlies @ Toronto Raptors",
+     "start": "2026-11-10T00:30:00Z",
+     "sel": "Memphis Grizzlies ML",
+     "team": "Memphis Grizzlies",
+     "opp": "Toronto Raptors",
+     "odds": 130,
+     "book": "FanDuel",
+     "model_p": 0.442,
+     "implied_p": 0.435,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 130,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 32.5,
+   "model_p": 0.442,
+   "edge": 0.007,
+   "sources": "Market 42%, Kalshi 42%, Polymarket 42%, ESPN 49%, OddsShark 46%",
+   "why": "Lean: Model 44% vs FanDuel +130 (44%); a slim plus-price edge, ESPN likes Memphis most.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-3",
+   "date": "2026-11-09",
+   "placed": "2026-11-09T16:15:59Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Pistons + Spurs",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Washington Wizards @ Detroit Pistons",
+     "start": "2026-11-10T00:00:00Z",
+     "sel": "Detroit Pistons ML",
+     "team": "Detroit Pistons",
+     "opp": "Washington Wizards",
+     "odds": -490,
+     "book": "FanDuel",
+     "model_p": 0.801,
+     "implied_p": 0.831,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "San Antonio Spurs @ Phoenix Suns",
+     "start": "2026-11-10T02:00:00Z",
+     "sel": "San Antonio Spurs ML",
+     "team": "San Antonio Spurs",
+     "opp": "Phoenix Suns",
+     "odds": -350,
+     "book": "FanDuel",
+     "model_p": 0.759,
+     "implied_p": 0.778,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -182,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 5.48,
+   "model_p": 0.608,
+   "edge": -0.038,
+   "sources": "Detroit: Market 80%, Kalshi 82%, Polymarket 82%, ESPN 78%, OddsShark 81%; San Antonio: Market 75%, Kalshi 78%, Polymarket 78%, ESPN 76%, OddsShark 76%",
+   "why": "Lean: the two highest-probability sides on the slate (Detroit 80%, San Antonio 76%) in different games; price is slightly short of fair.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-4",
+   "date": "2026-11-09",
+   "placed": "2026-11-09T16:15:59Z",
+   "cat": "prop",
+   "title": "T.J. Hockenson anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Buffalo Bills @ Minnesota Vikings",
+     "start": "2026-11-10T01:15:00Z",
+     "sel": "T.J. Hockenson anytime TD",
+     "team": "Minnesota Vikings",
+     "opp": "Buffalo Bills",
+     "player": "T.J. Hockenson",
+     "odds": 245,
+     "book": "DraftKings",
+     "model_p": 0.318,
+     "implied_p": 0.29,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 245,
+   "book": "DraftKings",
+   "stake": 10,
+   "to_win": 24.5,
+   "model_p": 0.318,
+   "edge": 0.028,
+   "sources": "Covers 0.38 TDs (32%), nflverse 3 TD in 7 GP (season model 32%), blend 32% vs DraftKings +245 (29%); Buffalo allows the most receiving TDs to WRs/TEs per Covers",
+   "why": "Lean: Covers projects 0.38 TDs and he has 3 TD in 7 games; model edge about 3 points, under the 4-point bar.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-5",
+   "date": "2026-11-09",
+   "placed": "2026-11-09T16:15:59Z",
+   "cat": "longshot",
+   "title": "3-leg ML parlay: Mavericks + Hornets + Grizzlies",
+   "call": "Going for it: Mavericks, Hornets and Grizzlies all win (+1403) - $10 pays $140.30",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Indiana Pacers @ Dallas Mavericks",
+     "start": "2026-11-10T01:00:00Z",
+     "sel": "Dallas Mavericks ML",
+     "team": "Dallas Mavericks",
+     "opp": "Indiana Pacers",
+     "odds": -148,
+     "book": "FanDuel",
+     "model_p": 0.618,
+     "implied_p": 0.597,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Cleveland Cavaliers @ Charlotte Hornets",
+     "start": "2026-11-10T00:00:00Z",
+     "sel": "Charlotte Hornets ML",
+     "team": "Charlotte Hornets",
+     "opp": "Cleveland Cavaliers",
+     "odds": 290,
+     "book": "FanDuel",
+     "model_p": 0.264,
+     "implied_p": 0.256,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Memphis Grizzlies @ Toronto Raptors",
+     "start": "2026-11-10T00:30:00Z",
+     "sel": "Memphis Grizzlies ML",
+     "team": "Memphis Grizzlies",
+     "opp": "Toronto Raptors",
+     "odds": 130,
+     "book": "FanDuel",
+     "model_p": 0.442,
+     "implied_p": 0.435,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 1403,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 140.31,
+   "model_p": 0.072,
+   "edge": 0.006,
+   "sources": "Mavs, Hornets and Grizzlies each at or above market no-vig, Kalshi and Polymarket",
+   "why": "Best expected return of any +400 or longer shot (model p x payout about 1.08); every leg is priced at or above fair value by the model.",
    "status": "pending",
    "profit": null,
    "result": ""
   }
  ],
- "public": [],
- "days": []
+ "public": [
+  {
+   "id": "2026-11-09-p1",
+   "date": "2026-11-09",
+   "sp": "NBA",
+   "game": "Indiana Pacers @ Dallas Mavericks",
+   "start": "2026-11-10T01:00:00Z",
+   "sel": "Dallas Mavericks ML",
+   "team": "Dallas Mavericks",
+   "opp": "Indiana Pacers",
+   "odds": -148,
+   "pct_bets": 91,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-p2",
+   "date": "2026-11-09",
+   "sp": "NBA",
+   "game": "Memphis Grizzlies @ Toronto Raptors",
+   "start": "2026-11-10T00:30:00Z",
+   "sel": "Toronto Raptors ML",
+   "team": "Toronto Raptors",
+   "opp": "Memphis Grizzlies",
+   "odds": -148,
+   "pct_bets": 73,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-p3",
+   "date": "2026-11-09",
+   "sp": "NBA",
+   "game": "Washington Wizards @ Detroit Pistons",
+   "start": "2026-11-10T00:00:00Z",
+   "sel": "Detroit Pistons ML",
+   "team": "Detroit Pistons",
+   "opp": "Washington Wizards",
+   "odds": -490,
+   "pct_bets": 94,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-p4",
+   "date": "2026-11-09",
+   "sp": "NBA",
+   "game": "San Antonio Spurs @ Phoenix Suns",
+   "start": "2026-11-10T02:00:00Z",
+   "sel": "San Antonio Spurs ML",
+   "team": "San Antonio Spurs",
+   "opp": "Phoenix Suns",
+   "odds": -350,
+   "pct_bets": 95,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-09-p5",
+   "date": "2026-11-09",
+   "sp": "NBA",
+   "game": "Cleveland Cavaliers @ Charlotte Hornets",
+   "start": "2026-11-10T00:00:00Z",
+   "sel": "Cleveland Cavaliers ML",
+   "team": "Cleveland Cavaliers",
+   "opp": "Charlotte Hornets",
+   "odds": -360,
+   "pct_bets": 96,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  }
+ ],
+ "days": [
+  {
+   "date": "2026-11-08",
+   "bot": {
+    "w": 0,
+    "l": 1,
+    "p": 0,
+    "profit": -10.0
+   },
+   "public": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
+   "bankroll": 990.0,
+   "public_bankroll": 1000
+  }
+ ]
 }

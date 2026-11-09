@@ -534,4 +534,16 @@ nhl,401892671,2026-11-08T02:00Z,Colorado Avalanche,Detroit Red Wings,1,4,0,29.0,
 nhl,401892672,2026-11-08T02:00Z,Pittsburgh Penguins,Los Angeles Kings,0,5,2,19.0,11.0,19.0,5.0,13.0,1.0,3.0,46.9,6.0
 nhl,401892672,2026-11-08T02:00Z,Los Angeles Kings,Pittsburgh Penguins,1,2,5,28.0,29.0,15.0,4.0,12.0,1.0,3.0,53.1,6.0
 nhl,401892673,2026-11-08T03:00Z,Vancouver Canucks,Edmonton Oilers,0,2,4,22.0,30.0,10.0,3.0,12.0,0.0,2.0,45.1,8.0
-nhl,401892673,2026-11-08T03:00Z,Edmonton Oilers,Vancouver Canucks,1,4,2,30.0,22.0,9.0,4.0,16.0,1.0,3.0,54.9,6.0
+nhl,401892673,2026-11-08T03:00Z,Edmonton Oilers,Vancouver Canucks,1,4,2,30.0,22.0,10.0,4.0,16.0,1.0,3.0,54.9,6.0
+nhl,401892674,2026-11-08T18:00Z,Florida Panthers,Boston Bruins,0,1,4,41.0,38.0,6.0,5.0,13.0,1.0,5.0,36.4,72.0
+nhl,401892674,2026-11-08T18:00Z,Boston Bruins,Florida Panthers,1,4,1,36.0,13.0,7.0,2.0,20.0,1.0,9.0,63.6,54.0
+nhl,401892675,2026-11-08T20:30Z,Vegas Golden Knights,Buffalo Sabres,0,4,1,26.0,20.0,23.0,5.0,16.0,0.0,3.0,55.8,6.0
+nhl,401892675,2026-11-08T20:30Z,Buffalo Sabres,Vegas Golden Knights,1,1,4,29.0,10.0,10.0,2.0,10.0,0.0,3.0,44.2,6.0
+nhl,401892677,2026-11-08T23:00Z,Tampa Bay Lightning,Winnipeg Jets,0,3,4,21.0,18.0,3.0,3.0,20.0,0.0,4.0,47.2,10.0
+nhl,401892677,2026-11-08T23:00Z,Winnipeg Jets,Tampa Bay Lightning,1,4,3,25.0,17.0,17.0,4.0,20.0,3.0,5.0,52.8,8.0
+nhl,401892676,2026-11-09T00:00Z,New Jersey Devils,Toronto Maple Leafs,0,4,0,29.0,13.0,10.0,3.0,18.0,1.0,3.0,58.2,6.0
+nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,1,0,4,23.0,28.0,8.0,7.0,19.0,0.0,0.0,41.8,12.0
+nhl,401892678,2026-11-09T00:00Z,Philadelphia Flyers,Calgary Flames,0,3,4,35.0,25.0,18.0,5.0,16.0,1.0,3.0,48.5,4.0
+nhl,401892678,2026-11-09T00:00Z,Calgary Flames,Philadelphia Flyers,1,4,3,26.0,21.0,19.0,5.0,13.0,0.0,2.0,51.5,6.0
+nhl,401892679,2026-11-09T01:00Z,Pittsburgh Penguins,Anaheim Ducks,0,2,5,33.0,21.0,14.0,2.0,15.0,2.0,6.0,51.7,8.0
+nhl,401892679,2026-11-09T01:00Z,Anaheim Ducks,Pittsburgh Penguins,1,5,2,25.0,26.0,20.0,2.0,17.0,3.0,4.0,48.3,12.0

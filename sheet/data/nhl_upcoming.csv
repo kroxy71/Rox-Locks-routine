@@ -1,14 +1,11 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nhl,401892680,2026-11-10T01:00Z,Edmonton Oilers,New York Rangers,EDM -155,6.5,-155,+130
-nhl,401892681,2026-11-10T02:30Z,Vancouver Canucks,Philadelphia Flyers,PHI -135,6.5,+114,-135
-nhl,401892682,2026-11-10T03:00Z,San Jose Sharks,New York Islanders,NYI -135,6.5,+114,-135
-nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,,,,
-nhl,401892684,2026-11-11T00:00Z,Montreal Canadiens,Minnesota Wild,,,,
-nhl,401892685,2026-11-11T00:00Z,Ottawa Senators,Washington Capitals,,,,
-nhl,401892688,2026-11-11T00:00Z,Winnipeg Jets,New Jersey Devils,,,,
-nhl,401892686,2026-11-11T00:30Z,Columbus Blue Jackets,Florida Panthers,,,,
-nhl,401892687,2026-11-11T01:00Z,St. Louis Blues,Detroit Red Wings,,,,
-nhl,401892689,2026-11-11T03:00Z,Los Angeles Kings,Nashville Predators,,,,
+nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,COL -155,6.5,+130,-155
+nhl,401892684,2026-11-11T00:00Z,Montreal Canadiens,Minnesota Wild,MIN -125,6.5,+105,-125
+nhl,401892685,2026-11-11T00:00Z,Ottawa Senators,Washington Capitals,OTT -130,6.5,-130,+110
+nhl,401892688,2026-11-11T00:00Z,Winnipeg Jets,New Jersey Devils,NJ -148,6.5,+124,-148
+nhl,401892686,2026-11-11T00:30Z,Columbus Blue Jackets,Florida Panthers,FLA -115,5.5,-105,-115
+nhl,401892687,2026-11-11T01:00Z,St. Louis Blues,Detroit Red Wings,STL -142,5.5,-142,+120
+nhl,401892689,2026-11-11T03:00Z,Los Angeles Kings,Nashville Predators,LA -135,6.5,-135,+114
 nhl,401892690,2026-11-12T00:00Z,Buffalo Sabres,Tampa Bay Lightning,,,,
 nhl,401892691,2026-11-12T00:30Z,Calgary Flames,New York Rangers,,,,
 nhl,401892692,2026-11-12T02:00Z,Edmonton Oilers,Philadelphia Flyers,,,,
@@ -60,3 +57,6 @@ nhl,401892734,2026-11-18T01:00Z,St. Louis Blues,Anaheim Ducks,,,,
 nhl,401892735,2026-11-18T01:00Z,Minnesota Wild,Nashville Predators,,,,
 nhl,401892737,2026-11-18T03:00Z,Vegas Golden Knights,Dallas Stars,,,,
 nhl,401892738,2026-11-18T03:00Z,San Jose Sharks,Calgary Flames,,,,
+nhl,401892739,2026-11-19T00:30Z,Detroit Red Wings,Boston Bruins,,,,
+nhl,401892740,2026-11-19T00:30Z,New Jersey Devils,Montreal Canadiens,,,,
+nhl,401892741,2026-11-19T03:00Z,Utah Mammoth,Colorado Avalanche,,,,

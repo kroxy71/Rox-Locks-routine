@@ -1,21 +1,21 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 990.0,
- "at_risk": 80,
- "updated": "2026-11-09T16:15:59Z",
+ "bankroll": 1175.18,
+ "at_risk": 100,
+ "updated": "2026-11-10T16:21:38Z",
  "record": {
-  "w": 0,
-  "l": 1,
+  "w": 4,
+  "l": 2,
   "p": 0
  },
  "public_record": {
-  "w": 0,
-  "l": 0,
+  "w": 3,
+  "l": 2,
   "p": 0
  },
- "public_bankroll": 1000,
- "note": "Graded 1 (0-1, -$10.00); placed 5 bets, $80 at risk (Monday: MNF + 8 NBA + 3 NHL games, no college). Only Dallas cleared the edge bar; the rest are leans. No NHL pick: no edge. NHL FanDuel prices excluded (3-way); sharp-money adjustment skipped (split parse unclear); only Hockenson priced among TD props, none hit +4%. Public shadow: 5 games.",
+ "public_bankroll": 979.13,
+ "note": "Graded 5 bets (4-1, +$185.18) and 5 public (3-2, -$20.87); placed 7 bets, $100 at risk (6 NBA, 7 NHL, 3 MAC games, no NFL). No ML single cleared the edge bar, so the 76ers and Predators singles and the Knicks+WMU parlay are leans; the longshot is a 3-leg underdog parlay. Three NHL anytime-goal props (Tuch, Connor, Lehkonen) cleared +4%. Sharp-money adjustments applied to PHI, MTL, NSH only; Kalshi/Polymarket had no MAC games. Public shadow: 5 games.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -72,8 +72,8 @@
      "book": "FanDuel",
      "model_p": 0.618,
      "implied_p": 0.597,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Mavericks 125-122"
     }
    ],
    "odds": -148,
@@ -84,9 +84,9 @@
    "edge": 0.021,
    "sources": "Market 58%, Kalshi 60%, Polymarket 60%, ESPN 74%, OddsShark 59%",
    "why": "Model 62% vs FanDuel -148 (60%): the market, Kalshi and Polymarket agree and ESPN is higher on Dallas.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 16.89,
+   "result": "Mavericks 125-122"
   },
   {
    "id": "2026-11-09-2",
@@ -107,8 +107,8 @@
      "book": "FanDuel",
      "model_p": 0.442,
      "implied_p": 0.435,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Grizzlies 118-102"
     }
    ],
    "odds": 130,
@@ -119,9 +119,9 @@
    "edge": 0.007,
    "sources": "Market 42%, Kalshi 42%, Polymarket 42%, ESPN 49%, OddsShark 46%",
    "why": "Lean: Model 44% vs FanDuel +130 (44%); a slim plus-price edge, ESPN likes Memphis most.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 32.5,
+   "result": "Grizzlies 118-102"
   },
   {
    "id": "2026-11-09-3",
@@ -142,8 +142,8 @@
      "book": "FanDuel",
      "model_p": 0.801,
      "implied_p": 0.831,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Pistons 122-111"
     },
     {
      "sp": "NBA",
@@ -157,8 +157,8 @@
      "book": "FanDuel",
      "model_p": 0.759,
      "implied_p": 0.778,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Spurs 122-96"
     }
    ],
    "odds": -182,
@@ -169,9 +169,9 @@
    "edge": -0.038,
    "sources": "Detroit: Market 80%, Kalshi 82%, Polymarket 82%, ESPN 78%, OddsShark 81%; San Antonio: Market 75%, Kalshi 78%, Polymarket 78%, ESPN 76%, OddsShark 76%",
    "why": "Lean: the two highest-probability sides on the slate (Detroit 80%, San Antonio 76%) in different games; price is slightly short of fair.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 5.48,
+   "result": "Pistons 122-111; Spurs 122-96"
   },
   {
    "id": "2026-11-09-4",
@@ -193,8 +193,8 @@
      "book": "DraftKings",
      "model_p": 0.318,
      "implied_p": 0.29,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD"
     }
    ],
    "odds": 245,
@@ -205,9 +205,9 @@
    "edge": 0.028,
    "sources": "Covers 0.38 TDs (32%), nflverse 3 TD in 7 GP (season model 32%), blend 32% vs DraftKings +245 (29%); Buffalo allows the most receiving TDs to WRs/TEs per Covers",
    "why": "Lean: Covers projects 0.38 TDs and he has 3 TD in 7 games; model edge about 3 points, under the 4-point bar.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 TD"
   },
   {
    "id": "2026-11-09-5",
@@ -229,8 +229,8 @@
      "book": "FanDuel",
      "model_p": 0.618,
      "implied_p": 0.597,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Mavericks 125-122"
     },
     {
      "sp": "NBA",
@@ -244,8 +244,8 @@
      "book": "FanDuel",
      "model_p": 0.264,
      "implied_p": 0.256,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Hornets 124-112"
     },
     {
      "sp": "NBA",
@@ -259,8 +259,8 @@
      "book": "FanDuel",
      "model_p": 0.442,
      "implied_p": 0.435,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Grizzlies 118-102"
     }
    ],
    "odds": 1403,
@@ -271,6 +271,300 @@
    "edge": 0.006,
    "sources": "Mavs, Hornets and Grizzlies each at or above market no-vig, Kalshi and Polymarket",
    "why": "Best expected return of any +400 or longer shot (model p x payout about 1.08); every leg is priced at or above fair value by the model.",
+   "status": "won",
+   "profit": 140.31,
+   "result": "Mavericks 125-122; Hornets 124-112; Grizzlies 118-102"
+  },
+  {
+   "id": "2026-11-10-1",
+   "date": "2026-11-10",
+   "placed": "2026-11-10T16:21:38Z",
+   "cat": "ml",
+   "title": "Philadelphia 76ers ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Boston Celtics @ Philadelphia 76ers",
+     "start": "2026-11-11T01:00:00Z",
+     "sel": "Philadelphia 76ers ML",
+     "team": "Philadelphia 76ers",
+     "opp": "Boston Celtics",
+     "odds": 102,
+     "book": "FanDuel",
+     "model_p": 0.5204,
+     "implied_p": 0.495,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 102,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 25.5,
+   "model_p": 0.5204,
+   "edge": 0.0254,
+   "sources": "Market 48%, Kalshi 47%, ESPN 52%, OddsShark BOS by 1, 80% of money on PHI vs 64% of bets (sharp)",
+   "why": "Lean: the model is a coin flip here and sharp money (80% of the dollars on 64% of the bets) tips it to Philadelphia at plus money.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-2",
+   "date": "2026-11-10",
+   "placed": "2026-11-10T16:21:38Z",
+   "cat": "ml",
+   "title": "Nashville Predators ML",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "ml",
+     "game": "Nashville Predators @ Los Angeles Kings",
+     "start": "2026-11-11T03:00:00Z",
+     "sel": "Nashville Predators ML",
+     "team": "Nashville Predators",
+     "opp": "Los Angeles Kings",
+     "odds": 114,
+     "book": "FanDuel",
+     "model_p": 0.4856,
+     "implied_p": 0.4673,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 114,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 28.5,
+   "model_p": 0.4856,
+   "edge": 0.0183,
+   "sources": "Market 55%, Kalshi/Polymarket 45%, OddsShark LA by 0.3, 63% of money on NSH vs 32% of bets (sharp)",
+   "why": "Lean: sharp money (63% of dollars on 32% of bets) on Nashville and a near-even model make plus money on the road worth a small bet.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-3",
+   "date": "2026-11-10",
+   "placed": "2026-11-10T16:21:38Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Knicks + Western Michigan",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Milwaukee Bucks @ New York Knicks",
+     "start": "2026-11-11T00:30:00Z",
+     "sel": "New York Knicks ML",
+     "team": "New York Knicks",
+     "opp": "Milwaukee Bucks",
+     "odds": -1350,
+     "book": "FanDuel",
+     "model_p": 0.8877,
+     "implied_p": 0.931,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Western Michigan Broncos @ Akron Zips",
+     "start": "2026-11-11T00:00:00Z",
+     "sel": "Western Michigan Broncos ML",
+     "team": "Western Michigan Broncos",
+     "opp": "Akron Zips",
+     "odds": -720,
+     "book": "FanDuel",
+     "model_p": 0.8614,
+     "implied_p": 0.878,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -448,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 2.23,
+   "model_p": 0.7647,
+   "edge": -0.0528,
+   "sources": "Knicks: market 88%, Kalshi 90%, ESPN 91%, OddsShark NY by 12.7; WMU: market 85%, ESPN 90%, OddsShark WMU by 13.2",
+   "why": "Lean: the two sides the model trusts most (Knicks and Western Michigan) combined for the daily parlay, but the payout is tiny and the price has no edge.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-4",
+   "date": "2026-11-10",
+   "placed": "2026-11-10T16:21:38Z",
+   "cat": "longshot",
+   "title": "3-leg underdog ML parlay: 76ers + Predators + Canadiens",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Boston Celtics @ Philadelphia 76ers",
+     "start": "2026-11-11T01:00:00Z",
+     "sel": "Philadelphia 76ers ML",
+     "team": "Philadelphia 76ers",
+     "opp": "Boston Celtics",
+     "odds": 102,
+     "book": "FanDuel",
+     "model_p": 0.5204,
+     "implied_p": 0.495,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NHL",
+     "kind": "ml",
+     "game": "Nashville Predators @ Los Angeles Kings",
+     "start": "2026-11-11T03:00:00Z",
+     "sel": "Nashville Predators ML",
+     "team": "Nashville Predators",
+     "opp": "Los Angeles Kings",
+     "odds": 114,
+     "book": "FanDuel",
+     "model_p": 0.4856,
+     "implied_p": 0.4673,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NHL",
+     "kind": "ml",
+     "game": "Minnesota Wild @ Montreal Canadiens",
+     "start": "2026-11-11T00:00:00Z",
+     "sel": "Montreal Canadiens ML",
+     "team": "Montreal Canadiens",
+     "opp": "Minnesota Wild",
+     "odds": 105,
+     "book": "FanDuel",
+     "model_p": 0.5022,
+     "implied_p": 0.4878,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 786,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 78.62,
+   "model_p": 0.1269,
+   "edge": 0.0141,
+   "sources": "Model 12.7% vs FanDuel +786 (10.1%); 76ers sharp money 80% of $, Predators 63% of $, Canadiens 72% of $ vs 29% of bets; Kalshi/Polymarket 47%/45%/47%",
+   "why": "Going for it: the three plus-money sides where the model sees the biggest edge (all near coin flips), so the parlay returns more than it costs on paper.",
+   "status": "pending",
+   "profit": null,
+   "result": "",
+   "call": "Going for it: 76ers, Predators and Canadiens all win (+786) - $10 pays $78.62"
+  },
+  {
+   "id": "2026-11-10-5",
+   "date": "2026-11-10",
+   "placed": "2026-11-10T16:21:38Z",
+   "cat": "prop",
+   "title": "Alex Tuch anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Washington Capitals @ Ottawa Senators",
+     "start": "2026-11-11T00:00:00Z",
+     "sel": "Alex Tuch anytime goal",
+     "team": "Washington Capitals",
+     "opp": "Ottawa Senators",
+     "player": "Alex Tuch",
+     "odds": 220,
+     "book": "FanDuel",
+     "model_p": 0.444,
+     "implied_p": 0.3125,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 220,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 22.0,
+   "model_p": 0.444,
+   "edge": 0.1315,
+   "sources": "2.8 shots/G, 11 G in 15 GP, model 44% vs +220 (31%); in the lineup per RotoWire",
+   "why": "The model rates Tuch far more likely to score than the +220 price implies.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-6",
+   "date": "2026-11-10",
+   "placed": "2026-11-10T16:21:38Z",
+   "cat": "prop",
+   "title": "Kyle Connor anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "New Jersey Devils @ Winnipeg Jets",
+     "start": "2026-11-11T00:00:00Z",
+     "sel": "Kyle Connor anytime goal",
+     "team": "Winnipeg Jets",
+     "opp": "New Jersey Devils",
+     "player": "Kyle Connor",
+     "odds": 140,
+     "book": "FanDuel",
+     "model_p": 0.481,
+     "implied_p": 0.4167,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 140,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 14.0,
+   "model_p": 0.481,
+   "edge": 0.0643,
+   "sources": "4.1 shots/G, 13 G in 18 GP, model 48% vs +140 (42%); on PP1 per RotoWire",
+   "why": "Connor shoots over four times a game and the +140 price undersells his scoring rate.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-7",
+   "date": "2026-11-10",
+   "placed": "2026-11-10T16:21:38Z",
+   "cat": "prop",
+   "title": "Artturi Lehkonen anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Colorado Avalanche @ Toronto Maple Leafs",
+     "start": "2026-11-11T00:00:00Z",
+     "sel": "Artturi Lehkonen anytime goal",
+     "team": "Colorado Avalanche",
+     "opp": "Toronto Maple Leafs",
+     "player": "Artturi Lehkonen",
+     "odds": 195,
+     "book": "FanDuel",
+     "model_p": 0.399,
+     "implied_p": 0.339,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 195,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 19.5,
+   "model_p": 0.399,
+   "edge": 0.06,
+   "sources": "2.1 shots/G, 12 G in 18 GP, model 40% vs +195 (34%); in the lineup per RotoWire",
+   "why": "Lehkonen has scored on 12 of 38 shots this season, so +195 pays more than his chance.",
    "status": "pending",
    "profit": null,
    "result": ""
@@ -290,9 +584,9 @@
    "pct_bets": 91,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 16.89,
+   "result": "Mavericks 125-122"
   },
   {
    "id": "2026-11-09-p2",
@@ -307,9 +601,9 @@
    "pct_bets": 73,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Raptors lost 102-118"
   },
   {
    "id": "2026-11-09-p3",
@@ -324,9 +618,9 @@
    "pct_bets": 94,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 5.1,
+   "result": "Pistons 122-111"
   },
   {
    "id": "2026-11-09-p4",
@@ -341,9 +635,9 @@
    "pct_bets": 95,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 7.14,
+   "result": "Spurs 122-96"
   },
   {
    "id": "2026-11-09-p5",
@@ -356,6 +650,91 @@
    "opp": "Charlotte Hornets",
    "odds": -360,
    "pct_bets": 96,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "lost",
+   "profit": -25,
+   "result": "Cavs lost 112-124"
+  },
+  {
+   "id": "2026-11-10-p1",
+   "date": "2026-11-10",
+   "sp": "NBA",
+   "game": "Boston Celtics @ Philadelphia 76ers",
+   "start": "2026-11-11T01:00:00Z",
+   "sel": "Philadelphia 76ers ML",
+   "team": "Philadelphia 76ers",
+   "opp": "Boston Celtics",
+   "odds": 102,
+   "pct_bets": 64,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-p2",
+   "date": "2026-11-10",
+   "sp": "NHL",
+   "game": "Nashville Predators @ Los Angeles Kings",
+   "start": "2026-11-11T03:00:00Z",
+   "sel": "Los Angeles Kings ML",
+   "team": "Los Angeles Kings",
+   "opp": "Nashville Predators",
+   "odds": -137,
+   "pct_bets": 68,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-p3",
+   "date": "2026-11-10",
+   "sp": "NHL",
+   "game": "Minnesota Wild @ Montreal Canadiens",
+   "start": "2026-11-11T00:00:00Z",
+   "sel": "Minnesota Wild ML",
+   "team": "Minnesota Wild",
+   "opp": "Montreal Canadiens",
+   "odds": -126,
+   "pct_bets": 71,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-p4",
+   "date": "2026-11-10",
+   "sp": "NBA",
+   "game": "Milwaukee Bucks @ New York Knicks",
+   "start": "2026-11-11T00:30:00Z",
+   "sel": "New York Knicks ML",
+   "team": "New York Knicks",
+   "opp": "Milwaukee Bucks",
+   "odds": -1350,
+   "pct_bets": 95,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-10-p5",
+   "date": "2026-11-10",
+   "sp": "NCAAF",
+   "game": "Western Michigan Broncos @ Akron Zips",
+   "start": "2026-11-11T00:00:00Z",
+   "sel": "Western Michigan Broncos ML",
+   "team": "Western Michigan Broncos",
+   "opp": "Akron Zips",
+   "odds": -720,
+   "pct_bets": 97,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -380,6 +759,23 @@
    },
    "bankroll": 990.0,
    "public_bankroll": 1000
+  },
+  {
+   "date": "2026-11-09",
+   "bot": {
+    "w": 4,
+    "l": 1,
+    "p": 0,
+    "profit": 185.18
+   },
+   "public": {
+    "w": 3,
+    "l": 2,
+    "p": 0,
+    "profit": -20.87
+   },
+   "bankroll": 1175.18,
+   "public_bankroll": 979.13
   }
  ]
 }

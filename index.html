@@ -296,6 +296,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
+  const BUILD = "2026-11-11c";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -495,6 +496,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const tiles = el("div", "tiles");
       tiles.append(tile(String(n(["HIT"])), "hit"), tile(String(n(["MISS"])), "miss"), tile(String(n(["PENDING", "UPCOMING"])), "still to go"));
       const gl = el("section", "glance"); gl.append(tiles, recordRow()); box.append(gl);
+      if (c.err) box.append(el("p", "fine", "Couldn't reach ESPN for some games, so those picks show as pending. Check your connection, or whether a content blocker is stopping scores from loading."));
       const list = el("div", "res-list");
       rows.forEach(x => {
         const row = el("div", "res-row " + x.status.toLowerCase()), top = el("div", "res-top");
@@ -1350,7 +1352,18 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     if (!r.ok) throw new Error(path + " " + r.status);
     return r.json();
   }
+  function checkBuild(){
+    fetch(location.pathname + "?b=" + Date.now(), { cache: "no-store" }).then(r => r.ok ? r.text() : "").then(t => {
+      const m = /const BUILD = "([^"]+)"/.exec(t);
+      if (!m || m[1] === BUILD) return;
+      let tried = ""; try { tried = sessionStorage.getItem("rlBuildTried") || ""; } catch (e) {}
+      if (tried === m[1]) return;   // already tried once this session; don't loop
+      try { sessionStorage.setItem("rlBuildTried", m[1]); } catch (e) {}
+      location.replace(location.pathname + "?v=" + m[1] + location.hash);
+    }).catch(() => {});
+  }
   async function load(){
+    checkBuild();
     try {
       const [emails, slips, bot] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/bot.json" : "data/bot.json").catch(() => null)]);
       st.bot = bot && typeof bot === "object" ? bot : null;

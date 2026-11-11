@@ -477,6 +477,38 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   const dir = s => /\bover\b/i.test(s) ? "over" : /\bunder\b/i.test(s) ? "under" : "";
   const fmtMD = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric"}).format(d);
   const PILL = { HIT:"✓ HIT", MISS:"✗ MISS", PUSH:"PUSH", VOID:"VOID", PENDING:"PENDING", UPCOMING:"UPCOMING", NORESULT:"NO RESULT" };
+  // Results graded straight from ESPN final scores / box scores (no results email needed)
+  function espnResults(view, g){
+    const picks = picksOf(g); if (!picks.length) return false;
+    const day = dayOf(g), box = el("div");
+    const draw = () => {
+      box.replaceChildren();
+      const c = liveCache[day];
+      if (!c) { box.append(el("p", "fine", "Checking ESPN for scores…")); return; }
+      const rows = c.rows.map(r => {
+        let status = { hit: "HIT", miss: "MISS", push: "PUSH", live: "PENDING", pending: "PENDING", none: "NORESULT" }[r.res];
+        if (r.res === "pending" && /\d:\d\d\s*[AP]M/.test(r.sub)) status = "UPCOMING";
+        const note = r.res === "none" ? (r.text ? r.text.replace(" (no line stated)", "") + " · no line stated, so it can't be graded" : "No line stated, so it can't be graded") : [r.text, r.sub].filter(Boolean).join(" · ") || "Waiting for the game";
+        return { r, status, note };
+      });
+      const n = s => rows.filter(x => s.includes(x.status)).length;
+      const tiles = el("div", "tiles");
+      tiles.append(tile(String(n(["HIT"])), "hit"), tile(String(n(["MISS"])), "miss"), tile(String(n(["PENDING", "UPCOMING"])), "still to go"));
+      const gl = el("section", "glance"); gl.append(tiles, recordRow()); box.append(gl);
+      const list = el("div", "res-list");
+      rows.forEach(x => {
+        const row = el("div", "res-row " + x.status.toLowerCase()), top = el("div", "res-top");
+        const chip = el("span", "chip", x.r.p.sp); chip.style.setProperty("--sp", "var(" + (SPVAR[x.r.p.sp] || "--other") + ")");
+        top.append(chip, el("span", "res-title", x.r.p.label), el("span", "pill " + x.status.toLowerCase(), PILL[x.status] || x.status));
+        row.append(top, el("div", "res-note", x.note)); list.append(row);
+      });
+      box.append(list, el("p", "fine", "Graded from ESPN scores and box scores, refreshed while games are on" + (c.at ? " · checked " + fmtTime(c.at) + " ET" : "") + "."));
+    };
+    view.append(box);
+    liveCur = { day, picks, box, fill: draw };
+    draw(); ensureLive(false);
+    return true;
+  }
   function renderResults(view){
     const pl = st.lists.picks || [], rl = st.lists.results || [];
     if (!pl.length) { view.append(stateBox({ h: "No picks yet", p: "Once there are picks, each one shows here with its result." })); return; }
@@ -492,6 +524,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const head = el("div","slip-head");
     head.append(el("h2", null, "Results · " + fmtDay(g.date)), el("span","when", dayKey(new Date()) === g.key ? "Today's picks" : "Picks from " + fmtDay(g.date)));
     view.append(head);
+    if (espnResults(view, g)) return;
     const resItems = rl.flatMap(x => x.items).filter(i => i.date >= g.items[0].date);
     const cards = g.items.map(i => st.msgs[i.id]).filter(m => m && m.node).flatMap(m => Array.from(m.node.querySelectorAll(".card:not(.parlay):not(.slip)")));
     if (!cards.length) { view.append(stateBox({ h: "No firm picks", p: "KingCap didn't make any firm picks on this stream." })); return; }
@@ -1250,25 +1283,31 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   let liveCur = null;   // { day, picks, box }
   function ensureLive(force){
     if (!liveCur) return;
-    const { day, picks, box } = liveCur, c = liveCache[day];
+    const { day, picks, box, fill } = liveCur, c = liveCache[day];
     const age = c ? Date.now() - c.at : Infinity;
     const need = !c || force || (!c.done && age > (c.live ? 25e3 : c.soon ? 60e3 : 5 * 60e3));
     if (!need) return;
-    refreshLive(day, picks).then(() => { if (liveCur && liveCur.day === day && box.isConnected) fillLive(box, day); }).catch(() => {});
+    refreshLive(day, picks).then(() => { if (liveCur && liveCur.day === day && box.isConnected) fill(); }).catch(() => {});
+  }
+  function dayOf(g){
+    const sm = /([A-Z][a-z]{2,8})\w*\s+(\d{1,2}),\s*(\d{4})/.exec(g.items[0].subject);
+    if (sm) { const d = new Date(sm[1].slice(0, 3) + " " + sm[2] + ", " + sm[3] + " 12:00:00"); if (!isNaN(d)) return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+    return g.key;
+  }
+  function picksOf(g){
+    const texts = g.items.map(i => st.msgs[i.id] && st.msgs[i.id].text).filter(Boolean);
+    return parsePicks(texts).filter(p => LEAGUES[p.sp]);
   }
   function liveSection(g){
-    const texts = g.items.map(i => st.msgs[i.id] && st.msgs[i.id].text).filter(Boolean);
-    const picks = parsePicks(texts).filter(p => LEAGUES[p.sp]);
+    const picks = picksOf(g);
     if (!picks.length) { liveCur = null; return null; }
-    const sm = /([A-Z][a-z]{2,8})\w*\s+(\d{1,2}),\s*(\d{4})/.exec(g.items[0].subject);
-    let day = g.key;
-    if (sm) { const d = new Date(sm[1].slice(0, 3) + " " + sm[2] + ", " + sm[3] + " 12:00:00"); if (!isNaN(d)) day = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+    const day = dayOf(g);
     const box = el("section", "lv"); box.setAttribute("aria-label", "Live scores");
-    liveCur = { day, picks, box };
-    fillLive(box, day); ensureLive(false);
+    liveCur = { day, picks, box, fill: () => fillLive(box, day) };
+    liveCur.fill(); ensureLive(false);
     return box;
   }
-  setInterval(() => { if (!document.hidden && st.tab === "picks") ensureLive(false); }, 20000);
+  setInterval(() => { if (!document.hidden && (st.tab === "picks" || st.tab === "results")) ensureLive(false); }, 20000);
 
   // ---------- load (and refresh every 5 minutes) ----------
   async function getJSON(path){

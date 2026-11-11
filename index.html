@@ -239,6 +239,20 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   #bot{display:block;position:sticky;top:126px;max-height:calc(100vh - 146px);overflow-y:auto}
   #bot:empty{display:none}
 }
+.lv{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px;min-width:0}
+.lv-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.lv-head h3{margin:0;font:800 19px var(--f-display);letter-spacing:.05em;text-transform:uppercase}
+.lv-stamp{font-size:13px;color:var(--muted)} .lv-stamp.on{color:var(--good);font-weight:700}
+.lv-stamp.on::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--good);margin-right:6px;animation:lvp 1.4s ease-in-out infinite}
+@keyframes lvp{50%{opacity:.25}} @media (prefers-reduced-motion:reduce){.lv-stamp.on::before{animation:none}}
+.lv-sum{margin:0;font-size:14px;color:var(--muted)}
+.lv-list{display:grid;gap:6px}
+.lv-row{border:1px solid var(--line);border-left:5px solid var(--muted);border-radius:8px;padding:7px 10px;min-width:0}
+.lv-row.r-hit{border-left-color:var(--good)} .lv-row.r-miss{border-left-color:var(--bad)} .lv-row.r-live{border-left-color:var(--gold)} .lv-row.r-push{border-left-color:var(--mid)}
+.lv-top{display:flex;align-items:center;gap:8px;min-width:0} .lv-top b{flex:1;min-width:0;overflow-wrap:anywhere;font-size:15px}
+.lv-res{font:800 13px var(--f-display);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.r-hit .lv-res{color:var(--good)} .r-miss .lv-res{color:var(--bad)} .r-live .lv-res{color:var(--mid)} .r-push .lv-res{color:var(--mid)}
+.lv-sub{font-size:13px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -385,7 +399,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const n = g.items.length;
     head.append(el("span","when", (n > 1 ? n + " updates · last " : "Sent ") + fmtTime(g.date) + " ET"));
     view.append(head);
-    if (t === "picks") { const gl = glance(g); if (gl) view.append(gl); const sl = slipSection(g.key); if (sl) view.append(sl); }
+    if (t === "picks") { const gl = glance(g); if (gl) view.append(gl); const lv = liveSection(g); if (lv) view.append(lv); const sl = slipSection(g.key); if (sl) view.append(sl); }
     g.items.forEach((item, i) => {
       if (n > 1) {
         const label = t === "picks" ? (i === 0 ? "First picks" : "Update " + i) : (i === 0 ? "Latest" : "Earlier");
@@ -1001,6 +1015,260 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     return box;
   }
   function renderBotSide(){ const a = $("bot"); a.replaceChildren(); if (st.tab !== "bot") a.append(botPanel(false)); }
+
+  // ---------- live scores: the browser asks ESPN directly (its API allows that), so no email is needed ----------
+  const ESPN = "https://site.api.espn.com/apis/site/v2/sports/";
+  const LEAGUES = {
+    NFL: ["football/nfl", ""], NHL: ["hockey/nhl", ""], NBA: ["basketball/nba", ""], MLB: ["baseball/mlb", ""],
+    NCAAB: ["basketball/mens-college-basketball", "&groups=50&limit=400"], NCAAF: ["football/college-football", "&groups=80&limit=400"]
+  };
+  const SPALIAS = { CFB: "NCAAF", CBB: "NCAAB", NCAAM: "NCAAB", NCAAFB: "NCAAF" };
+  const SPVAR = { NFL: "--nfl", NHL: "--nhl", NBA: "--nba", MLB: "--mlb", NCAAF: "--ncaaf", NCAAB: "--ncaaf" };
+  const fold = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[.'’`]/g, "").replace(/\b(jr|sr|ii|iii|iv)\b/g, "").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
+  function lev(a, b){
+    const m = a.length, n = b.length; if (!m) return n; if (!n) return m;
+    let p = Array.from({ length: n + 1 }, (_, i) => i);
+    for (let i = 1; i <= m; i++) { const c = [i]; for (let j = 1; j <= n; j++) c[j] = Math.min(p[j] + 1, c[j-1] + 1, p[j-1] + (a[i-1] === b[j-1] ? 0 : 1)); p = c; }
+    return p[n];
+  }
+  // names are transcribed by ear, so allow small spelling slips (Prichard / Pritchard)
+  function sameName(a, b){
+    a = fold(a); b = fold(b); if (!a || !b) return false; if (a === b) return true;
+    const A = a.split(" "), B = b.split(" "), la = A[A.length-1], lb = B[B.length-1];
+    if (lev(la, lb) > (la.length > 6 ? 2 : 1)) return false;
+    return A.length === 1 || B.length === 1 || A[0] === B[0] || A[0][0] === B[0][0] || lev(A[0], B[0]) <= 1;
+  }
+  function teamHit(q, t){
+    q = fold(q); if (!q) return false;
+    return [t.displayName, t.shortDisplayName, t.name, t.location, t.abbreviation].some(x => x && fold(x) === q) || (q.length > 4 && fold(t.displayName).includes(q));
+  }
+
+  // "PICKS BY CATEGORY" lines in the picks email -> a list of picks the page can grade
+  const STATS = [
+    [/^(?:pra|pts\+reb\+ast|points\s*\+\s*rebounds\s*\+\s*assists)$/i, "pra", "PRA"],
+    [/^(?:threes?|3-?pointers?|3pm|3s)$/i, "threes", "threes"],
+    [/^steals?$/i, "stl", "steals"], [/^blocks?$/i, "blk", "blocks"],
+    [/^(?:receiving yards|rec yards|receiving yds|rec yds)$/i, "recyds", "rec yds"],
+    [/^(?:rushing yards|rush yards|rushing yds|rush yds)$/i, "rushyds", "rush yds"],
+    [/^(?:passing yards|pass yards|passing yds)$/i, "passyds", "pass yds"],
+    [/^receptions?$/i, "rec", "rec"], [/^points$/i, "pts", "pts"], [/^rebounds$/i, "reb", "reb"], [/^assists$/i, "ast", "ast"]
+  ];
+  const STATWORDS = "pra|pts\\+reb\\+ast|threes?|3-?pointers?|3pm|steals?|blocks?|receiving yards|rec yards|receiving yds|rec yds|rushing yards|rush yards|rushing yds|rush yds|passing yards|pass yards|passing yds|receptions?|points|rebounds|assists";
+  function statOf(w){ const r = STATS.find(s => s[0].test(w.trim())); return r ? { stat: r[1], name: r[2] } : null; }
+  function parsePick(sp, desc, cat){
+    const d = desc.trim(); let m;
+    if (/anytime/i.test(cat) || /anytime/i.test(d)) {
+      const player = d.replace(/\s*anytime.*$/i, "").replace(/\s*[-–—]\s*$/, "").trim();
+      return { sp, k: /td|touchdown/i.test(cat + " " + d) ? "atd" : "atg", player, label: d };
+    }
+    if ((m = /^(.+?)\s+(?:moneyline|ML)\b/i.exec(d))) return { sp, k: "ml", team: m[1], label: d };
+    if ((m = /^(.+?)\s+(?:@|at|vs\.?)\s+(.+?)\s+(over|under)\s+(\d+(?:\.\d+)?)/i.exec(d))) return { sp, k: "total", a: m[1], b: m[2], ou: m[3].toLowerCase(), line: +m[4], label: d };
+    if ((m = new RegExp("^(.+?)\\s+(?:(\\d+)\\+\\s+)?(" + STATWORDS + ")\\b\\s*(over|under)?\\s*(\\d+(?:\\.\\d+)?)?", "i").exec(d))) {
+      const s = statOf(m[3]);
+      if (s) {
+        let line = m[5] != null ? +m[5] : null, ou = (m[4] || "over").toLowerCase();
+        if (m[2] != null) { line = +m[2] - 0.5; ou = "over"; }
+        return { sp, k: "prop", player: m[1], stat: s.stat, sname: s.name, ou, line, label: d };
+      }
+    }
+    if ((m = new RegExp("^(.+?)\\s+(over|under)\\s+(\\d+(?:\\.\\d+)?)\\s+(" + STATWORDS + ")\\b", "i").exec(d))) {
+      const s = statOf(m[4]);
+      if (s) return { sp, k: "prop", player: m[1], stat: s.stat, sname: s.name, ou: m[2].toLowerCase(), line: +m[3], label: d };
+    }
+    if ((m = /^(.+?)\s+([+\-−]\d+(?:\.\d+)?)\s*$/.exec(d))) return { sp, k: "spread", team: m[1], line: parseFloat(m[2].replace("−", "-")), label: d };
+    return { sp, k: "other", label: d };
+  }
+  function parsePicks(texts){
+    const out = [], seen = new Set();
+    texts.forEach(t => {
+      const i = t.search(/PICKS BY CATEGORY/i); if (i < 0) return;
+      const sec = [];
+      for (const ln of t.slice(i).split("\n").slice(1)) { if (!ln.trim()) continue; if (!/^[^:\[]+?\s*(?:\(\d+\))?\s*:\s*\S/.test(ln)) break; sec.push(ln); }
+      sec.forEach(line => {
+        const mm = /^\s*([^:(]+?)\s*(?:\(\d+\))?\s*:\s*(.+)$/.exec(line); if (!mm) return;
+        mm[2].split(/;\s+(?=\[)/).forEach(item => {
+          let it = item.trim(), conf = "";
+          const cm = /\s*\(?\b(HIGH|MEDIUM|MED|LOW)\b\)?\s*$/.exec(it);   // upper-case only, with or without parentheses
+          if (cm) { conf = cm[1].slice(0, 3); it = it.slice(0, cm.index); }
+          const x = /^\[([A-Za-z]+)\]\s*(.+?)\s*$/.exec(it); if (!x) return;
+          const sp = SPALIAS[x[1].toUpperCase()] || x[1].toUpperCase();
+          const p = parsePick(sp, x[2], mm[1]); p.conf = conf;
+          const key = sp + "|" + fold(p.label); if (seen.has(key)) return; seen.add(key); out.push(p);
+        });
+      });
+    });
+    return out;
+  }
+
+  async function espnJSON(u){ const r = await fetch(u, { cache: "no-store" }); if (!r.ok) throw new Error("ESPN " + r.status); return r.json(); }
+  async function getGames(sp, day){
+    const L = LEAGUES[sp]; if (!L) return [];
+    const j = await espnJSON(ESPN + L[0] + "/scoreboard?dates=" + day.replace(/-/g, "") + L[1]);
+    return (j.events || []).map(e => {
+      const c = e.competitions[0], s = e.status.type;
+      return { id: e.id, sp, start: new Date(e.date), state: s.state, detail: s.shortDetail || s.description || "",
+        comps: c.competitors.map(x => ({ team: x.team, score: +x.score || 0, home: x.homeAway === "home" })) };
+    });
+  }
+  const boxCache = {};
+  async function getBox(g){
+    const c = boxCache[g.id]; if (c && c.final) return c;
+    const j = await espnJSON(ESPN + LEAGUES[g.sp][0] + "/summary?event=" + g.id);
+    const players = [];
+    ((j.boxscore && j.boxscore.players) || []).forEach(tp => {
+      const map = new Map();
+      (tp.statistics || []).forEach(grp => (grp.athletes || []).forEach(a => {
+        const nm = a.athlete && a.athlete.displayName; if (!nm) return;
+        let p = map.get(nm); if (!p) { p = { name: nm, team: tp.team, s: {} }; map.set(nm, p); }
+        (grp.labels || []).forEach((lab, i) => { p.s[(grp.name || "") + ":" + lab] = a.stats[i]; });
+      }));
+      map.forEach(p => players.push(p));
+    });
+    return (boxCache[g.id] = { final: g.state === "post", players });
+  }
+  function num(p, grp, lab){
+    let t = 0;
+    Object.keys(p.s).forEach(k => { if ((!grp || k.startsWith(grp + ":")) && k.endsWith(":" + lab)) t += parseFloat(p.s[k]) || 0; });
+    return t;
+  }
+  function statValue(p, stat){
+    switch (stat) {
+      case "pra": return num(p, "", "PTS") + num(p, "", "REB") + num(p, "", "AST");
+      case "pts": return num(p, "", "PTS"); case "reb": return num(p, "", "REB"); case "ast": return num(p, "", "AST");
+      case "stl": return num(p, "", "STL"); case "blk": return num(p, "", "BLK");
+      case "threes": { const k = Object.keys(p.s).find(x => x.endsWith(":3PT")); return k ? parseInt(p.s[k], 10) || 0 : 0; }
+      case "recyds": return num(p, "receiving", "YDS"); case "rushyds": return num(p, "rushing", "YDS"); case "passyds": return num(p, "passing", "YDS");
+      case "rec": return num(p, "receiving", "REC");
+      case "atd": return num(p, "rushing", "TD") + num(p, "receiving", "TD");
+      case "atg": return num(p, "", "G");
+    }
+    return 0;
+  }
+  const abbr = c => (c.team.abbreviation || c.team.shortDisplayName || "").toUpperCase();
+  function gameText(g){
+    const aw = g.comps.find(c => !c.home) || g.comps[0], hm = g.comps.find(c => c.home) || g.comps[1];
+    const sc = g.state === "pre" ? abbr(aw) + " @ " + abbr(hm) : abbr(aw) + " " + aw.score + " @ " + abbr(hm) + " " + hm.score;
+    return sc + " · " + (g.state === "pre" ? fmtTime(g.start) + " ET" : g.state === "post" ? "Final" : g.detail);
+  }
+  // grade one pick against the games (and box scores) fetched for its sport
+  async function gradePick(p, games){
+    const row = { p, res: "pending", text: "", sub: "", live: false };
+    if (!games) { row.sub = "Couldn't reach ESPN"; return row; }
+    if (p.k === "other") { row.res = "none"; row.sub = "Not graded here"; return row; }
+    let g = null;
+    if (p.k === "ml" || p.k === "spread") g = games.find(x => x.comps.some(c => teamHit(p.team, c.team)));
+    else if (p.k === "total") g = games.find(x => x.comps.some(c => teamHit(p.a, c.team)) && x.comps.some(c => teamHit(p.b, c.team)));
+    if (g) {
+      row.sub = gameText(g); row.live = g.state === "in";
+      if (g.state === "pre") return row;
+      const mine = g.comps.find(c => teamHit(p.team || "", c.team)), other = g.comps.find(c => c !== mine);
+      const done = g.state === "post";
+      if (p.k === "ml") {
+        if (mine.score === other.score) { row.res = done ? "push" : "live"; return row; }
+        const lead = mine.score > other.score; row.res = done ? (lead ? "hit" : "miss") : "live";
+        if (!done) row.text = lead ? "Leading" : "Trailing";
+      } else if (p.k === "spread") {
+        const diff = mine.score + p.line - other.score;
+        row.res = done ? (diff > 0 ? "hit" : diff < 0 ? "miss" : "push") : "live";
+        if (!done) row.text = diff > 0 ? "Covering" : "Not covering";
+      } else {
+        const tot = g.comps.reduce((s, c) => s + c.score, 0);
+        row.text = "Total " + tot + " vs " + p.line;
+        if (done) row.res = tot === p.line ? "push" : (tot > p.line) === (p.ou === "over") ? "hit" : "miss";
+        else if (p.ou === "over" && tot > p.line) row.res = "hit";
+        else if (p.ou === "under" && tot > p.line) row.res = "miss";
+        else row.res = "live";
+      }
+      return row;
+    }
+    if (p.k === "ml" || p.k === "spread" || p.k === "total") { row.sub = "Game not found on ESPN"; return row; }
+    // player picks: look through the box scores of every game that has started
+    const started = games.filter(x => x.state !== "pre");
+    const boxes = await Promise.all(started.map(x => getBox(x).then(b => [x, b]).catch(() => null)));
+    for (const bx of boxes) {
+      if (!bx) continue;
+      const hit = bx[1].players.find(pl => sameName(p.player, pl.name)); if (!hit) continue;
+      const gg = bx[0], done = gg.state === "post", v = statValue(hit, p.k === "prop" ? p.stat : p.k);
+      row.sub = hit.name + " · " + gameText(gg); row.live = gg.state === "in";
+      if (p.k === "atd" || p.k === "atg") {
+        row.text = v + (p.k === "atd" ? " TD" : (v === 1 ? " goal" : " goals"));
+        row.res = v >= 1 ? "hit" : done ? "miss" : "live";
+      } else if (p.line == null) {
+        row.text = v + " " + p.sname + " (no line stated)"; row.res = done ? "none" : "live";
+      } else {
+        row.text = v + " " + p.sname + " vs " + p.line;
+        const over = v > p.line;
+        row.res = p.ou === "over" ? (over ? "hit" : done ? "miss" : "live") : (over ? "miss" : done ? "hit" : "live");
+      }
+      return row;
+    }
+    row.sub = games.some(x => x.state === "pre") ? "Not started yet" : "Player not found in a box score";
+    return row;
+  }
+  const liveCache = {};   // "day" -> { at, rows, live, soon, done, err }
+  async function refreshLive(day, picks){
+    const sports = Array.from(new Set(picks.map(p => p.sp)));
+    const games = {};
+    await Promise.all(sports.map(async sp => { try { games[sp] = await getGames(sp, day); } catch (e) { games[sp] = null; } }));
+    const rows = await Promise.all(picks.map(p => gradePick(p, games[p.sp]).catch(() => ({ p, res: "pending", text: "", sub: "Couldn't check", live: false }))));
+    const all = [].concat(...Object.values(games).filter(Boolean));
+    const now = Date.now();
+    const c = { at: new Date(), rows,
+      live: all.some(g => g.state === "in"),
+      soon: all.some(g => g.state === "pre" && g.start - now < 45 * 60 * 1000),
+      done: all.length > 0 && all.every(g => g.state === "post"),
+      err: sports.some(sp => !games[sp]) };
+    liveCache[day] = c; return c;
+  }
+  const LRES = { hit: "HIT", miss: "MISS", live: "LIVE", push: "PUSH", pending: "PENDING", none: "—" };
+  function fillLive(box, day){
+    const c = liveCache[day]; box.replaceChildren();
+    const head = el("div", "lv-head");
+    head.append(el("h3", null, "Live scores"));
+    const stamp = el("span", "lv-stamp", c ? (c.live ? "Live from ESPN · " : "From ESPN · ") + fmtTime(c.at) + " ET" : "Checking ESPN…");
+    if (c && c.live) stamp.classList.add("on");
+    head.append(stamp); box.append(head);
+    if (!c) return;
+    const n = k => c.rows.filter(r => r.res === k).length;
+    const sum = [n("hit") + " hit", n("miss") + " miss", n("live") + " live", n("pending") + " pending"];
+    if (n("push")) sum.splice(2, 0, n("push") + " push");
+    box.append(el("p", "lv-sum", sum.join(" · ")));
+    const list = el("div", "lv-list");
+    c.rows.forEach(r => {
+      const row = el("div", "lv-row r-" + r.res);
+      const top = el("div", "lv-top");
+      const chip = el("span", "chip", r.p.sp); chip.style.setProperty("--sp", "var(" + (SPVAR[r.p.sp] || "--other") + ")");
+      top.append(chip, el("b", null, r.p.label), el("span", "lv-res", LRES[r.res] || ""));
+      row.append(top);
+      const sub = [r.text, r.sub].filter(Boolean).join(" · ");
+      if (sub) row.append(el("div", "lv-sub", sub));
+      list.append(row);
+    });
+    box.append(list);
+    if (c.err) box.append(el("p", "lv-sum", "Some scores couldn't be reached; showing what loaded."));
+  }
+  let liveCur = null;   // { day, picks, box }
+  function ensureLive(force){
+    if (!liveCur) return;
+    const { day, picks, box } = liveCur, c = liveCache[day];
+    const age = c ? Date.now() - c.at : Infinity;
+    const need = !c || force || (!c.done && age > (c.live ? 25e3 : c.soon ? 60e3 : 5 * 60e3));
+    if (!need) return;
+    refreshLive(day, picks).then(() => { if (liveCur && liveCur.day === day && box.isConnected) fillLive(box, day); }).catch(() => {});
+  }
+  function liveSection(g){
+    const texts = g.items.map(i => st.msgs[i.id] && st.msgs[i.id].text).filter(Boolean);
+    const picks = parsePicks(texts).filter(p => LEAGUES[p.sp]);
+    if (!picks.length) { liveCur = null; return null; }
+    const sm = /([A-Z][a-z]{2,8})\w*\s+(\d{1,2}),\s*(\d{4})/.exec(g.items[0].subject);
+    let day = g.key;
+    if (sm) { const d = new Date(sm[1].slice(0, 3) + " " + sm[2] + ", " + sm[3] + " 12:00:00"); if (!isNaN(d)) day = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+    const box = el("section", "lv"); box.setAttribute("aria-label", "Live scores");
+    liveCur = { day, picks, box };
+    fillLive(box, day); ensureLive(false);
+    return box;
+  }
+  setInterval(() => { if (!document.hidden && st.tab === "picks") ensureLive(false); }, 20000);
 
   // ---------- load (and refresh every 5 minutes) ----------
   async function getJSON(path){

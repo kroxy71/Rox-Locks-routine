@@ -1143,6 +1143,38 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
         comps: c.competitors.map(x => ({ team: x.team, score: +x.score || 0, home: x.homeAway === "home" })) };
     });
   }
+  // When KingCap gives no number, fall back to DraftKings' own line for that player/stat (ESPN carries it, game over or not)
+  const PROPTYPE = { pra: "90", pts: "1", reb: "3", ast: "2", threes: "4", stl: "5", blk: "6" }, MILETYPE = { stl: "222", blk: "223" };
+  const propCache = {};
+  async function getPropLines(g){
+    const L = LEAGUES[g.sp]; if (g.sp !== "NBA" || !L) return [];
+    if (propCache[g.id]) return propCache[g.id];
+    const base = "https://sports.core.api.espn.com/v2/sports/" + L[0].replace("/", "/leagues/") + "/events/" + g.id + "/competitions/" + g.id + "/odds/100/propBets?limit=500";
+    const out = []; let pages = 1;
+    for (let pg = 1; pg <= pages && pg <= 4; pg++) {
+      const j = await espnJSON(base + "&page=" + pg); pages = j.pageCount || 1;
+      (j.items || []).forEach(it => {
+        const m = /athletes\/(\d+)/.exec(it.athlete && it.athlete.$ref || ""); if (!m) return;
+        const tg = (it.current && it.current.target) || {}, tot = it.odds && it.odds.total && it.odds.total.value;
+        out.push({ id: m[1], type: it.type && it.type.id, total: tot != null ? parseFloat(tot) : null, disp: tg.displayValue, price: parseInt(it.odds && it.odds.american && it.odds.american.value, 10) || 0 });
+      });
+    }
+    return (propCache[g.id] = out);
+  }
+  async function dkLine(g, athleteId, stat){
+    try {
+      const all = (await getPropLines(g)).filter(x => x.id === athleteId); if (!all.length) return null;
+      if (PROPTYPE[stat]) { const r = all.find(x => x.type === PROPTYPE[stat] && x.total != null); if (r) return r.total; }
+      if (MILETYPE[stat]) {
+        // milestones (2+ steals, 4+ blocks): the one priced nearest even money marks the main line
+        const ms = all.filter(x => x.type === MILETYPE[stat] && /\d/.test(x.disp || "")); if (!ms.length) return null;
+        const dec = a => a > 0 ? 1 + a / 100 : 1 + 100 / -a;
+        ms.sort((a, b) => Math.abs(dec(a.price) - 2) - Math.abs(dec(b.price) - 2));
+        return parseInt(ms[0].disp, 10) - 0.5;
+      }
+    } catch (e) { }
+    return null;
+  }
   const boxCache = {};
   async function getBox(g){
     const c = boxCache[g.id]; if (c && c.final) return c;
@@ -1152,7 +1184,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const map = new Map();
       (tp.statistics || []).forEach(grp => (grp.athletes || []).forEach(a => {
         const nm = a.athlete && a.athlete.displayName; if (!nm) return;
-        let p = map.get(nm); if (!p) { p = { name: nm, team: tp.team, s: {} }; map.set(nm, p); }
+        let p = map.get(nm); if (!p) { p = { name: nm, id: String(a.athlete.id || ""), team: tp.team, s: {} }; map.set(nm, p); }
         (grp.labels || []).forEach((lab, i) => { p.s[(grp.name || "") + ":" + lab] = a.stats[i]; });
       }));
       map.forEach(p => players.push(p));
@@ -1226,12 +1258,15 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (p.k === "atd" || p.k === "atg") {
         row.text = v + (p.k === "atd" ? " TD" : (v === 1 ? " goal" : " goals"));
         row.res = v >= 1 ? "hit" : done ? "miss" : "live";
-      } else if (p.line == null) {
-        row.text = v + " " + p.sname + " (no line stated)"; row.res = done ? "none" : "live";
       } else {
-        row.text = v + " " + p.sname + " vs " + p.line;
-        const over = v > p.line;
-        row.res = p.ou === "over" ? (over ? "hit" : done ? "miss" : "live") : (over ? "miss" : done ? "hit" : "live");
+        let line = p.line, assumed = false;
+        if (line == null) { const dk = await dkLine(gg, hit.id, p.stat); if (dk != null) { line = dk; assumed = true; } }
+        if (line == null) { row.text = v + " " + p.sname + " (no line stated)"; row.res = done ? "none" : "live"; }
+        else {
+          row.text = v + " " + p.sname + " vs " + line + (assumed ? " (DraftKings line, none stated)" : "");
+          const over = v > line;
+          row.res = p.ou === "over" ? (over ? "hit" : done ? "miss" : "live") : (over ? "miss" : done ? "hit" : "live");
+        }
       }
       return row;
     }

@@ -296,7 +296,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-11c";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-11d";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -304,7 +304,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   const fmtDay = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",month:"numeric",day:"numeric"}).format(d);
   const fmtTime = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"numeric",minute:"2-digit"}).format(d);
   const dayKey = d => new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York"}).format(d);
-  function stamp(){ if (!st.checked) return; $("checked").textContent = "Last update " + fmtDay(st.checked) + ", " + fmtTime(st.checked) + " ET"; }
+  function stamp(){ const t = st.liveAt && (!st.checked || st.liveAt > st.checked) ? st.liveAt : st.checked; if (!t) return; $("checked").textContent = "Last update " + fmtDay(t) + ", " + fmtTime(t) + " ET"; }
 
   function setTab(t, push){
     if (!TABS[t]) t = "picks";
@@ -1288,7 +1288,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       soon: all.some(g => g.state === "pre" && g.start - now < 45 * 60 * 1000),
       done: all.length > 0 && all.every(g => g.state === "post"),
       err: sports.some(sp => !games[sp]) };
-    liveCache[day] = c; return c;
+    liveCache[day] = c; st.liveAt = c.at; stamp(); return c;
   }
   const LRES = { hit: "HIT", miss: "MISS", live: "LIVE", push: "PUSH", pending: "PENDING", none: "—" };
   function fillLive(box, day){
@@ -1335,6 +1335,12 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const texts = g.items.map(i => st.msgs[i.id] && st.msgs[i.id].text).filter(Boolean);
     return parsePicks(texts).filter(p => LEAGUES[p.sp]);
   }
+  // refresh button: pull ESPN again right now (ignores the cache age) and restamp the header
+  function forceLive(){
+    if (!liveCur) return Promise.resolve();
+    const { day, picks, box, fill } = liveCur;
+    return refreshLive(day, picks).then(() => { if (liveCur && liveCur.day === day && box.isConnected) fill(); }).catch(() => {});
+  }
   function liveSection(g){
     const picks = picksOf(g);
     if (!picks.length) { liveCur = null; return null; }
@@ -1378,7 +1384,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const b = $("refresh"); if (b.classList.contains("spin")) return;
     b.classList.add("spin"); b.setAttribute("aria-busy", "true");
     const t0 = Date.now();
-    try { await load(); } finally {
+    try { await load(); await forceLive(); } finally {
       setTimeout(() => { b.classList.remove("spin"); b.removeAttribute("aria-busy"); }, Math.max(0, 600 - (Date.now() - t0)));
     }
   });

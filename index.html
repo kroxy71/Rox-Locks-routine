@@ -6,7 +6,7 @@
 <title>Rox Locks</title>
 <meta name="description" content="KingCap stream picks, checked against the betting sites.">
 <meta property="og:title" content="Rox Locks">
-<meta property="og:description" content="Today's KingCap picks, results and ML parlay.">
+<meta property="og:description" content="Today's KingCap picks, results and parlays.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
@@ -303,7 +303,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" id="tab-picks" data-tab="picks" aria-selected="true">Picks</button>
       <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
-      <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">ML Parlay</button>
+      <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">KingCap Parlays</button>
       <button class="tab" role="tab" id="tab-slip" data-tab="slip" aria-selected="false">Bet Slip</button>
       <button class="tab" role="tab" id="tab-bot" data-tab="bot" aria-selected="false">Accuracy Tracker</button>
       <button class="tab" role="tab" id="tab-stats" data-tab="stats" aria-selected="false">SharpSheet</button>
@@ -328,12 +328,12 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   const TABS = {
     picks:  { name: "Picks", empty: "No picks yet." },
     results:{ name: "Results", empty: "No results updates yet." },
-    ml:     { name: "ML Parlay", empty: "No ML parlay yet." },
+    ml:     { name: "KingCap Parlays", empty: "No KingCap parlays yet." },
     slip:   { name: "Bet Slip", empty: "" },
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-12b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-12c";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -872,7 +872,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   }
 
   function cleanSubject(s){
-    return s.replace(/^\[TEST\][^-]*-\s*/i, "Test · ").replace(/^KingCap's Picks for\s*/i, "Picks · ").replace(/^KingCap (Results Update|Morning Results)\s*-\s*/i, "Results · ").replace(/^Daily ML Parlay(\s*&\s*Best Bets)?\s*-\s*/i, "ML Parlay · ") || "Rox Locks";
+    return s.replace(/^\[TEST\][^-]*-\s*/i, "Test · ").replace(/^KingCap's Picks for\s*/i, "Picks · ").replace(/^KingCap (Results Update|Morning Results)\s*-\s*/i, "Results · ").replace(/^(?:Rox the Line\s*\|\s*)?Daily ML Parlay(?:\s*&\s*Best Bets)?\s*[-|]\s*/i, "KingCap Parlays · ") || "Rox Locks";
   }
 
   // ---------- safe re-set of the email HTML (only known tags, no scripts, no images) ----------

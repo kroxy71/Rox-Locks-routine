@@ -6,7 +6,11 @@ OUT = sys.argv[1]
 CACHE = os.path.join(OUT, 'cache'); os.makedirs(CACHE, exist_ok=True)
 BASE = 'https://site.api.espn.com/apis/site/v2/sports/'
 H = {'User-Agent': 'Mozilla/5.0'}
-SPORTS = {'nfl': ('football/nfl', datetime.date(2026, 9, 1)), 'nhl': ('hockey/nhl', datetime.date(2026, 10, 1))}
+SPORTS = {'nfl': ('football/nfl', datetime.date(2026, 9, 1)), 'nhl': ('hockey/nhl', datetime.date(2026, 10, 1)),
+          'ncaaf': ('football/college-football', datetime.date(2026, 8, 20))}
+# ESPN's college-football endpoints return every division (FBS, FCS, D2, D3) unless filtered to the
+# FBS group; the live site already uses this same group id (80) for its own NCAAF scoreboard.
+EXTRA_Q = {'ncaaf': '&groups=80'}
 END = datetime.date.today()
 
 
@@ -49,6 +53,7 @@ def tof(x):
 
 def events_for(sp):
     path, a = SPORTS[sp]
+    extra = EXTRA_Q.get(sp, '')
     evs = {}
     d = a
     dates = []
@@ -56,7 +61,7 @@ def events_for(sp):
         dates.append(d); d += datetime.timedelta(days=1)
 
     def one(d):
-        return get(f"{BASE}{path}/scoreboard?dates={d:%Y%m%d}&limit=300")
+        return get(f"{BASE}{path}/scoreboard?dates={d:%Y%m%d}&limit=300{extra}")
     with cf.ThreadPoolExecutor(6) as ex:
         for s in ex.map(one, dates):
             for e in (s or {}).get('events', []):
@@ -66,7 +71,7 @@ def events_for(sp):
 
 def team_row(sp, t):
     st = {s['name']: s.get('displayValue') for s in t.get('statistics', [])}
-    if sp == 'nfl':
+    if sp in ('nfl', 'ncaaf'):
         cmp_, att = pair(st.get('completionAttempts'))
         sk = str(st.get('sacksYardsLost', '0-0')).split('-')
         return dict(first_downs=num(st.get('firstDowns')), total_yards=num(st.get('totalYards')),
@@ -122,7 +127,7 @@ def process(sp, e):
                                              player_id=pid, name=ath['displayName'],
                                              pos=(ath.get('position') or {}).get('abbreviation', '')))
                 st = dict(zip(keys, a.get('stats', [])))
-                if sp == 'nfl':
+                if sp in ('nfl', 'ncaaf'):
                     if gname == 'passing':
                         c, at = pair(st.get('completions/passingAttempts'))
                         p.update(pass_cmp=c, pass_att=at, pass_yds=num(st.get('passingYards')), pass_td=num(st.get('passingTouchdowns')), ints=num(st.get('interceptions')))
@@ -151,7 +156,7 @@ def process(sp, e):
                                  plus_minus=num(st.get('plusMinus')), toi=round(tof(st.get('timeOnIce')), 1),
                                  pp_toi=round(tof(st.get('powerPlayTimeOnIce')), 1))
         for p in acc.values():
-            if sp == 'nfl':
+            if sp in ('nfl', 'ncaaf'):
                 p['tot_td'] = p.get('rush_td', 0) + p.get('rec_td', 0) + p.get('kr_td', 0) + p.get('pr_td', 0)
                 if not any(p.get(k) for k in ('pass_att', 'rush_att', 'rec', 'targets', 'fg_att', 'tot_td', 'def_td')):
                     continue
@@ -177,7 +182,7 @@ for sp in SPORTS:
     teams = [t for r in res for t in r[1]]; players = [p for r in res for p in r[2]]
     gcols = ['sport', 'game_id', 'date', 'week', 'home', 'away', 'home_abbr', 'away_abbr', 'home_score', 'away_score', 'extra', 'spread_detail', 'over_under', 'home_ml', 'away_ml', 'venue']
     base_t = ['sport', 'game_id', 'date', 'team', 'opp', 'home', 'pts_for', 'pts_against']
-    if sp == 'nfl':
+    if sp in ('nfl', 'ncaaf'):
         tcols = base_t + ['first_downs', 'total_yards', 'plays', 'pass_yds', 'pass_cmp', 'pass_att', 'rush_yds', 'rush_att', 'sacks_taken', 'turnovers', 'penalties', 'poss_min', 'third_made', 'third_att']
         pcols = ['sport', 'game_id', 'date', 'team', 'opp', 'player_id', 'name', 'pos', 'pass_cmp', 'pass_att', 'pass_yds', 'pass_td', 'ints', 'rush_att', 'rush_yds', 'rush_td', 'targets', 'rec', 'rec_yds', 'rec_td', 'kr_td', 'pr_td', 'def_td', 'tot_td', 'tackles', 'sacks', 'fg_made', 'fg_att']
     else:
@@ -204,8 +209,8 @@ json.dump(meta, open(os.path.join(OUT, 'meta.json'), 'w'), indent=1)
 # ---- team colours (used for the abbreviation badges; no logos) ----
 def write_teams(out):
     rows = []
-    for sp, path in (('nfl', 'football/nfl'), ('nhl', 'hockey/nhl')):
-        d = get(f"{BASE}{path}/teams?limit=100") or {}
+    for sp, path in (('nfl', 'football/nfl'), ('nhl', 'hockey/nhl'), ('ncaaf', 'football/college-football')):
+        d = get(f"{BASE}{path}/teams?limit=300{EXTRA_Q.get(sp, '')}") or {}
         for t in d.get('sports', [{}])[0].get('leagues', [{}])[0].get('teams', []):
             t = t['team']
             rows.append(dict(sport=sp, name=t.get('displayName', ''), abbr=t.get('abbreviation', ''), color=t.get('color', ''), alt=t.get('alternateColor', '')))
@@ -219,8 +224,8 @@ print('teams', write_teams(OUT))
 # ---- injuries (ESPN) and NHL starting goalies (Daily Faceoff) ----
 def write_injuries(out):
     rows = []
-    for sp, path in (('nfl', 'football/nfl'), ('nhl', 'hockey/nhl')):
-        d = get(f"{BASE}{path}/injuries") or {}
+    for sp, path in (('nfl', 'football/nfl'), ('nhl', 'hockey/nhl'), ('ncaaf', 'football/college-football')):
+        d = get(f"{BASE}{path}/injuries{EXTRA_Q.get(sp, '')}") or {}
         for t in d.get('injuries', []):
             for i in t.get('injuries', []):
                 a = i.get('athlete', {})
@@ -264,14 +269,15 @@ DK_MAP = {
             'Total Passing Yards (incl. overtime)': ('pass_yds', 'ou'), 'Total Rushing Plus Receiving Yards (incl. overtime)': ('rushrec_yds', 'ou'), 'Total Passing Touchdowns (incl. overtime)': ('pass_td', 'ou')},
     'nhl': {'Anytime Goalscorer': ('atg', 'any'), 'Points Milestones': ('points', 'ms'), 'Shots on Goal Milestones': ('shots', 'ms'), 'Goalkeeper Saves Milestones': ('saves', 'ms'),
             'Total Points': ('points', 'ou'), 'Total Shots on Goal': ('shots', 'ou'), 'Total Saves': ('saves', 'ou')}}
+DK_MAP['ncaaf'] = DK_MAP['nfl']  # same DraftKings prop-type names as NFL
 
 
 def write_dk_props(out):
     rows = []
-    for sp, lg, path in (('nfl', 'football', 'nfl'), ('nhl', 'hockey', 'nhl')):
+    for sp, lg, path in (('nfl', 'football', 'nfl'), ('nhl', 'hockey', 'nhl'), ('ncaaf', 'football', 'college-football')):
         up = list(csv.DictReader(open(os.path.join(out, f'{sp}_upcoming.csv'), encoding='utf-8')))
         up.sort(key=lambda g: g['date'])
-        for g in up[: (16 if sp == 'nfl' else 30)]:
+        for g in up[: (16 if sp == 'nfl' else 30 if sp == 'nhl' else 20)]:
             eid = g['game_id']; page = 1
             while True:
                 d = get(f"https://sports.core.api.espn.com/v2/sports/{lg}/leagues/{path}/events/{eid}/competitions/{eid}/odds/100/propBets?limit=1000&page={page}") or {}

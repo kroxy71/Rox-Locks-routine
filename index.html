@@ -114,6 +114,9 @@ main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .mail ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:15px}
 .mail a{color:var(--accent)}
 .odds{font-family:var(--f-mono);font-size:.92em}
+.favs{display:flex;flex-wrap:wrap;gap:6px 8px;margin:4px 0}
+.favs .fav{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13px;color:var(--ink)}
+.favs .fav b{font-weight:700;margin-left:4px}
 .field-row{display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .field-row label{font:700 12px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .field-row input{font:600 16px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:40px;width:100%}
@@ -124,7 +127,7 @@ main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .addform .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .addform input{font:600 15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:40px;width:100%}
 .addform input::placeholder{color:var(--muted)}
-.addform-btn{font:700 15px var(--f-body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:10px 16px;cursor:pointer;min-height:44px}
+.addform-btn{font:700 15px var(--f-body);background:var(--gold);color:var(--head);border:0;border-radius:8px;padding:10px 16px;cursor:pointer;min-height:44px}
 .addform-btn:disabled{opacity:.45;cursor:not-allowed}
 .bs-tool{display:grid;gap:14px}
 .bs-intro{color:var(--muted);font-size:14px;margin:0}
@@ -141,7 +144,7 @@ main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .flag.good{background:color-mix(in srgb,var(--good) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--good) 45%,transparent)}
 .flag.warn{background:color-mix(in srgb,var(--mid) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--mid) 45%,transparent)}
 .flag.bad{background:color-mix(in srgb,var(--bad) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--bad) 45%,transparent)}
-.addbtn{margin-top:8px;font:700 13px var(--f-body);background:none;border:1px solid var(--line);color:var(--accent);border-radius:8px;padding:6px 10px;cursor:pointer}
+.addbtn{margin-top:8px;font:700 13px var(--f-body);background:none;border:1px solid var(--gold);color:var(--gold);border-radius:8px;padding:6px 10px;cursor:pointer}
 .glance{display:grid;gap:8px}
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .tile{background:var(--head);color:var(--head-ink);border-radius:10px;padding:10px 10px 9px;display:grid;align-content:start;gap:1px;min-width:0}
@@ -235,6 +238,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .bot-lead{font-size:13px;font-weight:700;margin-top:6px}
 .bot-meta{font-size:12px;color:var(--muted);margin-top:4px}
 .bot-sec{font:700 12px var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
+.bot-day-head{font:800 15px var(--f-display);letter-spacing:.03em;text-transform:uppercase;color:var(--ink);margin:16px 0 6px;padding-top:12px;border-top:1px solid var(--line)}
 .gfi{margin-top:12px;border:1px solid color-mix(in srgb,var(--mid) 55%,var(--line));background:color-mix(in srgb,var(--mid) 10%,var(--surface));border-radius:10px;padding:10px 12px}
 .gfi-l{font:800 12px var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:flex;justify-content:space-between;align-items:center;gap:8px}
 .gfi-c{font:700 17px/1.25 var(--f-display);margin:4px 0 2px}
@@ -329,7 +333,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-12a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-12b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -361,7 +365,9 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (isNaN(date)) return;
       const key = v.id + ":" + v.sent + ":" + String((v.html || v.text || "").length);
       if (!st.msgs[v.id] || st.msgs[v.id].key !== key) {
-        const node = typeof v.html === "string" && v.html ? fromHtml(v.html) : fromPlain(typeof v.text === "string" ? v.text : "");
+        const node = typeof v.html === "string" && v.html ? fromHtml(v.html)
+          : v.kind === "ml" ? fromMlPlain(typeof v.text === "string" ? v.text : "")
+          : fromPlain(typeof v.text === "string" ? v.text : "");
         st.msgs[v.id] = { key, node, tracker: extractTracker(node), text: typeof v.text === "string" && v.text ? v.text : node.textContent || "" };
       }
       by[v.kind].push({ id: v.id, subject: String(v.subject || ""), date });
@@ -1107,6 +1113,68 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const box = el("div","mail"); box.append(el("div","plain", keep || "Nothing to show for this one."));
     return box;
   }
+  // ML Parlay emails sometimes arrive with no html field (backend doesn't always capture it), so this
+  // builds sport-colored, picks-style cards straight from the plaintext body instead of a raw text dump.
+  function fromMlPlain(text){
+    const t = String(text || "").split(/\r?\n/).filter(l => !/^\s*(KCDATA|KCPAR|KCRES|KCSLIP|MLP|Videos):/.test(l)).join("\n").trim();
+    const box = el("div","mail");
+    const paras = t.split(/\r?\n\s*\r?\n/).map(p => p.trim()).filter(Boolean);
+    if (!paras.length) { box.append(el("div","plain","Nothing to show for this one.")); return box; }
+    const head = paras.shift();
+    const headLines = head.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+    if (headLines[0]) box.append(el("div","meta", headLines[0]));
+    if (headLines.length > 1) box.append(el("div","fine", headLines.slice(1).join(" ")));
+    const itemRe = /\[([A-Za-z]{2,6})\]\s*([^\[\n]+?)(?=;?\s*\[[A-Za-z]{2,6}\]|$)/g;
+    paras.forEach(p => {
+      let body = p;
+      let hm = /^([A-Z][A-Z' ]{2,40}(?:\([^)]*\))?)\s*:\s*/.exec(body);
+      if (!hm) hm = /^([A-Z][A-Z' ]{2,40}(?:\([^)]*\))?)\s*(?=\n\s*\[)/.exec(body);
+      if (hm) {
+        const h = el("h3","sec", hm[1].trim()); h.style.setProperty("--h","var(--ink)");
+        box.append(h);
+        body = body.slice(hm[0].length);
+      }
+      body.split(/\r?\n/).forEach(rawLine => {
+        const line = rawLine.trim();
+        if (!line) return;
+        let any = false, m;
+        itemRe.lastIndex = 0;
+        while ((m = itemRe.exec(line))) {
+          any = true;
+          const sp = m[1].toUpperCase();
+          let rest = m[2].trim().replace(/^[;,]\s*/, "");
+          if (!rest) continue;
+          const titleM = /^(.+?)(?:,\s|\.\s|;|$)/.exec(rest);
+          let title = ((titleM ? titleM[1] : rest) || rest).replace(/\s+ML\s+[+-]\d+.*$/i, "").trim() || rest;
+          const pctM = /(\d{1,3})\s*%/.exec(rest);
+          const card = el("div","card"); card.style.setProperty("--edge", "var(" + (SPORT[sp] || "--other") + ")");
+          const top = el("div");
+          top.append(el("span","chip", sp), el("b", null, title));
+          if (pctM) { const n = +pctM[1]; top.append(el("span","badge " + (n >= 75 ? "high" : n >= 55 ? "medium" : "low"), n + "%")); }
+          card.append(top);
+          if (rest.toLowerCase() !== title.toLowerCase()) card.append(el("div","meta", rest));
+          box.append(card);
+        }
+        if (any) return;
+        const favM = /^((?:[A-Za-z.&' -]+\s+\d{1,3}\s*,?\s*)+)(\([^)]*\))?\.?$/.exec(line);
+        if (favM && !/\[/.test(line)) {
+          const row = el("div","favs");
+          line.replace(/\([^)]*\)\s*\.?$/, "").split(",").forEach(pair => {
+            const pm = /^\s*(.+?)\s+(\d{1,3})\s*\.?$/.exec(pair);
+            if (pm) { const f = el("span","fav"); f.append(document.createTextNode(pm[1].trim() + " "), el("b",null,pm[2])); row.append(f); }
+          });
+          if (row.childNodes.length) {
+            box.append(row);
+            const note = /\(([^)]*)\)\s*\.?$/.exec(line);
+            if (note) box.append(el("div","fine", note[1]));
+            return;
+          }
+        }
+        box.append(el("div", /high risk|not advice|guarantee|lines move/i.test(line) ? "fine" : "meta", line));
+      });
+    });
+    return box;
+  }
 
   // ---------- parlays he showed on stream (data/slips.json + slips/*.jpg) ----------
   const SPV = { NFL:"--nfl", NHL:"--nhl", NBA:"--nba", MLB:"--mlb", NCAAF:"--ncaaf" };
@@ -1222,9 +1290,12 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const up = d.updated ? new Date(d.updated) : null;
     box.append(el("div","bot-meta", [d.at_risk ? money(d.at_risk) + " at risk" : "", up && !isNaN(up) ? "updated " + fmtDay(up) + ", " + fmtTime(up) + " ET" : ""].filter(Boolean).join(" · ")));
     const bets = d.bets.slice().sort((a,b) => String(b.date).localeCompare(String(a.date)));
-    const latest = bets.length ? bets[0].date : null;
-    const day = bets.filter(b => b.date === latest);
-    const shot = day.find(b => b.cat === "longshot");
+    const todayKey = dayKey(new Date());
+    const ydayDate = new Date(); ydayDate.setDate(ydayDate.getDate() - 1);
+    const ydayKey = dayKey(ydayDate);
+    const todays = bets.filter(b => b.date === todayKey);
+    const ydays = bets.filter(b => b.date === ydayKey);
+    const shot = todays.find(b => b.cat === "longshot") || ydays.find(b => b.cat === "longshot");
     if (shot) {
       const g = el("div","gfi"), l = el("div","gfi-l");
       l.append(el("span",null,"Going for it"), statusChip(shot.status));
@@ -1234,12 +1305,15 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (full && shot.why) g.append(el("div","bb-why", String(shot.why)));
       box.append(g);
     }
-    if (latest && day.some(b => b !== shot)) {
-      const today = dayKey(new Date()) === latest, rest = day.filter(b => b !== shot);
-      box.append(el("div","bot-sec", (today ? "Today's bets" : "Bets for " + fmtDay(new Date(latest + "T12:00:00"))) + " (" + rest.length + ")"));
-      const order = { ml: 0, parlay: 1, prop: 2, longshot: 3 };
+    const order = { ml: 0, parlay: 1, prop: 2, longshot: 3 };
+    function daySection(label, list){
+      const rest = list.filter(b => b !== shot);
+      if (!rest.length) return;
+      box.append(el("div","bot-day-head", label + " (" + rest.length + ")"));
       rest.sort((a,b) => (order[a.cat] ?? 9) - (order[b.cat] ?? 9)).forEach(b => box.append(betRow(b)));
     }
+    daySection("Today's bets", todays);
+    daySection("Yesterday's bets", ydays);
     const days = Array.isArray(d.days) ? d.days.slice().sort((a,b) => String(b.date).localeCompare(String(a.date))) : [];
     if (days.length) {
       box.append(el("div","bot-sec","By day"));
@@ -1253,7 +1327,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       box.append(t);
     }
     if (full) {
-      const older = bets.filter(b => b.date !== latest);
+      const older = bets.filter(b => b.date !== todayKey && b.date !== ydayKey);
       if (older.length) { box.append(el("div","bot-sec","Earlier bets")); older.slice(0, 80).forEach(b => box.append(betRow(b))); }
     }
     box.append(el("div","bot-meta","Public = $25 on whichever side most bettors took, on the same games. Paper money only; not betting advice."));

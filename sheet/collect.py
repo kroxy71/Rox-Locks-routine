@@ -259,6 +259,64 @@ print('injuries', write_injuries(OUT))
 print('goalies', write_goalies(OUT))
 
 
+# ---- Dimers.com free win-probability picks ----
+# Dimers has no public API, and almost everything (best bets, props, unlimited picks) is paywalled behind
+# "Dimers Pro". The one thing their site states is free for every game, no login required, is the per-game
+# win probability + spread on each sport's own /picks page (e.g. dimers.com/nfl/picks) - that's the only
+# piece this scrapes. It is shown in the sheet as a separate outside reference, never blended into the model.
+# This is a scrape of a page we don't control, so: (1) it tries an embedded data blob first (many sites like
+# this ship one), falling back to parsing the visible text, and (2) a site redesign can silently empty
+# dimers.csv out - if that happens, this needs a fresh look at the live page before it's worth trusting again.
+DIMERS_SLUG = {'nfl': 'nfl', 'nhl': 'nhl', 'ncaaf': 'college-football'}
+
+
+def write_dimers(out):
+    rows = []
+    for sp, slug in DIMERS_SLUG.items():
+        try:
+            req = urllib.request.Request(f"https://www.dimers.com/{slug}/picks", headers=H)
+            html = urllib.request.urlopen(req, timeout=40).read().decode('utf8', 'ignore')
+        except Exception:
+            continue
+        found = False
+        i = html.find('__NEXT_DATA__')
+        if i != -1:
+            try:
+                j = html[html.find('>', i) + 1: html.find('</script>', i)]
+                data = json.loads(j)
+
+                def walk(node):
+                    nonlocal found
+                    if isinstance(node, dict):
+                        teams = [v for k, v in node.items() if 'team' in k.lower() and isinstance(v, str) and v]
+                        probs = [v for k, v in node.items() if ('prob' in k.lower() or 'win' in k.lower()) and isinstance(v, (int, float))]
+                        if len(teams) >= 2 and len(probs) >= 2:
+                            hp, ap = probs[0], probs[1]
+                            hp = hp * 100 if hp <= 1 else hp; ap = ap * 100 if ap <= 1 else ap
+                            rows.append(dict(sport=sp, home=teams[0], away=teams[1], home_pct=round(hp, 1), away_pct=round(ap, 1)))
+                            found = True
+                        for v in node.values():
+                            walk(v)
+                    elif isinstance(node, list):
+                        for v in node:
+                            walk(v)
+                walk(data)
+            except Exception:
+                pass
+        if not found:
+            # fall back to the rendered text: each free game row shows "Team A NN.N% Team B MM.M%"
+            text = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', html))
+            for m in re.finditer(r"([A-Za-z.&'\- ]{3,30}?)\s+(\d{1,3}(?:\.\d)?)%\s+([A-Za-z.&'\- ]{3,30}?)\s+(\d{1,3}(?:\.\d)?)%", text):
+                home, hp, away, ap = m.group(1).strip(), float(m.group(2)), m.group(3).strip(), float(m.group(4))
+                if 0 < hp < 100 and 0 < ap < 100 and abs(hp + ap - 100) < 2:
+                    rows.append(dict(sport=sp, home=home, away=away, home_pct=hp, away_pct=ap))
+    write(os.path.join(out, 'dimers.csv'), rows, ['sport', 'home', 'away', 'home_pct', 'away_pct'])
+    return len(rows)
+
+
+print('dimers', write_dimers(OUT))
+
+
 
 # ---- DraftKings player props via ESPN's core odds API (provider 100) ----
 DK_MAP = {

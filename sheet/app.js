@@ -26,6 +26,7 @@
     jobs.push(optCsv('dk_props.csv').then((rows) => ['dk', 'dk', rows]));
     jobs.push(optCsv('nfl_adv.csv').then((rows) => ['advnfl', 'adv', rows]));
     jobs.push(optCsv('nhl_skaters.csv').then((rows) => ['advnhl', 'adv', rows]));
+    jobs.push(optCsv('dimers.csv').then((rows) => ['dimers', 'dimers', rows]));
     jobs.push(fetch('data/teams.csv').then((r) => (r.ok ? r.text() : '')).then((x) => ['teams', 'teams', x ? K.parseCSV(x) : []]).catch(() => ['teams', 'teams', []]));
     const out = await Promise.all(jobs); const raw = { nfl: {}, nhl: {} };
     S.colors = { nfl: {}, nhl: {} }; S.inj = { nfl: {}, nhl: {} }; S.adv = { nfl: [], nhl: [] }; let gkRows = [];
@@ -35,6 +36,14 @@
       else if (sp === 'gk') gkRows = rows;
       else if (sp === 'advnfl') S.adv.nfl = rows;
       else if (sp === 'advnhl') S.adv.nhl = rows;
+      else if (sp === 'dimers') {
+        // Dimers.com's free per-game win probabilities (scraped - no public API), shown as an outside reference only, never blended into the model
+        S.dimers = { nfl: {}, nhl: {} };
+        rows.forEach((r) => {
+          const D = S.dimers[r.sport]; if (!D || !r.home || !r.away) return;
+          D[K.normName(r.home)] = { pct: +r.home_pct }; D[K.normName(r.away)] = { pct: +r.away_pct };
+        });
+      }
       else if (sp === 'dk') {
         // DraftKings props: one-sided "X or more" and anytime odds, plus each player's main over/under line
         S.dk = { nfl: { ms: {}, ladder: {}, ou: {} }, nhl: { ms: {}, ladder: {}, ou: {} } };
@@ -193,6 +202,12 @@
     return { home: L.home, away: L.away, spread_detail: '', over_under: '', home_ml: '', away_ml: '' };
   }
   function opt(v, label, sel) { return '<option value="' + esc(v) + '"' + (sel ? ' selected' : '') + '>' + esc(label) + '</option>'; }
+  function dimersLine(sp, gm) {
+    const D = S.dimers && S.dimers[sp]; if (!D) return null;
+    const h = D[K.normName(gm.home)], a = D[K.normName(gm.away)];
+    if (!h || !a) return null;
+    return 'Dimers.com (their free picks page, a separate outside model - not blended in here): ' + gm.home + ' ' + h.pct.toFixed(1) + '%, ' + gm.away + ' ' + a.pct.toFixed(1) + '% to win.';
+  }
   function renderLab() {
     const sp = S.sp, M = S.M[sp]; if (!S.lab[sp]) S.lab[sp] = labDefaults(); const L = S.lab[sp];
     const up = S.U[sp].slice().sort((a, b) => (a.date < b.date ? -1 : 1));
@@ -206,7 +221,8 @@
       const names = M.teams.map((t) => t.name).sort();
       h += '<div class="row2"><label class="f">Away<select id="lab-away">' + names.map((n) => opt(n, n, n === L.away)).join('') + '</select></label><label class="f">Home<select id="lab-home">' + names.map((n) => opt(n, n, n === L.home)).join('') + '</select></label></div>';
     }
-    h += '<div class="lab-game">' + probBar(M, gm) + '<ul class="why">' + K.gameReasoning(M, gm).map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul></div></section>';
+    const labLines = K.gameReasoning(M, gm); const dl = dimersLine(sp, gm); if (dl) labLines.push(dl);
+    h += '<div class="lab-game">' + probBar(M, gm) + '<ul class="why">' + labLines.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul></div></section>';
 
     h += '<section class="card"><h2><span class="step">2</span>Game bet</h2><div class="row3"><label class="f">Bet<select id="lab-btype">' + opt('win', 'Team to win', L.btype === 'win') + opt('spread', sp === 'nfl' ? 'Point spread' : 'Puck line', L.btype === 'spread') + opt('total', 'Total goals/points', L.btype === 'total') + '</select></label>';
     if (L.btype !== 'total') h += '<label class="f">Team<select id="lab-team">' + [L.home, L.away].map((t) => opt(t, t, t === L.team)).join('') + '</select></label>'; else h += '<label class="f">Side<select id="lab-side">' + opt('over', 'Over', L.side === 'over') + opt('under', 'Under', L.side === 'under') + '</select></label>';

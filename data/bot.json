@@ -1,21 +1,21 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1194.41,
- "at_risk": 100,
- "updated": "2026-11-11T16:19:06Z",
+ "bankroll": 1211.56,
+ "at_risk": 110,
+ "updated": "2026-11-12T16:21:20Z",
  "record": {
-  "w": 8,
-  "l": 5,
+  "w": 12,
+  "l": 8,
   "p": 0
  },
  "public_record": {
-  "w": 6,
-  "l": 4,
+  "w": 11,
+  "l": 5,
   "p": 0
  },
- "public_bankroll": 954.29,
- "note": "Graded 7 bets (4-3, +$19.23) and 5 public (3-2, -$24.84); placed 7 bets, $100 at risk (2 ML singles on Buffalo and OKC, a lean 2-leg favorites parlay, a 4-leg longshot parlay, 3 NHL anytime-goal props). No NFL today, so no TD props. NHL prices are DraftKings 2-way from ESPN (SharpAPI NHL lines were 3-way); NHL has no ESPN predictor. Olofsson (6 GP) skipped as too small a sample. Public shadow: 6 games.",
+ "public_bankroll": 975.09,
+ "note": "Graded 7 bets (4-3, +$17.15) from 11/11; placed 8 bets, $110 at risk. Model found no ML single meeting full rules (edges too thin), so ML singles, the parlay and the TD prop are marked Lean; props via Covers/SharpAPI/nflverse/NHL stats; Covers TD list only had 8 players. Public shadow: 4 games.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -588,8 +588,8 @@
      "book": "FanDuel",
      "model_p": 0.5636,
      "implied_p": 0.5455,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Buffalo 28-7"
     }
    ],
    "odds": -120,
@@ -600,9 +600,9 @@
    "edge": 0.0181,
    "sources": "Market 52%, ESPN 66%, OddsShark 26-25 Buffalo, ScoresAndOdds 87% of bets on Buffalo (no Kalshi/Polymarket MAC lines)",
    "why": "Model has Buffalo about 56% against a 54.5% price at FanDuel, helped by ESPN (66%) and OddsShark (26.5-24.9).",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 20.83,
+   "result": "Buffalo 28-7"
   },
   {
    "id": "2026-11-11-2",
@@ -623,8 +623,8 @@
      "book": "FanDuel",
      "model_p": 0.5404,
      "implied_p": 0.5238,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Portland 118-108"
     }
    ],
    "odds": -110,
@@ -635,9 +635,9 @@
    "edge": 0.0166,
    "sources": "Market 51%, Kalshi 51%, ESPN 55%, OddsShark 114-112 OKC, sharp money on OKC",
    "why": "Model 54% vs a 52% price; sharp money (81% of dollars on 63% of bets) and ESPN 55% both lean OKC.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Portland 118-108"
   },
   {
    "id": "2026-11-11-3",
@@ -658,8 +658,8 @@
      "book": "FanDuel",
      "model_p": 0.8867,
      "implied_p": 0.9167,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Central Michigan 28-7"
     },
     {
      "sp": "NBA",
@@ -673,8 +673,8 @@
      "book": "FanDuel",
      "model_p": 0.8855,
      "implied_p": 0.9231,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Spurs 124-119"
     }
    ],
    "odds": -550,
@@ -685,9 +685,9 @@
    "edge": -0.061,
    "sources": "Market 88%/89%, Kalshi 91% Spurs, ESPN 93% CMU / 89% Spurs, OddsShark CMU by 18, Spurs by 14.5",
    "why": "Lean: no two sides cleared the edge bar, so this takes the two highest-probability favorites (CMU 89%, Spurs 89%) in different games.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 1.82,
+   "result": "Central Michigan 28-7; Spurs 124-119"
   },
   {
    "id": "2026-11-11-4",
@@ -709,8 +709,8 @@
      "book": "FanDuel",
      "model_p": 0.7113,
      "implied_p": 0.7059,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Celtics 98-93"
     },
     {
      "sp": "NBA",
@@ -724,8 +724,8 @@
      "book": "FanDuel",
      "model_p": 0.3388,
      "implied_p": 0.3333,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Rockets 115-108"
     },
     {
      "sp": "NBA",
@@ -739,8 +739,8 @@
      "book": "FanDuel",
      "model_p": 0.5404,
      "implied_p": 0.5238,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Portland 118-108"
     },
     {
      "sp": "NCAAF",
@@ -754,8 +754,8 @@
      "book": "FanDuel",
      "model_p": 0.5636,
      "implied_p": 0.5455,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Buffalo 28-7"
     }
    ],
    "odds": 1388,
@@ -766,9 +766,9 @@
    "edge": 0.0062,
    "sources": "Model 7.3% to hit; legs: Market 68/32/51/52%, Kalshi/ESPN agree, sharp money on GSW and OKC",
    "why": "Highest model return of the day (about 1.09x) - four small-edge sides, with Golden State carrying sharp money (70% of dollars on 43% of bets).",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "Celtics 98-93; Rockets 115-108; Portland 118-108; Buffalo 28-7"
   },
   {
    "id": "2026-11-11-5",
@@ -790,8 +790,8 @@
      "book": "FanDuel",
      "model_p": 0.3631,
      "implied_p": 0.2564,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 G"
     }
    ],
    "odds": 290,
@@ -802,9 +802,9 @@
    "edge": 0.1067,
    "sources": "2.6 shots/G, 10 G in 19 GP, model 36% vs FanDuel +290 (26%)",
    "why": "Shot-volume model has Bouchard at 36% to score vs a 26% price. Defenseman on a hot streak, so the model may run high.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 29.0,
+   "result": "1 G"
   },
   {
    "id": "2026-11-11-6",
@@ -826,8 +826,8 @@
      "book": "FanDuel",
      "model_p": 0.5634,
      "implied_p": 0.4878,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 G"
     }
    ],
    "odds": 105,
@@ -838,9 +838,9 @@
    "edge": 0.0756,
    "sources": "3.9 shots/G, 18 G in 19 GP, model 56% vs FanDuel +105 (49%)",
    "why": "Shot-volume model has Draisaitl at 56% to score vs a 49% price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 G"
   },
   {
    "id": "2026-11-11-7",
@@ -862,8 +862,8 @@
      "book": "FanDuel",
      "model_p": 0.5428,
      "implied_p": 0.4878,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 G"
     }
    ],
    "odds": 105,
@@ -874,9 +874,310 @@
    "edge": 0.055,
    "sources": "4.2 shots/G, 15 G in 17 GP, model 54% vs FanDuel +105 (49%)",
    "why": "Shot-volume model has Gauthier at 54% to score vs a 49% price.",
+   "status": "won",
+   "profit": 10.5,
+   "result": "1 G"
+  },
+  {
+   "id": "2026-11-12-1",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "ml",
+   "title": "Washington Commanders ML",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Washington Commanders @ New York Giants",
+     "start": "2026-11-13T01:15:00Z",
+     "sel": "Washington Commanders ML",
+     "team": "Washington Commanders",
+     "opp": "New York Giants",
+     "odds": 114,
+     "book": "DraftKings",
+     "model_p": 0.49,
+     "implied_p": 0.467,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 114,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 28.5,
+   "model_p": 0.49,
+   "edge": 0.023,
+   "sources": "Market 46% (DK +114), Kalshi 45%, ESPN 49%, OddsShark 20-18 Commanders; only 40% of bets-money split vs 23% of bets on WAS = sharp money on Washington",
+   "why": "Lean: Model 49% vs DraftKings +114 (47%); the computer score and sharp money like the Commanders even though Kalshi and the market lean Giants.",
    "status": "pending",
    "profit": null,
    "result": ""
+  },
+  {
+   "id": "2026-11-12-2",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "ml",
+   "title": "South Florida Bulls ML",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Memphis Tigers @ South Florida Bulls",
+     "start": "2026-11-13T01:00:00Z",
+     "sel": "South Florida Bulls ML",
+     "team": "South Florida Bulls",
+     "opp": "Memphis Tigers",
+     "odds": 150,
+     "book": "FanDuel",
+     "model_p": 0.406,
+     "implied_p": 0.4,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 150,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 37.5,
+   "model_p": 0.406,
+   "edge": 0.006,
+   "sources": "Market 40% (FD +150), ESPN 37% for USF, OddsShark Memphis 26.7-24.2; only 10% of bets but 44% of money on USF = sharp money on South Florida",
+   "why": "Lean: Model 41% vs FanDuel +150 (40%); the public is 90% on Memphis but the money is on USF and OddsShark has a 2.5-point game.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-3",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Louisiana + Detroit",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Louisiana Ragin' Cajuns @ UL Monroe Warhawks",
+     "start": "2026-11-13T02:00:00Z",
+     "sel": "Louisiana Ragin' Cajuns ML",
+     "team": "Louisiana Ragin' Cajuns",
+     "opp": "UL Monroe Warhawks",
+     "odds": -430,
+     "book": "FanDuel",
+     "model_p": 0.816,
+     "implied_p": 0.811,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Detroit Pistons @ Washington Wizards",
+     "start": "2026-11-13T00:00:00Z",
+     "sel": "Detroit Pistons ML",
+     "team": "Detroit Pistons",
+     "opp": "Washington Wizards",
+     "odds": -430,
+     "book": "FanDuel",
+     "model_p": 0.776,
+     "implied_p": 0.811,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -193,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 5.19,
+   "model_p": 0.633,
+   "edge": -0.026,
+   "sources": "ULL: ESPN 91%, OddsShark 30-20, market 80%; Detroit: Kalshi 80%, ESPN 72%, OddsShark 116-107, 90% of bets and 88% of money",
+   "why": "Lean: the two highest-probability sides on the board (Louisiana 82%, Detroit 78%) in different games, small stake.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-4",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "prop",
+   "title": "Kyle Connor anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Winnipeg Jets @ Dallas Stars",
+     "start": "2026-11-13T01:00:00Z",
+     "sel": "Kyle Connor anytime goal",
+     "team": "Winnipeg Jets",
+     "opp": "Dallas Stars",
+     "player": "Kyle Connor",
+     "odds": 155,
+     "book": "FanDuel",
+     "model_p": 0.512,
+     "implied_p": 0.392,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 155,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 15.5,
+   "model_p": 0.512,
+   "edge": 0.12,
+   "sources": "4.26 shots/G, 15 G in 19 GP, model 51% vs FanDuel +155 (39%); in RotoWire lineup, not on injury list",
+   "why": "Connor has 15 goals in 19 games on 4.3 shots a night, so the model sees about 51% against a 39% price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-5",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "prop",
+   "title": "Alex Tuch anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Washington Capitals @ New Jersey Devils",
+     "start": "2026-11-13T00:00:00Z",
+     "sel": "Alex Tuch anytime goal",
+     "team": "Washington Capitals",
+     "opp": "New Jersey Devils",
+     "player": "Alex Tuch",
+     "odds": 230,
+     "book": "FanDuel",
+     "model_p": 0.423,
+     "implied_p": 0.303,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 230,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 23.0,
+   "model_p": 0.423,
+   "edge": 0.12,
+   "sources": "2.62 shots/G, 11 G in 16 GP, model 42% vs FanDuel +230 (30%); in RotoWire lineup, not on injury list",
+   "why": "Tuch is on the Capitals first power play with 11 goals in 16 games; the model puts him near 42% against a 30% price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-6",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "prop",
+   "title": "Artturi Lehkonen anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Colorado Avalanche @ Ottawa Senators",
+     "start": "2026-11-13T00:00:00Z",
+     "sel": "Artturi Lehkonen anytime goal",
+     "team": "Colorado Avalanche",
+     "opp": "Ottawa Senators",
+     "player": "Artturi Lehkonen",
+     "odds": 235,
+     "book": "FanDuel",
+     "model_p": 0.414,
+     "implied_p": 0.299,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 235,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 23.5,
+   "model_p": 0.414,
+   "edge": 0.115,
+   "sources": "2.21 shots/G, 13 G in 19 GP, model 41% vs FanDuel +235 (30%); in RotoWire lineup, not on injury list",
+   "why": "Lehkonen has 13 goals in 19 games on 2.2 shots a night; the model has him about 41% against a 30% price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-7",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "prop",
+   "title": "Isaiah Likely anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Washington Commanders @ New York Giants",
+     "start": "2026-11-13T01:15:00Z",
+     "sel": "Isaiah Likely anytime TD",
+     "team": "New York Giants",
+     "opp": "Washington Commanders",
+     "player": "Isaiah Likely",
+     "odds": 195,
+     "book": "FanDuel",
+     "model_p": 0.366,
+     "implied_p": 0.339,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 195,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 19.5,
+   "model_p": 0.366,
+   "edge": 0.027,
+   "sources": "Covers projection 0.37 TDs (31%); 6 TDs in 8 GP, 4 in last 4 (season-rate 50%); blended model 37% vs FanDuel +195 (34%); Commanders allow the 4th-most receiving yards to TEs; Active",
+   "why": "Lean: Likely is scoring at a hot pace and faces a weak Commanders defense against tight ends, with a small positive edge.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-8",
+   "date": "2026-11-12",
+   "placed": "2026-11-12T16:21:20Z",
+   "cat": "longshot",
+   "title": "Devon Toews anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Colorado Avalanche @ Ottawa Senators",
+     "start": "2026-11-13T00:00:00Z",
+     "sel": "Devon Toews anytime goal",
+     "team": "Colorado Avalanche",
+     "opp": "Ottawa Senators",
+     "player": "Devon Toews",
+     "odds": 850,
+     "book": "FanDuel",
+     "model_p": 0.237,
+     "implied_p": 0.105,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 850,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 85.0,
+   "model_p": 0.237,
+   "edge": 0.132,
+   "sources": "1.89 shots/G, 6 G in 19 GP, model 24% vs FanDuel +850 (10%); expected return 2.25; in RotoWire lineup",
+   "why": "Daily long shot: best expected return on the board (model 24% at +850), a defenseman with 6 goals in 19 games; likely a small-sample overestimate so only $10.",
+   "status": "pending",
+   "profit": null,
+   "result": "",
+   "call": "Going for it: Devon Toews scores anytime at Ottawa (+850) - $10 pays $85.00"
   }
  ],
  "public": [
@@ -1063,9 +1364,9 @@
    "pct_bets": 87,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 20.83,
+   "result": "Buffalo 28-7"
   },
   {
    "id": "2026-11-11-p2",
@@ -1080,9 +1381,9 @@
    "pct_bets": 63,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Portland 118-108"
   },
   {
    "id": "2026-11-11-p3",
@@ -1097,9 +1398,9 @@
    "pct_bets": 97,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 2.27,
+   "result": "Central Michigan 28-7"
   },
   {
    "id": "2026-11-11-p4",
@@ -1114,9 +1415,9 @@
    "pct_bets": 96,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 2.08,
+   "result": "Spurs 124-119"
   },
   {
    "id": "2026-11-11-p5",
@@ -1131,9 +1432,9 @@
    "pct_bets": 95,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 10.42,
+   "result": "Celtics 98-93"
   },
   {
    "id": "2026-11-11-p6",
@@ -1146,6 +1447,74 @@
    "opp": "Golden State Warriors",
    "odds": -245,
    "pct_bets": 57,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "won",
+   "profit": 10.2,
+   "result": "Rockets 115-108"
+  },
+  {
+   "id": "2026-11-12-p1",
+   "date": "2026-11-12",
+   "sp": "NFL",
+   "game": "Washington Commanders @ New York Giants",
+   "start": "2026-11-13T01:15:00Z",
+   "sel": "New York Giants ML",
+   "team": "New York Giants",
+   "opp": "Washington Commanders",
+   "odds": -132,
+   "pct_bets": 77,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-p2",
+   "date": "2026-11-12",
+   "sp": "NCAAF",
+   "game": "Memphis Tigers @ South Florida Bulls",
+   "start": "2026-11-13T01:00:00Z",
+   "sel": "Memphis Tigers ML",
+   "team": "Memphis Tigers",
+   "opp": "South Florida Bulls",
+   "odds": -178,
+   "pct_bets": 90,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-p3",
+   "date": "2026-11-12",
+   "sp": "NCAAF",
+   "game": "Louisiana Ragin' Cajuns @ UL Monroe Warhawks",
+   "start": "2026-11-13T02:00:00Z",
+   "sel": "Louisiana Ragin' Cajuns ML",
+   "team": "Louisiana Ragin' Cajuns",
+   "opp": "UL Monroe Warhawks",
+   "odds": -430,
+   "pct_bets": 97,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-12-p4",
+   "date": "2026-11-12",
+   "sp": "NBA",
+   "game": "Detroit Pistons @ Washington Wizards",
+   "start": "2026-11-13T00:00:00Z",
+   "sel": "Detroit Pistons ML",
+   "team": "Detroit Pistons",
+   "opp": "Washington Wizards",
+   "odds": -430,
+   "pct_bets": 90,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -1169,7 +1538,7 @@
     "profit": 0
    },
    "bankroll": 990.0,
-   "public_bankroll": 1000
+   "public_bankroll": 1000.0
   },
   {
    "date": "2026-11-09",
@@ -1204,6 +1573,23 @@
    },
    "bankroll": 1194.41,
    "public_bankroll": 954.29
+  },
+  {
+   "date": "2026-11-11",
+   "bot": {
+    "w": 4,
+    "l": 3,
+    "p": 0,
+    "profit": 17.15
+   },
+   "public": {
+    "w": 5,
+    "l": 1,
+    "p": 0,
+    "profit": 20.8
+   },
+   "bankroll": 1211.56,
+   "public_bankroll": 975.09
   }
  ]
 }

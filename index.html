@@ -56,7 +56,7 @@ header .wrap{padding-block:12px 0;display:grid;gap:10px}
 @media (prefers-reduced-motion:reduce){.refresh.spin svg{animation:none;opacity:.5}}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block}
 .tab:focus-visible,.day:focus-visible,.btn:focus-visible,.row:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.tabs{display:grid;grid-template-columns:repeat(5,1fr)}
+.tabs{display:grid;grid-template-columns:repeat(6,1fr)}
 @media (max-width:520px){.tab{font-size:14px;letter-spacing:.01em;padding:10px 1px 9px}}
 @media (max-width:360px){.tab{font-size:13px;letter-spacing:0}}
 #stats{display:none}
@@ -114,6 +114,34 @@ main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .mail ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:15px}
 .mail a{color:var(--accent)}
 .odds{font-family:var(--f-mono);font-size:.92em}
+.field-row{display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.field-row label{font:700 12px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.field-row input{font:600 16px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:40px;width:100%}
+.quickadd{display:flex;gap:8px}
+.quickadd select{flex:1;min-width:0;font:600 15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:40px}
+.quickadd button{flex:none}
+.addform{display:grid;grid-template-columns:1fr;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.addform .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.addform input{font:600 15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:40px;width:100%}
+.addform input::placeholder{color:var(--muted)}
+.addform-btn{font:700 15px var(--f-body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:10px 16px;cursor:pointer;min-height:44px}
+.addform-btn:disabled{opacity:.45;cursor:not-allowed}
+.bs-tool{display:grid;gap:14px}
+.bs-intro{color:var(--muted);font-size:14px;margin:0}
+.bs-list{display:grid;gap:10px}
+.bs-row{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px}
+.bs-row .top{display:flex;align-items:baseline;gap:8px}
+.bs-row .ttl{flex:1;font:700 16px var(--f-body)}
+.bs-row .rm{flex:none;background:none;border:0;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;padding:2px 6px}
+.bs-row .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bs-row .calc{font-size:13px;color:var(--muted)}
+.bs-summary{display:grid;gap:10px}
+.flag{border-radius:10px;padding:10px 14px;display:grid;gap:2px;font-size:14px}
+.flag b{font:800 13px var(--f-display);text-transform:uppercase;letter-spacing:.04em}
+.flag.good{background:color-mix(in srgb,var(--good) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--good) 45%,transparent)}
+.flag.warn{background:color-mix(in srgb,var(--mid) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--mid) 45%,transparent)}
+.flag.bad{background:color-mix(in srgb,var(--bad) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--bad) 45%,transparent)}
+.addbtn{margin-top:8px;font:700 13px var(--f-body);background:none;border:1px solid var(--line);color:var(--accent);border-radius:8px;padding:6px 10px;cursor:pointer}
 .glance{display:grid;gap:8px}
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .tile{background:var(--head);color:var(--head-ink);border-radius:10px;padding:10px 10px 9px;display:grid;align-content:start;gap:1px;min-width:0}
@@ -272,6 +300,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       <button class="tab" role="tab" id="tab-picks" data-tab="picks" aria-selected="true">Picks</button>
       <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
       <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">ML Parlay</button>
+      <button class="tab" role="tab" id="tab-slip" data-tab="slip" aria-selected="false">Bet Slip</button>
       <button class="tab" role="tab" id="tab-bot" data-tab="bot" aria-selected="false">Accuracy Tracker</button>
       <button class="tab" role="tab" id="tab-stats" data-tab="stats" aria-selected="false">SharpSheet</button>
     </div>
@@ -296,11 +325,12 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     picks:  { name: "Picks", empty: "No picks yet." },
     results:{ name: "Results", empty: "No results updates yet." },
     ml:     { name: "ML Parlay", empty: "No ML parlay yet." },
+    slip:   { name: "Bet Slip", empty: "" },
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-11f";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
-  const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
+  const BUILD = "2026-11-12a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 
@@ -387,6 +417,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     days.replaceChildren(); view.replaceChildren();
     if (st.err) { view.append(stateBox(st.err)); return; }
     if (!st.loaded) { view.append(el("div","skel"), el("div","skel")); return; }
+    if (t === "slip") { renderBetSlip(view); return; }
     if (t === "results") { renderResults(view); return; }
     if (t === "bot") { const tf = trackerFull(); if (tf) view.append(tf); view.append(botPanel(true)); return; }
     const list = st.lists[t] || [];
@@ -659,6 +690,181 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     panel.append(head, body); side.append(panel);
   }
 
+  // ---------- bet slip: model today's planned bets and flag risk before you place them ----------
+  function americanToProfit(stakeStr, oddsStr){
+    const o = parseFloat(String(oddsStr || "").replace(/[^\-+0-9.]/g,""));
+    const s = parseFloat(stakeStr);
+    if (!isFinite(o) || o === 0 || !isFinite(s) || s <= 0) return null;
+    return o > 0 ? s * (o / 100) : s * (100 / Math.abs(o));
+  }
+  // gather today's bettable cards (picks + ML parlay) for the quick-add dropdown, deduping identical labels
+  function collectQuickBets(){
+    const out = [], seen = new Set();
+    ["picks","ml"].forEach(t => {
+      const g = (st.lists[t] || [])[0];
+      if (!g) return;
+      g.items.forEach(it => {
+        const m = st.msgs[it.id];
+        if (!m || !m.node) return;
+        m.node.querySelectorAll(".card:not(.slip)").forEach(c => {
+          const chip = c.querySelector(".chip");
+          const b = c.querySelector("b");
+          const sp = chip ? chip.textContent.trim() : "";
+          const title = b ? b.textContent.trim() : "";
+          if (!title) return;
+          const oddsEl = c.querySelector(".odds");
+          const odds = oddsEl ? oddsEl.textContent.trim() : "";
+          const label = (sp ? "[" + sp + "] " : "") + title;
+          if (seen.has(label)) return;
+          seen.add(label);
+          out.push({ label, odds });
+        });
+      });
+    });
+    return out;
+  }
+  function addToBetSlip(card){
+    const chip = card.querySelector(".chip");
+    const b = card.querySelector("b");
+    const sp = chip ? chip.textContent.trim() : "";
+    const title = b ? b.textContent.trim() : "Bet";
+    st.betslipSeq++;
+    st.betslip.push({ id: "s" + st.betslipSeq, label: (sp ? "[" + sp + "] " : "") + title, odds: "", stake: "" });
+    setTab("slip", true);
+  }
+  function fmtMoney(n){ return (n < 0 ? "-$" : "$") + Math.abs(n).toFixed(2); }
+  function betSlipTotals(){
+    let stake = 0, profit = 0, incomplete = 0;
+    st.betslip.forEach(e => {
+      const s = parseFloat(e.stake);
+      const okStake = isFinite(s) && s > 0;
+      if (okStake) stake += s;
+      const p = americanToProfit(e.stake, e.odds);
+      if (okStake && p != null) profit += p; else incomplete++;
+    });
+    return { stake, profit, payout: stake + profit, incomplete };
+  }
+  function renderBetSlip(view){
+    view.replaceChildren();
+    const box = el("div","bs-tool");
+    const summary = el("div","bs-summary"); // created up front so the list below can safely call refreshSummary while being built
+    box.append(el("p","bs-intro","Model the bets you're about to place at DraftKings or FanDuel, then check the whole day's exposure before you tap confirm. Pick one from today's bets below, use the “+ Slip” button on any pick card, or add one by hand. This resets when you reload the page — nothing here is saved."));
+
+    const bud = el("div","field-row");
+    const budLbl = el("label",null,"Daily budget (optional)");
+    const budInput = document.createElement("input");
+    budInput.type = "text"; budInput.inputMode = "decimal"; budInput.placeholder = "e.g. 200";
+    budInput.value = st.betBudget;
+    budInput.addEventListener("input", () => { st.betBudget = budInput.value; refreshSummary(); });
+    bud.append(budLbl, budInput);
+    box.append(bud);
+
+    const quick = collectQuickBets();
+    const qrow = el("div","field-row");
+    qrow.append(el("label",null,"Quick add from today's picks"));
+    const qWrap = el("div","quickadd");
+    const qSel = document.createElement("select");
+    const qPh = document.createElement("option");
+    qPh.value = ""; qPh.textContent = quick.length ? "Choose a pick…" : "No picks loaded yet";
+    qSel.append(qPh);
+    quick.forEach((q, i) => { const o = document.createElement("option"); o.value = String(i); o.textContent = q.label + (q.odds ? " (" + q.odds + ")" : ""); qSel.append(o); });
+    qSel.disabled = !quick.length;
+    const qBtn = el("button","addform-btn","Add"); qBtn.type = "button"; qBtn.disabled = !quick.length;
+    qBtn.addEventListener("click", () => {
+      if (!qSel.value) { qSel.focus(); return; }
+      const q = quick[+qSel.value];
+      st.betslipSeq++;
+      st.betslip.push({ id: "s" + st.betslipSeq, label: q.label, odds: q.odds || "", stake: "" });
+      renderBetSlip(view);
+    });
+    qWrap.append(qSel, qBtn);
+    qrow.append(qWrap);
+    box.append(qrow);
+
+    const form = el("div","addform");
+    const labelI = document.createElement("input"); labelI.type = "text"; labelI.placeholder = "What's the bet? e.g. Celtics -7.5";
+    const pair = el("div","pair");
+    const oddsI = document.createElement("input"); oddsI.type = "text"; oddsI.inputMode = "text"; oddsI.placeholder = "Odds, e.g. -150 or +220";
+    const stakeI = document.createElement("input"); stakeI.type = "text"; stakeI.inputMode = "decimal"; stakeI.placeholder = "Stake $";
+    pair.append(oddsI, stakeI);
+    const addBtn = el("button","addform-btn","Add to slip"); addBtn.type = "button";
+    addBtn.addEventListener("click", () => {
+      if (!labelI.value.trim()) { labelI.focus(); return; }
+      st.betslipSeq++;
+      st.betslip.push({ id: "s" + st.betslipSeq, label: labelI.value.trim(), odds: oddsI.value.trim(), stake: stakeI.value.trim() });
+      renderBetSlip(view);
+    });
+    form.append(labelI, pair, addBtn);
+    box.append(form);
+
+    const list = el("div","bs-list");
+    if (!st.betslip.length) list.append(el("p","fine","No bets on the slip yet."));
+    st.betslip.forEach(e => {
+      const row = el("div","bs-row");
+      const top = el("div","top");
+      top.append(el("span","ttl", e.label));
+      const rm = el("button","rm","×"); rm.type = "button"; rm.setAttribute("aria-label","Remove bet");
+      rm.addEventListener("click", () => { st.betslip = st.betslip.filter(x => x.id !== e.id); renderBetSlip(view); });
+      top.append(rm);
+      row.append(top);
+      const pr = el("div","pair");
+      const oI = document.createElement("input"); oI.type = "text"; oI.placeholder = "Odds"; oI.value = e.odds;
+      oI.addEventListener("input", () => { e.odds = oI.value; updateCalc(); });
+      const sI = document.createElement("input"); sI.type = "text"; sI.placeholder = "Stake $"; sI.value = e.stake;
+      sI.addEventListener("input", () => { e.stake = sI.value; updateCalc(); });
+      pr.append(oI, sI);
+      row.append(pr);
+      const calc = el("div","calc");
+      row.append(calc);
+      function updateCalc(){
+        const p = americanToProfit(e.stake, e.odds);
+        calc.textContent = p == null ? "Enter odds and stake to see payout" : "Risking " + fmtMoney(parseFloat(e.stake)) + " to win " + fmtMoney(p) + " profit (pays " + fmtMoney(parseFloat(e.stake) + p) + " total)";
+        refreshSummary();
+      }
+      updateCalc();
+      list.append(row);
+    });
+    box.append(list);
+    box.append(summary);
+    view.append(box);
+    function refreshSummary(){
+      const t = betSlipTotals();
+      summary.replaceChildren();
+      const nums = el("div","tiles");
+      nums.append(tile(fmtMoney(t.stake).replace("$",""), "total risk", null));
+      nums.append(tile(fmtMoney(t.profit).replace("$",""), "profit if all hit", null));
+      nums.append(tile(fmtMoney(t.payout).replace("$",""), "pays back if all hit", null));
+      summary.append(nums);
+      if (!t.stake) { summary.append(el("p","fine", t.incomplete ? "Fill in odds and stake on each bet to see your risk." : "Add a bet above to get started.")); return; }
+      const rewardPct = t.stake ? (t.profit / t.stake * 100) : 0;
+      const rCls = rewardPct < 20 ? "bad" : rewardPct < 50 ? "warn" : "good";
+      const rFlag = el("div","flag " + rCls);
+      rFlag.append(el("b",null, rCls === "bad" ? "Thin reward for the risk" : rCls === "warn" ? "Modest reward for the risk" : "Solid reward for the risk"));
+      rFlag.append(el("span",null, "If every bet on this slip hits, " + fmtMoney(t.stake) + " at risk turns into " + fmtMoney(t.profit) + " profit — a " + rewardPct.toFixed(0) + "% return, best case."));
+      summary.append(rFlag);
+      const budget = parseFloat(st.betBudget);
+      if (isFinite(budget) && budget > 0) {
+        const pct = t.stake / budget * 100;
+        const bCls = pct > 100 ? "bad" : pct > 60 ? "warn" : "good";
+        const bFlag = el("div","flag " + bCls);
+        bFlag.append(el("b",null, bCls === "bad" ? "Over your daily budget" : bCls === "warn" ? "Getting close to your budget" : "Within your daily budget"));
+        bFlag.append(el("span",null, fmtMoney(t.stake) + " is " + pct.toFixed(0) + "% of your " + fmtMoney(budget) + " budget."));
+        summary.append(bFlag);
+      }
+      if (t.incomplete) summary.append(el("p","fine", t.incomplete + " bet(s) still need odds and/or a stake entered to be included above."));
+    }
+    refreshSummary();
+  }
+  // a quick "+ Slip" button on each real pick/parlay card, so adding today's bets to the slip tool doesn't mean retyping them
+  function addBetSlipButtons(box){
+    box.querySelectorAll(".card:not(.slip)").forEach(c => {
+      if (c.querySelector(".addbtn")) return;
+      const btn = el("button","addbtn","+ Slip"); btn.type = "button";
+      btn.addEventListener("click", e => { e.stopPropagation(); addToBetSlip(c); });
+      c.append(btn);
+    });
+  }
+
   function cleanSubject(s){
     return s.replace(/^\[TEST\][^-]*-\s*/i, "Test · ").replace(/^KingCap's Picks for\s*/i, "Picks · ").replace(/^KingCap (Results Update|Morning Results)\s*-\s*/i, "Results · ").replace(/^Daily ML Parlay(\s*&\s*Best Bets)?\s*-\s*/i, "ML Parlay · ") || "Rox Locks";
   }
@@ -755,6 +961,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     stackTables(box);
     tidyIndex(box);
     tidyCards(box);
+    addBetSlipButtons(box);
     return box;
   }
   // Pick cards: game line, one row per odds source, KingCap row, Sites table (all left-aligned columns)

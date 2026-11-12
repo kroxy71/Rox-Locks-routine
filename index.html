@@ -250,6 +250,9 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .lv-row{border:1px solid var(--line);border-left:5px solid var(--muted);border-radius:8px;padding:7px 10px;min-width:0}
 .lv-row.r-hit{border-left-color:var(--good)} .lv-row.r-miss{border-left-color:var(--bad)} .lv-row.r-live{border-left-color:var(--gold)} .lv-row.r-push{border-left-color:var(--mid)}
 .lv-top{display:flex;align-items:center;gap:8px;min-width:0} .lv-top b{flex:1;min-width:0;overflow-wrap:anywhere;font-size:15px}
+.lv-right{display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;flex:none}
+.lv-val{font:800 18px var(--f-display);letter-spacing:.03em;white-space:nowrap}
+.r-hit .lv-val{color:var(--good)} .r-miss .lv-val{color:var(--bad)}
 .lv-res{font:800 13px var(--f-display);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
 .r-hit .lv-res{color:var(--good)} .r-miss .lv-res{color:var(--bad)} .r-live .lv-res{color:var(--mid)} .r-push .lv-res{color:var(--mid)}
 .lv-sub{font-size:13px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
@@ -296,7 +299,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-11d";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-11e";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {} };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1230,6 +1233,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (g.state === "pre") return row;
       const mine = g.comps.find(c => teamHit(p.team || "", c.team)), other = g.comps.find(c => c !== mine);
       const done = g.state === "post";
+      if (p.k === "ml" || p.k === "spread") row.val = abbr(mine) + " " + mine.score + "–" + other.score;
+      else row.val = "Total " + g.comps.reduce((s, c) => s + c.score, 0);
       if (p.k === "ml") {
         if (mine.score === other.score) { row.res = done ? "push" : "live"; return row; }
         const lead = mine.score > other.score; row.res = done ? (lead ? "hit" : "miss") : "live";
@@ -1258,9 +1263,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const gg = bx[0], done = gg.state === "post", v = statValue(hit, p.k === "prop" ? p.stat : p.k);
       row.sub = hit.name + " · " + gameText(gg); row.live = gg.state === "in";
       if (p.k === "atd" || p.k === "atg") {
+        row.val = v + (p.k === "atd" ? " TD" : v === 1 ? " G" : " G");
         row.text = v + (p.k === "atd" ? " TD" : (v === 1 ? " goal" : " goals"));
         row.res = v >= 1 ? "hit" : done ? "miss" : "live";
       } else {
+        row.val = v + " " + p.sname;
         let line = p.line, assumed = false;
         if (line == null) { const dk = await dkLine(gg, hit.id, p.stat); if (dk != null) { line = dk; assumed = true; } }
         if (line == null) { row.text = v + " " + p.sname + " (no line stated)"; row.res = done ? "none" : "live"; }
@@ -1308,7 +1315,10 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const row = el("div", "lv-row r-" + r.res);
       const top = el("div", "lv-top");
       const chip = el("span", "chip", r.p.sp); chip.style.setProperty("--sp", "var(" + (SPVAR[r.p.sp] || "--other") + ")");
-      top.append(chip, el("b", null, r.p.label), el("span", "lv-res", LRES[r.res] || ""));
+      const rt = el("div", "lv-right");
+      if (r.val) rt.append(el("span", "lv-val", r.val));
+      rt.append(el("span", "lv-res", LRES[r.res] || ""));
+      top.append(chip, el("b", null, r.p.label), rt);
       row.append(top);
       const sub = [r.text, r.sub].filter(Boolean).join(" · ");
       if (sub) row.append(el("div", "lv-sub", sub));

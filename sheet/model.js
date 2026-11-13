@@ -104,11 +104,17 @@
     return { hs: R.mu + (h ? h.off : 0) + (a ? a.def : 0) + R.hfa, as: R.mu + (a ? a.off : 0) + (h ? h.def : 0) - R.hfa };
   }
 
+  const isFb = (sp) => sp === 'nfl' || sp === 'ncaaf';   // football: NFL and college
+  const tgtOf = (r) => (r.targets > 0 ? r.targets : (r.rec || 0));   // ESPN's college box scores carry no target counts, so receptions stand in
+
   /* ---------- build a sport model from the three CSV tables ---------- */
   const CFG = {
     // wMarket raised to 0.85 after the Nov 2 backtest: the market alone beat a 60/40 blend on winners and totals
     nfl: { lam: 4, hfaPrior: 1.0, hfaK: 60, sdMargin: 13.4, sdTotal: 10.3, wMarket: 0.85 },
-    nhl: { lam: 7, hfaPrior: 0.07, hfaK: 150, wMarket: 0.85 }
+    nhl: { lam: 7, hfaPrior: 0.07, hfaK: 150, wMarket: 0.85 },
+    // college: the Nov 13 walk-forward test on 341 games found the closing line (log-loss .568) far ahead of ratings alone (.74) and ESPN BPI (.604),
+    // so the market carries 0.95; sd values are the closing line's own miss size (margin 15.1, total 16.2); fixedSd skips the model-residual blend
+    ncaaf: { lam: 3, hfaPrior: 1.5, hfaK: 150, sdMargin: 15.4, sdTotal: 16.4, wMarket: 0.95, fixedSd: true }
   };
 
   function buildSport(sp, gamesRows, teamRows, playerRows) {
@@ -125,9 +131,9 @@
       const tg = games.reduce((s, g) => s + g.hs + g.as, 0), ts = sg.reduce((s, g) => s + g.hs + g.as, 0);
       M.gpShot = tg / Math.max(1, ts);
     } else {
-      M.sdMargin = Math.sqrt((M.goals.n * M.goals.residSdMargin ** 2 + 120 * cfg.sdMargin ** 2) / (M.goals.n + 120));
+      M.sdMargin = cfg.fixedSd ? cfg.sdMargin : Math.sqrt((M.goals.n * M.goals.residSdMargin ** 2 + 120 * cfg.sdMargin ** 2) / (M.goals.n + 120));
       const tot = games.map((g) => g.hs + g.as); const mt = mean(tot);
-      M.sdTotal = Math.sqrt((M.goals.n * (sd(tot) * 0.95) ** 2 + 120 * cfg.sdTotal ** 2) / (M.goals.n + 120));
+      M.sdTotal = cfg.fixedSd ? cfg.sdTotal : Math.sqrt((M.goals.n * (sd(tot) * 0.95) ** 2 + 120 * cfg.sdTotal ** 2) / (M.goals.n + 120));
       M.meanTotal = mt;
     }
     // team records / per-game
@@ -144,9 +150,9 @@
     Object.values(P).forEach((p) => p.rows.sort((a, b) => (a.date < b.date ? 1 : -1))); // newest first
     M.players = P;
     M.teamGames = {}; M.teams.forEach((t) => { M.teamGames[t.name] = t.gp; });
-    if (sp === 'nfl') {
+    if (isFb(sp)) {
       let ra = 0, rt = 0, tg = 0, tt = 0;
-      playerRows.forEach((r) => { ra += r.rush_att || 0; rt += r.rush_td || 0; tg += r.targets || 0; tt += r.rec_td || 0; });
+      playerRows.forEach((r) => { ra += r.rush_att || 0; rt += r.rush_td || 0; tg += tgtOf(r); tt += r.rec_td || 0; });
       M.rTdPerAtt = rt / Math.max(1, ra); M.cTdPerTgt = tt / Math.max(1, tg);
     } else {
       const f = { g: 0, s: 0 }, d = { g: 0, s: 0 };
@@ -195,7 +201,7 @@
     const homeMl = game.homeMl != null ? game.homeMl : game.home_ml, awayMl = game.awayMl != null ? game.awayMl : game.away_ml;
     const th = M.teamIdx[game.home], ta = M.teamIdx[game.away];
     out.th = th; out.ta = ta;
-    if (M.sp === 'nfl') {
+    if (isFb(M.sp)) {
       const s = predictScores(M.goals, game.home, game.away);
       out.hs = s.hs; out.as = s.as;
       out.modelMargin = s.hs - s.as; out.modelTotal = s.hs + s.as;
@@ -242,7 +248,7 @@
     const isHome = bet.team === gm.home;
     if (bet.type === 'win') {
       res.p = isHome ? gm.homeWin : gm.awayWin;
-    } else if (M.sp === 'nfl') {
+    } else if (isFb(M.sp)) {
       if (bet.type === 'spread') {
         const m = isHome ? gm.margin : -gm.margin; // team's expected margin
         const need = -bet.line; // team margin must exceed -line
@@ -305,7 +311,7 @@
 
   function envFactor(M, gm, team) {
     if (!gm) return 1;
-    const own = team === gm.home ? (M.sp === 'nfl' ? gm.hsB : gm.lh) : (M.sp === 'nfl' ? gm.asB : gm.la);
+    const own = team === gm.home ? (isFb(M.sp) ? gm.hsB : gm.lh) : (isFb(M.sp) ? gm.asB : gm.la);
     const t = M.teamIdx[team]; if (!t || !own) return 1;
     return clamp(own / t.pfg, 0.72, 1.4);
   }
@@ -332,11 +338,12 @@
       saves: { label: 'Goalie saves', count: true, r: 14 }
     }
   };
+  PROPS.ncaaf = PROPS.nfl;
   function statVal(sp, key, r) {
-    if (sp === 'nfl') { if (key === 'rushrec_yds') return (r.rush_yds || 0) + (r.rec_yds || 0); if (key === 'atd') return r.tot_td || 0; return r[key] || 0; }
+    if (isFb(sp)) { if (key === 'rushrec_yds') return (r.rush_yds || 0) + (r.rec_yds || 0); if (key === 'atd') return r.tot_td || 0; return r[key] || 0; }
     if (key === 'points') return (r.goals || 0) + (r.assists || 0); if (key === 'atg') return r.goals || 0; return r[key] || 0;
   }
-  function eligibleRows(sp, p) { return sp === 'nfl' ? p.rows.filter(playedNfl) : p.rows.filter((r) => (r.toi || 0) > 0 || (r.shots || 0) > 0 || (r.saves || 0) > 0); }
+  function eligibleRows(sp, p) { return isFb(sp) ? p.rows.filter(playedNfl) : p.rows.filter((r) => (r.toi || 0) > 0 || (r.shots || 0) > 0 || (r.saves || 0) > 0); }
 
   function propProb(M, p, key, side, line, gm) {
     const sp = M.sp, def = PROPS[sp][key];
@@ -346,7 +353,7 @@
     const env = envFactor(M, gm, p.team);
     if (key === 'atd') {
       const tds = rows.reduce((s, r) => s + (r.tot_td || 0), 0);
-      const att = rows.reduce((s, r) => s + (r.rush_att || 0), 0), tg = rows.reduce((s, r) => s + (r.targets || 0), 0);
+      const att = rows.reduce((s, r) => s + (r.rush_att || 0), 0), tg = rows.reduce((s, r) => s + tgtOf(r), 0);
       const opp = n ? (att + tg) / n : 0;
       const prior = n ? (att / n) * M.rTdPerAtt + (tg / n) * M.cTdPerTgt : 0;
       const obs = n ? tds / n : 0; const w = n / (n + 10);
@@ -393,7 +400,8 @@
     // the player's own record, smoothed so a perfect 7-of-7 counts as about 89%, not 100%
     if (emp && n) { const wE = n / (n + 6); pO = wE * ((emp.o + 1) / (n + 2)) + (1 - wE) * over; pU = wE * ((emp.u + 1) / (n + 2)) + (1 - wE) * under; }
     res.raw = side === 'over' ? pO : pU;
-    res.p = clamp(calibrate(res.raw), 0.02, 0.97); // calibrated from the backtest; never certain res.push = push; res.emp = emp; res.modelOnly = side === 'over' ? over : under;
+    res.p = clamp(calibrate(res.raw), 0.02, 0.97); // calibrated from the backtest; never certain
+    res.push = push; res.emp = emp; res.modelOnly = side === 'over' ? over : under;
     res.why.push(p.name + ' averages ' + season.toFixed(1) + ' ' + def.label.toLowerCase() + ' over ' + n + ' game' + (n === 1 ? '' : 's') + (n > 1 ? ' (recent-weighted ' + wm.toFixed(1) + ')' : '') + '.');
     if (gm && Math.abs(mult - 1) > 0.01) res.why.push('Adjusted ' + (mult > 1 ? 'up' : 'down') + ' ' + Math.abs((mult - 1) * 100).toFixed(0) + '% for this game\'s projected scoring.');
     res.why.push('Projection ' + mu.toFixed(1) + (def.count ? ', allowing for game-to-game swings in the count,' : ' with a typical swing of about ' + res.s.toFixed(0) + ' either way,') + ' gives ' + pct(res.modelOnly, 1) + ' for the ' + side + ' ' + line + '.');
@@ -406,10 +414,10 @@
     const lines = []; const th = gm.th, ta = gm.ta;
     const rec = (t) => t ? (t.w + '-' + t.l + (M.sp === 'nhl' ? '-' + t.otl : '')) : '?';
     if (th && ta) {
-      lines.push(gm.home + ' (' + rec(th) + ') score ' + th.pfg.toFixed(M.sp === 'nfl' ? 1 : 2) + ' and allow ' + th.pag.toFixed(M.sp === 'nfl' ? 1 : 2) + ' per game; ' + gm.away + ' (' + rec(ta) + ') score ' + ta.pfg.toFixed(M.sp === 'nfl' ? 1 : 2) + ' and allow ' + ta.pag.toFixed(M.sp === 'nfl' ? 1 : 2) + '.');
+      lines.push(gm.home + ' (' + rec(th) + ') score ' + th.pfg.toFixed(isFb(M.sp) ? 1 : 2) + ' and allow ' + th.pag.toFixed(isFb(M.sp) ? 1 : 2) + ' per game; ' + gm.away + ' (' + rec(ta) + ') score ' + ta.pfg.toFixed(isFb(M.sp) ? 1 : 2) + ' and allow ' + ta.pag.toFixed(isFb(M.sp) ? 1 : 2) + '.');
       lines.push('Power ranks from this season\'s results: ' + gm.home + ' #' + th.rank + ', ' + gm.away + ' #' + ta.rank + ' of ' + M.teams.length + '.');
     }
-    if (M.sp === 'nfl') {
+    if (isFb(M.sp)) {
       lines.push('Model alone: ' + gm.home + ' by ' + gm.modelMargin.toFixed(1) + ', total ' + gm.modelTotal.toFixed(1) + ' (' + pct(gm.modelHomeWin) + ' home win).');
       if (gm.mktMargin != null) lines.push('Betting market: ' + gm.home + ' by ' + gm.mktMargin.toFixed(1) + (gm.mktTotal != null ? ', total ' + gm.mktTotal : '') + ' (' + pct(gm.mktHomeWin) + ' home win). With only about ' + Math.round(M.goals.n * 2 / M.teams.length) + ' games played per team, the market is weighted ' + pct(gm.wMarket) + ' because lines already reflect injuries and information this model cannot see.');
       lines.push('Blended: ' + gm.home + ' by ' + gm.margin.toFixed(1) + ', projected ' + gm.hsB.toFixed(1) + '-' + gm.asB.toFixed(1) + ' with a margin spread of about ' + gm.sdMargin.toFixed(1) + ' points.');
@@ -430,6 +438,6 @@
     return lines;
   }
 
-  const API = { normName, goalieFactor, parseCSV, buildSport, gameModel, betProb, propProb, gameReasoning, PROPS, statVal, eligibleRows, amToProb, probToAm, pct, mean, sd, Phi, pois, envFactor };
+  const API = { isFb, tgtOf, CFG, normName, goalieFactor, parseCSV, buildSport, gameModel, betProb, propProb, gameReasoning, PROPS, statVal, eligibleRows, amToProb, probToAm, pct, mean, sd, Phi, pois, envFactor };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.KCModel = API;
 })(typeof window !== 'undefined' ? window : this);

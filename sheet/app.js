@@ -2,6 +2,8 @@
 (function () {
   'use strict';
   const K = window.KCModel;
+  const FB = (sp) => K.isFb(sp);   // football: NFL and NCAAF share the football model, props and screens
+  const SPN = { nfl: 'NFL', ncaaf: 'NCAAF', nhl: 'NHL' };
   const $ = (s, el) => (el || document).querySelector(s);
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const S = { sp: 'nfl', tab: 'slate', M: {}, U: {}, meta: {}, lab: {}, parlay: [], players: { cat: {}, q: '', sort: {}, sel: null }, games: { team: '' } };
@@ -18,7 +20,7 @@
   async function loadAll() {
     const tables = ['games', 'team_games', 'player_games', 'upcoming'];
     const jobs = [];
-    for (const sp of ['nfl', 'nhl']) for (const t of tables) jobs.push(fetch('data/' + sp + '_' + t + '.csv').then((r) => { if (!r.ok) throw new Error(sp + ' ' + t + ' ' + r.status); return r.text(); }).then((x) => [sp, t, K.parseCSV(x)]));
+    for (const sp of ['nfl', 'ncaaf', 'nhl']) for (const t of tables) jobs.push(fetch('data/' + sp + '_' + t + '.csv').then((r) => { if (!r.ok) throw new Error(sp + ' ' + t + ' ' + r.status); return r.text(); }).then((x) => [sp, t, K.parseCSV(x)]));
     jobs.push(fetch('data/meta.json').then((r) => r.json()).then((m) => ['meta', 'meta', m]));
     const optCsv = (name) => fetch('data/' + name).then((r) => (r.ok ? r.text() : '')).then((x) => (x ? K.parseCSV(x) : [])).catch(() => []);
     jobs.push(optCsv('injuries.csv').then((rows) => ['inj', 'inj', rows]));
@@ -27,18 +29,20 @@
     jobs.push(optCsv('nfl_adv.csv').then((rows) => ['advnfl', 'adv', rows]));
     jobs.push(optCsv('nhl_skaters.csv').then((rows) => ['advnhl', 'adv', rows]));
     jobs.push(optCsv('dimers.csv').then((rows) => ['dimers', 'dimers', rows]));
+    jobs.push(optCsv('bpi.csv').then((rows) => ['bpi', 'bpi', rows]));
     jobs.push(fetch('data/teams.csv').then((r) => (r.ok ? r.text() : '')).then((x) => ['teams', 'teams', x ? K.parseCSV(x) : []]).catch(() => ['teams', 'teams', []]));
-    const out = await Promise.all(jobs); const raw = { nfl: {}, nhl: {} };
-    S.colors = { nfl: {}, nhl: {} }; S.inj = { nfl: {}, nhl: {} }; S.adv = { nfl: [], nhl: [] }; let gkRows = [];
+    const out = await Promise.all(jobs); const raw = { nfl: {}, ncaaf: {}, nhl: {} };
+    S.colors = { nfl: {}, ncaaf: {}, nhl: {} }; S.inj = { nfl: {}, ncaaf: {}, nhl: {} }; S.adv = { nfl: [], ncaaf: [], nhl: [] }; let gkRows = [];
     out.forEach(([sp, t, rows]) => {
       if (sp === 'meta') S.meta = rows;
       else if (sp === 'inj') rows.forEach((r) => { if (S.inj[r.sport]) S.inj[r.sport][K.normName(r.name) + '|' + r.team] = r; });
       else if (sp === 'gk') gkRows = rows;
       else if (sp === 'advnfl') S.adv.nfl = rows;
       else if (sp === 'advnhl') S.adv.nhl = rows;
+      else if (sp === 'bpi') { S.bpi = {}; rows.forEach((r) => { S.bpi[String(r.game_id)] = { h: +r.home_pct, a: +r.away_pct }; }); }
       else if (sp === 'dimers') {
         // Dimers.com's free per-game win probabilities (scraped - no public API), shown as an outside reference only, never blended into the model
-        S.dimers = { nfl: {}, nhl: {} };
+        S.dimers = { nfl: {}, ncaaf: {}, nhl: {} };
         rows.forEach((r) => {
           const D = S.dimers[r.sport]; if (!D || !r.home || !r.away) return;
           D[K.normName(r.home)] = { pct: +r.home_pct }; D[K.normName(r.away)] = { pct: +r.away_pct };
@@ -46,7 +50,7 @@
       }
       else if (sp === 'dk') {
         // DraftKings props: one-sided "X or more" and anytime odds, plus each player's main over/under line
-        S.dk = { nfl: { ms: {}, ladder: {}, ou: {} }, nhl: { ms: {}, ladder: {}, ou: {} } };
+        S.dk = { nfl: { ms: {}, ladder: {}, ou: {} }, ncaaf: { ms: {}, ladder: {}, ou: {} }, nhl: { ms: {}, ladder: {}, ou: {} } };
         rows.forEach((r) => {
           const D = S.dk[r.sport]; if (!D) return; const gid = String(r.game_id), aid = String(r.athlete_id);
           if (r.kind === 'ou') { if (r.line !== '') D.ou[gid + '|' + aid + '|' + r.key] = +r.line; return; }
@@ -60,7 +64,7 @@
     S.raw = raw;
     // upcoming slate: drop games from earlier days (Eastern) and any game that already has a final score
     const today = dayKey(new Date().toISOString());
-    for (const sp of ['nfl', 'nhl']) {
+    for (const sp of ['nfl', 'ncaaf', 'nhl']) {
       S.M[sp] = K.buildSport(sp, raw[sp].games, raw[sp].team_games, raw[sp].player_games);
       const done = new Set(raw[sp].games.map((g) => String(g.game_id)));
       S.U[sp] = raw[sp].upcoming.filter((g) => dayKey(g.date) >= today && !done.has(String(g.game_id)));
@@ -117,14 +121,14 @@
     const a = K.probToAm(p); return a == null ? '-' : (a > 0 ? '+' + a : String(a));
   }
   function topScorers(M, gm) {
-    const key = M.sp === 'nfl' ? 'atd' : 'atg';
+    const key = FB(M.sp) ? 'atd' : 'atg';
     const list = [];
     for (const p of Object.values(M.players)) {
       if (p.team !== gm.home && p.team !== gm.away) continue;
       if (M.sp === 'nhl' && p.pos === 'G') continue;
       if (isOut(M.sp, p)) continue;
       const rows = K.eligibleRows(M.sp, p); if (rows.length < 2) continue;
-      if (M.sp === 'nfl' && !rows.some((r) => (r.rush_att || 0) + (r.targets || 0) > 0)) continue;
+      if (FB(M.sp) && !rows.some((r) => (r.rush_att || 0) + K.tgtOf(r) > 0)) continue;
       const r = K.propProb(M, p, key, 'over', 0.5, gm); list.push({ p, pr: r.p });
     }
     list.sort((a, b) => b.pr - a.pr);
@@ -133,13 +137,14 @@
 
   /* ---------- Slate ---------- */
   function lean(gm) { // model on its own vs the market, in win-probability points
+    if (gm.sp === 'ncaaf') return null;   // college: the Nov 13 test showed ratings alone (log-loss .74) far worse than the closing line (.57), so a gap there is noise, not a lead
     if (gm.mktHomeWin == null) return null;
     const d = gm.modelHomeWin - gm.mktHomeWin;
     return { team: d > 0 ? gm.home : gm.away, pts: Math.abs(d) * 100 };
   }
   function lineTags(M, g, gm) {
     const t = []; const f = (v) => (v > 0 ? '+' : '') + v;
-    if (M.sp === 'nfl') { if (g.spread_detail) t.push(g.spread_detail); }
+    if (FB(M.sp)) { if (g.spread_detail) t.push(g.spread_detail); }
     else if (g.home_ml !== '' && g.away_ml !== '') { t.push(abbr(M, gm.away) + ' ' + f(g.away_ml)); t.push(abbr(M, gm.home) + ' ' + f(g.home_ml)); }
     if (g.over_under !== '') t.push('O/U ' + g.over_under);
     if (!t.length) t.push('No line yet');
@@ -150,8 +155,8 @@
   }
   function renderSlate() {
     const M = S.M[S.sp]; const up = S.U[S.sp].slice().sort((a, b) => (a.date < b.date ? -1 : 1));
-    const models = up.slice(0, S.sp === 'nfl' ? 16 : 40).map((g) => { const gm = K.gameModel(M, g); return { g, gm, ln: lean(gm) }; });
-    let h = '<div class="hero"><h2>' + (S.sp === 'nfl' ? 'The NFL board' : 'The NHL board') + '<span>Win chances, projections and likely scorers</span></h2><div class="pills"><span class="pillc"><i class="dot" aria-hidden="true"></i><b>' + models.length + '</b> games on the board</span><span class="pillc">Model and market, blended</span></div></div>' +
+    const models = up.slice(0, S.sp === 'ncaaf' ? 40 : FB(S.sp) ? 16 : 40).map((g) => { const gm = K.gameModel(M, g); return { g, gm, ln: lean(gm) }; });
+    let h = '<div class="hero"><h2>' + ('The ' + SPN[S.sp] + ' board') + '<span>Win chances, projections and likely scorers</span></h2><div class="pills"><span class="pillc"><i class="dot" aria-hidden="true"></i><b>' + models.length + '</b> games on the board</span><span class="pillc">Model and market, blended</span></div></div>' +
       '<p class="lede">Tap a game to test a bet in the Bet Lab, or tap any button or player to add it to your parlay.</p>';
     if (!models.length) return h + '<p class="empty">No upcoming games are on the schedule right now.</p>';
     const edges = models.filter((x) => x.ln && x.ln.pts >= 4).sort((a, b) => b.ln.pts - a.ln.pts).slice(0, 3);
@@ -166,14 +171,14 @@
       h += '<h2 class="day">' + esc(fmtDay.format(new Date(days[d][0].g.date))) + '</h2><div class="cards">';
       for (const { g, gm, ln } of days[d]) {
         const sc = topScorers(M, gm); const favHome = gm.homeWin >= 0.5;
-        const proj = M.sp === 'nfl' ? (esc(abbr(M, gm.away)) + ' ' + gm.asB.toFixed(1) + ' &ndash; ' + esc(abbr(M, gm.home)) + ' ' + gm.hsB.toFixed(1)) : (esc(abbr(M, gm.away)) + ' ' + gm.la.toFixed(2) + ' &ndash; ' + esc(abbr(M, gm.home)) + ' ' + gm.lh.toFixed(2));
+        const proj = FB(M.sp) ? (esc(abbr(M, gm.away)) + ' ' + gm.asB.toFixed(1) + ' &ndash; ' + esc(abbr(M, gm.home)) + ' ' + gm.hsB.toFixed(1)) : (esc(abbr(M, gm.away)) + ' ' + gm.la.toFixed(2) + ' &ndash; ' + esc(abbr(M, gm.home)) + ' ' + gm.lh.toFixed(2));
         const val = ln && ln.pts >= 4 ? '<div class="value">Model leans ' + esc(ln.team) + ' by ' + ln.pts.toFixed(1) + ' points vs the market</div>' : '';
         h += '<article class="card game" data-game="' + esc(g.game_id) + '" tabindex="0" role="button" aria-label="Open ' + esc(g.away) + ' at ' + esc(g.home) + ' in Bet Lab">' +
           '<div class="g-top"><span class="g-time">' + esc(fmtTime.format(new Date(g.date))) + ' ET</span><span class="g-lines">' + lineTags(M, g, gm) + '</span></div>' +
           teamRow(M, gm.away, gm.awayWin, !favHome) + teamRow(M, gm.home, gm.homeWin, favHome) + goalieLine(g) +
           '<div class="split' + (favHome ? '' : ' away-fav') + '" aria-hidden="true"><span class="a" style="width:' + (gm.awayWin * 100).toFixed(1) + '%"></span><span class="h" style="width:' + (gm.homeWin * 100).toFixed(1) + '%"></span></div>' +
           '<div class="g-proj"><span>Projected <b>' + proj + '</b></span><span>Total <b>' + gm.total.toFixed(1) + '</b></span></div>' + val +
-          '<div class="g-sc"><span class="k">' + (M.sp === 'nfl' ? 'Most likely touchdown scorers' : 'Most likely goal scorers') + ' &middot; tap to add</span>' + sc.map((s) => '<button type="button" class="chip addchip" data-add="prop" data-sp="' + M.sp + '" data-game="' + esc(g.game_id) + '" data-pid="' + esc(s.p.id) + '" data-key="' + (M.sp === 'nfl' ? 'atd' : 'atg') + '" aria-label="Add ' + esc(s.p.name) + ' to parlay">' + esc(s.p.name) + ' <b>' + pc(s.pr) + '</b><i aria-hidden="true">+</i></button>').join('') + '</div>' +
+          '<div class="g-sc"><span class="k">' + (FB(M.sp) ? 'Most likely touchdown scorers' : 'Most likely goal scorers') + ' &middot; tap to add</span>' + sc.map((s) => '<button type="button" class="chip addchip" data-add="prop" data-sp="' + M.sp + '" data-game="' + esc(g.game_id) + '" data-pid="' + esc(s.p.id) + '" data-key="' + (FB(M.sp) ? 'atd' : 'atg') + '" aria-label="Add ' + esc(s.p.name) + ' to parlay">' + esc(s.p.name) + ' <b>' + pc(s.pr) + '</b><i aria-hidden="true">+</i></button>').join('') + '</div>' +
           '<div class="g-add"><span class="k">Add to parlay</span>' +
           addBtn('data-add="win" data-sp="' + M.sp + '" data-game="' + esc(g.game_id) + '" data-team="' + esc(gm.away) + '"', esc(abbr(M, gm.away)) + ' win ' + pc(gm.awayWin)) +
           addBtn('data-add="win" data-sp="' + M.sp + '" data-game="' + esc(g.game_id) + '" data-team="' + esc(gm.home) + '"', esc(abbr(M, gm.home)) + ' win ' + pc(gm.homeWin)) +
@@ -189,11 +194,11 @@
   function labDefaults() {
     const M = S.M[S.sp]; const up = S.U[S.sp].slice().sort((a, b) => (a.date < b.date ? -1 : 1));
     const g = up[0];
-    return { gameId: g ? g.game_id : 'custom', home: g ? g.home : M.teams[0].name, away: g ? g.away : M.teams[1].name, btype: 'win', team: g ? g.home : '', line: '', side: 'over', odds: '', ptype: M.sp === 'nfl' ? 'atd' : 'atg', pteam: '', pid: '', pside: 'over', pline: 0.5, podds: '' };
+    return { gameId: g ? g.game_id : 'custom', home: g ? g.home : M.teams[0].name, away: g ? g.away : M.teams[1].name, btype: 'win', team: g ? g.home : '', line: '', side: 'over', odds: '', ptype: FB(M.sp) ? 'atd' : 'atg', pteam: '', pid: '', pside: 'over', pline: 0.5, podds: '' };
   }
   function usage(sp, p) { // how involved a player is: used to put the busiest players first
     const rows = K.eligibleRows(sp, p);
-    return rows.reduce((s, r) => s + (sp === 'nfl' ? (r.rush_att || 0) + (r.targets || 0) + (r.pass_att || 0) * 0.5 : (r.shots || 0) + (r.saves || 0) * 0.2), 0);
+    return rows.reduce((s, r) => s + (FB(sp) ? (r.rush_att || 0) + K.tgtOf(r) + (r.pass_att || 0) * 0.5 : (r.shots || 0) + (r.saves || 0) * 0.2), 0);
   }
   function labGame() { // build game object for the model
     const L = S.lab[S.sp], M = S.M[S.sp];
@@ -202,6 +207,10 @@
     return { home: L.home, away: L.away, spread_detail: '', over_under: '', home_ml: '', away_ml: '' };
   }
   function opt(v, label, sel) { return '<option value="' + esc(v) + '"' + (sel ? ' selected' : '') + '>' + esc(label) + '</option>'; }
+  function bpiLine(g, gm) {
+    const b = S.bpi && g && S.bpi[String(g.game_id)]; if (!b || !(b.h > 0)) return null;
+    return 'ESPN BPI (the power-index model from ESPN, a separate outside number - not blended in here): ' + gm.home + ' ' + b.h.toFixed(1) + '%, ' + gm.away + ' ' + b.a.toFixed(1) + '% to win.';
+  }
   function dimersLine(sp, gm) {
     const D = S.dimers && S.dimers[sp]; if (!D) return null;
     const h = D[K.normName(gm.home)], a = D[K.normName(gm.away)];
@@ -221,10 +230,10 @@
       const names = M.teams.map((t) => t.name).sort();
       h += '<div class="row2"><label class="f">Away<select id="lab-away">' + names.map((n) => opt(n, n, n === L.away)).join('') + '</select></label><label class="f">Home<select id="lab-home">' + names.map((n) => opt(n, n, n === L.home)).join('') + '</select></label></div>';
     }
-    const labLines = K.gameReasoning(M, gm); const dl = dimersLine(sp, gm); if (dl) labLines.push(dl);
+    const labLines = K.gameReasoning(M, gm); const dl = dimersLine(sp, gm); if (dl) labLines.push(dl); const bl = bpiLine(g, gm); if (bl) labLines.push(bl);
     h += '<div class="lab-game">' + probBar(M, gm) + '<ul class="why">' + labLines.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul></div></section>';
 
-    h += '<section class="card"><h2><span class="step">2</span>Game bet</h2><div class="row3"><label class="f">Bet<select id="lab-btype">' + opt('win', 'Team to win', L.btype === 'win') + opt('spread', sp === 'nfl' ? 'Point spread' : 'Puck line', L.btype === 'spread') + opt('total', 'Total goals/points', L.btype === 'total') + '</select></label>';
+    h += '<section class="card"><h2><span class="step">2</span>Game bet</h2><div class="row3"><label class="f">Bet<select id="lab-btype">' + opt('win', 'Team to win', L.btype === 'win') + opt('spread', FB(sp) ? 'Point spread' : 'Puck line', L.btype === 'spread') + opt('total', 'Total goals/points', L.btype === 'total') + '</select></label>';
     if (L.btype !== 'total') h += '<label class="f">Team<select id="lab-team">' + [L.home, L.away].map((t) => opt(t, t, t === L.team)).join('') + '</select></label>'; else h += '<label class="f">Side<select id="lab-side">' + opt('over', 'Over', L.side === 'over') + opt('under', 'Under', L.side === 'under') + '</select></label>';
     if (L.btype !== 'win') h += '<label class="f">Line<input id="lab-line" type="number" step="0.5" inputmode="decimal" value="' + esc(L.line) + '" placeholder="' + (L.btype === 'total' ? 'e.g. 45.5' : 'e.g. -3.5') + '"></label>';
     h += '<label class="f">Your odds (optional)<input id="lab-odds" type="number" step="1" inputmode="numeric" value="' + esc(L.odds) + '" placeholder="e.g. -110"></label></div><div id="lab-res"></div></section>';
@@ -233,7 +242,7 @@
     const players = Object.values(M.players).filter((p) => p.team === L.pteam && (sp === 'nhl' || K.eligibleRows(sp, p).length)).sort((a, b) => (usage(sp, b) - usage(sp, a)) || (a.name < b.name ? -1 : 1));
     const pk = Object.keys(K.PROPS[sp]);
     if (!pk.includes(L.ptype)) L.ptype = pk[0];
-    const relevant = players.filter((p) => { const k = L.ptype; if (sp === 'nhl') return k === 'saves' ? p.pos === 'G' : p.pos !== 'G'; const r = K.eligibleRows(sp, p); if (k === 'pass_yds' || k === 'pass_td') return r.some((x) => x.pass_att > 0); if (k === 'rec_yds' || k === 'rec') return r.some((x) => x.targets > 0); if (k === 'rush_yds') return r.some((x) => x.rush_att > 0); return true; });
+    const relevant = players.filter((p) => { const k = L.ptype; if (sp === 'nhl') return k === 'saves' ? p.pos === 'G' : p.pos !== 'G'; const r = K.eligibleRows(sp, p); if (k === 'pass_yds' || k === 'pass_td') return r.some((x) => x.pass_att > 0); if (k === 'rec_yds' || k === 'rec') return r.some((x) => K.tgtOf(x) > 0); if (k === 'rush_yds') return r.some((x) => x.rush_att > 0); return true; });
     if (!relevant.find((p) => p.id === L.pid)) L.pid = relevant[0] ? relevant[0].id : '';
     const def = K.PROPS[sp][L.ptype];
     h += '<section class="card"><h2><span class="step">3</span>Player prop</h2><div class="row3"><label class="f">Team<select id="lab-pteam">' + [L.home, L.away].map((t) => opt(t, t, t === L.pteam)).join('') + '</select></label>' +
@@ -275,13 +284,13 @@
         const line = parseFloat(L.line); if (isNaN(line)) r = { p: null }; else {
           r = K.betProb(M, gm, { type: 'spread', team: L.team, line }); title = L.team + ' ' + (line > 0 ? '+' : '') + line;
           const m = L.team === gm.home ? gm.margin : -gm.margin;
-          why = sp === 'nfl' ? ['Projected margin for ' + L.team + ': ' + (m >= 0 ? '+' : '') + m.toFixed(1) + ' points, with game-to-game spread of about ' + gm.sdMargin.toFixed(1) + '. To cover ' + (line > 0 ? '+' : '') + line + ' they need to finish ' + (-line >= 0 ? 'ahead by more than ' + (-line) : 'no worse than ' + (-line)) + '.'] :
+          why = FB(sp) ? ['Projected margin for ' + L.team + ': ' + (m >= 0 ? '+' : '') + m.toFixed(1) + ' points, with game-to-game spread of about ' + gm.sdMargin.toFixed(1) + '. To cover ' + (line > 0 ? '+' : '') + line + ' they need to finish ' + (-line >= 0 ? 'ahead by more than ' + (-line) : 'no worse than ' + (-line)) + '.'] :
             ['Hockey margins are small. The puck line uses the full goal distribution for both teams, with overtime and shootout decided by one goal.'];
         }
       } else {
         const line = parseFloat(L.line); if (isNaN(line)) r = { p: null }; else {
           r = K.betProb(M, gm, { type: 'total', side: L.side, line }); title = (L.side === 'over' ? 'Over ' : 'Under ') + line;
-          why = ['Projected total ' + gm.total.toFixed(1) + (gm.mktTotal != null ? ' (market ' + gm.mktTotal + ')' : '') + (sp === 'nfl' ? ' with spread of about ' + gm.sdTotal.toFixed(1) + ' points.' : ', built from each team\'s expected goals.')];
+          why = ['Projected total ' + gm.total.toFixed(1) + (gm.mktTotal != null ? ' (market ' + gm.mktTotal + ')' : '') + (FB(sp) ? ' with spread of about ' + gm.sdTotal.toFixed(1) + ' points.' : ', built from each team\'s expected goals.')];
         }
       }
       note = 'Built from this season\'s results, blended with the betting market' + (sp === 'nhl' ? ' and adjusted for announced starting goalies' : '') + '. Weather and late lineup news are not in the model.';
@@ -325,7 +334,7 @@
       leg.p = K.betProb(M, gm, { type: 'spread', team: spec.team, line: spec.line }).p; leg.label = spec.team + ' ' + sgn(spec.line);
       leg.id = sp + '|' + spec.gameId + '|spread|' + spec.team + '|' + spec.line; if (!leg.odds) leg.odds = '-110';
     } else if (spec.kind === 'total') {
-      leg.p = K.betProb(M, gm, { type: 'total', side: spec.side, line: spec.line }).p; leg.label = (spec.side === 'over' ? 'Over ' : 'Under ') + spec.line + ' total ' + (sp === 'nfl' ? 'points' : 'goals');
+      leg.p = K.betProb(M, gm, { type: 'total', side: spec.side, line: spec.line }).p; leg.label = (spec.side === 'over' ? 'Over ' : 'Under ') + spec.line + ' total ' + (FB(sp) ? 'points' : 'goals');
       leg.id = sp + '|' + spec.gameId + '|total|' + spec.side + '|' + spec.line; if (!leg.odds) leg.odds = '-110';
     } else {
       const p = M.players[spec.pid]; if (!p) return null; const def = K.PROPS[sp][spec.key];
@@ -364,9 +373,9 @@
   function addBtn(attrs, label, cls) { return '<button type="button" class="add ' + (cls || '') + '" ' + attrs + '>' + label + '</button>'; }
   function legSuggestions() {
     const out = []; const sp = S.sp, M = S.M[sp];
-    const up = S.U[sp].slice().sort((a, b) => (a.date < b.date ? -1 : 1)).slice(0, sp === 'nfl' ? 16 : 30);
+    const up = S.U[sp].slice().sort((a, b) => (a.date < b.date ? -1 : 1)).slice(0, sp === 'ncaaf' ? 40 : FB(sp) ? 16 : 30);
     const wins = up.map((g) => { const gm = K.gameModel(M, g); const home = gm.homeWin >= 0.5; return { g, team: home ? g.home : g.away, p: home ? gm.homeWin : gm.awayWin }; }).sort((a, b) => b.p - a.p).slice(0, 6);
-    const key = sp === 'nfl' ? 'atd' : 'atg'; const sc = [];
+    const key = FB(sp) ? 'atd' : 'atg'; const sc = [];
     up.forEach((g) => { const gm = K.gameModel(M, g); topScorers(M, gm).slice(0, 2).forEach((s) => sc.push({ g, p: s.p, pr: s.pr })); });
     sc.sort((a, b) => b.pr - a.pr);
     const seen = new Set(); const uniq = sc.filter((s) => (seen.has(s.p.id) ? false : (seen.add(s.p.id), true)));
@@ -382,10 +391,10 @@
     h += '</section>';
     h += '<section class="card"><h2>Combined chance</h2><div id="pl-sum"></div></section>';
     const sg = legSuggestions();
-    const nm = S.sp === 'nfl' ? 'NFL' : 'NHL';
+    const nm = SPN[S.sp];
     h += '<section class="card"><h2>Suggested legs (' + nm + ')</h2><p class="note" style="margin-top:0">The model\'s most likely outcomes on the upcoming slate. Even strong legs compound: three 70% legs all hit only about 34% of the time.</p>' +
       '<h3 class="mini">Most likely winners</h3><ul class="sugg">' + sg.wins.map((w) => '<li><div><b>' + esc(w.team) + ' to win</b><span>' + esc(abbr(S.M[S.sp], w.g.away)) + ' @ ' + esc(abbr(S.M[S.sp], w.g.home)) + ' &middot; ' + esc(fmtET.format(new Date(w.g.date))) + '</span></div><em>' + pc(w.p) + '</em>' + addBtn('data-add="win" data-sp="' + S.sp + '" data-game="' + esc(w.g.game_id) + '" data-team="' + esc(w.team) + '"', '+ Add') + '</li>').join('') + '</ul>' +
-      '<h3 class="mini">' + (S.sp === 'nfl' ? 'Most likely touchdown scorers' : 'Most likely goal scorers') + '</h3><ul class="sugg">' + sg.scorers.map((s) => '<li><div><b>' + esc(s.p.name) + '</b><span>' + esc(abbr(S.M[S.sp], s.p.team)) + ' &middot; ' + esc(abbr(S.M[S.sp], s.g.away)) + ' @ ' + esc(abbr(S.M[S.sp], s.g.home)) + '</span></div><em>' + pc(s.pr) + '</em>' + addBtn('data-add="prop" data-sp="' + S.sp + '" data-game="' + esc(s.g.game_id) + '" data-pid="' + esc(s.p.id) + '" data-key="' + sg.key + '"', '+ Add') + '</li>').join('') + '</ul></section>';
+      '<h3 class="mini">' + (FB(S.sp) ? 'Most likely touchdown scorers' : 'Most likely goal scorers') + '</h3><ul class="sugg">' + sg.scorers.map((s) => '<li><div><b>' + esc(s.p.name) + '</b><span>' + esc(abbr(S.M[S.sp], s.p.team)) + ' &middot; ' + esc(abbr(S.M[S.sp], s.g.away)) + ' @ ' + esc(abbr(S.M[S.sp], s.g.home)) + '</span></div><em>' + pc(s.pr) + '</em>' + addBtn('data-add="prop" data-sp="' + S.sp + '" data-game="' + esc(s.g.game_id) + '" data-pid="' + esc(s.p.id) + '" data-key="' + sg.key + '"', '+ Add') + '</li>').join('') + '</ul></section>';
     return h + '</div>';
   }
   function updateParlaySummary() {
@@ -409,15 +418,16 @@
     nfl: [['atd', 'Anytime TD', [null]], ['rec_yds', 'Receiving yds', [25, 40, 60, 80, 100]], ['rec', 'Receptions', [3, 5, 7]], ['rush_yds', 'Rushing yds', [40, 60, 80, 100]], ['pass_yds', 'Passing yds', [200, 250, 300]], ['pass_td', 'Passing TDs', [2, 3]], ['rushrec_yds', 'Rush + rec yds', [50, 75, 100]]],
     nhl: [['atg', 'Anytime goal', [null]], ['points', 'Points', [1, 2]], ['shots', 'Shots on goal', [2, 3, 4]], ['saves', 'Goalie saves', [20, 25, 30]]]
   };
+  MILESTONES.ncaaf = MILESTONES.nfl;
   function propRelevant(sp, key, p, rows) {
     if (sp === 'nhl') return key === 'saves' ? p.pos === 'G' : p.pos !== 'G';
     const avg = (k) => rows.reduce((s, r) => s + (r[k] || 0), 0) / Math.max(1, rows.length);
     if (key === 'pass_yds' || key === 'pass_td') return avg('pass_att') >= 10;
-    if (key === 'rec_yds' || key === 'rec') return avg('targets') >= 2;
+    if (key === 'rec_yds' || key === 'rec') return rows.reduce((s, r) => s + K.tgtOf(r), 0) / Math.max(1, rows.length) >= 2;
     if (key === 'rush_yds') return avg('rush_att') >= 3;
-    return avg('rush_att') + avg('targets') >= 2.5; // anytime TD, rush + rec
+    return avg('rush_att') + rows.reduce((s, r) => s + K.tgtOf(r), 0) / Math.max(1, rows.length) >= 2.5; // anytime TD, rush + rec
   }
-  function upcomingSlice(sp) { return S.U[sp].slice().sort((a, b) => (a.date < b.date ? -1 : 1)).slice(0, sp === 'nfl' ? 16 : 30); }
+  function upcomingSlice(sp) { return S.U[sp].slice().sort((a, b) => (a.date < b.date ? -1 : 1)).slice(0, sp === 'ncaaf' ? 60 : FB(sp) ? 16 : 30); }
   function gameBetRows(sp) { // moneyline, puck line / spread and totals for every upcoming game
     const M = S.M[sp]; const out = [];
     for (const g of upcomingSlice(sp)) {
@@ -487,7 +497,7 @@
     const typeOk = (r) => !F.key || (F.key === 'game' ? r.kind === 'game' : F.key === 'props' ? r.kind === 'prop' : r.type === F.key);
     const list = all.filter((r) => typeOk(r) && (!F.game || r.g.game_id === F.game) && (!F.team || r.team === F.team) && (r.kind !== 'prop' || r.n >= F.min) &&
       (!q || r.who.toLowerCase().includes(q) || (r.team || '').toLowerCase().includes(q) || r.bet.toLowerCase().includes(q)));
-    let h = '<div class="hero"><h2>' + (sp === 'nfl' ? 'NFL bets' : 'NHL bets') + '<span>Pick a game and a bet type, then sort by any column</span></h2><div class="pills"><span class="pillc"><b>' + list.length.toLocaleString() + '</b> bets</span></div></div>';
+    let h = '<div class="hero"><h2>' + (SPN[sp] + ' bets') + '<span>Pick a game and a bet type, then sort by any column</span></h2><div class="pills"><span class="pillc"><b>' + list.length.toLocaleString() + '</b> bets</span></div></div>';
     const spreadName = sp === 'nhl' ? 'Puck line' : 'Spread';
     h += '<div class="toolbar"><label class="f grow">Game<select id="pr-game">' + opt('', 'All upcoming games', !F.game) + games.map((g) => opt(g.game_id, abbr(M, g.away) + ' @ ' + abbr(M, g.home) + ' - ' + fmtET.format(new Date(g.date)) + ' ET', g.game_id === F.game)).join('') + '</select></label>' +
       '<label class="f">Bet type<select id="pr-key">' + opt('', 'All bets', !F.key) + '<optgroup label="Game bets">' + opt('game', 'All game bets', F.key === 'game') + opt('ml', 'Moneyline', F.key === 'ml') + opt('spread', spreadName, F.key === 'spread') + opt('total', 'Total', F.key === 'total') + '</optgroup><optgroup label="Player props">' + opt('props', 'All player props', F.key === 'props') + MILESTONES[sp].map(([k, l]) => opt(k, l, k === F.key)).join('') + '</optgroup></select></label>' +
@@ -497,7 +507,7 @@
     if (g0) {
       const gm = K.gameModel(M, g0); const favHome = gm.homeWin >= 0.5;
       h += '<div class="card gsum">' + teamRow(M, gm.away, gm.awayWin, !favHome) + teamRow(M, gm.home, gm.homeWin, favHome) + goalieLine(g0) +
-        '<div class="g-proj"><span>' + esc(fmtET.format(new Date(g0.date))) + ' ET</span><span>Projected <b>' + esc(abbr(M, gm.away)) + ' ' + (sp === 'nfl' ? gm.asB.toFixed(1) : gm.la.toFixed(2)) + ' &ndash; ' + esc(abbr(M, gm.home)) + ' ' + (sp === 'nfl' ? gm.hsB.toFixed(1) : gm.lh.toFixed(2)) + '</b></span><span class="g-lines">' + lineTags(M, g0, gm) + '</span></div></div>';
+        '<div class="g-proj"><span>' + esc(fmtET.format(new Date(g0.date))) + ' ET</span><span>Projected <b>' + esc(abbr(M, gm.away)) + ' ' + (FB(sp) ? gm.asB.toFixed(1) : gm.la.toFixed(2)) + ' &ndash; ' + esc(abbr(M, gm.home)) + ' ' + (FB(sp) ? gm.hsB.toFixed(1) : gm.lh.toFixed(2)) + '</b></span><span class="g-lines">' + lineTags(M, g0, gm) + '</span></div></div>';
     }
     const miss = -1e9;
     const cols = [
@@ -527,11 +537,11 @@
   /* ---------- Accuracy: walk-forward backtest on games already played ---------- */
   function runBacktest(sp) {
     const R = S.raw[sp]; const games = R.games.slice().sort((a, b) => (a.date < b.date ? -1 : 1));
-    const by = {}; games.forEach((g) => { const k = sp === 'nfl' ? 'w' + String(g.week).padStart(2, '0') : dayKey(g.date); (by[k] = by[k] || []).push(g); });
+    const by = {}; games.forEach((g) => { const k = FB(sp) ? 'w' + String(g.week).padStart(2, '0') : dayKey(g.date); (by[k] = by[k] || []).push(g); });
     const slots = Object.keys(by).sort().map((k) => by[k]);
     const pgByGame = {}; R.player_games.forEach((r) => { (pgByGame[r.game_id] = pgByGame[r.game_id] || []).push(r); });
     const out = { win: [], winModel: [], winMkt: [], total: [], props: [], bets: [], nGames: 0, from: null, to: null, favRight: 0, mktFavRight: 0, mktN: 0 };
-    const minPrior = sp === 'nfl' ? 32 : 64; // a few games per team before testing starts
+    const minPrior = sp === 'ncaaf' ? 200 : FB(sp) ? 32 : 64; // a few games per team before testing starts
     const prior = []; const ids = new Set();
     for (const slot of slots) {
       if (prior.length >= minPrior) {
@@ -579,7 +589,7 @@
       const home = gm.homeWin >= 0.5, team = home ? g.home : g.away;
       add('ml', abbr(M, team) + ' to win', team, home ? gm.homeWin : gm.awayWin, home ? hm : am, margin === 0 ? 'P' : (margin > 0) === home ? 'W' : 'L');
     }
-    if (sp === 'nfl' && gm.mktMargin != null) { // spread at the DraftKings closing number, -110 assumed
+    if (FB(sp) && gm.mktMargin != null) { // spread at the DraftKings closing number, -110 assumed
       const hl = -gm.mktMargin;
       const ph = K.betProb(M, gm, { type: 'spread', team: g.home, line: hl }).p, pa = K.betProb(M, gm, { type: 'spread', team: g.away, line: -hl }).p;
       const home = ph >= pa, line = home ? hl : -hl, cov = (home ? margin : -margin) + line, team = home ? g.home : g.away;
@@ -611,7 +621,7 @@
     return null;
   }
   function renderTrack() {
-    const sp = S.sp, M = S.M[sp], nfl = sp === 'nfl';
+    const sp = S.sp, M = S.M[sp], nfl = FB(sp);
     let h = '<div class="hero"><h2>Model bets tracker<span>Every ' + (nfl ? 'moneyline, spread and total' : 'moneyline and total') + ' the model would have bet, graded</span></h2></div>';
     h += '<p class="lede">For each ' + (nfl ? 'week' : 'day') + ', the model is rebuilt from only the games before it, then it takes a side in every game against the DraftKings closing line: the side it gives the better chance. Each bet is 1 unit.</p>';
     const B = ensureBt(sp, 'track');
@@ -663,8 +673,8 @@
   function skillText(s) { if (s == null) return '-'; return (s >= 0 ? '+' : '') + (s * 100).toFixed(1) + '%'; }
   function renderAcc() {
     const sp = S.sp;
-    let h = '<div class="hero"><h2>How accurate is it?<span>A test on ' + (sp === 'nfl' ? 'NFL' : 'NHL') + ' games already played</span></h2></div>';
-    h += '<p class="lede">For each ' + (sp === 'nfl' ? 'week' : 'day') + ', the model is rebuilt using only the games before it, then its chances are checked against what happened. A well-calibrated model\'s 70% bets hit about 70% of the time.</p>';
+    let h = '<div class="hero"><h2>How accurate is it?<span>A test on ' + SPN[sp] + ' games already played</span></h2></div>';
+    h += '<p class="lede">For each ' + (FB(sp) ? 'week' : 'day') + ', the model is rebuilt using only the games before it, then its chances are checked against what happened. A well-calibrated model\'s 70% bets hit about 70% of the time.</p>';
     const B = ensureBt(sp, 'acc');
     if (!B) return h + '<p class="empty">Running the test on every game so far. This takes a few seconds...</p>'; if (B.error) return h + '<p class="empty err">The test did not finish (' + esc(B.error) + ').</p>';
     const cw = calib(B.win), cm = calib(B.winModel), ck = calib(B.winMkt), ct = calib(B.total), cp = calib(B.props);
@@ -680,7 +690,7 @@
     h += '<h3 class="mini">By prop type</h3><div class="tscroll"><table class="data"><thead><tr><th><button type="button" tabindex="-1">Prop</button></th><th class="n"><button type="button" tabindex="-1">Bets</button></th><th class="n"><button type="button" tabindex="-1">Avg chance</button></th><th class="n"><button type="button" tabindex="-1">Actually hit</button></th><th class="n"><button type="button" tabindex="-1">Skill</button></th></tr></thead><tbody>' +
       MILESTONES[sp].filter(([k]) => keys[k]).map(([k, l]) => { const c = calib(keys[k]); const gap = Math.abs(c.rate - c.avgP) * 100; return '<tr><td>' + esc(l) + '</td><td class="n">' + c.n.toLocaleString() + '</td><td class="n">' + pc(c.avgP) + '</td><td class="n ' + (gap <= 3 ? 'up' : gap > 7 ? 'dn' : '') + '">' + pc(c.rate) + '</td><td class="n">' + skillText(c.skill) + '</td></tr>'; }).join('') + '</tbody></table></div></section>';
     h += '<p class="note"><b>Adjustments made from this test (Nov 2):</b> the betting market now gets 85% of the weight for winners and totals (up from 60%), and prop chances include a calibration step fitted from this test, because raw 40-85% props were landing 5-8 points lower than predicted. Because that step was fitted on these same games, the props section here looks somewhat better than a fresh test would; the honest check is how it does on games still to come.</p>' +
-      '<p class="note">How to read this: green "actually hit" figures are within 5 points of what the model said; red ones are more than 10 points off. The test uses closing betting lines for the market blend, and the injury and goalie data only exists for upcoming games, so it is not part of this test.' + (sp === 'nfl' ? ' NFL box scores only list players who recorded a stat, so players who were shut out entirely are missing, which flatters NFL props a little.' : '') + ' ' + B.nGames + ' games is still a small sample; the picture firms up as the season goes on.</p>';
+      '<p class="note">How to read this: green "actually hit" figures are within 5 points of what the model said; red ones are more than 10 points off. The test uses closing betting lines for the market blend, and the injury and goalie data only exists for upcoming games, so it is not part of this test.' + (FB(sp) ? ' NFL box scores only list players who recorded a stat, so players who were shut out entirely are missing, which flatters NFL props a little.' : '') + ' ' + B.nGames + ' games is still a small sample; the picture firms up as the season goes on.</p>';
     return h;
   }
 
@@ -693,7 +703,7 @@
 
   /* ---------- Teams ---------- */
   function renderTeams() {
-    const M = S.M[S.sp]; const nfl = S.sp === 'nfl'; const d = nfl ? 1 : 2;
+    const M = S.M[S.sp]; const nfl = FB(S.sp); const d = nfl ? 1 : 2;
     const cols = [
       { k: 'rank', h: '#', n: 1, v: (t) => t.rank, html: 1, f: (t) => '<span class="rk">' + t.rank + '</span>' },
       { k: 'name', h: 'Team', v: (t) => t.name, html: 1, f: (t) => '<span class="tcell">' + badge(M, t.name, true) + esc(t.name) + '</span>' },
@@ -702,7 +712,7 @@
       { k: 'off', h: 'Offence rating', n: 1, v: (t) => t.off, f: (t) => (t.off >= 0 ? '+' : '') + t.off.toFixed(d) }, { k: 'def', h: 'Defence rating', n: 1, v: (t) => -t.def, f: (t) => (t.def <= 0 ? '+' : '') + (-t.def).toFixed(d) },
       { k: 'net', h: 'Net rating', n: 1, v: (t) => t.net, f: (t) => (t.net >= 0 ? '+' : '') + t.net.toFixed(d) }
     ];
-    return '<p class="lede">Ratings measure how many ' + (nfl ? 'points' : 'goals') + ' a team adds to (offence) or takes from (defence) the league average in a typical game, after adjusting for opponents and home advantage. They are pulled toward zero because about ' + Math.round(M.goals.n * 2 / M.teams.length) + ' games per team is still a small sample.</p>' + table('teams', cols, M.teams, S.players.sort, 'teams');
+    return '<p class="lede">Ratings measure how many ' + (nfl ? 'points' : 'goals') + ' a team adds to (offence) or takes from (defence) the league average in a typical game, after adjusting for opponents and home advantage. They are pulled toward zero because about ' + Math.round(M.goals.n * 2 / M.teams.length) + ' games per team is still a small sample.</p>' + table('teams', cols, (S.sp === 'ncaaf' ? M.teams.filter((t) => t.gp >= 3) : M.teams), S.players.sort, 'teams');
   }
 
   /* ---------- Players ---------- */
@@ -715,6 +725,7 @@
     nhl: { sk: { label: 'Skaters', cols: ['gp', 'g', 'a', 'pts', 'sh', 'shp', 'toi'] }, gk: { label: 'Goalies', cols: ['gp', 'sv', 'sa', 'svp', 'ga'] },
       shoot: { label: 'Shooting', adv: 1, cols: ['xgp', 'xg', 'xsh', 'xshpg', 'xshp', 'xppg', 'xtoi', 'xgoalp'] } }
   };
+  PCATS.ncaaf = { rec: PCATS.nfl.rec, rush: PCATS.nfl.rush, pass: PCATS.nfl.pass, td: PCATS.nfl.td };   // no nflverse usage feed for college
   const CD = {
     gp: { h: 'GP', f: (a) => a.gp }, tgt: { h: 'Targets', f: (a) => a.tgt }, rec: { h: 'Rec', f: (a) => a.rec }, recy: { h: 'Rec yds', f: (a) => a.recy }, rectd: { h: 'Rec TD', f: (a) => a.rectd }, ypr: { h: 'Yds/rec', f: (a) => a.rec ? a.recy / a.rec : 0, d: 1 },
     att: { h: 'Carries', f: (a) => a.att }, rushy: { h: 'Rush yds', f: (a) => a.rushy }, ypa: { h: 'Yds/carry', f: (a) => a.att ? a.rushy / a.att : 0, d: 1 }, rushtd: { h: 'Rush TD', f: (a) => a.rushtd },
@@ -734,7 +745,7 @@
   function aggPlayer(M, p) {
     const rows = K.eligibleRows(M.sp, p); const a = { gp: rows.length };
     const sum = (k) => rows.reduce((s, r) => s + (r[k] || 0), 0);
-    if (M.sp === 'nfl') Object.assign(a, { tgt: sum('targets'), rec: sum('rec'), recy: sum('rec_yds'), rectd: sum('rec_td'), att: sum('rush_att'), rushy: sum('rush_yds'), rushtd: sum('rush_td'), cmp: sum('pass_cmp'), patt: sum('pass_att'), passy: sum('pass_yds'), passtd: sum('pass_td'), ints: sum('ints'), tds: sum('tot_td') });
+    if (FB(M.sp)) Object.assign(a, { tgt: S.sp === 'ncaaf' ? sum('rec') : sum('targets'), rec: sum('rec'), recy: sum('rec_yds'), rectd: sum('rec_td'), att: sum('rush_att'), rushy: sum('rush_yds'), rushtd: sum('rush_td'), cmp: sum('pass_cmp'), patt: sum('pass_att'), passy: sum('pass_yds'), passtd: sum('pass_td'), ints: sum('ints'), tds: sum('tot_td') });
     else Object.assign(a, { g: sum('goals'), a: sum('assists'), sh: sum('shots'), toi: sum('toi'), sv: sum('saves'), sa: sum('shots_against'), ga: sum('goals_against') });
     return a;
   }
@@ -745,7 +756,7 @@
     let list = Object.values(M.players).map((p) => ({ p, a: aggPlayer(M, p) }));
     list = list.filter((x) => {
       if (q && !(x.p.name.toLowerCase().includes(q) || x.p.team.toLowerCase().includes(q))) return false;
-      if (sp === 'nfl') { if (cat === 'rec') return x.a.tgt > 0; if (cat === 'rush') return x.a.att > 0; if (cat === 'pass') return x.a.patt > 0; return x.a.tds > 0; }
+      if (FB(sp)) { if (cat === 'rec') return x.a.tgt > 0; if (cat === 'rush') return x.a.att > 0; if (cat === 'pass') return x.a.patt > 0; return x.a.tds > 0; }
       return cat === 'gk' ? x.p.pos === 'G' && x.a.sa > 0 : x.p.pos !== 'G';
     });
     const cols = [{ k: 'name', h: 'Player', v: (r) => r.p.name, f: (r) => r.p.name }, { k: 'team', h: 'Team', v: (r) => (M.abbr[r.p.team] || r.p.team), f: (r) => M.abbr[r.p.team] || r.p.team }].concat(cats[cat].cols.map((c) => ({ k: c, h: CD[c].h, n: 1, v: (r) => CD[c].f(r.a), f: (r) => { const v = CD[c].f(r.a); return CD[c].d ? v.toFixed(CD[c].d) : v; } })));
@@ -762,19 +773,19 @@
     const rows = (S.adv && S.adv[sp]) || [];
     let list = rows.map((r) => ({ p: { name: r.name, team: r.team, pos: r.pos }, a: r }));
     if (q) list = list.filter((x) => (x.p.name || '').toLowerCase().includes(q) || (x.p.team || '').toLowerCase().includes(q));
-    if (sp === 'nfl') list = list.filter((x) => x.p.pos !== 'QB' || +x.a.carries >= 20);
+    if (FB(sp)) list = list.filter((x) => x.p.pos !== 'QB' || +x.a.carries >= 20);
     const cols = [{ k: 'name', h: 'Player', v: (r) => r.p.name, f: (r) => r.p.name }, { k: 'team', h: 'Team', v: (r) => r.p.team, f: (r) => r.p.team + (r.p.pos ? ' ' + r.p.pos : '') }].concat(cats[cat].cols.map((c) => ({ k: c, h: CD[c].h, n: 1, v: (r) => CD[c].f(r.a), f: (r) => { const v = CD[c].f(r.a); return CD[c].d != null ? v.toFixed(CD[c].d) + (/chance|share/i.test(CD[c].h) ? '%' : '') : v; } })));
-    const tid = 'players-' + sp + cat; if (!S.players.sort[tid]) S.players.sort[tid] = { key: sp === 'nfl' ? 'xtdp' : 'xgoalp', dir: 'desc' };
+    const tid = 'players-' + sp + cat; if (!S.players.sort[tid]) S.players.sort[tid] = { key: FB(sp) ? 'xtdp' : 'xgoalp', dir: 'desc' };
     let h = '<div class="toolbar"><div class="seg-ctl" role="tablist">' + Object.keys(cats).map((k) => '<button type="button" data-cat="' + k + '" class="' + (k === cat ? 'on' : '') + '">' + cats[k].label + '</button>').join('') + '</div><label class="f grow">Search<input id="p-q" type="search" placeholder="Player or team" value="' + esc(S.players.q) + '"></label></div>';
     if (!rows.length) return h + '<p class="lede">This data has not loaded yet. It refreshes with the rest of the stats each morning and afternoon.</p>';
-    h += '<p class="lede">' + (sp === 'nfl'
+    h += '<p class="lede">' + (FB(sp)
       ? 'Season usage from nflverse (free open NFL data). Target share and WOPR show how much of the passing game runs through a player; EPA is expected points added. TD chance is a rough per-game estimate from season and last-4-game touchdowns, pulled toward average early in the season.'
       : 'Season shooting from the NHL\'s own stats. Goal chance is a rough per-game estimate: shots per game times shooting %, with shooting % pulled toward the league norm because it swings a lot over small samples.') + '</p>';
     h += table(tid, cols, list.slice(0, 400), S.players.sort, 'players');
     return h;
   }
   function playerPanel(M, p) {
-    const rows = K.eligibleRows(M.sp, p); const nfl = M.sp === 'nfl';
+    const rows = K.eligibleRows(M.sp, p); const nfl = FB(M.sp);
     const head = nfl ? ['Date', 'Opp', 'Rec', 'Rec yds', 'Rush', 'Rush yds', 'Pass yds', 'TD'] : (p.pos === 'G' ? ['Date', 'Opp', 'Saves', 'SA', 'GA'] : ['Date', 'Opp', 'G', 'A', 'Shots', 'TOI']);
     const body = rows.map((r) => (nfl ? [r.rec, r.rec_yds, r.rush_att, r.rush_yds, r.pass_yds, r.tot_td] : (p.pos === 'G' ? [r.saves, r.shots_against, r.goals_against] : [r.goals, r.assists, r.shots, (r.toi || 0).toFixed(1)])).reduce((s, v) => s + '<td class="n">' + esc(v) + '</td>', '<td>' + esc(fmtShort.format(new Date(r.date))) + '</td><td>' + esc(M.abbr[r.opp] || r.opp) + '</td>'));
     return '<section class="card ppanel"><div class="pp-h"><h2>' + esc(p.name) + '</h2><span>' + esc(p.team) + (p.pos ? ' &middot; ' + esc(p.pos) : '') + '</span><button type="button" id="p-close" aria-label="Close player">Close</button></div><div class="tscroll"><table class="data"><thead><tr>' + head.map((x, i) => '<th class="' + (i > 1 ? 'n' : '') + '">' + x + '</th>').join('') + '</tr></thead><tbody>' + body.map((r) => '<tr>' + r + '</tr>').join('') + '</tbody></table></div></section>';
@@ -782,7 +793,7 @@
 
   /* ---------- Games ---------- */
   function renderGames() {
-    const M = S.M[S.sp]; const t = S.games.team; const nfl = S.sp === 'nfl';
+    const M = S.M[S.sp]; const t = S.games.team; const nfl = FB(S.sp);
     let gs = M.games.slice().reverse(); if (t) gs = gs.filter((g) => g.home === t || g.away === t);
     let h = '<div class="toolbar"><label class="f grow">Team<select id="g-team">' + opt('', 'All teams', !t) + M.teams.map((x) => x.name).sort().map((n) => opt(n, n, n === t)).join('') + '</select></label><span class="count">' + gs.length + ' games</span></div><div class="glist">';
     for (const g of gs.slice(0, 150)) {
@@ -793,7 +804,7 @@
   function gameDetail(M, gid) {
     const g = M.games.find((x) => x.id === gid); const tr = M.teamRows.filter((r) => r.game_id === gid); if (!g || tr.length < 2) return '<p class="empty">No details.</p>';
     const a = tr.find((r) => r.team === g.away), b = tr.find((r) => r.team === g.home);
-    const nfl = M.sp === 'nfl';
+    const nfl = FB(M.sp);
     const stats = nfl ? [['Total yards', 'total_yards'], ['Pass yards', 'pass_yds'], ['Rush yards', 'rush_yds'], ['First downs', 'first_downs'], ['Turnovers', 'turnovers'], ['Sacks taken', 'sacks_taken'], ['Penalties', 'penalties'], ['Time of possession', 'poss_min']] : [['Shots', 'shots'], ['Hits', 'hits'], ['Blocked shots', 'blocks'], ['Takeaways', 'takeaways'], ['Giveaways', 'giveaways'], ['Power-play goals', 'pp_goals'], ['Power-play chances', 'pp_opps'], ['Faceoff %', 'faceoff_pct'], ['Penalty minutes', 'pim']];
     let h = '<div class="tscroll"><table class="data cmp"><thead><tr><th>' + esc(g.away) + '</th><th></th><th>' + esc(g.home) + '</th></tr></thead><tbody>' + stats.map(([l, k]) => '<tr><td class="n">' + esc(a[k]) + '</td><td class="mid">' + l + '</td><td class="n">' + esc(b[k]) + '</td></tr>').join('') + '</tbody></table></div>';
     const pr = M.playerRows.filter((r) => r.game_id === gid);
@@ -854,7 +865,7 @@
     if (ok) { renderTabs(); renderSlip(); if (S.tab === 'parlay') render(); }
   }
   function setHash() { try { history.replaceState(null, '', '#' + S.sp + '-' + S.tab); } catch (e) { /* ignore */ } }
-  function readHash() { const m = (location.hash || '').replace('#', '').match(/^(nfl|nhl)-(slate|props|lab|parlay|teams|players|games|track|acc)$/); if (m) { S.sp = m[1]; S.tab = m[2]; return true; } return false; }
+  function readHash() { const m = (location.hash || '').replace('#', '').match(/^(nfl|ncaaf|nhl)-(slate|props|lab|parlay|teams|players|games|track|acc)$/); if (m) { S.sp = m[1]; S.tab = m[2]; return true; } return false; }
   function go(sp, tab) { S.sp = sp || S.sp; S.tab = tab || S.tab; store.set('kc-sp', S.sp); setHash(); render(); window.scrollTo(0, 0); }
 
   function bind() {
@@ -891,8 +902,8 @@
       const map = { 'lab-game': 'gameId', 'lab-away': 'away', 'lab-home': 'home', 'lab-btype': 'btype', 'lab-team': 'team', 'lab-side': 'side', 'lab-pteam': 'pteam', 'lab-ptype': 'ptype', 'lab-pid': 'pid', 'lab-pside': 'pside' };
       if (!map[id]) return; L[map[id]] = v;
       if (id === 'lab-game') { L.team = ''; L.pteam = ''; L.line = ''; L.pid = ''; }
-      if (id === 'lab-btype' && v !== 'win') { const gm = K.gameModel(S.M[sp], labGame()); L.line = ''; const mk = gm.mktMargin; if (v === 'spread' && sp === 'nfl' && mk != null) L.line = String(L.team === gm.home ? -mk : mk); if (v === 'total' && gm.mktTotal != null) L.line = String(gm.mktTotal); if (v === 'spread' && sp === 'nhl') L.line = L.team === gm.home ? '-1.5' : '1.5'; }
-      if (id === 'lab-team' && L.btype === 'spread') { const gm = K.gameModel(S.M[sp], labGame()); if (sp === 'nfl' && gm.mktMargin != null) L.line = String(L.team === gm.home ? -gm.mktMargin : gm.mktMargin); if (sp === 'nhl') L.line = L.team === gm.home ? '-1.5' : '1.5'; }
+      if (id === 'lab-btype' && v !== 'win') { const gm = K.gameModel(S.M[sp], labGame()); L.line = ''; const mk = gm.mktMargin; if (v === 'spread' && FB(sp) && mk != null) L.line = String(L.team === gm.home ? -mk : mk); if (v === 'total' && gm.mktTotal != null) L.line = String(gm.mktTotal); if (v === 'spread' && sp === 'nhl') L.line = L.team === gm.home ? '-1.5' : '1.5'; }
+      if (id === 'lab-team' && L.btype === 'spread') { const gm = K.gameModel(S.M[sp], labGame()); if (FB(sp) && gm.mktMargin != null) L.line = String(L.team === gm.home ? -gm.mktMargin : gm.mktMargin); if (sp === 'nhl') L.line = L.team === gm.home ? '-1.5' : '1.5'; }
       if (id === 'lab-ptype') { L.pid = ''; L.pline = ({ rec_yds: 55.5, rec: 4.5, rush_yds: 49.5, pass_yds: 249.5, pass_td: 1.5, rushrec_yds: 65.5, shots: 2.5, points: 0.5, saves: 25.5 })[v] || 0.5; }
       if (id === 'lab-pteam') L.pid = '';
       render();
@@ -904,7 +915,7 @@
     setPalette(store.get('ss-pal') || 'ember', false);
     try { await loadAll(); } catch (err) { $('#view').innerHTML = '<p class="empty err">The data files did not load (' + esc(err.message) + '). Reload the page to try again.</p>'; return; }
     loadParlay();
-    if (!readHash()) { const sv = store.get('kc-sp'); if (sv === 'nfl' || sv === 'nhl') S.sp = sv; }
+    if (!readHash()) { const sv = store.get('kc-sp'); if (sv === 'nfl' || sv === 'ncaaf' || sv === 'nhl') S.sp = sv; }
     bind(); setHash(); render();
   }
   start();

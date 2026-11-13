@@ -317,6 +317,34 @@ def write_dimers(out):
 print('dimers', write_dimers(OUT))
 
 
+# ---- ESPN BPI win probability for upcoming football games (ESPN's own model, free, no key) ----
+# Nov 13 2026 test on 354 finished college games: closing-line moneyline log-loss .577 vs BPI .604, and no blend
+# of the two beat the line alone, so this is shown as an outside reference only, never blended into the model.
+def write_bpi(out):
+    rows = []
+    for sp, path in (('nfl', 'football/leagues/nfl'), ('ncaaf', 'football/leagues/college-football')):
+        fp = os.path.join(out, f'{sp}_upcoming.csv')
+        if not os.path.exists(fp):
+            continue
+        up = sorted(csv.DictReader(open(fp, encoding='utf-8')), key=lambda g: g['date'])[:80]
+
+        def one(g, path=path, sp=sp):
+            eid = g['game_id']
+            d = get(f"https://sports.core.api.espn.com/v2/sports/{path}/events/{eid}/competitions/{eid}/predictor")
+            try:
+                v = lambda side: [x['value'] for x in d[side]['statistics'] if x['name'] == 'gameProjection'][0]
+                return dict(sport=sp, game_id=eid, home_pct=round(v('homeTeam'), 1), away_pct=round(v('awayTeam'), 1))
+            except Exception:
+                return None
+        with cf.ThreadPoolExecutor(6) as ex:
+            rows += [r for r in ex.map(one, up) if r]
+    write(os.path.join(out, 'bpi.csv'), rows, ['sport', 'game_id', 'home_pct', 'away_pct'])
+    return len(rows)
+
+
+print('espn bpi', write_bpi(OUT))
+
+
 
 # ---- DraftKings player props via ESPN's core odds API (provider 100) ----
 DK_MAP = {

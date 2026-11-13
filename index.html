@@ -333,7 +333,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-13a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-13b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1247,26 +1247,68 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const v = String(s || "pending").toLowerCase();
     return el("span","vd " + (v === "won" ? "vd-agree" : v === "lost" ? "vd-disagree" : "vd-neutral"), v === "won" ? "Won" : v === "lost" ? "Lost" : v === "void" ? "Void" : v === "push" ? "Push" : "Pending");
   }
+  // Live grading of open bets: the browser checks ESPN for legs that have started; the 11 AM routine still settles the bankroll.
+  const botLive = {};   // "betId#leg" -> { res, live }
+  const legPick = l => l.kind === "ml" ? { sp: l.sp, k: "ml", team: l.team, label: l.sel }
+    : (l.kind === "atg" || l.kind === "atd") ? { sp: l.sp, k: l.kind, player: l.player, label: l.sel } : null;
+  function legState(b, i){
+    const l = b.legs[i], s = String(l.status || "pending");
+    if (s !== "pending") return { st: s };
+    const v = botLive[b.id + "#" + i];
+    if (!v) return { st: "pending" };
+    return { st: v.res === "hit" ? "won" : v.res === "miss" ? "lost" : "pending", live: v.live };
+  }
+  function betState(b){
+    if (b.status && b.status !== "pending") return { st: b.status };
+    const L = (Array.isArray(b.legs) ? b.legs : []).map((_, i) => legState(b, i));
+    if (!L.length) return { st: "pending" };
+    if (L.some(x => x.st === "lost")) return { st: "lost", prov: true };
+    if (L.every(x => x.st === "won")) return { st: "won", prov: true };
+    return { st: "pending", live: L.some(x => x.live) };
+  }
+  const betProfit = (b, x) => x.prov ? (x.st === "won" ? Number(b.to_win) || 0 : -(Number(b.stake) || 0)) : Number(b.profit) || 0;
+  let botBusy = false;
+  async function refreshBotLive(){
+    const d = st.bot; if (!d || !Array.isArray(d.bets) || botBusy) return;
+    const now = Date.now(), need = [];
+    d.bets.forEach(b => { if (b.status && b.status !== "pending") return;
+      (b.legs || []).forEach((l, i) => { if ((!l.status || l.status === "pending") && legPick(l) && LEAGUES[l.sp] && l.start && new Date(l.start) <= now) need.push([b, l, i]); }); });
+    if (!need.length) return;
+    botBusy = true;
+    try {
+      const games = {};
+      await Promise.all(Array.from(new Set(need.map(([, l]) => l.sp + "|" + dayKey(new Date(l.start))))).map(async k => {
+        const [sp, day] = k.split("|"); try { games[k] = await getGames(sp, day); } catch (e) { games[k] = null; } }));
+      let changed = false;
+      await Promise.all(need.map(async ([b, l, i]) => {
+        const k = l.sp + "|" + dayKey(new Date(l.start)); if (!games[k]) return;
+        const r = await gradePick(legPick(l), games[k]).catch(() => null); if (!r) return;
+        const key = b.id + "#" + i, old = botLive[key];
+        if (!old || old.res !== r.res || old.live !== r.live) { botLive[key] = { res: r.res, live: r.live }; changed = true; }
+      }));
+      if (changed) { renderBotSide(); if (st.tab === "bot") renderMain(); }
+    } finally { botBusy = false; }
+  }
   function betRow(b){
-    const row = el("div","bb"), top = el("div","bb-top"), legs = Array.isArray(b.legs) ? b.legs : [];
-    top.append(sportChip(legs[0] && legs[0].sp), el("b", null, String(b.title || "")), statusChip(b.status));
+    const row = el("div","bb"), top = el("div","bb-top"), legs = Array.isArray(b.legs) ? b.legs : [], bs = betState(b);
+    top.append(sportChip(legs[0] && legs[0].sp), el("b", null, String(b.title || "")), statusChip(bs.st));
     row.append(top);
     const parts = [am(b.odds), money(b.stake) + " to win " + money(b.to_win)];
     if (b.model_p) parts.push("model " + pc(b.model_p));
     row.append(el("div","bb-odds", parts.filter(Boolean).join(" · ")));
     if (legs.length > 1) {
       const ul = el("ul","bb-legs");
-      legs.forEach(l => {
-        const li = el("li"), ls = String(l.status || "pending");
+      legs.forEach((l, i) => {
+        const li = el("li"), ls = legState(b, i).st;
         li.append(el("span","mk " + (ls === "won" ? "up" : ls === "lost" ? "down" : "flat"), ls === "won" ? "✓" : ls === "lost" ? "✗" : "·"), sportChip(l.sp), el("span","s", String(l.sel || "") + (l.odds ? " (" + am(l.odds) + ")" : "")));
         ul.append(li);
       });
       row.append(ul);
     }
-    if (b.status && b.status !== "pending") {
-      const pr = Number(b.profit) || 0;
-      row.append(el("div","bb-res " + tone(pr), signed(pr) + (b.result ? " · " + b.result : "")));
-    }
+    if (bs.st !== "pending") {
+      const pr = betProfit(b, bs);
+      row.append(el("div","bb-res " + tone(pr), signed(pr) + (bs.prov ? " · from ESPN, bankroll updates at 11 AM" : b.result ? " · " + b.result : "")));
+    } else if (bs.live) row.append(el("div","bb-odds","Live now"));
     if (b.why) row.append(el("div","bb-why", String(b.why)));
     return row;
   }
@@ -1298,10 +1340,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const shot = todays.find(b => b.cat === "longshot") || ydays.find(b => b.cat === "longshot");
     if (shot) {
       const g = el("div","gfi"), l = el("div","gfi-l");
-      l.append(el("span",null,"Going for it"), statusChip(shot.status));
+      const ss = betState(shot);
+      l.append(el("span",null,"Going for it"), statusChip(ss.st));
       g.append(l, el("div","gfi-c", String(shot.call || shot.title || "").replace(/^\s*going for it\s*[:\-–]\s*/i, "")));
       g.append(el("div","bb-odds", [am(shot.odds), money(shot.stake) + " to win " + money(shot.to_win), shot.model_p ? "model " + pc(shot.model_p) : ""].filter(Boolean).join(" · ")));
-      if (shot.status && shot.status !== "pending") g.append(el("div","bb-res " + tone(shot.profit), signed(shot.profit) + (shot.result ? " · " + shot.result : "")));
+      if (ss.st !== "pending") { const sp = betProfit(shot, ss); g.append(el("div","bb-res " + tone(sp), signed(sp) + (ss.prov ? " · from ESPN, bankroll updates at 11 AM" : shot.result ? " · " + shot.result : ""))); }
       if (full && shot.why) g.append(el("div","bb-why", String(shot.why)));
       box.append(g);
     }
@@ -1672,6 +1715,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       st.bot = bot && typeof bot === "object" ? bot : null;
       onSlips(slips);
       onEmails(Array.isArray(emails) ? emails : []);
+      refreshBotLive().catch(() => {});
     } catch(e) {
       if (!st.loaded) { $("checked").textContent = "Couldn't load"; st.err = { h: "Couldn't load the picks", p: "Check your connection and try again.", retry: true }; render(); }
     }
@@ -1687,6 +1731,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   });
   load();
   setInterval(load, 5 * 60 * 1000);
+  setInterval(() => { if (!document.hidden) refreshBotLive().catch(() => {}); }, 60 * 1000);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) load(); });
 })();
 </script>

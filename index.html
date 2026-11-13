@@ -333,7 +333,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-12c";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-13a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1382,6 +1382,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     }
     if ((m = /^(.+?)\s+(?:moneyline|ML)\b/i.exec(d))) return { sp, k: "ml", team: m[1], label: d };
     if ((m = /^(.+?)(?:\s+(?:@|at|vs\.?)\s+|\s*\/\s*)(.+?)\s+(over|under)(?:\s+(\d+(?:\.\d+)?))?\s*$/i.exec(d))) return { sp, k: "total", a: m[1], b: m[2], ou: m[3].toLowerCase(), line: m[4] != null ? +m[4] : null, label: d };
+    // "Player over 2.5 threes" must be tried first, or the next pattern swallows "over 2.5" into the player's name
+    if ((m = new RegExp("^(.+?)\\s+(over|under)\\s+(\\d+(?:\\.\\d+)?)\\s+(" + STATWORDS + ")\\b", "i").exec(d))) {
+      const s = statOf(m[4]);
+      if (s) return { sp, k: "prop", player: m[1], stat: s.stat, sname: s.name, ou: m[2].toLowerCase(), line: +m[3], label: d };
+    }
     if ((m = new RegExp("^(.+?)\\s+(?:(\\d+)\\+\\s+)?(" + STATWORDS + ")\\b\\s*(over|under)?\\s*(\\d+(?:\\.\\d+)?)?", "i").exec(d))) {
       const s = statOf(m[3]);
       if (s) {

@@ -1,21 +1,21 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1211.56,
- "at_risk": 110,
- "updated": "2026-11-12T16:21:20Z",
+ "bankroll": 1258.75,
+ "at_risk": 90,
+ "updated": "2026-11-13T16:35:15Z",
  "record": {
-  "w": 12,
-  "l": 8,
+  "w": 17,
+  "l": 11,
   "p": 0
  },
  "public_record": {
-  "w": 11,
-  "l": 5,
+  "w": 14,
+  "l": 6,
   "p": 0
  },
- "public_bankroll": 975.09,
- "note": "Graded 7 bets (4-3, +$17.15) from 11/11; placed 8 bets, $110 at risk. Model found no ML single meeting full rules (edges too thin), so ML singles, the parlay and the TD prop are marked Lean; props via Covers/SharpAPI/nflverse/NHL stats; Covers TD list only had 8 players. Public shadow: 4 games.",
+ "public_bankroll": 975.75,
+ "note": "Graded 8 (5-3, +$47.19) plus 4 public (3-1, +$0.66); placed 6 bets, $90 at risk (2 lean ML, 1 parlay, 2 NHL goal props, 1 longshot); no NFL today, Kalshi had no CFB prices",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -897,8 +897,8 @@
      "book": "DraftKings",
      "model_p": 0.49,
      "implied_p": 0.467,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Commanders 24-21"
     }
    ],
    "odds": 114,
@@ -909,9 +909,9 @@
    "edge": 0.023,
    "sources": "Market 46% (DK +114), Kalshi 45%, ESPN 49%, OddsShark 20-18 Commanders; only 40% of bets-money split vs 23% of bets on WAS = sharp money on Washington",
    "why": "Lean: Model 49% vs DraftKings +114 (47%); the computer score and sharp money like the Commanders even though Kalshi and the market lean Giants.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 28.5,
+   "result": "Commanders 24-21"
   },
   {
    "id": "2026-11-12-2",
@@ -932,8 +932,8 @@
      "book": "FanDuel",
      "model_p": 0.406,
      "implied_p": 0.4,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Memphis 52, USF 41"
     }
    ],
    "odds": 150,
@@ -944,9 +944,9 @@
    "edge": 0.006,
    "sources": "Market 40% (FD +150), ESPN 37% for USF, OddsShark Memphis 26.7-24.2; only 10% of bets but 44% of money on USF = sharp money on South Florida",
    "why": "Lean: Model 41% vs FanDuel +150 (40%); the public is 90% on Memphis but the money is on USF and OddsShark has a 2.5-point game.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Memphis 52, USF 41"
   },
   {
    "id": "2026-11-12-3",
@@ -967,8 +967,8 @@
      "book": "FanDuel",
      "model_p": 0.816,
      "implied_p": 0.811,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Louisiana 42-21"
     },
     {
      "sp": "NBA",
@@ -982,8 +982,8 @@
      "book": "FanDuel",
      "model_p": 0.776,
      "implied_p": 0.811,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Pistons 144-140"
     }
    ],
    "odds": -193,
@@ -994,9 +994,9 @@
    "edge": -0.026,
    "sources": "ULL: ESPN 91%, OddsShark 30-20, market 80%; Detroit: Kalshi 80%, ESPN 72%, OddsShark 116-107, 90% of bets and 88% of money",
    "why": "Lean: the two highest-probability sides on the board (Louisiana 82%, Detroit 78%) in different games, small stake.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 5.19,
+   "result": "Louisiana 42-21; Pistons 144-140"
   },
   {
    "id": "2026-11-12-4",
@@ -1018,8 +1018,8 @@
      "book": "FanDuel",
      "model_p": 0.512,
      "implied_p": 0.392,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 G"
     }
    ],
    "odds": 155,
@@ -1030,9 +1030,9 @@
    "edge": 0.12,
    "sources": "4.26 shots/G, 15 G in 19 GP, model 51% vs FanDuel +155 (39%); in RotoWire lineup, not on injury list",
    "why": "Connor has 15 goals in 19 games on 4.3 shots a night, so the model sees about 51% against a 39% price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 15.5,
+   "result": "1 G"
   },
   {
    "id": "2026-11-12-5",
@@ -1054,8 +1054,8 @@
      "book": "FanDuel",
      "model_p": 0.423,
      "implied_p": 0.303,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 G"
     }
    ],
    "odds": 230,
@@ -1066,9 +1066,9 @@
    "edge": 0.12,
    "sources": "2.62 shots/G, 11 G in 16 GP, model 42% vs FanDuel +230 (30%); in RotoWire lineup, not on injury list",
    "why": "Tuch is on the Capitals first power play with 11 goals in 16 games; the model puts him near 42% against a 30% price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 G"
   },
   {
    "id": "2026-11-12-6",
@@ -1090,8 +1090,8 @@
      "book": "FanDuel",
      "model_p": 0.414,
      "implied_p": 0.299,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 G"
     }
    ],
    "odds": 235,
@@ -1102,9 +1102,9 @@
    "edge": 0.115,
    "sources": "2.21 shots/G, 13 G in 19 GP, model 41% vs FanDuel +235 (30%); in RotoWire lineup, not on injury list",
    "why": "Lehkonen has 13 goals in 19 games on 2.2 shots a night; the model has him about 41% against a 30% price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 23.5,
+   "result": "1 G"
   },
   {
    "id": "2026-11-12-7",
@@ -1126,8 +1126,8 @@
      "book": "FanDuel",
      "model_p": 0.366,
      "implied_p": 0.339,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 TD"
     }
    ],
    "odds": 195,
@@ -1138,9 +1138,9 @@
    "edge": 0.027,
    "sources": "Covers projection 0.37 TDs (31%); 6 TDs in 8 GP, 4 in last 4 (season-rate 50%); blended model 37% vs FanDuel +195 (34%); Commanders allow the 4th-most receiving yards to TEs; Active",
    "why": "Lean: Likely is scoring at a hot pace and faces a weak Commanders defense against tight ends, with a small positive edge.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 19.5,
+   "result": "1 TD"
   },
   {
    "id": "2026-11-12-8",
@@ -1162,8 +1162,8 @@
      "book": "FanDuel",
      "model_p": 0.237,
      "implied_p": 0.105,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 G"
     }
    ],
    "odds": 850,
@@ -1174,10 +1174,238 @@
    "edge": 0.132,
    "sources": "1.89 shots/G, 6 G in 19 GP, model 24% vs FanDuel +850 (10%); expected return 2.25; in RotoWire lineup",
    "why": "Daily long shot: best expected return on the board (model 24% at +850), a defenseman with 6 goals in 19 games; likely a small-sample overestimate so only $10.",
+   "status": "lost",
+   "profit": -10,
+   "result": "0 G",
+   "call": "Going for it: Devon Toews scores anytime at Ottawa (+850) - $10 pays $85.00"
+  },
+  {
+   "id": "2026-11-13-1",
+   "date": "2026-11-13",
+   "placed": "2026-11-13T16:35:15Z",
+   "cat": "ml",
+   "title": "Cleveland Cavaliers ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Cleveland Cavaliers @ Miami Heat",
+     "start": "2026-11-14T01:00:00Z",
+     "sel": "Cleveland Cavaliers ML",
+     "team": "Cleveland Cavaliers",
+     "opp": "Miami Heat",
+     "odds": 120,
+     "book": "FanDuel",
+     "model_p": 0.5155,
+     "implied_p": 0.4545,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 120,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 30.0,
+   "model_p": 0.5155,
+   "edge": 0.061,
+   "sources": "Market 46%, Kalshi 44%, ESPN 64%, OddsShark Heat by 2.5, sharp money on Cleveland (49% of bets, 63% of money)",
+   "why": "Lean: ESPN likes Cleveland much more than the market and the money is sharp on the Cavs, giving a 6-point edge at +120.",
    "status": "pending",
    "profit": null,
-   "result": "",
-   "call": "Going for it: Devon Toews scores anytime at Ottawa (+850) - $10 pays $85.00"
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-2",
+   "date": "2026-11-13",
+   "placed": "2026-11-13T16:35:15Z",
+   "cat": "ml",
+   "title": "Memphis Grizzlies ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Memphis Grizzlies @ New Orleans Pelicans",
+     "start": "2026-11-14T01:00:00Z",
+     "sel": "Memphis Grizzlies ML",
+     "team": "Memphis Grizzlies",
+     "opp": "New Orleans Pelicans",
+     "odds": -135,
+     "book": "DraftKings",
+     "model_p": 0.5755,
+     "implied_p": 0.5745,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -135,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 18.52,
+   "model_p": 0.5755,
+   "edge": 0.001,
+   "sources": "Market 56%, Kalshi 56%, ESPN 58%, OddsShark Memphis by 5; all four sources on the same side",
+   "why": "Lean: every source agrees Memphis is the better side and the price is almost exactly fair, so this is a low-edge steady pick.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-3",
+   "date": "2026-11-13",
+   "placed": "2026-11-13T16:35:15Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: OKC + Houston (CFB)",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Oklahoma City Thunder @ LA Clippers",
+     "start": "2026-11-14T03:30:00Z",
+     "sel": "Oklahoma City Thunder ML",
+     "team": "Oklahoma City Thunder",
+     "opp": "LA Clippers",
+     "odds": -290,
+     "book": "FanDuel",
+     "model_p": 0.7281,
+     "implied_p": 0.7436,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Houston Cougars @ Colorado Buffaloes",
+     "start": "2026-11-14T03:15:00Z",
+     "sel": "Houston Cougars ML",
+     "team": "Houston Cougars",
+     "opp": "Colorado Buffaloes",
+     "odds": -350,
+     "book": "FanDuel",
+     "model_p": 0.7788,
+     "implied_p": 0.7778,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -137,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 7.29,
+   "model_p": 0.567,
+   "edge": -0.011,
+   "sources": "OKC: Market 71%, Kalshi 72%, ESPN 76%, OddsShark +8.7; Houston: Market 75%, ESPN 83%, OddsShark +9.7",
+   "why": "Lean: the two strongest sides on the board in different games, both priced fairly with every source on their side.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-4",
+   "date": "2026-11-13",
+   "placed": "2026-11-13T16:35:15Z",
+   "cat": "prop",
+   "title": "Steven Stamkos anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Nashville Predators @ Vegas Golden Knights",
+     "start": "2026-11-14T03:00:00Z",
+     "sel": "Steven Stamkos anytime goal",
+     "team": "Nashville Predators",
+     "opp": "Vegas Golden Knights",
+     "player": "Steven Stamkos",
+     "odds": 195,
+     "book": "FanDuel",
+     "model_p": 0.381,
+     "implied_p": 0.339,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 195,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 19.5,
+   "model_p": 0.381,
+   "edge": 0.042,
+   "sources": "2.5 shots/G, 11 G in 19 GP, model 38% vs +195 (34%)",
+   "why": "Stamkos is scoring on 23% of his shots, so the model has him about 4 points above the price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-5",
+   "date": "2026-11-13",
+   "placed": "2026-11-13T16:35:15Z",
+   "cat": "prop",
+   "title": "Victor Olofsson anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Nashville Predators @ Vegas Golden Knights",
+     "start": "2026-11-14T03:00:00Z",
+     "sel": "Victor Olofsson anytime goal",
+     "team": "Vegas Golden Knights",
+     "opp": "Nashville Predators",
+     "player": "Victor Olofsson",
+     "odds": 295,
+     "book": "DraftKings",
+     "model_p": 0.393,
+     "implied_p": 0.2532,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 295,
+   "book": "DraftKings",
+   "stake": 10,
+   "to_win": 29.5,
+   "model_p": 0.393,
+   "edge": 0.1398,
+   "sources": "2.9 shots/G, 5 G in 7 GP, model 39% vs +295 (25%); small sample, shrunk toward the norm",
+   "why": "Olofsson has 5 goals in 7 games and the price is far longer than the shrunken model rate, though the sample is small.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-6",
+   "date": "2026-11-13",
+   "placed": "2026-11-13T16:35:15Z",
+   "cat": "longshot",
+   "title": "Utah Jazz ML",
+   "call": "Going for it: Utah Jazz win outright at Houston (+810) - $10 pays $81.00",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Utah Jazz @ Houston Rockets",
+     "start": "2026-11-14T01:30:00Z",
+     "sel": "Utah Jazz ML",
+     "team": "Utah Jazz",
+     "opp": "Houston Rockets",
+     "odds": 810,
+     "book": "DraftKings",
+     "model_p": 0.1455,
+     "implied_p": 0.1099,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 810,
+   "book": "DraftKings",
+   "stake": 10,
+   "to_win": 81.0,
+   "model_p": 0.1455,
+   "edge": 0.0356,
+   "sources": "Market 11%, Kalshi 9%, ESPN 12%, OddsShark 15% (Jazz lose by 15); sharp money on Utah (3% of bets, 41% of money)",
+   "why": "Highest expected return on the board (model 14.6% x 9.1 = 1.32); sharp money on Utah while Houston is without Capela, Adams and Smart.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
   }
  ],
  "public": [
@@ -1466,9 +1694,9 @@
    "pct_bets": 77,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Commanders 24, Giants 21"
   },
   {
    "id": "2026-11-12-p2",
@@ -1483,9 +1711,9 @@
    "pct_bets": 90,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 14.04,
+   "result": "Memphis 52-41"
   },
   {
    "id": "2026-11-12-p3",
@@ -1500,9 +1728,9 @@
    "pct_bets": 97,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 5.81,
+   "result": "Louisiana 42-21"
   },
   {
    "id": "2026-11-12-p4",
@@ -1515,6 +1743,91 @@
    "opp": "Washington Wizards",
    "odds": -430,
    "pct_bets": 90,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "won",
+   "profit": 5.81,
+   "result": "Pistons 144-140"
+  },
+  {
+   "id": "2026-11-13-p1",
+   "date": "2026-11-13",
+   "sp": "NBA",
+   "game": "Cleveland Cavaliers @ Miami Heat",
+   "start": "2026-11-14T01:00:00Z",
+   "sel": "Miami Heat ML",
+   "team": "Miami Heat",
+   "opp": "Cleveland Cavaliers",
+   "odds": -135,
+   "pct_bets": 51,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-p2",
+   "date": "2026-11-13",
+   "sp": "NBA",
+   "game": "Memphis Grizzlies @ New Orleans Pelicans",
+   "start": "2026-11-14T01:00:00Z",
+   "sel": "Memphis Grizzlies ML",
+   "team": "Memphis Grizzlies",
+   "opp": "New Orleans Pelicans",
+   "odds": -135,
+   "pct_bets": 84,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-p3",
+   "date": "2026-11-13",
+   "sp": "NBA",
+   "game": "Oklahoma City Thunder @ LA Clippers",
+   "start": "2026-11-14T03:30:00Z",
+   "sel": "Oklahoma City Thunder ML",
+   "team": "Oklahoma City Thunder",
+   "opp": "LA Clippers",
+   "odds": -269,
+   "pct_bets": 96,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-p4",
+   "date": "2026-11-13",
+   "sp": "NCAAF",
+   "game": "Houston Cougars @ Colorado Buffaloes",
+   "start": "2026-11-14T03:15:00Z",
+   "sel": "Houston Cougars ML",
+   "team": "Houston Cougars",
+   "opp": "Colorado Buffaloes",
+   "odds": -350,
+   "pct_bets": 97,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-13-p5",
+   "date": "2026-11-13",
+   "sp": "NBA",
+   "game": "Utah Jazz @ Houston Rockets",
+   "start": "2026-11-14T01:30:00Z",
+   "sel": "Houston Rockets ML",
+   "team": "Houston Rockets",
+   "opp": "Utah Jazz",
+   "odds": -1200,
+   "pct_bets": 97,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -1538,7 +1851,7 @@
     "profit": 0
    },
    "bankroll": 990.0,
-   "public_bankroll": 1000.0
+   "public_bankroll": 1000
   },
   {
    "date": "2026-11-09",
@@ -1590,6 +1903,23 @@
    },
    "bankroll": 1211.56,
    "public_bankroll": 975.09
+  },
+  {
+   "date": "2026-11-12",
+   "bot": {
+    "w": 5,
+    "l": 3,
+    "p": 0,
+    "profit": 47.19
+   },
+   "public": {
+    "w": 3,
+    "l": 1,
+    "p": 0,
+    "profit": 0.66
+   },
+   "bankroll": 1258.75,
+   "public_bankroll": 975.75
   }
  ]
 }

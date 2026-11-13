@@ -296,6 +296,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .r-hit .lv-res{color:var(--good)} .r-miss .lv-res{color:var(--bad)} .r-live .lv-res{color:var(--mid)} .r-push .lv-res{color:var(--mid)}
 .lv-sub{font-size:13px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
 .fresh{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 0;font:600 12px/1.3 "Source Sans 3",system-ui,sans-serif;color:var(--head-ink);opacity:.85}.fresh span.old{color:var(--gold);opacity:1}.fresh span.old::before{content:"⚠ "}
+.score{display:grid;gap:6px;margin-bottom:12px}.score .fine{margin:0;font-size:12px;color:var(--muted)}
+.brk{display:grid;gap:14px;padding:12px 14px 14px;border-top:1px solid var(--line)}.brk h4{margin:0 0 6px;font:800 15px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.brow{display:grid;grid-template-columns:minmax(96px,34%) minmax(0,1fr) auto;gap:8px;align-items:center;padding:3px 0;font-size:14px}.brow .nm{overflow-wrap:anywhere}
+.bar{position:relative;height:12px;border-radius:6px;background:color-mix(in srgb,var(--ink) 9%,var(--surface));overflow:hidden}.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:6px}.bar i.lo{background:var(--muted)}.bar u{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--ink);opacity:.55}
+.brow .num{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.brow.small{opacity:.6}
 </style>
 </head>
 <body>
@@ -342,7 +347,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-13c";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-13e";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -455,7 +460,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     if (!st.loaded) { view.append(el("div","skel"), el("div","skel")); return; }
     if (t === "slip") { renderBetSlip(view); return; }
     if (t === "results") { renderResults(view); return; }
-    if (t === "bot") { const tf = trackerFull(); if (tf) view.append(tf); view.append(botPanel(true)); return; }
+    if (t === "bot") { const bk = breakdown(); if (bk) view.append(bk); const tf = trackerFull(); if (tf) view.append(tf); view.append(botPanel(true)); return; }
     const list = st.lists[t] || [];
     if (!list.length) { view.append(stateBox({ h: TABS[t].empty, p: "New ones show up here on their own after each KingCap stream." })); return; }
     list.forEach(g => {
@@ -470,7 +475,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const n = g.items.length;
     head.append(el("span","when", (n > 1 ? n + " updates · last " : "Sent ") + fmtTime(g.date) + " ET"));
     view.append(head);
-    if (t === "picks") { const gl = glance(g); if (gl) view.append(gl); const lv = liveSection(g); if (lv) view.append(lv); const sl = slipSection(g.key); if (sl) view.append(sl); }
+    if (t === "picks") { const sb = scoreboard(); if (sb) view.append(sb); const gl = glance(g); if (gl) view.append(gl); const lv = liveSection(g); if (lv) view.append(lv); const sl = slipSection(g.key); if (sl) view.append(sl); }
     g.items.forEach((item, i) => {
       if (n > 1) {
         const label = t === "picks" ? (i === 0 ? "First picks" : "Update " + i) : (i === 0 ? "Latest" : "Earlier");
@@ -691,6 +696,104 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const body = el("div","tp-body"); nodes.forEach(x => body.append(x));
     collapsibleWeeks(body);
     return body;
+  }
+  // ---------- season record, graded from ESPN (data/history.json lists every pick KingCap made) ----------
+  const HIST_STAT = { passYds: "passyds", recYds: "recyds", rushYds: "rushyds", points: "pts", rebounds: "reb", steals: "stl", blocks: "blk", pra: "pra", pr: "pr", threes: "threes" };
+  const HIST_TYPE = { ml: "Moneyline / spread", spread: "Moneyline / spread", total: "Over/under", atd: "Anytime TD scorer", atg: "Anytime goal scorer", prop: "Other player props" };
+  function histPick(h){
+    const sp = String(h.sp || "").toUpperCase();
+    switch (h.t) {
+      case "ml": return { sp, k: "ml", team: h.team };
+      case "spread": return h.line == null ? null : { sp, k: "spread", team: h.team, line: +h.line };
+      case "total": return h.teams && h.teams.length === 2 && h.line != null ? { sp, k: "total", a: h.teams[0], b: h.teams[1], ou: h.ou, line: +h.line } : null;
+      case "atd": case "atg": return { sp, k: h.t, player: h.player };
+      case "prop": return HIST_STAT[h.stat] ? { sp, k: "prop", player: h.player, stat: HIST_STAT[h.stat], sname: h.stat, ou: h.ou, line: h.line == null ? null : +h.line } : null;
+    }
+    return null;
+  }
+  const histKey = h => [h.d, h.sp, h.t, h.team || h.player || (h.teams || []).join("/"), h.stat || "", h.ou || "", h.line == null ? "" : h.line].join("|");
+  function histAgg(rows){
+    const a = { w: 0, l: 0, push: 0, none: 0, byDay: {}, g: { conv: {}, type: {}, sport: {} } };
+    rows.forEach(r => {
+      if (r.res === "push") { a.push++; return; }
+      if (r.res !== "hit" && r.res !== "miss") { a.none++; return; }
+      const win = r.res === "hit";
+      const add = (o, k) => { const x = o[k] || (o[k] = { w: 0, l: 0 }); if (win) x.w++; else x.l++; };
+      if (win) a.w++; else a.l++;
+      add(a.byDay, r.h.d); add(a.g.conv, r.h.conv || "?"); add(a.g.type, HIST_TYPE[r.h.t] || r.h.t); add(a.g.sport, String(r.h.sp || "").toUpperCase());
+    });
+    return a;
+  }
+  async function histRun(){
+    if (st.histBusy || !st.hist0 || !st.hist0.length) return;
+    st.histBusy = true;
+    try {
+      let cache = {}; try { cache = JSON.parse(localStorage.getItem("rlHist1") || "{}") || {}; } catch (e) {}
+      const rows = [], byDay = {};
+      st.hist0.forEach(h => {
+        const key = histKey(h);
+        if (cache[key]) rows.push({ h, res: cache[key] }); else (byDay[h.d] = byDay[h.d] || []).push({ h, key });
+      });
+      if (rows.length && !st.hist) { st.hist = histAgg(rows); render(); }
+      for (const d of Object.keys(byDay).sort()) {
+        const todo = byDay[d], sports = Array.from(new Set(todo.map(x => String(x.h.sp).toUpperCase()))), games = {};
+        await Promise.all(sports.map(async sp => { try { games[sp] = await getGames(sp, d); } catch (e) { games[sp] = null; } }));
+        const settled = Date.now() > new Date(d + "T00:00:00-05:00").getTime() + 40 * 3600e3;
+        await Promise.all(todo.map(async x => {
+          const p = histPick(x.h); let res = "none";
+          if (p) { try { const r = await gradePick(p, games[p.sp]); res = r.res; if (r.live) res = "live"; } catch (e) { res = "pending"; } }
+          rows.push({ h: x.h, res });
+          if (settled && (res === "hit" || res === "miss" || res === "push" || res === "none") && (games[String(x.h.sp).toUpperCase()] || []).length) cache[x.key] = res;
+        }));
+      }
+      try { localStorage.setItem("rlHist1", JSON.stringify(cache)); } catch (e) {}
+      st.hist = histAgg(rows); st.histAt = new Date(); render();
+    } finally { st.histBusy = false; }
+  }
+  // season / last 7 days / best bet type, shown above the picks
+  function scoreboard(){
+    const h = st.hist;
+    if (!h) return st.hist0 && st.hist0.length ? el("p", "fine", "Grading the season from ESPN...") : null;
+    const cut = dayKey(new Date(Date.now() - 6 * 864e5));
+    let w7 = 0, l7 = 0;
+    Object.keys(h.byDay).forEach(d => { if (d >= cut) { w7 += h.byDay[d].w; l7 += h.byDay[d].l; } });
+    const bt = Object.keys(h.g.type).map(k => ({ name: k, w: h.g.type[k].w, l: h.g.type[k].l })).filter(x => x.w + x.l >= 10)
+      .sort((a, b) => pctOf(b.w, b.l) - pctOf(a.w, a.l) || (b.w + b.l) - (a.w + a.l))[0];
+    const first = st.hist0.reduce((m, x) => x.d < m ? x.d : m, "9999");
+    const box = el("section", "score"), tiles = el("div", "tiles");
+    tiles.append(
+      tile(h.w + "-" + h.l, "Season", pctOf(h.w, h.l) + "% of " + (h.w + h.l) + " graded"),
+      tile(w7 + l7 ? w7 + "-" + l7 : "--", "Last 7 days", w7 + l7 ? pctOf(w7, l7) + "%" : "no graded picks yet"),
+      tile(bt ? pctOf(bt.w, bt.l) + "%" : "--", "Best bet type", bt ? bt.name + " (" + bt.w + "-" + bt.l + ")" : "needs 10 graded"));
+    box.append(tiles, el("p", "fine", "Every KingCap pick since " + first.slice(5).replace("-", "/") + ", graded from ESPN scores and box scores" + (h.none ? " (" + h.none + " with no line to grade)" : "") + ". Hit rate only: it ignores odds, so it is not profit."));
+    return box;
+  }
+  const pctOf = (w, l) => (w + l) ? Math.round(100 * w / (w + l)) : 0;
+  // hit-rate bars by conviction / bet type / sport, for the Accuracy Tracker tab
+  function breakdown(){
+    const h = st.hist;
+    if (!h) return null;
+    const panel = el("section", "tp"), head = el("div", "tp-head"), wrap = el("div", "brk");
+    head.append(el("span", "tp-title", "Where the picks hit"), el("span", "tp-when", "line = 50%"));
+    [["conv", "By conviction", false], ["type", "By bet type", true], ["sport", "By sport", true]].forEach(([k, title, sort]) => {
+      let rows = Object.keys(h.g[k]).map(n => ({ name: n, w: h.g[k][n].w, l: h.g[k][n].l })).filter(x => x.w + x.l > 0);
+      if (k === "conv") { const o = { High: 0, Medium: 1, Low: 2 }; rows.sort((a, b) => (o[a.name] ?? 9) - (o[b.name] ?? 9)); }
+      else if (sort) rows.sort((a, b) => (b.w + b.l) - (a.w + a.l));
+      if (!rows.length) return;
+      const g = el("div"); g.append(el("h4", null, title));
+      rows.forEach(x => {
+        const n = x.w + x.l, pc = pctOf(x.w, x.l), r = el("div", "brow" + (n < 15 ? " small" : ""));
+        const bar = el("div", "bar"), fill = el("i", pc < 50 ? "lo" : ""); fill.style.width = pc + "%";
+        bar.append(fill, el("u")); bar.setAttribute("role", "img"); bar.setAttribute("aria-label", x.name + " " + pc + " percent");
+        r.append(el("span", "nm", x.name), bar, el("span", "num", x.w + "-" + x.l + " · " + pc + "%"));
+        if (n < 15) r.title = "Small sample (" + n + " picks)";
+        g.append(r);
+      });
+      wrap.append(g);
+    });
+    wrap.append(el("p", "fine", "Graded from ESPN. Faded rows have fewer than 15 graded picks, so treat them as noise."));
+    panel.append(head, wrap); panel.style.marginBottom = "16px";
+    return panel;
   }
   function latestTracker(){
     let best = null;
@@ -1567,6 +1670,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       case "stl": return num(p, "", "STL"); case "blk": return num(p, "", "BLK");
       case "threes": { const k = Object.keys(p.s).find(x => x.endsWith(":3PT")); return k ? parseInt(p.s[k], 10) || 0 : 0; }
       case "recyds": return num(p, "receiving", "YDS"); case "rushyds": return num(p, "rushing", "YDS"); case "passyds": return num(p, "passing", "YDS");
+      case "pr": return num(p, "", "PTS") + num(p, "", "REB");
       case "rec": return num(p, "receiving", "REC");
       case "atd": return num(p, "rushing", "TD") + num(p, "receiving", "TD");
       case "atg": return num(p, "", "G");
@@ -1741,11 +1845,13 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   async function load(){
     checkBuild();
     try {
-      const [emails, slips, bot] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/bot.json" : "data/bot.json").catch(() => null)]);
+      const [emails, slips, bot, hist] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/bot.json" : "data/bot.json").catch(() => null), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/history.json" : "data/history.json").catch(() => [])]);
+      st.hist0 = Array.isArray(hist) ? hist.filter(x => x && x.d && x.sp && x.t) : [];
       st.bot = bot && typeof bot === "object" ? bot : null;
       onSlips(slips);
       onEmails(Array.isArray(emails) ? emails : []);
       freshness();
+      histRun().catch(() => {});
       refreshBotLive().catch(() => {});
     } catch(e) {
       if (!st.loaded) { $("checked").textContent = "Couldn't load"; st.err = { h: "Couldn't load the picks", p: "Check your connection and try again.", retry: true }; render(); }

@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Rox Locks</title>
 <meta name="description" content="KingCap stream picks, checked against the betting sites.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#13202B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Rox Locks">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta property="og:title" content="Rox Locks">
 <meta property="og:description" content="Today's KingCap picks, results and parlays.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -288,6 +295,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .lv-res{font:800 13px var(--f-display);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
 .r-hit .lv-res{color:var(--good)} .r-miss .lv-res{color:var(--bad)} .r-live .lv-res{color:var(--mid)} .r-push .lv-res{color:var(--mid)}
 .lv-sub{font-size:13px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.fresh{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 0;font:600 12px/1.3 "Source Sans 3",system-ui,sans-serif;color:var(--head-ink);opacity:.85}.fresh span.old{color:var(--gold);opacity:1}.fresh span.old::before{content:"⚠ "}
 </style>
 </head>
 <body>
@@ -300,6 +308,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
         <button class="refresh" id="refresh" type="button" aria-label="Refresh picks" title="Refresh picks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg></button>
       </div>
     </div>
+    <div class="fresh" id="fresh" aria-live="polite"></div>
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" id="tab-picks" data-tab="picks" aria-selected="true">Picks</button>
       <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
@@ -333,7 +342,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-13b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-13c";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -343,9 +352,27 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   const dayKey = d => new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York"}).format(d);
   function stamp(){ const t = st.liveAt && (!st.checked || st.liveAt > st.checked) ? st.liveAt : st.checked; if (!t) return; $("checked").textContent = "Last update " + fmtDay(t) + ", " + fmtTime(t) + " ET"; }
 
+  // "data as of" strip: when each feed last updated; amber when a daily feed is overdue
+  function freshness(){
+    const box = $("fresh"); if (!box) return;
+    const now = Date.now(), H = 3600e3, out = [];
+    const newest = k => { const l = st.msgs && st.lastBy && st.lastBy[k]; return l || null; };
+    const add = (label, d, maxH) => {
+      if (!d) { out.push([label + " --", false]); return; }
+      const old = maxH && now - d > maxH * H;
+      out.push([label + " " + fmtDay(d) + " " + fmtTime(d), old]);
+    };
+    add("Picks", newest("picks"), 0);
+    add("Results", newest("results"), 40);
+    const bu = st.bot && st.bot.updated ? new Date(st.bot.updated) : null;
+    add("Computer", bu && !isNaN(bu) ? bu : null, 36);
+    box.textContent = "";
+    out.forEach(([t, old]) => { const s = el("span", old ? "old" : "", t); if (old) s.title = "Overdue: this normally updates daily"; box.append(s); });
+  }
   function setTab(t, push){
     if (!TABS[t]) t = "picks";
     st.tab = t;
+    try { localStorage.setItem("rlTab", t); } catch (e) {}
     document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
     if (push) { try { history.replaceState(null, "", "#" + t); } catch(e) { location.hash = t; } }
     document.body.dataset.tab = t;
@@ -358,7 +385,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   // each email: { id, kind: picks|results|ml, subject, sent (ISO), html, text }
   function onEmails(list){
     const by = { picks: [], results: [], ml: [] };
-    let newest = null;
+    let newest = null; const lastBy = {};
     list.forEach(v => {
       if (!v || !by[v.kind] || typeof v.sent !== "string" || typeof v.id !== "string") return;
       const date = new Date(v.sent);
@@ -372,7 +399,9 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       }
       by[v.kind].push({ id: v.id, subject: String(v.subject || ""), date });
       if (!newest || date > newest) newest = date;
+      if (!lastBy[v.kind] || date > lastBy[v.kind]) lastBy[v.kind] = date;
     });
+    st.lastBy = lastBy;
     Object.keys(by).forEach(t => {
       st.lists[t] = group(by[t], t);
       if (!st.sel[t] || !st.lists[t].some(x => x.key === st.sel[t])) st.sel[t] = st.lists[t][0] && st.lists[t][0].key;
@@ -380,6 +409,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     st.loaded = true; st.err = null;
     if (newest) { st.checked = newest; stamp(); } else $("checked").textContent = "Waiting for the first picks";
     $("live").hidden = false;
+    freshness();
     render();
   }
   function group(list, t){
@@ -1715,12 +1745,14 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       st.bot = bot && typeof bot === "object" ? bot : null;
       onSlips(slips);
       onEmails(Array.isArray(emails) ? emails : []);
+      freshness();
       refreshBotLive().catch(() => {});
     } catch(e) {
       if (!st.loaded) { $("checked").textContent = "Couldn't load"; st.err = { h: "Couldn't load the picks", p: "Check your connection and try again.", retry: true }; render(); }
     }
   }
-  setTab(location.hash.slice(1) || "picks", false);
+  let savedTab = ""; try { savedTab = localStorage.getItem("rlTab") || ""; } catch (e) {}
+  setTab(location.hash.slice(1) || savedTab || "picks", false);
   $("refresh").addEventListener("click", async () => {
     const b = $("refresh"); if (b.classList.contains("spin")) return;
     b.classList.add("spin"); b.setAttribute("aria-busy", "true");

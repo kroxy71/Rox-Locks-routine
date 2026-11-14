@@ -1,28 +1,28 @@
 {
- "built_utc": "2026-11-13T11:15:10.897132+00:00",
+ "built_utc": "2026-11-14T11:14:32.658694+00:00",
  "source": "ESPN public JSON (site.api.espn.com)",
  "nfl": {
   "games": 137,
   "team_rows": 274,
   "player_rows": 2939,
-  "upcoming": 14,
+  "upcoming": 25,
   "first": "2026-09-10",
   "last": "2026-11-13"
  },
  "nhl": {
-  "games": 301,
-  "team_rows": 602,
-  "player_rows": 11470,
-  "upcoming": 63,
+  "games": 303,
+  "team_rows": 606,
+  "player_rows": 11546,
+  "upcoming": 66,
   "first": "2026-10-01",
-  "last": "2026-11-13"
+  "last": "2026-11-14"
  },
  "ncaaf": {
-  "games": 693,
-  "team_rows": 1386,
-  "player_rows": 17092,
-  "upcoming": 129,
+  "games": 696,
+  "team_rows": 1392,
+  "player_rows": 17157,
+  "upcoming": 126,
   "first": "2026-08-29",
-  "last": "2026-11-13"
+  "last": "2026-11-14"
  }
 }

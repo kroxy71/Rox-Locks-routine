@@ -1,20 +1,18 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nhl,401892706,2026-11-14T02:00Z,Vancouver Canucks,New York Rangers,NYR -225,6.5,+185,-225
-nhl,401892707,2026-11-14T03:00Z,Vegas Golden Knights,Nashville Predators,VGK -185,6.5,-185,+154
-nhl,401891809,2026-11-14T18:00Z,Carolina Hurricanes,Seattle Kraken,,,,
-nhl,401892708,2026-11-14T20:30Z,Chicago Blackhawks,Winnipeg Jets,,,,
-nhl,401892709,2026-11-15T00:00Z,Boston Bruins,Minnesota Wild,,,,
-nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,,,,
-nhl,401892711,2026-11-15T00:00Z,Montreal Canadiens,Colorado Avalanche,,,,
-nhl,401892712,2026-11-15T00:00Z,Tampa Bay Lightning,Detroit Red Wings,,,,
-nhl,401892713,2026-11-15T00:00Z,Pittsburgh Penguins,Ottawa Senators,,,,
-nhl,401892714,2026-11-15T00:00Z,Washington Capitals,New Jersey Devils,,,,
-nhl,401892715,2026-11-15T00:00Z,Columbus Blue Jackets,Philadelphia Flyers,,,,
-nhl,401892716,2026-11-15T00:00Z,St. Louis Blues,Florida Panthers,,,,
-nhl,401892717,2026-11-15T01:00Z,Dallas Stars,Buffalo Sabres,,,,
-nhl,401892718,2026-11-15T02:00Z,Utah Mammoth,San Jose Sharks,,,,
-nhl,401892719,2026-11-15T03:00Z,Anaheim Ducks,New York Islanders,,,,
-nhl,401892720,2026-11-15T03:00Z,Los Angeles Kings,Calgary Flames,,,,
+nhl,401891809,2026-11-14T18:00Z,Carolina Hurricanes,Seattle Kraken,CAR -395,6.5,-395,+310
+nhl,401892708,2026-11-14T20:30Z,Chicago Blackhawks,Winnipeg Jets,WPG -155,6.5,+130,-155
+nhl,401892709,2026-11-15T00:00Z,Boston Bruins,Minnesota Wild,MIN -122,6.5,+102,-122
+nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,EDM -155,6.5,+130,-155
+nhl,401892711,2026-11-15T00:00Z,Montreal Canadiens,Colorado Avalanche,MTL -122,6.5,-122,+102
+nhl,401892712,2026-11-15T00:00Z,Tampa Bay Lightning,Detroit Red Wings,TB -225,6.5,-225,+185
+nhl,401892713,2026-11-15T00:00Z,Pittsburgh Penguins,Ottawa Senators,OTT -130,6.5,+110,-130
+nhl,401892714,2026-11-15T00:00Z,Washington Capitals,New Jersey Devils,NJ -120,6.5,+100,-120
+nhl,401892715,2026-11-15T00:00Z,Columbus Blue Jackets,Philadelphia Flyers,CBJ -135,5.5,-135,+114
+nhl,401892716,2026-11-15T00:00Z,St. Louis Blues,Florida Panthers,FLA -112,5.5,-108,-112
+nhl,401892717,2026-11-15T01:00Z,Dallas Stars,Buffalo Sabres,DAL -142,6.5,-142,+120
+nhl,401892718,2026-11-15T02:00Z,Utah Mammoth,San Jose Sharks,UTAH -205,6.5,-205,+170
+nhl,401892719,2026-11-15T03:00Z,Anaheim Ducks,New York Islanders,ANA -115,6.5,-115,-105
+nhl,401892720,2026-11-15T03:00Z,Los Angeles Kings,Calgary Flames,LA -175,5.5,-175,+145
 nhl,401892721,2026-11-16T00:30Z,Philadelphia Flyers,Edmonton Oilers,,,,
 nhl,401892722,2026-11-16T01:00Z,Dallas Stars,Florida Panthers,,,,
 nhl,401892723,2026-11-16T01:00Z,Anaheim Ducks,Calgary Flames,,,,
@@ -62,3 +60,8 @@ nhl,401892764,2026-11-22T00:00Z,Winnipeg Jets,Vegas Golden Knights,,,,
 nhl,401892765,2026-11-22T02:00Z,Utah Mammoth,Anaheim Ducks,,,,
 nhl,401892766,2026-11-22T03:00Z,Vancouver Canucks,Minnesota Wild,,,,
 nhl,401892767,2026-11-22T03:00Z,San Jose Sharks,Seattle Kraken,,,,
+nhl,401892768,2026-11-22T17:30Z,New York Rangers,Carolina Hurricanes,,,,
+nhl,401892769,2026-11-22T22:00Z,Tampa Bay Lightning,Buffalo Sabres,,,,
+nhl,401892770,2026-11-23T00:00Z,St. Louis Blues,Edmonton Oilers,,,,
+nhl,401892771,2026-11-23T00:00Z,Dallas Stars,Pittsburgh Penguins,,,,
+nhl,401892772,2026-11-23T01:00Z,Vancouver Canucks,Chicago Blackhawks,,,,

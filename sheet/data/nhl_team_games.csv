@@ -601,7 +601,35 @@ nhl,401892704,2026-11-13T02:00Z,St. Louis Blues,Utah Mammoth,0,1,0,22.0,12.0,11.
 nhl,401892704,2026-11-13T02:00Z,Utah Mammoth,St. Louis Blues,1,0,1,29.0,25.0,13.0,4.0,17.0,0.0,4.0,54.3,15.0
 nhl,401892705,2026-11-13T03:00Z,New York Islanders,Los Angeles Kings,0,5,2,21.0,9.0,23.0,3.0,9.0,1.0,3.0,51.6,11.0
 nhl,401892705,2026-11-13T03:00Z,Los Angeles Kings,New York Islanders,1,2,5,28.0,33.0,9.0,4.0,9.0,1.0,3.0,48.4,11.0
-nhl,401892706,2026-11-14T02:00Z,New York Rangers,Vancouver Canucks,0,5,1,31.0,21.0,21.0,3.0,12.0,1.0,2.0,40.4,8.0
+nhl,401892706,2026-11-14T02:00Z,New York Rangers,Vancouver Canucks,0,5,1,30.0,21.0,21.0,3.0,12.0,1.0,2.0,40.4,8.0
 nhl,401892706,2026-11-14T02:00Z,Vancouver Canucks,New York Rangers,1,1,5,28.0,28.0,10.0,8.0,12.0,0.0,4.0,59.6,4.0
-nhl,401892707,2026-11-14T03:00Z,Nashville Predators,Vegas Golden Knights,0,3,2,32.0,18.0,9.0,7.0,15.0,0.0,2.0,49.3,4.0
-nhl,401892707,2026-11-14T03:00Z,Vegas Golden Knights,Nashville Predators,1,2,3,42.0,20.0,20.0,4.0,14.0,0.0,1.0,50.7,6.0
+nhl,401892707,2026-11-14T03:00Z,Nashville Predators,Vegas Golden Knights,0,3,2,33.0,18.0,9.0,7.0,15.0,0.0,2.0,49.3,4.0
+nhl,401892707,2026-11-14T03:00Z,Vegas Golden Knights,Nashville Predators,1,2,3,42.0,20.0,19.0,4.0,14.0,0.0,1.0,50.7,6.0
+nhl,401891809,2026-11-14T18:00Z,Seattle Kraken,Carolina Hurricanes,0,1,5,13.0,26.0,26.0,4.0,19.0,0.0,2.0,50.0,10.0
+nhl,401891809,2026-11-14T18:00Z,Carolina Hurricanes,Seattle Kraken,1,5,1,37.0,16.0,7.0,6.0,13.0,3.0,5.0,50.0,4.0
+nhl,401892708,2026-11-14T20:30Z,Winnipeg Jets,Chicago Blackhawks,0,5,4,31.0,23.0,10.0,3.0,19.0,1.0,4.0,70.0,4.0
+nhl,401892708,2026-11-14T20:30Z,Chicago Blackhawks,Winnipeg Jets,1,4,5,21.0,7.0,16.0,7.0,22.0,2.0,2.0,30.0,8.0
+nhl,401892709,2026-11-15T00:00Z,Minnesota Wild,Boston Bruins,0,6,2,25.0,19.0,12.0,8.0,13.0,0.0,6.0,44.3,15.0
+nhl,401892709,2026-11-15T00:00Z,Boston Bruins,Minnesota Wild,1,2,6,32.0,28.0,10.0,4.0,25.0,1.0,4.0,55.7,29.0
+nhl,401892710,2026-11-15T00:00Z,Edmonton Oilers,Toronto Maple Leafs,0,1,0,23.0,24.0,16.0,5.0,14.0,0.0,1.0,50.0,7.0
+nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,1,0,1,19.0,30.0,22.0,4.0,19.0,0.0,1.0,50.0,7.0
+nhl,401892711,2026-11-15T00:00Z,Colorado Avalanche,Montreal Canadiens,0,4,1,27.0,22.0,12.0,1.0,16.0,1.0,4.0,44.8,4.0
+nhl,401892711,2026-11-15T00:00Z,Montreal Canadiens,Colorado Avalanche,1,1,4,26.0,36.0,11.0,4.0,15.0,0.0,2.0,55.2,8.0
+nhl,401892712,2026-11-15T00:00Z,Detroit Red Wings,Tampa Bay Lightning,0,2,0,22.0,22.0,13.0,2.0,11.0,0.0,0.0,55.1,4.0
+nhl,401892712,2026-11-15T00:00Z,Tampa Bay Lightning,Detroit Red Wings,1,0,2,31.0,39.0,9.0,3.0,17.0,0.0,2.0,44.9,0.0
+nhl,401892713,2026-11-15T00:00Z,Ottawa Senators,Pittsburgh Penguins,0,4,1,34.0,20.0,15.0,6.0,16.0,0.0,2.0,50.8,6.0
+nhl,401892713,2026-11-15T00:00Z,Pittsburgh Penguins,Ottawa Senators,1,1,4,17.0,17.0,17.0,2.0,25.0,0.0,3.0,49.2,4.0
+nhl,401892714,2026-11-15T00:00Z,New Jersey Devils,Washington Capitals,0,7,4,33.0,20.0,12.0,7.0,22.0,2.0,4.0,39.1,8.0
+nhl,401892714,2026-11-15T00:00Z,Washington Capitals,New Jersey Devils,1,4,7,47.0,21.0,11.0,3.0,16.0,1.0,4.0,60.9,8.0
+nhl,401892715,2026-11-15T00:00Z,Philadelphia Flyers,Columbus Blue Jackets,0,4,3,21.0,21.0,15.0,7.0,26.0,1.0,3.0,39.2,7.0
+nhl,401892715,2026-11-15T00:00Z,Columbus Blue Jackets,Philadelphia Flyers,1,3,4,31.0,22.0,11.0,1.0,17.0,0.0,1.0,60.8,11.0
+nhl,401892716,2026-11-15T00:00Z,Florida Panthers,St. Louis Blues,0,4,1,28.0,31.0,14.0,5.0,19.0,1.0,2.0,47.3,6.0
+nhl,401892716,2026-11-15T00:00Z,St. Louis Blues,Florida Panthers,1,1,4,24.0,16.0,12.0,5.0,14.0,1.0,3.0,52.7,4.0
+nhl,401892717,2026-11-15T01:00Z,Buffalo Sabres,Dallas Stars,0,0,2,22.0,21.0,15.0,2.0,15.0,0.0,5.0,38.3,12.0
+nhl,401892717,2026-11-15T01:00Z,Dallas Stars,Buffalo Sabres,1,2,0,30.0,21.0,15.0,2.0,7.0,1.0,5.0,61.7,12.0
+nhl,401892718,2026-11-15T02:00Z,San Jose Sharks,Utah Mammoth,0,6,5,21.0,30.0,11.0,9.0,15.0,2.0,6.0,41.8,20.0
+nhl,401892718,2026-11-15T02:00Z,Utah Mammoth,San Jose Sharks,1,5,6,32.0,31.0,18.0,1.0,12.0,2.0,5.0,58.2,22.0
+nhl,401892719,2026-11-15T03:00Z,New York Islanders,Anaheim Ducks,0,6,2,25.0,17.0,19.0,7.0,15.0,1.0,3.0,50.8,2.0
+nhl,401892719,2026-11-15T03:00Z,Anaheim Ducks,New York Islanders,1,2,6,28.0,29.0,12.0,3.0,17.0,0.0,1.0,49.2,6.0
+nhl,401892720,2026-11-15T03:00Z,Calgary Flames,Los Angeles Kings,0,3,2,24.0,19.0,16.0,2.0,19.0,0.0,3.0,42.1,8.0
+nhl,401892720,2026-11-15T03:00Z,Los Angeles Kings,Calgary Flames,1,2,3,31.0,29.0,13.0,4.0,15.0,0.0,3.0,57.9,18.0

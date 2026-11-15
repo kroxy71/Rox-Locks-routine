@@ -1,21 +1,21 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1251.77,
- "at_risk": 135,
- "updated": "2026-11-14T16:17:15Z",
+ "bankroll": 1356.77,
+ "at_risk": 110,
+ "updated": "2026-11-15T16:18:22Z",
  "record": {
-  "w": 19,
-  "l": 15,
+  "w": 24,
+  "l": 19,
   "p": 0
  },
  "public_record": {
-  "w": 17,
-  "l": 8,
+  "w": 23,
+  "l": 12,
   "p": 0
  },
- "public_bankroll": 964.87,
- "note": "Graded 11 (6 model: 2-4, -$6.98; 5 public: 3-2, -$10.88); placed 9 bets, $135 at risk. No NFL today so no TD props, NHL goal props used. Polymarket game lines unavailable; Kalshi, ESPN, OddsShark and market used.",
+ "public_bankroll": 956.45,
+ "note": "Graded 19 (9 model: 5-4, +$105.00; 10 public: 6-4, -$8.42); placed 8 bets, $110 at risk (2 ML, 2 parlays, 3 TD props, longshot Burrow TD). TD prices are Covers best odds (SharpAPI has no anytime-TD market); Polymarket skipped; NHL goal props skipped (prop cap used on NFL).",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -1426,8 +1426,8 @@
      "book": "DraftKings",
      "model_p": 0.4658,
      "implied_p": 0.4167,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Tulane 20-17 Rice"
     }
    ],
    "odds": 140,
@@ -1438,9 +1438,9 @@
    "edge": 0.0491,
    "sources": "Model 47% vs DraftKings +140 (42%); ESPN 58% on Tulane, Kalshi 41%; sharp money on Tulane (25% of bets, 67% of money)",
    "why": "Model sees Tulane as roughly a coin flip against a +140 price, with ESPN's predictor and big-money action backing the Green Wave.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 35.0,
+   "result": "Tulane 20-17 Rice"
   },
   {
    "id": "2026-11-14-2",
@@ -1461,8 +1461,8 @@
      "book": "DraftKings",
      "model_p": 0.4138,
      "implied_p": 0.3704,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Texas 22-21 LSU"
     }
    ],
    "odds": 170,
@@ -1473,9 +1473,9 @@
    "edge": 0.0434,
    "sources": "Model 41% vs DraftKings +170 (37%); ESPN 47% on Texas, Kalshi 36%; sharp money on Texas (65% of bets, 88% of money)",
    "why": "Texas at +170 is priced a few points too long versus ESPN's predictor, and the money is pouring in on the Longhorns.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 42.5,
+   "result": "Texas 22-21 LSU"
   },
   {
    "id": "2026-11-14-3",
@@ -1496,8 +1496,8 @@
      "book": "FanDuel",
      "model_p": 0.4783,
      "implied_p": 0.463,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Cavaliers 127-117 Mavericks"
     }
    ],
    "odds": 116,
@@ -1508,9 +1508,9 @@
    "edge": 0.0153,
    "sources": "Model 48% vs FanDuel +116 (46%); ESPN 66% on Cleveland, Kalshi 45%; market 46%",
    "why": "ESPN's predictor likes Cleveland at home far more than the market does, and the plus price leaves a small edge.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 29.0,
+   "result": "Cavaliers 127-117 Mavericks"
   },
   {
    "id": "2026-11-14-4",
@@ -1531,8 +1531,8 @@
      "book": "FanDuel",
      "model_p": 0.865,
      "implied_p": 0.8667,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Alabama 21-6"
     },
     {
      "sp": "NCAAF",
@@ -1546,8 +1546,8 @@
      "book": "FanDuel",
      "model_p": 0.8123,
      "implied_p": 0.8182,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Virginia 36-7"
     },
     {
      "sp": "NCAAF",
@@ -1561,8 +1561,8 @@
      "book": "FanDuel",
      "model_p": 0.8694,
      "implied_p": 0.8765,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Stanford 40-22 Virginia Tech"
     }
    ],
    "odds": -164,
@@ -1573,9 +1573,9 @@
    "edge": -0.0107,
    "sources": "Model 87% / 81% / 87% on the three favorites; market, Kalshi and ESPN agree on each; public 99-100% on all three",
    "why": "Three heavy college favorites the model rates 81-87% each, parlayed for a small positive-feeling payout.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "Alabama 21-6; Virginia 36-7; Stanford 40-22 Virginia Tech"
   },
   {
    "id": "2026-11-14-5",
@@ -1596,8 +1596,8 @@
      "book": "FanDuel",
      "model_p": 0.7403,
      "implied_p": 0.75,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Arkansas 34-6 South Carolina"
     },
     {
      "sp": "NCAAF",
@@ -1611,8 +1611,8 @@
      "book": "FanDuel",
      "model_p": 0.6732,
      "implied_p": 0.6875,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Tulsa 38-21"
     },
     {
      "sp": "NCAAF",
@@ -1626,8 +1626,8 @@
      "book": "FanDuel",
      "model_p": 0.6591,
      "implied_p": 0.6599,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "UConn 46-22 James Madison"
     }
    ],
    "odds": 194,
@@ -1638,9 +1638,9 @@
    "edge": -0.0118,
    "sources": "Model 74% / 67% / 66% on the three favorites; Kalshi, ESPN and OddsShark agree; Tulsa has some sharp money against (93% of bets, 76% of money)",
    "why": "Three solid favorites from different games, none sharing a leg with the other parlay.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "Arkansas 34-6 South Carolina; Tulsa 38-21; UConn 46-22 James Madison"
   },
   {
    "id": "2026-11-14-6",
@@ -1661,8 +1661,8 @@
      "book": "DraftKings",
      "model_p": 0.4658,
      "implied_p": 0.4167,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Tulane 20-17 Rice"
     },
     {
      "sp": "NCAAF",
@@ -1676,8 +1676,8 @@
      "book": "DraftKings",
      "model_p": 0.4138,
      "implied_p": 0.3704,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Texas 22-21 LSU"
     },
     {
      "sp": "NCAAF",
@@ -1691,8 +1691,8 @@
      "book": "FanDuel",
      "model_p": 0.2188,
      "implied_p": 0.1887,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "TCU 20-10 Kansas State"
     }
    ],
    "odds": 3334,
@@ -1703,9 +1703,9 @@
    "edge": 0.0131,
    "sources": "Model 47% / 41% / 22% on three underdogs priced +140 / +170 / +430; sharp money on all three (money % far above bets %); ESPN predictor higher than the market on each",
    "why": "Highest-expected-return long shot on the board (about 1.4x the stake by the model) built from the three dogs with the best edges.",
-   "status": "pending",
-   "profit": null,
-   "result": "",
+   "status": "lost",
+   "profit": -10,
+   "result": "Tulane 20-17 Rice; Texas 22-21 LSU; TCU 20-10 Kansas State",
    "call": "Going for it: Tulane, Texas and Kansas State all win (+3334) - $10 pays $333.44"
   },
   {
@@ -1728,8 +1728,8 @@
      "book": "FanDuel",
      "model_p": 0.404,
      "implied_p": 0.3226,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 goals"
     }
    ],
    "odds": 210,
@@ -1740,9 +1740,9 @@
    "edge": 0.0814,
    "sources": "2.5 shots/G, 11 G in 17 GP; model 40% vs FanDuel +210 (32%); in the lineup per RotoWire",
    "why": "Tuch is shooting and scoring at a high clip and the +210 price implies only 32%.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 goals"
   },
   {
    "id": "2026-11-14-8",
@@ -1764,8 +1764,8 @@
      "book": "FanDuel",
      "model_p": 0.375,
      "implied_p": 0.2667,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 goal"
     }
    ],
    "odds": 275,
@@ -1776,9 +1776,9 @@
    "edge": 0.1083,
    "sources": "2.6 shots/G, 11 G in 20 GP; model 38% vs FanDuel +275 (27%); PP1 per RotoWire",
    "why": "A defenseman on the top power play with 11 goals, priced like a regular defenseman at +275.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 27.5,
+   "result": "1 goal"
   },
   {
    "id": "2026-11-14-9",
@@ -1800,8 +1800,8 @@
      "book": "FanDuel",
      "model_p": 0.55,
      "implied_p": 0.4762,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 goal"
     }
    ],
    "odds": 110,
@@ -1812,6 +1812,336 @@
    "edge": 0.0738,
    "sources": "4.4 shots/G, 16 G in 18 GP; model 55% vs FanDuel +110 (48%); PP1 per RotoWire",
    "why": "Gauthier leads the league in goals-per-shot volume and the plus-money price undervalues him.",
+   "status": "won",
+   "profit": 11.0,
+   "result": "1 goal"
+  },
+  {
+   "id": "2026-11-15-1",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "ml",
+   "title": "Colts ML",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Miami Dolphins @ Indianapolis Colts",
+     "start": "2026-11-15T18:00Z",
+     "sel": "Indianapolis Colts ML",
+     "team": "Indianapolis Colts",
+     "opp": "Miami Dolphins",
+     "odds": -210,
+     "book": "FanDuel",
+     "model_p": 0.6973,
+     "implied_p": 0.6774,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -210,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 11.9,
+   "model_p": 0.6973,
+   "edge": 0.0199,
+   "sources": "Market 65%, Kalshi 66%, ESPN 82%, OddsShark 71%, public 86% of bets",
+   "why": "Model 70% vs FanDuel -210 (68%); every source at or above the market price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-2",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "ml",
+   "title": "Cowboys ML",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "San Francisco 49ers @ Dallas Cowboys",
+     "start": "2026-11-15T21:25Z",
+     "sel": "Dallas Cowboys ML",
+     "team": "Dallas Cowboys",
+     "opp": "San Francisco 49ers",
+     "odds": 188,
+     "book": "FanDuel",
+     "model_p": 0.3635,
+     "implied_p": 0.3472,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 188,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 47.0,
+   "model_p": 0.3635,
+   "edge": 0.0163,
+   "sources": "Market 34%, Kalshi 34%, ESPN 36%, OddsShark 47%",
+   "why": "Model 36% vs FanDuel +188 (35%); every source at or above the market price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-3",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "parlay",
+   "title": "3-leg ML parlay: 76ers + Colts + Texans",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Indiana Pacers @ Philadelphia 76ers",
+     "start": "2026-11-15T18:00Z",
+     "sel": "Philadelphia 76ers ML",
+     "team": "Philadelphia 76ers",
+     "opp": "Indiana Pacers",
+     "odds": -280,
+     "book": "FanDuel",
+     "model_p": 0.7246,
+     "implied_p": 0.7368,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Miami Dolphins @ Indianapolis Colts",
+     "start": "2026-11-15T18:00Z",
+     "sel": "Indianapolis Colts ML",
+     "team": "Indianapolis Colts",
+     "opp": "Miami Dolphins",
+     "odds": -210,
+     "book": "FanDuel",
+     "model_p": 0.6973,
+     "implied_p": 0.6774,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Houston Texans @ Cleveland Browns",
+     "start": "2026-11-15T18:00Z",
+     "sel": "Houston Texans ML",
+     "team": "Houston Texans",
+     "opp": "Cleveland Browns",
+     "odds": -198,
+     "book": "FanDuel",
+     "model_p": 0.6623,
+     "implied_p": 0.6644,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 202,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 20.15,
+   "model_p": 0.3346,
+   "edge": 0.003,
+   "sources": "76ers 72%; Colts 70%; Texans 66% (model win %, FanDuel prices)",
+   "why": "Three of the model's most trusted favorites, each near or above its price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-4",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Bengals + 76ers",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Pittsburgh Steelers @ Cincinnati Bengals",
+     "start": "2026-11-16T01:20Z",
+     "sel": "Cincinnati Bengals ML",
+     "team": "Cincinnati Bengals",
+     "opp": "Pittsburgh Steelers",
+     "odds": -186,
+     "book": "FanDuel",
+     "model_p": 0.6532,
+     "implied_p": 0.6503,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Indiana Pacers @ Philadelphia 76ers",
+     "start": "2026-11-15T18:00Z",
+     "sel": "Philadelphia 76ers ML",
+     "team": "Philadelphia 76ers",
+     "opp": "Indiana Pacers",
+     "odds": -280,
+     "book": "FanDuel",
+     "model_p": 0.7246,
+     "implied_p": 0.7368,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 109,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 10.87,
+   "model_p": 0.4733,
+   "edge": -0.0059,
+   "sources": "Bengals 65%; 76ers 72% (model win %, FanDuel prices)",
+   "why": "Two of the model's most trusted favorites, each near or above its price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-5",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "prop",
+   "title": "Brock Bowers anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Seattle Seahawks @ Las Vegas Raiders",
+     "start": "2026-11-15T21:05:00Z",
+     "sel": "Brock Bowers anytime TD",
+     "team": "Las Vegas Raiders",
+     "opp": "Seattle Seahawks",
+     "player": "Brock Bowers",
+     "odds": 230,
+     "book": "FanDuel",
+     "model_p": 0.3689,
+     "implied_p": 0.303,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 230,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 23.0,
+   "model_p": 0.3689,
+   "edge": 0.0659,
+   "sources": "Covers proj 0.37 TDs (31%), 7 GP 6 TD (last 4: 3), season-rate 51%, model 37% vs +230 (30%) at FanDuel (Covers best price)",
+   "why": "Model 37% vs FanDuel +230 (30%): 6 TDs in 7 games and a 10-touch role.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-6",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "prop",
+   "title": "Mason Taylor anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Buffalo Bills @ New York Jets",
+     "start": "2026-11-15T18:00:00Z",
+     "sel": "Mason Taylor anytime TD",
+     "team": "New York Jets",
+     "opp": "Buffalo Bills",
+     "player": "Mason Taylor",
+     "odds": 550,
+     "book": "BetRivers",
+     "model_p": 0.2169,
+     "implied_p": 0.1538,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 550,
+   "book": "BetRivers",
+   "stake": 10,
+   "to_win": 55.0,
+   "model_p": 0.2169,
+   "edge": 0.0631,
+   "sources": "Covers proj 0.21 TDs (19%), 6 GP 2 TD (last 4: 2), season-rate 28%, model 22% vs +550 (15%) at BetRivers (Covers best price)",
+   "why": "Model 22% vs +550 (15%): scored in each of his last 2 games and Covers projects 0.21 TDs.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-7",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "prop",
+   "title": "Tre Tucker anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Seattle Seahawks @ Las Vegas Raiders",
+     "start": "2026-11-15T21:05:00Z",
+     "sel": "Tre Tucker anytime TD",
+     "team": "Las Vegas Raiders",
+     "opp": "Seattle Seahawks",
+     "player": "Tre Tucker",
+     "odds": 500,
+     "book": "BetMGM",
+     "model_p": 0.2291,
+     "implied_p": 0.1667,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 500,
+   "book": "BetMGM",
+   "stake": 10,
+   "to_win": 50.0,
+   "model_p": 0.2291,
+   "edge": 0.0624,
+   "sources": "Covers proj 0.19 TDs (17%), 9 GP 4 TD (last 4: 3), season-rate 36%, model 23% vs +500 (17%) at BetMGM (Covers best price)",
+   "why": "Model 23% vs +500 (17%): 4 TDs in 9 games, 3 in the last 4.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-8",
+   "date": "2026-11-15",
+   "placed": "2026-11-15T16:18:13Z",
+   "cat": "longshot",
+   "title": "Joe Burrow anytime TD",
+   "call": "Going for it: Joe Burrow scores a rushing TD (+650) - $10 pays $65.00",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Pittsburgh Steelers @ Cincinnati Bengals",
+     "start": "2026-11-16T01:20:00Z",
+     "sel": "Joe Burrow anytime TD",
+     "team": "Cincinnati Bengals",
+     "opp": "Pittsburgh Steelers",
+     "player": "Joe Burrow",
+     "odds": 650,
+     "book": "BetRivers",
+     "model_p": 0.2342,
+     "implied_p": 0.1333,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 650,
+   "book": "BetRivers",
+   "stake": 10,
+   "to_win": 65.0,
+   "model_p": 0.2342,
+   "edge": 0.1009,
+   "sources": "Covers proj 0.23 TDs (21%), 8 GP 3 TD (last 4: 2), season-rate 30%, model 23% vs +650 (13%) at BetRivers (Covers best price)",
+   "why": "Highest expected return on the day: model 23% vs +650 (13%) for a rushing TD; the model reaches 1.7x return.",
    "status": "pending",
    "profit": null,
    "result": ""
@@ -2256,9 +2586,9 @@
    "pct_bets": 75,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Tulane 20-17 Rice"
   },
   {
    "id": "2026-11-14-p2",
@@ -2273,9 +2603,9 @@
    "pct_bets": 65,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 37.5,
+   "result": "Texas 22-21 LSU"
   },
   {
    "id": "2026-11-14-p3",
@@ -2290,9 +2620,9 @@
    "pct_bets": 65,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 29.0,
+   "result": "Cavaliers 127-117 Mavericks"
   },
   {
    "id": "2026-11-14-p4",
@@ -2307,9 +2637,9 @@
    "pct_bets": 96,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 4.31,
+   "result": "TCU 20-10"
   },
   {
    "id": "2026-11-14-p5",
@@ -2324,9 +2654,9 @@
    "pct_bets": 99,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 3.85,
+   "result": "Alabama 21-6"
   },
   {
    "id": "2026-11-14-p6",
@@ -2341,9 +2671,9 @@
    "pct_bets": 99,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 5.56,
+   "result": "Virginia 36-7"
   },
   {
    "id": "2026-11-14-p7",
@@ -2358,9 +2688,9 @@
    "pct_bets": 100,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Stanford 40-22 Virginia Tech"
   },
   {
    "id": "2026-11-14-p8",
@@ -2375,9 +2705,9 @@
    "pct_bets": 99,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Arkansas 34-6 South Carolina"
   },
   {
    "id": "2026-11-14-p9",
@@ -2392,9 +2722,9 @@
    "pct_bets": 93,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 11.36,
+   "result": "Tulsa 38-21"
   },
   {
    "id": "2026-11-14-p10",
@@ -2407,6 +2737,91 @@
    "opp": "UConn Huskies",
    "odds": -194,
    "pct_bets": 93,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "lost",
+   "profit": -25,
+   "result": "UConn 46-22 James Madison"
+  },
+  {
+   "id": "2026-11-15-p1",
+   "date": "2026-11-15",
+   "sp": "NFL",
+   "game": "Miami Dolphins @ Indianapolis Colts",
+   "start": "2026-11-15T18:00Z",
+   "sel": "Indianapolis Colts ML",
+   "team": "Indianapolis Colts",
+   "opp": "Miami Dolphins",
+   "odds": -210,
+   "pct_bets": 86,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-p2",
+   "date": "2026-11-15",
+   "sp": "NFL",
+   "game": "San Francisco 49ers @ Dallas Cowboys",
+   "start": "2026-11-15T21:25Z",
+   "sel": "San Francisco 49ers ML",
+   "team": "San Francisco 49ers",
+   "opp": "Dallas Cowboys",
+   "odds": -225,
+   "pct_bets": 94,
+   "source": "ActionNetwork",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-p3",
+   "date": "2026-11-15",
+   "sp": "NFL",
+   "game": "Houston Texans @ Cleveland Browns",
+   "start": "2026-11-15T18:00Z",
+   "sel": "Houston Texans ML",
+   "team": "Houston Texans",
+   "opp": "Cleveland Browns",
+   "odds": -198,
+   "pct_bets": 91,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-p4",
+   "date": "2026-11-15",
+   "sp": "NBA",
+   "game": "Indiana Pacers @ Philadelphia 76ers",
+   "start": "2026-11-15T18:00Z",
+   "sel": "Philadelphia 76ers ML",
+   "team": "Philadelphia 76ers",
+   "opp": "Indiana Pacers",
+   "odds": -280,
+   "pct_bets": 94,
+   "source": "ActionNetwork",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-15-p5",
+   "date": "2026-11-15",
+   "sp": "NFL",
+   "game": "Pittsburgh Steelers @ Cincinnati Bengals",
+   "start": "2026-11-16T01:20Z",
+   "sel": "Cincinnati Bengals ML",
+   "team": "Cincinnati Bengals",
+   "opp": "Pittsburgh Steelers",
+   "odds": -186,
+   "pct_bets": 85,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -2516,6 +2931,23 @@
    },
    "bankroll": 1251.77,
    "public_bankroll": 964.87
+  },
+  {
+   "date": "2026-11-14",
+   "bot": {
+    "w": 5,
+    "l": 4,
+    "p": 0,
+    "profit": 105.0
+   },
+   "public": {
+    "w": 6,
+    "l": 4,
+    "p": 0,
+    "profit": -8.42
+   },
+   "bankroll": 1356.77,
+   "public_bankroll": 956.45
   }
  ]
 }

@@ -1,21 +1,21 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1356.77,
- "at_risk": 110,
- "updated": "2026-11-15T16:18:22Z",
+ "bankroll": 1304.54,
+ "at_risk": 70,
+ "updated": "2026-11-16T16:18:40Z",
  "record": {
-  "w": 24,
-  "l": 19,
+  "w": 26,
+  "l": 25,
   "p": 0
  },
  "public_record": {
-  "w": 23,
-  "l": 12,
+  "w": 27,
+  "l": 13,
   "p": 0
  },
- "public_bankroll": 956.45,
- "note": "Graded 19 (9 model: 5-4, +$105.00; 10 public: 6-4, -$8.42); placed 8 bets, $110 at risk (2 ML, 2 parlays, 3 TD props, longshot Burrow TD). TD prices are Covers best odds (SharpAPI has no anytime-TD market); Polymarket skipped; NHL goal props skipped (prop cap used on NFL).",
+ "public_bankroll": 976.83,
+ "note": "Graded 8 (2-6, -$52.23); placed 4 bets, $70 at risk. No NFL/NHL-qualifying TD prop: no positive-edge price at FanDuel/DraftKings (Covers lists only BetMGM for the lone +EV one, Brissett), so prop skipped. NHL moneylines are 3-way, skipped. Public bets skipped (no ML splits found): Magic@Celtics, 76ers@Nets, Suns@Nuggets. Odds from SharpAPI; Lean bets marked.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -1835,8 +1835,8 @@
      "book": "FanDuel",
      "model_p": 0.6973,
      "implied_p": 0.6774,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Colts 24-22"
     }
    ],
    "odds": -210,
@@ -1847,9 +1847,9 @@
    "edge": 0.0199,
    "sources": "Market 65%, Kalshi 66%, ESPN 82%, OddsShark 71%, public 86% of bets",
    "why": "Model 70% vs FanDuel -210 (68%); every source at or above the market price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 11.9,
+   "result": "Colts 24-22"
   },
   {
    "id": "2026-11-15-2",
@@ -1870,8 +1870,8 @@
      "book": "FanDuel",
      "model_p": 0.3635,
      "implied_p": 0.3472,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "49ers 46-40"
     }
    ],
    "odds": 188,
@@ -1882,9 +1882,9 @@
    "edge": 0.0163,
    "sources": "Market 34%, Kalshi 34%, ESPN 36%, OddsShark 47%",
    "why": "Model 36% vs FanDuel +188 (35%); every source at or above the market price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "49ers 46-40"
   },
   {
    "id": "2026-11-15-3",
@@ -1905,8 +1905,8 @@
      "book": "FanDuel",
      "model_p": 0.7246,
      "implied_p": 0.7368,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "76ers 131-124"
     },
     {
      "sp": "NFL",
@@ -1920,8 +1920,8 @@
      "book": "FanDuel",
      "model_p": 0.6973,
      "implied_p": 0.6774,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Colts 24-22"
     },
     {
      "sp": "NFL",
@@ -1935,8 +1935,8 @@
      "book": "FanDuel",
      "model_p": 0.6623,
      "implied_p": 0.6644,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Browns 27-24"
     }
    ],
    "odds": 202,
@@ -1947,9 +1947,9 @@
    "edge": 0.003,
    "sources": "76ers 72%; Colts 70%; Texans 66% (model win %, FanDuel prices)",
    "why": "Three of the model's most trusted favorites, each near or above its price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "76ers 131-124; Colts 24-22; Browns 27-24"
   },
   {
    "id": "2026-11-15-4",
@@ -1970,8 +1970,8 @@
      "book": "FanDuel",
      "model_p": 0.6532,
      "implied_p": 0.6503,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Bengals 38-18"
     },
     {
      "sp": "NBA",
@@ -1985,8 +1985,8 @@
      "book": "FanDuel",
      "model_p": 0.7246,
      "implied_p": 0.7368,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "76ers 131-124"
     }
    ],
    "odds": 109,
@@ -1997,9 +1997,9 @@
    "edge": -0.0059,
    "sources": "Bengals 65%; 76ers 72% (model win %, FanDuel prices)",
    "why": "Two of the model's most trusted favorites, each near or above its price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 10.87,
+   "result": "Bengals 38-18; 76ers 131-124"
   },
   {
    "id": "2026-11-15-5",
@@ -2021,8 +2021,8 @@
      "book": "FanDuel",
      "model_p": 0.3689,
      "implied_p": 0.303,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD"
     }
    ],
    "odds": 230,
@@ -2033,9 +2033,9 @@
    "edge": 0.0659,
    "sources": "Covers proj 0.37 TDs (31%), 7 GP 6 TD (last 4: 3), season-rate 51%, model 37% vs +230 (30%) at FanDuel (Covers best price)",
    "why": "Model 37% vs FanDuel +230 (30%): 6 TDs in 7 games and a 10-touch role.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 TD"
   },
   {
    "id": "2026-11-15-6",
@@ -2057,8 +2057,8 @@
      "book": "BetRivers",
      "model_p": 0.2169,
      "implied_p": 0.1538,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD"
     }
    ],
    "odds": 550,
@@ -2069,9 +2069,9 @@
    "edge": 0.0631,
    "sources": "Covers proj 0.21 TDs (19%), 6 GP 2 TD (last 4: 2), season-rate 28%, model 22% vs +550 (15%) at BetRivers (Covers best price)",
    "why": "Model 22% vs +550 (15%): scored in each of his last 2 games and Covers projects 0.21 TDs.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 TD"
   },
   {
    "id": "2026-11-15-7",
@@ -2093,8 +2093,8 @@
      "book": "BetMGM",
      "model_p": 0.2291,
      "implied_p": 0.1667,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD"
     }
    ],
    "odds": 500,
@@ -2105,9 +2105,9 @@
    "edge": 0.0624,
    "sources": "Covers proj 0.19 TDs (17%), 9 GP 4 TD (last 4: 3), season-rate 36%, model 23% vs +500 (17%) at BetMGM (Covers best price)",
    "why": "Model 23% vs +500 (17%): 4 TDs in 9 games, 3 in the last 4.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 TD"
   },
   {
    "id": "2026-11-15-8",
@@ -2130,8 +2130,8 @@
      "book": "BetRivers",
      "model_p": 0.2342,
      "implied_p": 0.1333,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD (rush)"
     }
    ],
    "odds": 650,
@@ -2142,9 +2142,210 @@
    "edge": 0.1009,
    "sources": "Covers proj 0.23 TDs (21%), 8 GP 3 TD (last 4: 2), season-rate 30%, model 23% vs +650 (13%) at BetRivers (Covers best price)",
    "why": "Highest expected return on the day: model 23% vs +650 (13%) for a rushing TD; the model reaches 1.7x return.",
+   "status": "lost",
+   "profit": -10,
+   "result": "0 TD (rush)"
+  },
+  {
+   "id": "2026-11-16-1",
+   "date": "2026-11-16",
+   "placed": "2026-11-16T16:18:40Z",
+   "cat": "ml",
+   "title": "Chargers ML",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Los Angeles Chargers @ Baltimore Ravens",
+     "start": "2026-11-17T01:15:00Z",
+     "sel": "Los Angeles Chargers ML",
+     "team": "Los Angeles Chargers",
+     "opp": "Baltimore Ravens",
+     "odds": 190,
+     "book": "FanDuel",
+     "model_p": 0.399,
+     "implied_p": 0.345,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 190,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 47.5,
+   "model_p": 0.399,
+   "edge": 0.054,
+   "sources": "Model 40% vs FanDuel +190 (34.5%); ESPN predictor 56% Chargers, sharp money on LAC (36% of money on 18% of bets); market 33%, Kalshi 32%, OddsShark 18.8-22.5",
+   "why": "Lean: ESPN and the money split like the Chargers more than the market does, but market, Kalshi and OddsShark side with Baltimore.",
    "status": "pending",
    "profit": null,
    "result": ""
+  },
+  {
+   "id": "2026-11-16-2",
+   "date": "2026-11-16",
+   "placed": "2026-11-16T16:18:40Z",
+   "cat": "ml",
+   "title": "Wizards ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Memphis Grizzlies @ Washington Wizards",
+     "start": "2026-11-17T00:00:00Z",
+     "sel": "Washington Wizards ML",
+     "team": "Washington Wizards",
+     "opp": "Memphis Grizzlies",
+     "odds": 136,
+     "book": "FanDuel",
+     "model_p": 0.428,
+     "implied_p": 0.424,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 136,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 34.0,
+   "model_p": 0.428,
+   "edge": 0.004,
+   "sources": "Model 43% vs FanDuel +136 (42.4%); market 41%, Kalshi 40%, ESPN 48%, OddsShark MEM by only 1.6",
+   "why": "Lean: a near-coin-flip where ESPN and OddsShark rate Washington higher than the price implies.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-16-3",
+   "date": "2026-11-16",
+   "placed": "2026-11-16T16:18:40Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Celtics + 76ers",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Orlando Magic @ Boston Celtics",
+     "start": "2026-11-17T00:00:00Z",
+     "sel": "Boston Celtics ML",
+     "team": "Boston Celtics",
+     "opp": "Orlando Magic",
+     "odds": -340,
+     "book": "FanDuel",
+     "model_p": 0.76,
+     "implied_p": 0.773,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Philadelphia 76ers @ Brooklyn Nets",
+     "start": "2026-11-17T00:30:00Z",
+     "sel": "Philadelphia 76ers ML",
+     "team": "Philadelphia 76ers",
+     "opp": "Brooklyn Nets",
+     "odds": -230,
+     "book": "FanDuel",
+     "model_p": 0.683,
+     "implied_p": 0.697,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -117,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 8.57,
+   "model_p": 0.519,
+   "edge": -0.019,
+   "sources": "Celtics: market 75%, Kalshi 76%, ESPN 79%, OddsShark BOS by 9; 76ers: market 66%, Kalshi 68%, ESPN 73%, OddsShark PHI by 6",
+   "why": "Two strong favorites that every source agrees on, paired at FanDuel.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-16-4",
+   "date": "2026-11-16",
+   "placed": "2026-11-16T16:18:40Z",
+   "cat": "longshot",
+   "title": "4-leg ML parlay: Celtics + Cavaliers + Nuggets + Chargers",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Orlando Magic @ Boston Celtics",
+     "start": "2026-11-17T00:00:00Z",
+     "sel": "Boston Celtics ML",
+     "team": "Boston Celtics",
+     "opp": "Orlando Magic",
+     "odds": -340,
+     "book": "FanDuel",
+     "model_p": 0.76,
+     "implied_p": 0.773,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Chicago Bulls @ Cleveland Cavaliers",
+     "start": "2026-11-17T00:00:00Z",
+     "sel": "Cleveland Cavaliers ML",
+     "team": "Cleveland Cavaliers",
+     "opp": "Chicago Bulls",
+     "odds": -370,
+     "book": "FanDuel",
+     "model_p": 0.764,
+     "implied_p": 0.787,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Phoenix Suns @ Denver Nuggets",
+     "start": "2026-11-17T02:00:00Z",
+     "sel": "Denver Nuggets ML",
+     "team": "Denver Nuggets",
+     "opp": "Phoenix Suns",
+     "odds": -405,
+     "book": "FanDuel",
+     "model_p": 0.773,
+     "implied_p": 0.802,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Los Angeles Chargers @ Baltimore Ravens",
+     "start": "2026-11-17T01:15:00Z",
+     "sel": "Los Angeles Chargers ML",
+     "team": "Los Angeles Chargers",
+     "opp": "Baltimore Ravens",
+     "odds": 190,
+     "book": "FanDuel",
+     "model_p": 0.399,
+     "implied_p": 0.345,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 494,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 49.44,
+   "model_p": 0.179,
+   "edge": 0.011,
+   "sources": "Celtics 76%, Cavaliers 76%, Nuggets 77% (all sources agree); Chargers 40% (ESPN 56%, sharp money on LAC); model 17.9% vs 16.8% implied",
+   "why": "Highest expected return of the day (model x payout = 1.06); three heavy NBA favorites plus a live Chargers dog.",
+   "status": "pending",
+   "profit": null,
+   "result": "",
+   "call": "Going for it: Celtics, Cavaliers, Nuggets and Chargers all win (+494) - $10 pays $49.44"
   }
  ],
  "public": [
@@ -2756,9 +2957,9 @@
    "pct_bets": 86,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 11.9,
+   "result": "Colts 24-22"
   },
   {
    "id": "2026-11-15-p2",
@@ -2773,9 +2974,9 @@
    "pct_bets": 94,
    "source": "ActionNetwork",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 11.11,
+   "result": "49ers 46-40"
   },
   {
    "id": "2026-11-15-p3",
@@ -2790,9 +2991,9 @@
    "pct_bets": 91,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Browns 27-24"
   },
   {
    "id": "2026-11-15-p4",
@@ -2807,9 +3008,9 @@
    "pct_bets": 94,
    "source": "ActionNetwork",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 8.93,
+   "result": "76ers 131-124"
   },
   {
    "id": "2026-11-15-p5",
@@ -2822,6 +3023,57 @@
    "opp": "Pittsburgh Steelers",
    "odds": -186,
    "pct_bets": 85,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "won",
+   "profit": 13.44,
+   "result": "Bengals 38-18"
+  },
+  {
+   "id": "2026-11-16-p1",
+   "date": "2026-11-16",
+   "sp": "NFL",
+   "game": "Los Angeles Chargers @ Baltimore Ravens",
+   "start": "2026-11-17T01:15:00Z",
+   "sel": "Baltimore Ravens ML",
+   "team": "Baltimore Ravens",
+   "opp": "Los Angeles Chargers",
+   "odds": -230,
+   "pct_bets": 82,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-16-p2",
+   "date": "2026-11-16",
+   "sp": "NBA",
+   "game": "Memphis Grizzlies @ Washington Wizards",
+   "start": "2026-11-17T00:00:00Z",
+   "sel": "Memphis Grizzlies ML",
+   "team": "Memphis Grizzlies",
+   "opp": "Washington Wizards",
+   "odds": -162,
+   "pct_bets": 77,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-16-p3",
+   "date": "2026-11-16",
+   "sp": "NBA",
+   "game": "Chicago Bulls @ Cleveland Cavaliers",
+   "start": "2026-11-17T00:00:00Z",
+   "sel": "Cleveland Cavaliers ML",
+   "team": "Cleveland Cavaliers",
+   "opp": "Chicago Bulls",
+   "odds": -370,
+   "pct_bets": 87,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -2948,6 +3200,23 @@
    },
    "bankroll": 1356.77,
    "public_bankroll": 956.45
+  },
+  {
+   "date": "2026-11-15",
+   "bot": {
+    "w": 2,
+    "l": 6,
+    "p": 0,
+    "profit": -52.23
+   },
+   "public": {
+    "w": 4,
+    "l": 1,
+    "p": 0,
+    "profit": 20.38
+   },
+   "bankroll": 1304.54,
+   "public_bankroll": 976.83
   }
  ]
 }

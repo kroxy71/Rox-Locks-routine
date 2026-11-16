@@ -1,11 +1,6 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nhl,401892721,2026-11-16T00:30Z,Philadelphia Flyers,Edmonton Oilers,EDM -155,6.5,+130,-155
-nhl,401892722,2026-11-16T01:00Z,Dallas Stars,Florida Panthers,DAL -135,5.5,-135,+114
-nhl,401892723,2026-11-16T01:00Z,Anaheim Ducks,Calgary Flames,ANA -155,6.5,-155,+130
-nhl,401892724,2026-11-16T02:00Z,Vegas Golden Knights,Vancouver Canucks,VGK -410,6.5,-410,+320
-nhl,401892725,2026-11-16T02:00Z,San Jose Sharks,Nashville Predators,NSH -170,6.5,+142,-170
-nhl,401892726,2026-11-17T00:30Z,New York Rangers,Montreal Canadiens,,,,
-nhl,401892727,2026-11-17T02:30Z,Utah Mammoth,Vancouver Canucks,,,,
+nhl,401892726,2026-11-17T00:30Z,New York Rangers,Montreal Canadiens,MTL -115,6.5,-105,-115
+nhl,401892727,2026-11-17T02:30Z,Utah Mammoth,Vancouver Canucks,UTAH -340,6.5,-340,+270
 nhl,401892728,2026-11-18T00:00Z,Boston Bruins,Los Angeles Kings,,,,
 nhl,401892730,2026-11-18T00:00Z,Florida Panthers,Edmonton Oilers,,,,
 nhl,401892731,2026-11-18T00:00Z,New York Islanders,Columbus Blue Jackets,,,,
@@ -58,3 +53,4 @@ nhl,401892776,2026-11-24T00:30Z,New York Islanders,Toronto Maple Leafs,,,,
 nhl,401892777,2026-11-24T00:30Z,Winnipeg Jets,Utah Mammoth,,,,
 nhl,401892778,2026-11-24T02:40Z,Seattle Kraken,Anaheim Ducks,,,,
 nhl,401892779,2026-11-24T03:00Z,San Jose Sharks,Minnesota Wild,,,,
+nhl,401892780,2026-11-25T01:00Z,Edmonton Oilers,Vegas Golden Knights,,,,

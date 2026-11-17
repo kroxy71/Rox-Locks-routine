@@ -1,21 +1,21 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1304.54,
- "at_risk": 70,
- "updated": "2026-11-16T16:18:40Z",
+ "bankroll": 1307.04,
+ "at_risk": 100,
+ "updated": "2026-11-17T16:18:32Z",
  "record": {
-  "w": 26,
-  "l": 25,
+  "w": 27,
+  "l": 28,
   "p": 0
  },
  "public_record": {
-  "w": 27,
-  "l": 13,
+  "w": 29,
+  "l": 14,
   "p": 0
  },
- "public_bankroll": 976.83,
- "note": "Graded 8 (2-6, -$52.23); placed 4 bets, $70 at risk. No NFL/NHL-qualifying TD prop: no positive-edge price at FanDuel/DraftKings (Covers lists only BetMGM for the lone +EV one, Brissett), so prop skipped. NHL moneylines are 3-way, skipped. Public bets skipped (no ML splits found): Magic@Celtics, 76ers@Nets, Suns@Nuggets. Odds from SharpAPI; Lean bets marked.",
+ "public_bankroll": 974.02,
+ "note": "Graded 4 bets (1-3, +$2.50); placed 7 bets, $100 at risk (no NFL today; no true edges found so ML singles and parlay are leans; NHL goal props from shot model; SharpAPI odds, WebSearch previews found nothing for today's games)",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -2165,8 +2165,8 @@
      "book": "FanDuel",
      "model_p": 0.399,
      "implied_p": 0.345,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Los Angeles Chargers 23-20 Baltimore Ravens"
     }
    ],
    "odds": 190,
@@ -2177,9 +2177,9 @@
    "edge": 0.054,
    "sources": "Model 40% vs FanDuel +190 (34.5%); ESPN predictor 56% Chargers, sharp money on LAC (36% of money on 18% of bets); market 33%, Kalshi 32%, OddsShark 18.8-22.5",
    "why": "Lean: ESPN and the money split like the Chargers more than the market does, but market, Kalshi and OddsShark side with Baltimore.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 47.5,
+   "result": "Los Angeles Chargers 23-20 Baltimore Ravens"
   },
   {
    "id": "2026-11-16-2",
@@ -2200,8 +2200,8 @@
      "book": "FanDuel",
      "model_p": 0.428,
      "implied_p": 0.424,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Washington Wizards 120-136 Memphis Grizzlies"
     }
    ],
    "odds": 136,
@@ -2212,9 +2212,9 @@
    "edge": 0.004,
    "sources": "Model 43% vs FanDuel +136 (42.4%); market 41%, Kalshi 40%, ESPN 48%, OddsShark MEM by only 1.6",
    "why": "Lean: a near-coin-flip where ESPN and OddsShark rate Washington higher than the price implies.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Washington Wizards 120-136 Memphis Grizzlies"
   },
   {
    "id": "2026-11-16-3",
@@ -2235,8 +2235,8 @@
      "book": "FanDuel",
      "model_p": 0.76,
      "implied_p": 0.773,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Boston Celtics 105-115 Orlando Magic"
     },
     {
      "sp": "NBA",
@@ -2250,8 +2250,8 @@
      "book": "FanDuel",
      "model_p": 0.683,
      "implied_p": 0.697,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Philadelphia 76ers 135-123 Brooklyn Nets"
     }
    ],
    "odds": -117,
@@ -2262,9 +2262,9 @@
    "edge": -0.019,
    "sources": "Celtics: market 75%, Kalshi 76%, ESPN 79%, OddsShark BOS by 9; 76ers: market 66%, Kalshi 68%, ESPN 73%, OddsShark PHI by 6",
    "why": "Two strong favorites that every source agrees on, paired at FanDuel.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "Boston Celtics 105-115 Orlando Magic; Philadelphia 76ers 135-123 Brooklyn Nets"
   },
   {
    "id": "2026-11-16-4",
@@ -2285,8 +2285,8 @@
      "book": "FanDuel",
      "model_p": 0.76,
      "implied_p": 0.773,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Boston Celtics 105-115 Orlando Magic"
     },
     {
      "sp": "NBA",
@@ -2300,8 +2300,8 @@
      "book": "FanDuel",
      "model_p": 0.764,
      "implied_p": 0.787,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Cleveland Cavaliers 126-115 Chicago Bulls"
     },
     {
      "sp": "NBA",
@@ -2315,8 +2315,8 @@
      "book": "FanDuel",
      "model_p": 0.773,
      "implied_p": 0.802,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Denver Nuggets 105-117 Phoenix Suns"
     },
     {
      "sp": "NFL",
@@ -2330,8 +2330,8 @@
      "book": "FanDuel",
      "model_p": 0.399,
      "implied_p": 0.345,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Los Angeles Chargers 23-20 Baltimore Ravens"
     }
    ],
    "odds": 494,
@@ -2342,10 +2342,290 @@
    "edge": 0.011,
    "sources": "Celtics 76%, Cavaliers 76%, Nuggets 77% (all sources agree); Chargers 40% (ESPN 56%, sharp money on LAC); model 17.9% vs 16.8% implied",
    "why": "Highest expected return of the day (model x payout = 1.06); three heavy NBA favorites plus a live Chargers dog.",
+   "status": "lost",
+   "profit": -10,
+   "result": "Boston Celtics 105-115 Orlando Magic; Cleveland Cavaliers 126-115 Chicago Bulls; Denver Nuggets 105-117 Phoenix Suns; Los Angeles Chargers 23-20 Baltimore Ravens",
+   "call": "Going for it: Celtics, Cavaliers, Nuggets and Chargers all win (+494) - $10 pays $49.44"
+  },
+  {
+   "id": "2026-11-17-1",
+   "date": "2026-11-17",
+   "placed": "2026-11-17T16:18:32Z",
+   "cat": "ml",
+   "title": "Anaheim Ducks ML",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "ml",
+     "game": "Anaheim Ducks @ St. Louis Blues",
+     "start": "2026-11-18T01:00:00Z",
+     "sel": "Anaheim Ducks ML",
+     "team": "Anaheim Ducks",
+     "opp": "St. Louis Blues",
+     "odds": 120,
+     "book": "FanDuel",
+     "model_p": 0.455,
+     "implied_p": 0.455,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 120,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 30.0,
+   "model_p": 0.455,
+   "edge": 0.0,
+   "sources": "Model 45.5% vs FanDuel +120 (45.5%); market 43.6%, Kalshi 44.5%, Polymarket 43.5%, OddsShark ANA 2.96-3.36; sharp money on ANA (71% of money on 25% of bets)",
+   "why": "Lean: a pick-em price where the money flow is on Anaheim and every source is within a point of the line.",
    "status": "pending",
    "profit": null,
-   "result": "",
-   "call": "Going for it: Celtics, Cavaliers, Nuggets and Chargers all win (+494) - $10 pays $49.44"
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-2",
+   "date": "2026-11-17",
+   "placed": "2026-11-17T16:18:32Z",
+   "cat": "ml",
+   "title": "Minnesota Timberwolves ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Portland Trail Blazers @ Minnesota Timberwolves",
+     "start": "2026-11-18T01:00:00Z",
+     "sel": "Minnesota Timberwolves ML",
+     "team": "Minnesota Timberwolves",
+     "opp": "Portland Trail Blazers",
+     "odds": -126,
+     "book": "FanDuel",
+     "model_p": 0.557,
+     "implied_p": 0.558,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -126,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 19.84,
+   "model_p": 0.557,
+   "edge": -0.001,
+   "sources": "Model 55.7% vs FanDuel -126 (55.8%); market 54%, Kalshi 53.5%, Polymarket 53.5%, ESPN 61.6%, OddsShark MIN by 2.1",
+   "why": "Lean: ESPN and OddsShark rate Minnesota above the price, the market is about even.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-3",
+   "date": "2026-11-17",
+   "placed": "2026-11-17T16:18:32Z",
+   "cat": "parlay",
+   "title": "3-leg ML parlay: Ohio + Lakers + Miami (OH)",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Ball State Cardinals @ Ohio Bobcats",
+     "start": "2026-11-18T00:00:00Z",
+     "sel": "Ohio Bobcats ML",
+     "team": "Ohio Bobcats",
+     "opp": "Ball State Cardinals",
+     "odds": -385,
+     "book": "FanDuel",
+     "model_p": 0.806,
+     "implied_p": 0.794,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Charlotte Hornets @ Los Angeles Lakers",
+     "start": "2026-11-18T04:00:00Z",
+     "sel": "Los Angeles Lakers ML",
+     "team": "Los Angeles Lakers",
+     "opp": "Charlotte Hornets",
+     "odds": -300,
+     "book": "FanDuel",
+     "model_p": 0.753,
+     "implied_p": 0.75,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Miami (OH) RedHawks @ Kent State Golden Flashes",
+     "start": "2026-11-18T00:00:00Z",
+     "sel": "Miami (OH) RedHawks ML",
+     "team": "Miami (OH) RedHawks",
+     "opp": "Kent State Golden Flashes",
+     "odds": -345,
+     "book": "FanDuel",
+     "model_p": 0.774,
+     "implied_p": 0.775,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 117,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 11.67,
+   "model_p": 0.47,
+   "edge": 0.008,
+   "sources": "Ohio: market 77%, ESPN 85%, OddsShark 31-19; Lakers: market 72%, Kalshi 73%, ESPN 80%, OddsShark 116-106; Miami (OH): market 75%, ESPN 83%, OddsShark 28-19",
+   "why": "The three biggest favorites the model trusts, all priced about fair, combined for a plus-money payout.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-4",
+   "date": "2026-11-17",
+   "placed": "2026-11-17T16:18:32Z",
+   "cat": "prop",
+   "title": "Evan Bouchard anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Edmonton Oilers @ Florida Panthers",
+     "start": "2026-11-18T00:00:00Z",
+     "sel": "Evan Bouchard anytime goal",
+     "team": "Edmonton Oilers",
+     "opp": "Florida Panthers",
+     "odds": 340,
+     "book": "FanDuel",
+     "model_p": 0.373,
+     "implied_p": 0.227,
+     "status": "pending",
+     "result": "",
+     "player": "Evan Bouchard"
+    }
+   ],
+   "odds": 340,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 34.0,
+   "model_p": 0.373,
+   "edge": 0.146,
+   "sources": "2.5 shots/G, 12 G in 22 GP, model 37% vs FanDuel +340 (23%); in RotoWire lineup, PP2",
+   "why": "Defenseman shooting enough to score far more often than +340 implies.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-5",
+   "date": "2026-11-17",
+   "placed": "2026-11-17T16:18:32Z",
+   "cat": "prop",
+   "title": "Leon Draisaitl anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Edmonton Oilers @ Florida Panthers",
+     "start": "2026-11-18T00:00:00Z",
+     "sel": "Leon Draisaitl anytime goal",
+     "team": "Edmonton Oilers",
+     "opp": "Florida Panthers",
+     "odds": 130,
+     "book": "FanDuel",
+     "model_p": 0.555,
+     "implied_p": 0.435,
+     "status": "pending",
+     "result": "",
+     "player": "Leon Draisaitl"
+    }
+   ],
+   "odds": 130,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 13.0,
+   "model_p": 0.555,
+   "edge": 0.12,
+   "sources": "3.9 shots/G, 20 G in 22 GP, model 56% vs FanDuel +130 (43%); in RotoWire lineup",
+   "why": "Elite shot volume and finishing priced as if he scores less than half the time.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-6",
+   "date": "2026-11-17",
+   "placed": "2026-11-17T16:18:32Z",
+   "cat": "prop",
+   "title": "Kyle Connor anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Ottawa Senators @ Winnipeg Jets",
+     "start": "2026-11-18T00:00:00Z",
+     "sel": "Kyle Connor anytime goal",
+     "team": "Winnipeg Jets",
+     "opp": "Ottawa Senators",
+     "odds": 145,
+     "book": "FanDuel",
+     "model_p": 0.522,
+     "implied_p": 0.408,
+     "status": "pending",
+     "result": "",
+     "player": "Kyle Connor"
+    }
+   ],
+   "odds": 145,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 14.5,
+   "model_p": 0.522,
+   "edge": 0.114,
+   "sources": "4.2 shots/G, 17 G in 21 GP, model 52% vs FanDuel +145 (41%); active (DraftKings +115)",
+   "why": "Top shooter at a plus price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-7",
+   "date": "2026-11-17",
+   "placed": "2026-11-17T16:18:32Z",
+   "cat": "longshot",
+   "title": "Cole Hutson anytime goal",
+   "call": "Going for it: Cole Hutson scores anytime (+700) - $10 pays $70.00",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Washington Capitals @ Tampa Bay Lightning",
+     "start": "2026-11-18T00:30:00Z",
+     "sel": "Cole Hutson anytime goal",
+     "team": "Washington Capitals",
+     "opp": "Tampa Bay Lightning",
+     "odds": 700,
+     "book": "FanDuel",
+     "model_p": 0.225,
+     "implied_p": 0.125,
+     "status": "pending",
+     "result": "",
+     "player": "Cole Hutson"
+    }
+   ],
+   "odds": 700,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 70.0,
+   "model_p": 0.225,
+   "edge": 0.1,
+   "sources": "2.1 shots/G, 5 G in 18 GP, model 22.5% vs FanDuel +700 (12.5%); RotoWire lineup RD; DraftKings +600",
+   "why": "Best expected return on the board (about 1.8x); Provorov (+850) scored higher but has only 7 games, so I took Hutson.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
   }
  ],
  "public": [
@@ -3042,9 +3322,9 @@
    "pct_bets": 82,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Baltimore Ravens 20-23 Los Angeles Chargers"
   },
   {
    "id": "2026-11-16-p2",
@@ -3059,9 +3339,9 @@
    "pct_bets": 77,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 15.43,
+   "result": "Memphis Grizzlies 136-120 Washington Wizards"
   },
   {
    "id": "2026-11-16-p3",
@@ -3074,6 +3354,91 @@
    "opp": "Chicago Bulls",
    "odds": -370,
    "pct_bets": 87,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "won",
+   "profit": 6.76,
+   "result": "Cleveland Cavaliers 126-115 Chicago Bulls"
+  },
+  {
+   "id": "2026-11-17-p1",
+   "date": "2026-11-17",
+   "sp": "NHL",
+   "game": "Anaheim Ducks @ St. Louis Blues",
+   "start": "2026-11-18T01:00:00Z",
+   "sel": "St. Louis Blues ML",
+   "team": "St. Louis Blues",
+   "opp": "Anaheim Ducks",
+   "odds": -144,
+   "pct_bets": 75,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-p2",
+   "date": "2026-11-17",
+   "sp": "NBA",
+   "game": "Portland Trail Blazers @ Minnesota Timberwolves",
+   "start": "2026-11-18T01:00:00Z",
+   "sel": "Minnesota Timberwolves ML",
+   "team": "Minnesota Timberwolves",
+   "opp": "Portland Trail Blazers",
+   "odds": -126,
+   "pct_bets": 66,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-p3",
+   "date": "2026-11-17",
+   "sp": "NCAAF",
+   "game": "Ball State Cardinals @ Ohio Bobcats",
+   "start": "2026-11-18T00:00:00Z",
+   "sel": "Ohio Bobcats ML",
+   "team": "Ohio Bobcats",
+   "opp": "Ball State Cardinals",
+   "odds": -385,
+   "pct_bets": 95,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-p4",
+   "date": "2026-11-17",
+   "sp": "NBA",
+   "game": "Charlotte Hornets @ Los Angeles Lakers",
+   "start": "2026-11-18T04:00:00Z",
+   "sel": "Los Angeles Lakers ML",
+   "team": "Los Angeles Lakers",
+   "opp": "Charlotte Hornets",
+   "odds": -300,
+   "pct_bets": 95,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-17-p5",
+   "date": "2026-11-17",
+   "sp": "NCAAF",
+   "game": "Miami (OH) RedHawks @ Kent State Golden Flashes",
+   "start": "2026-11-18T00:00:00Z",
+   "sel": "Miami (OH) RedHawks ML",
+   "team": "Miami (OH) RedHawks",
+   "opp": "Kent State Golden Flashes",
+   "odds": -345,
+   "pct_bets": 93,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -3217,6 +3582,23 @@
    },
    "bankroll": 1304.54,
    "public_bankroll": 976.83
+  },
+  {
+   "date": "2026-11-16",
+   "bot": {
+    "w": 1,
+    "l": 3,
+    "p": 0,
+    "profit": 2.5
+   },
+   "public": {
+    "w": 2,
+    "l": 1,
+    "p": 0,
+    "profit": -2.81
+   },
+   "bankroll": 1307.04,
+   "public_bankroll": 974.02
   }
  ]
 }

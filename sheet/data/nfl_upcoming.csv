@@ -1,15 +1,18 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nfl,401873066,2026-11-20T01:15Z,Houston Texans,Indianapolis Colts,HOU -11.5,44.5,-650,+470
-nfl,401873070,2026-11-22T18:00Z,Buffalo Bills,Miami Dolphins,BUF -16.5,45.5,-1350,+800
-nfl,401873071,2026-11-22T18:00Z,Chicago Bears,New Orleans Saints,CHI -11.5,49.5,-650,+470
-nfl,401873073,2026-11-22T18:00Z,Dallas Cowboys,Tennessee Titans,DAL -8.5,54.5,-425,+330
-nfl,401873072,2026-11-22T18:00Z,Detroit Lions,Tampa Bay Buccaneers,DET -6.5,46.5,-270,+220
-nfl,401873067,2026-11-22T18:00Z,Kansas City Chiefs,Arizona Cardinals,KC -16.5,41.5,-1800,+1000
+nfl,401873066,2026-11-20T01:15Z,Houston Texans,Indianapolis Colts,HOU -12.5,44.5,-750,+525
+nfl,401873070,2026-11-22T18:00Z,Buffalo Bills,Miami Dolphins,BUF -16.5,45.5,-1450,+850
+nfl,401873071,2026-11-22T18:00Z,Chicago Bears,New Orleans Saints,CHI -11.5,48.5,-650,+470
+nfl,401873073,2026-11-22T18:00Z,Dallas Cowboys,Tennessee Titans,DAL -8.5,54.5,-380,+300
+nfl,401873072,2026-11-22T18:00Z,Detroit Lions,Tampa Bay Buccaneers,DET -7,43.5,-355,+280
+nfl,401873067,2026-11-22T18:00Z,Kansas City Chiefs,Arizona Cardinals,KC -16.5,41.5,-1600,+900
 nfl,401873076,2026-11-22T18:00Z,Philadelphia Eagles,Pittsburgh Steelers,PIT -4.5,38.5,+180,-218
-nfl,401873068,2026-11-22T18:00Z,Carolina Panthers,Baltimore Ravens,CAR -2.5,43.5,-135,+114
-nfl,401873074,2026-11-22T21:05Z,Los Angeles Chargers,New York Jets,LAC -3,40.5,-155,+130
-nfl,401873075,2026-11-22T21:25Z,Denver Broncos,Las Vegas Raiders,DEN -10,40.5,-535,+400
+nfl,401873068,2026-11-22T18:00Z,Carolina Panthers,Baltimore Ravens,CAR -2.5,44.5,-142,+120
+nfl,401873074,2026-11-22T21:05Z,Los Angeles Chargers,New York Jets,LAC -3.5,41.5,-185,+154
+nfl,401873075,2026-11-22T21:25Z,Denver Broncos,Las Vegas Raiders,DEN -10,40.5,-600,+440
 nfl,401873069,2026-11-22T21:25Z,New York Giants,Jacksonville Jaguars,JAX -6,46.5,+215,-265
-nfl,401873077,2026-11-23T01:20Z,San Francisco 49ers,Minnesota Vikings,SF -3,46.5,-162,+136
-nfl,401873078,2026-11-24T01:15Z,Washington Commanders,Cincinnati Bengals,CIN -6.5,52.5,+235,-290
-nfl,401873079,2026-11-26T01:00Z,Los Angeles Rams,Green Bay Packers,,,,
+nfl,401873077,2026-11-23T01:20Z,San Francisco 49ers,Minnesota Vikings,SF -3,45.5,-162,+136
+nfl,401873078,2026-11-24T01:15Z,Washington Commanders,Cincinnati Bengals,CIN -6.5,53.5,+240,-298
+nfl,401873079,2026-11-26T01:00Z,Los Angeles Rams,Green Bay Packers,LAR -3.5,46.5,-198,+164
+nfl,401873081,2026-11-26T18:00Z,Detroit Lions,Chicago Bears,CHI -1.5,54.5,+110,-130
+nfl,401873080,2026-11-26T21:30Z,Dallas Cowboys,Philadelphia Eagles,DAL -8.5,47.5,-410,+320
+nfl,401873082,2026-11-27T01:20Z,Buffalo Bills,Kansas City Chiefs,BUF -3,50.5,-155,+130

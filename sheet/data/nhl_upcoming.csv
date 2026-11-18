@@ -1,18 +1,7 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nhl,401892728,2026-11-18T00:00Z,Boston Bruins,Los Angeles Kings,BOS -155,5.5,-155,+130
-nhl,401892730,2026-11-18T00:00Z,Florida Panthers,Edmonton Oilers,FLA -120,6.5,-120,+100
-nhl,401892731,2026-11-18T00:00Z,New York Islanders,Columbus Blue Jackets,NYI -142,5.5,-142,+120
-nhl,401892732,2026-11-18T00:00Z,Philadelphia Flyers,Buffalo Sabres,BUF -125,5.5,+105,-125
-nhl,401892736,2026-11-18T00:00Z,Winnipeg Jets,Ottawa Senators,OTT -130,5.5,+110,-130
-nhl,401892729,2026-11-18T00:30Z,Tampa Bay Lightning,Washington Capitals,TB -162,6.5,-162,+136
-nhl,401892733,2026-11-18T00:30Z,Chicago Blackhawks,Toronto Maple Leafs,TOR -155,6.5,+130,-155
-nhl,401892734,2026-11-18T01:00Z,St. Louis Blues,Anaheim Ducks,STL -142,6.5,-142,+120
-nhl,401892735,2026-11-18T01:00Z,Minnesota Wild,Nashville Predators,MIN -205,6.5,-205,+170
-nhl,401892737,2026-11-18T03:00Z,Vegas Golden Knights,Dallas Stars,VGK -135,5.5,-135,+114
-nhl,401892738,2026-11-18T03:00Z,San Jose Sharks,Calgary Flames,SJ -130,5.5,-130,+110
-nhl,401892739,2026-11-19T00:30Z,Detroit Red Wings,Boston Bruins,,,,
-nhl,401892740,2026-11-19T00:30Z,New Jersey Devils,Montreal Canadiens,,,,
-nhl,401892741,2026-11-19T03:00Z,Utah Mammoth,Colorado Avalanche,,,,
+nhl,401892739,2026-11-19T00:30Z,Detroit Red Wings,Boston Bruins,BOS -110,5.5,-110,-110
+nhl,401892740,2026-11-19T00:30Z,New Jersey Devils,Montreal Canadiens,NJ -162,6.5,-162,+136
+nhl,401892741,2026-11-19T03:00Z,Utah Mammoth,Colorado Avalanche,UTAH -115,6.5,-115,-105
 nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,,,,
 nhl,401892743,2026-11-20T00:00Z,Ottawa Senators,Philadelphia Flyers,,,,
 nhl,401892745,2026-11-20T00:00Z,Pittsburgh Penguins,St. Louis Blues,,,,

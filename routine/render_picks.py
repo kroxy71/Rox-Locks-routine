@@ -73,7 +73,7 @@ def live_line(s):
     if s.get('pays10'):
         parts.append(s['pays10'])
     if s.get('odds_at'):
-        parts.append('FanDuel as of %s' % s['odds_at'])
+        parts.append('%s as of %s' % (s.get('odds_src') or 'FanDuel', s['odds_at']))
     if s.get('flags'):
         parts.append(s['flags'])
     return ' · '.join(parts)
@@ -181,6 +181,7 @@ def render(d, tracker_html='', tracker_txt=''):
     subject = "KingCap's Picks for %s" % date.strftime('%A, %b ') + '%d, %d' % (date.day, date.year)
     if ver:
         subject += ' (%s)' % ver
+    subject = d.get('subject_prefix', '') + subject
     picks = d.get('picks', [])
     firm = [p for p in picks if not p.get('lean')]
     strong = [p for p in firm if p.get('conv') == 'High']
@@ -259,10 +260,6 @@ def render(d, tracker_html='', tracker_txt=''):
     else:
         t.append('No bet slips shown on stream.')
         t.append('')
-    for title, group in (('STRONGEST PICKS (HIGH)', strong), ('ALSO RECOMMENDED', also)):
-        if group:
-            t.append(title)
-            t.extend(pick_text(p) + '\n' for p in group)
     if leans:
         t.append('LEANS / MENTIONS')
         t.extend('- ' + x for x in leans)

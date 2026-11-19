@@ -119,7 +119,7 @@ Sunday's show usually starts about 11:05 AM ET and lasts under 30 minutes; Satur
     "book": "BetMGM", "t": "71:40", "title": "5-leg assists parlay", "odds": "+1365",
     "wager": "$1,500 to win $20,480.49 (payout $21,980.49), bet accepted",
     "legs": [{"sp": "NBA", "text": "Myles Turner over 1.5 assists (Bucks @ Heat, 7:00 PM ET)", "odds": "-165"}],
-    "live_odds": "+661", "pays10": "$10 pays $76.07 (profit $66.07)", "odds_at": "7:08 PM ET",
+    "live_odds": "+661", "pays10": "$10 pays $76.07 (profit $66.07)", "odds_at": "7:08 PM ET", "odds_src": "FanDuel",
     "flags": "4 of 5 legs priced", "note": "", "link": "https://www.twitch.tv/videos/2932797062?t=1h11m40s"
   }],
   "picks": [{
@@ -137,4 +137,5 @@ Sunday's show usually starts about 11:05 AM ET and lasts under 30 minutes; Satur
 - `sp` is nfl, ncaaf, nba, nhl, mlb (or ncaab). Leave `game`/`time`/`tv`/`status`/`sites` empty for `gather.py show` to fill. All times in the email are Eastern; KingCap speaks Pacific (add 3 hours to a time he says).
 - A pick without `kc` (for example a 1st-half over or a college basketball system play) shows in the email but is not graded or tracked. Put `"lean": true` for a no-firm-pick item you still want shown as a card (rare; normally use `leans`).
 - `"early": true` on a pick already sent in the Early email (it gets the ALREADY SENT EARLY chip and is not added to the history twice).
+- `odds_src` names the book(s) the live odds came from (`FanDuel`, `FanDuel/DraftKings`). `subject_prefix` (tests only) goes in front of the subject; `render_results.py` has `--subject-prefix`.
 - A step you skipped goes in `notes` as one line naming the step and the reason.

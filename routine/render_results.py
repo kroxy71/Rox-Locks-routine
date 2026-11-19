@@ -77,6 +77,7 @@ def main():
     ap.add_argument('--today', required=True)
     ap.add_argument('--tracker', default='')
     ap.add_argument('--time', default='')
+    ap.add_argument('--subject-prefix', default='')
     a = ap.parse_args()
     G = json.load(open(a.graded, encoding='utf-8'))
     try:
@@ -112,6 +113,7 @@ def main():
         subject = 'KingCap Results Update - %s %d/%d, %s' % (d.strftime('%a'), d.month, d.day, a.time or '')
         subject = subject.rstrip(', ')
         head = 'KingCap Results Update'
+    subject = a.subject_prefix + subject
     summary = '%d picks just finished: %d HIT, %d MISS%s.' % (
         len(new), len(hits), len(miss), (', %d push/void' % len(other)) if other else '')
     h = ["<div style='%s'>" % WRAP, "<p><b style='font-size:17px'>%s</b></p>" % E(head)]

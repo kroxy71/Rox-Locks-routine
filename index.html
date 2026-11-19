@@ -107,7 +107,7 @@ main .wrap{padding-block:14px 40px;display:grid;gap:14px}
 .parlay b:first-of-type{color:var(--accent)}
 .chip{display:inline-block;font:700 12px/1.6 var(--f-body);letter-spacing:.04em;color:#fff;background:var(--sp,var(--other));border-radius:4px;padding:0 7px;vertical-align:2px;white-space:nowrap}
 .badge{display:inline-block;font:700 12px/1.7 var(--f-body);letter-spacing:.05em;color:#fff;border-radius:999px;padding:0 9px;vertical-align:2px;background:var(--muted)}
-.badge.high{background:var(--good)} .badge.medium{background:var(--mid)} .badge.low{background:var(--bad)}
+.badge.shown{background:var(--accent)} .badge.high{background:var(--good)} .badge.medium{background:var(--mid)} .badge.low{background:var(--bad)}
 .cat{display:inline-block;font:600 12px/1.6 var(--f-body);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 6px;vertical-align:2px}
 .meta{color:var(--muted);font-size:14px}
 .fine{color:var(--muted);font-size:13px}
@@ -347,7 +347,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-13f";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-18a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1029,6 +1029,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (SPORT[word] || (/border-radius:\s*4px/.test(style) && /color:\s*#fff/i.test(style) && /^[A-Z ]{2,8}$/.test(word))) {
         out.className = "chip"; out.style.setProperty("--sp", "var(" + (SPORT[word] || "--other") + ")"); return;
       }
+      if (/^(SHOWN ON STREAM|ON STREAM|SHOWN)$/i.test(txt)) { out.className = "badge shown"; return; }
       if (/^(HIGH|MEDIUM|MED|LOW)$/i.test(txt)) { out.className = "badge " + ({MED:"medium"}[txt.toUpperCase()] || txt.toLowerCase()); return; }
       if (/border:\s*1px solid/.test(style) && /border-radius:\s*4px/.test(style)) { out.className = "cat"; return; }
       if (/^agrees/i.test(txt)) { out.className = "agree"; return; }

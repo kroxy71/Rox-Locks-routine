@@ -1,21 +1,21 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1296.55,
- "at_risk": 80,
- "updated": "2026-11-18T16:17:39Z",
+ "bankroll": 1216.55,
+ "at_risk": 110,
+ "updated": "2026-11-19T16:25:00Z",
  "record": {
   "w": 30,
-  "l": 32,
+  "l": 37,
   "p": 0
  },
  "public_record": {
-  "w": 34,
-  "l": 14,
+  "w": 36,
+  "l": 16,
   "p": 0
  },
- "public_bankroll": 1033.29,
- "note": "Graded 7 bets (3-4, -10.49); placed 5 bets, $80 at risk. No NFL today so no TD props; no true edges beyond UMass and Lehkonen, so OKC and the parlay are leans; NHL moneylines skipped (only 3-way lines). Polymarket unavailable; Kalshi used for NBA only.",
+ "public_bankroll": 997.95,
+ "note": "Graded 5 (0-5, $-80.00); placed 8 bets, $110 at risk. Edges are thin today: only Temple clears the ML bar, so Jets, the Spurs/Blazers parlay and the Warren TD are leans; Colts is the longshot; 3 NHL anytime-goal props. No FanDuel/DraftKings anytime-TD market in SharpAPI, so Warren priced from Covers; Polymarket not checked; NHL ESPN predictor unavailable.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -2646,8 +2646,8 @@
      "book": "FanDuel",
      "model_p": 0.6512,
      "implied_p": 0.6241,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "UMass 33-34 Akron"
     }
    ],
    "odds": -166,
@@ -2658,9 +2658,9 @@
    "edge": 0.0271,
    "sources": "Market 60%, ESPN 76%, OddsShark 21-26 UMass, public 88% of bets on UMass",
    "why": "Model 65% vs FanDuel -166 (62%); ESPN predictor is well above the market.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "UMass 33-34 Akron"
   },
   {
    "id": "2026-11-18-2",
@@ -2681,8 +2681,8 @@
      "book": "FanDuel",
      "model_p": 0.7144,
      "implied_p": 0.7101,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Hawks 117-112 Thunder"
     }
    ],
    "odds": -245,
@@ -2693,9 +2693,9 @@
    "edge": 0.0043,
    "sources": "Market 69%, Kalshi 72%, ESPN 74%, OddsShark 116-108 OKC",
    "why": "Lean: Model 71% vs FanDuel -245 (71%); every source agrees OKC is the clear favorite, but the price already reflects it.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Hawks 117-112 Thunder"
   },
   {
    "id": "2026-11-18-3",
@@ -2716,8 +2716,8 @@
      "book": "FanDuel",
      "model_p": 0.7144,
      "implied_p": 0.7101,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Hawks 117-112 Thunder"
     },
     {
      "sp": "NBA",
@@ -2731,8 +2731,8 @@
      "book": "FanDuel",
      "model_p": 0.7051,
      "implied_p": 0.7059,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Pistons 122-109 Pelicans"
     },
     {
      "sp": "NCAAF",
@@ -2746,8 +2746,8 @@
      "book": "FanDuel",
      "model_p": 0.6512,
      "implied_p": 0.6241,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "UMass 33-34 Akron"
     }
    ],
    "odds": 220,
@@ -2758,9 +2758,9 @@
    "edge": 0.0152,
    "sources": "Legs: OKC 71%, DET 71%, UMass 65% model; Kalshi/ESPN/OddsShark agree on all three",
    "why": "Three favorites the model rates at 65%+ each, all at FanDuel with no same-game legs.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "Thunder lost 112-117; Pistons won 122-109; UMass lost 33-34"
   },
   {
    "id": "2026-11-18-4",
@@ -2782,8 +2782,8 @@
      "book": "FanDuel",
      "model_p": 0.431,
      "implied_p": 0.3846,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 goals"
     }
    ],
    "odds": 160,
@@ -2794,9 +2794,9 @@
    "edge": 0.0464,
    "sources": "15 G in 21 GP, 2.2 shots/G, on Colorado PP1 (MacKinnon listed out); model 43% vs FanDuel +160 (38%)",
    "why": "Lehkonen has scored at a hot clip and picks up extra ice time with MacKinnon out, and the price is longer than his rate suggests.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "0 goals"
   },
   {
    "id": "2026-11-18-5",
@@ -2817,8 +2817,8 @@
      "book": "DraftKings",
      "model_p": 0.1693,
      "implied_p": 0.1653,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Heat 137-130 Bucks"
     }
    ],
    "odds": 505,
@@ -2829,10 +2829,310 @@
    "edge": 0.004,
    "sources": "Market 17%, Kalshi 16%, ESPN 20%, OddsShark 15%; DraftKings +505 is the best price (FanDuel +440)",
    "why": "Daily shot: the model gives Milwaukee about 17%, and +505 pays 1.02x our estimate, the best expected return on the board.",
+   "status": "lost",
+   "profit": -10,
+   "result": "Heat 137-130 Bucks",
+   "call": "Going for it: Bucks upset the Heat (+505) - $10 pays $50.50"
+  },
+  {
+   "id": "2026-11-19-1",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "ml",
+   "title": "Temple Owls ML",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Rice Owls @ Temple Owls",
+     "start": "2026-11-20T00:30Z",
+     "sel": "Temple Owls ML",
+     "team": "Temple Owls",
+     "opp": "Rice Owls",
+     "odds": -142,
+     "book": "FanDuel",
+     "model_p": 0.602,
+     "implied_p": 0.5868,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -142,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 17.61,
+   "model_p": 0.602,
+   "edge": 0.0152,
+   "sources": "Market 56% (no-vig), ESPN 67%, OddsShark 28-24 Temple; public 85% of bets on Temple",
+   "why": "Model 60% vs FanDuel -142 (59%): ESPN and OddsShark both like the home team more than the market does.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-2",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "ml",
+   "title": "Winnipeg Jets ML",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "ml",
+     "game": "New York Islanders @ Winnipeg Jets",
+     "start": "2026-11-20T00:00Z",
+     "sel": "Winnipeg Jets ML",
+     "team": "Winnipeg Jets",
+     "opp": "New York Islanders",
+     "odds": -105,
+     "book": "FanDuel",
+     "model_p": 0.52,
+     "implied_p": 0.5122,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -105,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 23.81,
+   "model_p": 0.52,
+   "edge": 0.0078,
+   "sources": "Market 50%, Kalshi 52%, OddsShark 3.05-3.02 NYI (coin flip); sharp money on Winnipeg (71% of money on 33% of bets)",
+   "why": "Lean: a thin 0.8-point edge, but the money is on Winnipeg while 67% of bets are on the Islanders.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-3",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Spurs + Trail Blazers",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "LA Clippers @ San Antonio Spurs",
+     "start": "2026-11-20T01:00Z",
+     "sel": "San Antonio Spurs ML",
+     "team": "San Antonio Spurs",
+     "opp": "LA Clippers",
+     "odds": -1100,
+     "book": "FanDuel",
+     "model_p": 0.858,
+     "implied_p": 0.9167,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Portland Trail Blazers @ Milwaukee Bucks",
+     "start": "2026-11-20T01:00Z",
+     "sel": "Portland Trail Blazers ML",
+     "team": "Portland Trail Blazers",
+     "opp": "Milwaukee Bucks",
+     "odds": -480,
+     "book": "FanDuel",
+     "model_p": 0.786,
+     "implied_p": 0.8276,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -314,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 3.18,
+   "model_p": 0.6744,
+   "edge": -0.0842,
+   "sources": "Spurs: market 88%, Kalshi 87.5%, ESPN 90%, OddsShark 122-105. Blazers: market 79%, Kalshi 80%, ESPN 77%, OddsShark 117-109",
+   "why": "Lean: the two highest-probability sides on the board, in different games (Texans skipped because the Colts are today's longshot).",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-4",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "longshot",
+   "title": "Colts ML (longshot)",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Indianapolis Colts @ Houston Texans",
+     "start": "2026-11-20T01:15Z",
+     "sel": "Indianapolis Colts ML",
+     "team": "Indianapolis Colts",
+     "opp": "Houston Texans",
+     "odds": 524,
+     "book": "DraftKings",
+     "model_p": 0.197,
+     "implied_p": 0.1603,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 524,
+   "book": "DraftKings",
+   "stake": 10,
+   "to_win": 52.4,
+   "model_p": 0.197,
+   "edge": 0.0367,
+   "sources": "Market 15%, Kalshi 15.5%, ESPN 25%, OddsShark 17.6-27.3 Houston; DraftKings +524 is the best price (FanDuel +520)",
+   "why": "Daily shot: model gives Indianapolis about 20% (ESPN is well above the market), so +524 pays 1.23x our estimate, the best expected return on the board.",
    "status": "pending",
    "profit": null,
    "result": "",
-   "call": "Going for it: Bucks upset the Heat (+505) - $10 pays $50.50"
+   "call": "Going for it: Colts upset the Texans on Thursday night (+524) - $10 pays $52.40"
+  },
+  {
+   "id": "2026-11-19-5",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "prop",
+   "title": "Leon Draisaitl anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Edmonton Oilers @ Tampa Bay Lightning",
+     "start": "2026-11-20T00:30Z",
+     "sel": "Leon Draisaitl anytime goal",
+     "team": "Edmonton Oilers",
+     "opp": "Tampa Bay Lightning",
+     "player": "Leon Draisaitl",
+     "odds": 130,
+     "book": "FanDuel",
+     "model_p": 0.557,
+     "implied_p": 0.4348,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 130,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 13.0,
+   "model_p": 0.557,
+   "edge": 0.1222,
+   "sources": "3.8 shots/G, 21 G in 23 GP, model 56% vs +130 (43%); active in RotoWire lineup",
+   "why": "Shot volume and goal pace put Draisaitl well above the FanDuel price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-6",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "prop",
+   "title": "Cutter Gauthier anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Anaheim Ducks @ Colorado Avalanche",
+     "start": "2026-11-20T02:00Z",
+     "sel": "Cutter Gauthier anytime goal",
+     "team": "Anaheim Ducks",
+     "opp": "Colorado Avalanche",
+     "player": "Cutter Gauthier",
+     "odds": 110,
+     "book": "DraftKings",
+     "model_p": 0.595,
+     "implied_p": 0.4762,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 110,
+   "book": "DraftKings",
+   "stake": 10,
+   "to_win": 11.0,
+   "model_p": 0.595,
+   "edge": 0.1188,
+   "sources": "4.5 shots/G, 21 G in 21 GP, model 60% vs +110 (48%); FanDuel +105; active in RotoWire lineup",
+   "why": "Shot volume and goal pace put Gauthier well above the DraftKings price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-7",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "prop",
+   "title": "Victor Olofsson anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Dallas Stars @ Vegas Golden Knights",
+     "start": "2026-11-20T03:00Z",
+     "sel": "Victor Olofsson anytime goal",
+     "team": "Vegas Golden Knights",
+     "opp": "Dallas Stars",
+     "player": "Victor Olofsson",
+     "odds": 260,
+     "book": "FanDuel",
+     "model_p": 0.393,
+     "implied_p": 0.2778,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 260,
+   "book": "FanDuel",
+   "stake": 10,
+   "to_win": 26.0,
+   "model_p": 0.393,
+   "edge": 0.1152,
+   "sources": "2.5 shots/G, 7 G in 10 GP, model 39% vs +260 (28%); small sample, on PP1; active in RotoWire lineup",
+   "why": "Shot volume and goal pace put Olofsson well above the FanDuel price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-8",
+   "date": "2026-11-19",
+   "placed": "2026-11-19T16:25:00Z",
+   "cat": "prop",
+   "title": "Tyler Warren anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Indianapolis Colts @ Houston Texans",
+     "start": "2026-11-20T01:15Z",
+     "sel": "Tyler Warren anytime TD",
+     "team": "Indianapolis Colts",
+     "opp": "Houston Texans",
+     "player": "Tyler Warren",
+     "odds": 350,
+     "book": "DraftKings",
+     "model_p": 0.247,
+     "implied_p": 0.2222,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 350,
+   "book": "DraftKings",
+   "stake": 10,
+   "to_win": 35.0,
+   "model_p": 0.247,
+   "edge": 0.0248,
+   "sources": "Covers projection 0.27 TD (24%), season rate 3 TD in 8 GP (27%), blend 25% vs DraftKings +350 (22%); FanDuel +320; active in RotoWire lineup",
+   "why": "Lean: the best anytime-TD edge on the Colts-Texans card, a small 2.5 points (Emari Demercado skipped: his 0.64 projection clashes with a 20.5-yard rushing line).",
+   "status": "pending",
+   "profit": null,
+   "result": ""
   }
  ],
  "public": [
@@ -3665,9 +3965,9 @@
    "pct_bets": 88,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Hawks 117-112 Thunder"
   },
   {
    "id": "2026-11-18-p2",
@@ -3682,9 +3982,9 @@
    "pct_bets": 95,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 10.42,
+   "result": "Pistons 122-109 Pelicans"
   },
   {
    "id": "2026-11-18-p3",
@@ -3699,9 +3999,9 @@
    "pct_bets": 96,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 4.24,
+   "result": "Heat 137-130 Bucks"
   },
   {
    "id": "2026-11-18-p4",
@@ -3714,6 +4014,91 @@
    "opp": "Akron Zips",
    "odds": -166,
    "pct_bets": 88,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "lost",
+   "profit": -25,
+   "result": "UMass 33-34 Akron"
+  },
+  {
+   "id": "2026-11-19-p1",
+   "date": "2026-11-19",
+   "sp": "NCAAF",
+   "game": "Rice Owls @ Temple Owls",
+   "start": "2026-11-20T00:30Z",
+   "sel": "Temple Owls ML",
+   "team": "Temple Owls",
+   "opp": "Rice Owls",
+   "odds": -142,
+   "pct_bets": 85,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-p2",
+   "date": "2026-11-19",
+   "sp": "NHL",
+   "game": "New York Islanders @ Winnipeg Jets",
+   "start": "2026-11-20T00:00Z",
+   "sel": "New York Islanders ML",
+   "team": "New York Islanders",
+   "opp": "Winnipeg Jets",
+   "odds": -114,
+   "pct_bets": 67,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-p3",
+   "date": "2026-11-19",
+   "sp": "NBA",
+   "game": "LA Clippers @ San Antonio Spurs",
+   "start": "2026-11-20T01:00Z",
+   "sel": "San Antonio Spurs ML",
+   "team": "San Antonio Spurs",
+   "opp": "LA Clippers",
+   "odds": -1100,
+   "pct_bets": 88,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-p4",
+   "date": "2026-11-19",
+   "sp": "NBA",
+   "game": "Portland Trail Blazers @ Milwaukee Bucks",
+   "start": "2026-11-20T01:00Z",
+   "sel": "Portland Trail Blazers ML",
+   "team": "Portland Trail Blazers",
+   "opp": "Milwaukee Bucks",
+   "odds": -480,
+   "pct_bets": 88,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-19-p5",
+   "date": "2026-11-19",
+   "sp": "NFL",
+   "game": "Indianapolis Colts @ Houston Texans",
+   "start": "2026-11-20T01:15Z",
+   "sel": "Houston Texans ML",
+   "team": "Houston Texans",
+   "opp": "Indianapolis Colts",
+   "odds": -720,
+   "pct_bets": 93,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -3891,6 +4276,23 @@
    },
    "bankroll": 1296.55,
    "public_bankroll": 1033.29
+  },
+  {
+   "date": "2026-11-18",
+   "bot": {
+    "w": 0,
+    "l": 5,
+    "p": 0,
+    "profit": -80
+   },
+   "public": {
+    "w": 2,
+    "l": 2,
+    "p": 0,
+    "profit": -35.34
+   },
+   "bankroll": 1216.55,
+   "public_bankroll": 997.95
   }
  ]
 }

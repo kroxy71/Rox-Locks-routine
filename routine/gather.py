@@ -445,7 +445,7 @@ def show(path):
     print('(auto-filled game, time, tv and sites on picks.json where empty; judge the [page] excerpts yourself and add them to sites)')
 
 
-def props(player, sport, stat=None):
+def props(player, sport, stat=None, line=None):
     key = os.environ.get('ODDS_API_KEY', '')
     if not key:
         print('no ODDS_API_KEY')
@@ -456,6 +456,8 @@ def props(player, sport, stat=None):
     n = 0
     for r in j.get('data', []):
         if want and r.get('market_type') != want:
+            continue
+        if line is not None and r.get('line') is not None and abs(float(r['line']) - line) > 1e-9:
             continue
         print('%s %s %s %s line %s %s%s' % (r.get('sportsbook'), r.get('player_name'), r.get('market_type'), r.get('selection_type'),
                                             r.get('line'), fmt_am(r.get('odds_american')), ' (live)' if r.get('is_live') else ''))
@@ -476,6 +478,7 @@ def main():
     pr.add_argument('player')
     pr.add_argument('--sport', default='nba')
     pr.add_argument('--stat', default='')
+    pr.add_argument('--line', type=float, default=None, help='only rows at this exact line')
     a = ap.parse_args()
     if a.cmd == 'fetch':
         date = datetime.date.fromisoformat(a.date) if a.date else datetime.datetime.now(ET).date()
@@ -483,7 +486,7 @@ def main():
     elif a.cmd == 'show':
         show(a.picks)
     else:
-        props(a.player, a.sport, a.stat or None)
+        props(a.player, a.sport, a.stat or None, a.line)
 
 
 if __name__ == '__main__':

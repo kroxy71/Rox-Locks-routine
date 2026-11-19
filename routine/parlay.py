@@ -15,7 +15,13 @@ def main():
         i = args.index('--wager')
         wager = float(args[i + 1].replace('$', '').replace(',', ''))
         del args[i:i + 2]
-    legs = [int(x.replace('−', '-')) for x in args]
+    import re
+    legs = []
+    for x in args:
+        m = re.search(r'[+\-−]?\d+', x.replace(',', ''))
+        if not m:
+            raise SystemExit('cannot read odds: %r' % x)
+        legs.append(int(m.group(0).replace('−', '-')))
     D = 1.0
     for a in legs:
         D *= dec(a)

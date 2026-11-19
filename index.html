@@ -317,7 +317,6 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" id="tab-picks" data-tab="picks" aria-selected="true">Picks</button>
       <button class="tab" role="tab" id="tab-results" data-tab="results" aria-selected="false">Results</button>
-      <button class="tab" role="tab" id="tab-ml" data-tab="ml" aria-selected="false">KingCap Parlays</button>
       <button class="tab" role="tab" id="tab-slip" data-tab="slip" aria-selected="false">Bet Slip</button>
       <button class="tab" role="tab" id="tab-bot" data-tab="bot" aria-selected="false">Accuracy Tracker</button>
       <button class="tab" role="tab" id="tab-stats" data-tab="stats" aria-selected="false">SharpSheet</button>
@@ -342,12 +341,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   const TABS = {
     picks:  { name: "Picks", empty: "No picks yet." },
     results:{ name: "Results", empty: "No results updates yet." },
-    ml:     { name: "KingCap Parlays", empty: "No KingCap parlays yet." },
     slip:   { name: "Bet Slip", empty: "" },
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-18a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-18b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };

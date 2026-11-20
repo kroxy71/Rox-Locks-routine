@@ -345,7 +345,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-19a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-19b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1656,6 +1656,21 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     } catch (e) { }
     return null;
   }
+  // When a pick has no number, take it from the bet slip he showed that day ("Cole Caufield 3+ shots on goal" -> over 2.5)
+  let slipDay = null;
+  function slipLine(player, stat){
+    const B = String.fromCharCode(92), list = (st.slips && st.slips[slipDay]) || [];
+    const re = new RegExp("^(.+?)" + B + "s+(" + B + "d+)" + B + "+" + B + "s+(" + STATWORDS + ")" + B + "b", "i");
+    for (const v of list) for (const l of (Array.isArray(v.legs) ? v.legs : [])) {
+      const t = String((l && l.text) || "").split(" " + String.fromCharCode(183) + " ")[0].replace(/^SGP:\s*/i, "").replace(/\s*\(.*$/, "");
+      for (const part of t.split(new RegExp(B + "s+and" + B + "s+", "i"))) {
+        const m = re.exec(part.trim()); if (!m) continue;
+        const sx = statOf(m[3]);
+        if (sx && sx.stat === stat && sameName(player, m[1])) return +m[2] - 0.5;
+      }
+    }
+    return null;
+  }
   const boxCache = {};
   async function getBox(g){
     const c = boxCache[g.id]; if (c && c.final) return c;
@@ -1748,10 +1763,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       } else {
         row.val = v + " " + p.sname;
         let line = p.line, assumed = false;
+        if (line == null) { const sl = slipLine(p.player, p.stat); if (sl != null) { line = sl; assumed = "slip"; } }
         if (line == null) { const dk = await dkLine(gg, hit.id, p.stat); if (dk != null) { line = dk; assumed = true; } }
         if (line == null) { row.text = v + " " + p.sname + " (no line stated)"; row.res = done ? "none" : "live"; }
         else {
-          row.text = v + " " + p.sname + " vs " + line + (assumed ? " (DraftKings line, none stated)" : "");
+          row.text = v + " " + p.sname + " vs " + line + (assumed === "slip" ? " (from his bet slip)" : assumed ? " (DraftKings line, none stated)" : "");
           const over = v > line;
           row.res = p.ou === "over" ? (over ? "hit" : done ? "miss" : "live") : (over ? "miss" : done ? "hit" : "live");
         }
@@ -1763,6 +1779,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   }
   const liveCache = {};   // "day" -> { at, rows, live, soon, done, err }
   async function refreshLive(day, picks){
+    slipDay = day;
     const sports = Array.from(new Set(picks.map(p => p.sp)));
     const games = {};
     await Promise.all(sports.map(async sp => { try { games[sp] = await getGames(sp, day); } catch (e) { games[sp] = null; } }));

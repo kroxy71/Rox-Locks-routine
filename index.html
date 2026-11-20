@@ -345,7 +345,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-18b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-19a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1545,9 +1545,10 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     [/^(?:receiving yards|rec yards|receiving yds|rec yds)$/i, "recyds", "rec yds"],
     [/^(?:rushing yards|rush yards|rushing yds|rush yds)$/i, "rushyds", "rush yds"],
     [/^(?:passing yards|pass yards|passing yds)$/i, "passyds", "pass yds"],
+    [/^(?:shots?(?:\s+on\s+goal)?|sog)$/i, "sog", "SOG"],
     [/^receptions?$/i, "rec", "rec"], [/^points$/i, "pts", "pts"], [/^rebounds$/i, "reb", "reb"], [/^assists$/i, "ast", "ast"]
   ];
-  const STATWORDS = "pra|pts\\+reb\\+ast|threes?|3-?pointers?|3pm|steals?|blocks?|receiving yards|rec yards|receiving yds|rec yds|rushing yards|rush yards|rushing yds|rush yds|passing yards|pass yards|passing yds|receptions?|points|rebounds|assists";
+  const STATWORDS = "pra|pts\\+reb\\+ast|threes?|3-?pointers?|3pm|steals?|blocks?|receiving yards|rec yards|receiving yds|rec yds|rushing yards|rush yards|rushing yds|rush yds|passing yards|pass yards|passing yds|shots?\s+on\s+goal|shots?|sog|receptions?|points|rebounds|assists";
   function statOf(w){ const r = STATS.find(s => s[0].test(w.trim())); return r ? { stat: r[1], name: r[2] } : null; }
   function parsePick(sp, desc, cat){
     const d = desc.trim(); let m;
@@ -1685,6 +1686,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       case "recyds": return num(p, "receiving", "YDS"); case "rushyds": return num(p, "rushing", "YDS"); case "passyds": return num(p, "passing", "YDS");
       case "pr": return num(p, "", "PTS") + num(p, "", "REB");
       case "rec": return num(p, "receiving", "REC");
+      case "sog": return num(p, "", "S");   // ESPN NHL box: S = shots on goal (its SOG column is shootout goals)
       case "atd": return num(p, "rushing", "TD") + num(p, "receiving", "TD");
       case "atg": return num(p, "", "G");
     }

@@ -345,7 +345,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-19b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-20k";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1382,13 +1382,16 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   // Live grading of open bets: the browser checks ESPN for legs that have started; the 11 AM routine still settles the bankroll.
   const botLive = {};   // "betId#leg" -> { res, live }
   const legPick = l => l.kind === "ml" ? { sp: l.sp, k: "ml", team: l.team, label: l.sel }
-    : (l.kind === "atg" || l.kind === "atd") ? { sp: l.sp, k: l.kind, player: l.player, label: l.sel } : null;
+    : (l.kind === "atg" || l.kind === "atd") ? { sp: l.sp, k: l.kind, player: l.player, label: l.sel }
+    : (l.kind === "spread" && l.line != null) ? { sp: l.sp, k: "spread", team: l.team, line: +l.line, label: l.sel }
+    : (l.kind === "total" && l.line != null) ? { sp: l.sp, k: "total", a: l.team, b: l.opp, ou: l.ou, line: +l.line, label: l.sel }
+    : (l.kind === "prop" && HIST_STAT[l.stat] && l.line != null) ? { sp: l.sp, k: "prop", player: l.player, stat: HIST_STAT[l.stat], sname: l.stat, ou: l.ou, line: +l.line, label: l.sel } : null;
   function legState(b, i){
     const l = b.legs[i], s = String(l.status || "pending");
     if (s !== "pending") return { st: s };
     const v = botLive[b.id + "#" + i];
     if (!v) return { st: "pending" };
-    return { st: v.res === "hit" ? "won" : v.res === "miss" ? "lost" : "pending", live: v.live };
+    return { st: v.res === "hit" ? "won" : v.res === "miss" ? "lost" : v.res === "push" ? "push" : "pending", live: v.live };
   }
   function betState(b){
     if (b.status && b.status !== "pending") return { st: b.status };
@@ -1396,9 +1399,10 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     if (!L.length) return { st: "pending" };
     if (L.some(x => x.st === "lost")) return { st: "lost", prov: true };
     if (L.every(x => x.st === "won")) return { st: "won", prov: true };
+    if (L.length === 1 && L[0].st === "push") return { st: "push", prov: true };
     return { st: "pending", live: L.some(x => x.live) };
   }
-  const betProfit = (b, x) => x.prov ? (x.st === "won" ? Number(b.to_win) || 0 : -(Number(b.stake) || 0)) : Number(b.profit) || 0;
+  const betProfit = (b, x) => x.prov ? (x.st === "won" ? Number(b.to_win) || 0 : x.st === "push" ? 0 : -(Number(b.stake) || 0)) : Number(b.profit) || 0;
   let botBusy = false;
   async function refreshBotLive(){
     const d = st.bot; if (!d || !Array.isArray(d.bets) || botBusy) return;
@@ -1458,6 +1462,12 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const vs = el("div","bot-vs");
     vs.append(el("span","n","Computer"), el("span", tone(bank - start), money(bank)), el("span","r", recTxt(d.record)));
     vs.append(el("span","n","Public"), el("span", tone(pub - start), money(pub)), el("span","r", recTxt(d.public_record)));
+    const kcAll = d.bets.filter(b => b.cat === "kingcap");
+    if (kcAll.length) {
+      const kr = { w: 0, l: 0, p: 0 }; let kp = 0;
+      kcAll.forEach(b => { if (b.status === "won") kr.w++; else if (b.status === "lost") kr.l++; else if (b.status === "push") kr.p++; if (b.status && b.status !== "pending") kp += Number(b.profit) || 0; });
+      vs.append(el("span","n","KingCap bets"), el("span", tone(kp), signed(kp)), el("span","r", recTxt(kr)));
+    }
     box.append(vs);
     const diff = bank - pub;
     box.append(el("div","bot-lead " + tone(diff), Math.abs(diff) < 0.005 ? "Even with the public so far" : (diff > 0 ? "Computer leads the public by " : "Public leads the computer by ") + money(Math.abs(diff))));
@@ -1480,12 +1490,18 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (full && shot.why) g.append(el("div","bb-why", String(shot.why)));
       box.append(g);
     }
-    const order = { ml: 0, parlay: 1, prop: 2, longshot: 3 };
+    const order = { ml: 0, parlay: 1, prop: 2, longshot: 3, kingcap: 4 };
     function daySection(label, list){
-      const rest = list.filter(b => b !== shot);
-      if (!rest.length) return;
-      box.append(el("div","bot-day-head", label + " (" + rest.length + ")"));
-      rest.sort((a,b) => (order[a.cat] ?? 9) - (order[b.cat] ?? 9)).forEach(b => box.append(betRow(b)));
+      const rest = list.filter(b => b !== shot && b.cat !== "kingcap");
+      const kcs = list.filter(b => b.cat === "kingcap");
+      if (rest.length) {
+        box.append(el("div","bot-day-head", label + " (" + rest.length + ")"));
+        rest.sort((a,b) => (order[a.cat] ?? 9) - (order[b.cat] ?? 9)).forEach(b => box.append(betRow(b)));
+      }
+      if (kcs.length) {
+        box.append(el("div","bot-day-head", label.replace(" bets", " KingCap bets") + " (" + kcs.length + ")"));
+        kcs.forEach(b => box.append(betRow(b)));
+      }
     }
     daySection("Today's bets", todays);
     daySection("Yesterday's bets", ydays);
@@ -1505,7 +1521,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const older = bets.filter(b => b.date !== todayKey && b.date !== ydayKey);
       if (older.length) { box.append(el("div","bot-sec","Earlier bets")); older.slice(0, 80).forEach(b => box.append(betRow(b))); }
     }
-    box.append(el("div","bot-meta","Public = $25 on whichever side most bettors took, on the same games. Paper money only; not betting advice."));
+    box.append(el("div","bot-meta","KingCap bets = the 5 KingCap picks the computer's model likes best each day, placed right after the picks email. Public = $25 on whichever side most bettors took, on the computer's own games. Paper money only; not betting advice."));
     return box;
   }
   function renderBotSide(){ const a = $("bot"); a.replaceChildren(); if (st.tab !== "bot") a.append(botPanel(false)); }

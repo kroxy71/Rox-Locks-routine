@@ -4,7 +4,7 @@
 Usage (run from a clone of kroxy71/Rox-Locks-routine, GITHUB_TOKEN in the environment):
   python3 routine/publish.py --web OUT/web.json [--id MESSAGE_ID]
         [--picks picks.json] [--slipdir DIR] [--reported OUT/reported.json]
-        [--videos v1,v2] [--partial] [--dry]
+        [--videos v1,v2] [--partial] [--kcbets picks.json] [--dry]
 
   --web       web.json written by render_picks.py / render_results.py
   --id        the Gmail message id that send_message returned (else kind-UTC time)
@@ -12,9 +12,10 @@ Usage (run from a clone of kroxy71/Rox-Locks-routine, GITHUB_TOKEN in the enviro
   --slipdir   folder holding slip_<YYYY-MM-DD>_<mm-ss>.jpg crops (copied to slips/)
   --reported  list of pick keys a results email reported (added to data/state.json "reported")
   --videos    Twitch video ids now fully covered (added to data/state.json "videos"); skipped with --partial
+  --kcbets    picks.json (after gather.py show): the computer's KingCap paper bets go into data/bot.json (kcbets.py)
   --dry       change the files but do not commit or push
 
-Changes only data/emails.json, data/slips.json, data/history.json, data/state.json and slips/*.jpg.
+Changes only data/emails.json, data/slips.json, data/history.json, data/state.json, data/bot.json (--kcbets) and slips/*.jpg.
 Scrubs email addresses and keys. Never prints the token.
 """
 import argparse
@@ -77,6 +78,7 @@ def main():
     ap.add_argument('--reported')
     ap.add_argument('--videos', default='')
     ap.add_argument('--partial', action='store_true')
+    ap.add_argument('--kcbets')
     ap.add_argument('--dry', action='store_true')
     a = ap.parse_args()
     now = datetime.datetime.now(datetime.timezone.utc)
@@ -157,6 +159,12 @@ def main():
                     st['videos'].append(v)
             st['videos'] = st['videos'][-200:]
         save('state.json', st)
+
+    # 4. the computer's KingCap paper bets (never stops the publish if it fails)
+    if a.kcbets:
+        r = subprocess.run([sys.executable, os.path.join(HERE, 'kcbets.py'), a.kcbets] + (['--dry'] if a.dry else []),
+                           cwd=REPO, capture_output=True, text=True, encoding='utf-8')
+        print((r.stdout or r.stderr or 'kcbets: no output').strip()[-600:])
 
     if a.dry:
         print('dry run: nothing committed')

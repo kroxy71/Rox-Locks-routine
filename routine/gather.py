@@ -338,15 +338,39 @@ def et(iso):
     return d.strftime('%-I:%M %p ET') if sys.platform != 'win32' else d.strftime('%I:%M %p ET').lstrip('0')
 
 
+def team_match(name, team):
+    """3 = same name, 2 = school/city part (Toledo -> Toledo Rockets), 1 = nickname only (Rockets), 0 = no match"""
+    n, t = norm(name), norm(team)
+    if not n or not t:
+        return 0
+    if n == t:
+        return 3
+    if t.startswith(n + ' '):
+        return 2
+    if len(n.split()) == 1 and t.split()[-1] == n:
+        return 1
+    return 0
+
+
+def side_of(g, team):
+    h, a = team_match(team, g['home']), team_match(team, g['away'])
+    if h == a:
+        return None
+    return 'home' if h > a else 'away'
+
+
 def find_game(games, sp, names):
     names = [n for n in names if n]
     best = None
     for g in games:
         if g['sp'] != sp:
             continue
-        hit = sum(1 for n in names if nick(n) in (nick(g['home']), nick(g['away'])) or norm(n) in (norm(g['home']), norm(g['away'])))
-        if hit and (best is None or hit > best[0]):
-            best = (hit, g)
+        hits = [max(team_match(n, g['home']), team_match(n, g['away'])) for n in names]
+        if not any(hits):
+            continue
+        score = (sum(1 for h in hits if h), sum(hits))
+        if best is None or score > best[0]:
+            best = (score, g)
     return best[1] if best else None
 
 
@@ -376,7 +400,7 @@ def sites_for(p, g):
     out = []
     side = None
     if t in ('ml', 'spread', 'h1ml'):
-        side = 'home' if nick(kc.get('team', '')) == nick(g['home']) else 'away'
+        side = side_of(g, kc.get('team', ''))
     src = g['src']
     if side:
         other = 'away' if side == 'home' else 'home'

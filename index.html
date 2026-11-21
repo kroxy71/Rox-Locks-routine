@@ -75,7 +75,7 @@ body[data-tab="bot"] main .wrap{grid-template-columns:minmax(0,1fr)!important;ma
 body[data-tab="bot"] #view .bcol{display:grid;gap:16px;align-content:start;min-width:0}
 body[data-tab="bot"] #view{display:grid;gap:16px}
 body[data-tab="bot"] #view .tp{margin-bottom:0!important}
-@media (min-width:1000px){body[data-tab="bot"] main .wrap{max-width:1340px}body[data-tab="bot"] #view{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}}
+@media (min-width:860px){body[data-tab="bot"] #view{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}}
 #stats iframe{display:block;width:100%;border:0;background:#000;height:calc(100vh - 120px)}
 .tab{font:700 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 60%,transparent);background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px 9px;cursor:pointer;min-height:44px}
 .tab{line-height:1.05}
@@ -308,7 +308,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .parl-meta{font-size:12px;color:var(--muted)}
 .parl-legs{list-style:none;margin:2px 0 0;padding:0;font-size:13px;display:grid;gap:1px}.parl-legs li.hit{color:var(--good)}.parl-legs li.miss{color:var(--bad)}
 .brow{display:grid;grid-template-columns:minmax(96px,34%) minmax(0,1fr) auto;gap:8px;align-items:center;padding:3px 0;font-size:14px}.brow .nm{overflow-wrap:anywhere}
-.bar{position:relative;height:12px;border-radius:6px;background:color-mix(in srgb,var(--ink) 9%,var(--surface));overflow:hidden}.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:6px}.bar i.lo{background:var(--muted)}.bar u{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--ink);opacity:.55}
+.bar{position:relative;height:12px;border-radius:6px;background:color-mix(in srgb,var(--ink) 9%,var(--surface));overflow:hidden}.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--muted);border-radius:6px}.bar i.up{background:var(--good)}.bar i.lo{background:var(--bad)}
+.brow .num.up,.brk-rec.up{color:var(--good)}.brow .num.lo,.brk-rec.lo{color:var(--bad)}
+.brk-rec{font:800 30px/1 var(--f-display);font-variant-numeric:tabular-nums}.brk-rec small{font-size:18px}
+.brow.wk{cursor:pointer;font-weight:700}.brow.wk .nm{display:flex;gap:6px}.brow.dy{font-size:13px}.brow.dy .nm{padding-left:20px;color:var(--muted)}
+.wk-btn2{all:unset;cursor:pointer;display:contents}.brow.wk:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.bar u{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--ink);opacity:.55}
 .brow .num{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.brow.small{opacity:.6}
 </style>
 </head>
@@ -354,7 +358,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-21a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-21b";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -469,7 +473,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     if (t === "results") { renderResults(view); return; }
     if (t === "bot") {
       const col = (...xs) => { const c = el("div","bcol"); xs.filter(Boolean).forEach(x => c.append(x)); return c; };
-      view.append(col(botPanel(true)), col(breakdown(), parlayPanel()), col(trackerFull()));
+      view.append(col(botPanel(true)), col(breakdown() || el("p","fine","Grading the season from ESPN..."), parlayPanel()));
       return;
     }
     const list = st.lists[t] || [];
@@ -741,6 +745,9 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     try {
       let cache = {}; try { cache = JSON.parse(localStorage.getItem("rlHist1") || "{}") || {}; } catch (e) {}
       const rows = [], byDay = {};
+      // Oct 25-31 picks were graded once by the routine (routine/baseline.json, res W/L/P/N/V)
+      const BRES = { W: "hit", L: "miss", P: "push" };
+      (st.base0 || []).forEach(h => rows.push({ h, res: BRES[h.res] || "none" }));
       st.hist0.forEach(h => {
         const key = histKey(h);
         if (cache[key]) rows.push({ h, res: cache[key] }); else (byDay[h.d] = byDay[h.d] || []).push({ h, key });
@@ -770,7 +777,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     Object.keys(h.byDay).forEach(d => { if (d >= cut) { w7 += h.byDay[d].w; l7 += h.byDay[d].l; } });
     const bt = Object.keys(h.g.type).map(k => ({ name: k, w: h.g.type[k].w, l: h.g.type[k].l })).filter(x => x.w + x.l >= 10)
       .sort((a, b) => pctOf(b.w, b.l) - pctOf(a.w, a.l) || (b.w + b.l) - (a.w + a.l))[0];
-    const first = st.hist0.reduce((m, x) => x.d < m ? x.d : m, "9999");
+    const first = st.hist0.concat(st.base0 || []).reduce((m, x) => x.d < m ? x.d : m, "9999");
     const box = el("section", "score"), tiles = el("div", "tiles");
     tiles.append(
       tile(h.w + "-" + h.l, "Season", pctOf(h.w, h.l) + "% of " + (h.w + h.l) + " graded"),
@@ -786,6 +793,20 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     if (!h) return null;
     const panel = el("section", "tp"), head = el("div", "tp-head"), wrap = el("div", "brk");
     head.append(el("span", "tp-title", "Where the picks hit"), el("span", "tp-when", "line = 50%"));
+    const tone2 = (w, l) => w > l ? "up" : w < l ? "lo" : "";
+    const days = Object.keys(h.byDay).sort();
+    const top = el("div");
+    const big = el("div", "brk-rec " + tone2(h.w, h.l)); big.append(h.w + "-" + h.l + (h.push ? "-" + h.push : "") + " ", el("small", null, "(" + pctOf(h.w, h.l) + "%)"));
+    const dl = d => fmtDay(new Date(d + "T12:00:00-05:00"));
+    top.append(big, el("p", "fine", "on " + (h.w + h.l) + " graded picks" + (days.length ? ", " + dl(days[0]) + " - " + dl(days[days.length - 1]) : "") + (h.none ? " · " + h.none + " could not be graded" : "") + ". Hit rate only: it ignores odds, so it is not profit."));
+    wrap.append(top);
+    const barRow = (name, w, l, cls) => {
+      const n = w + l, pc = pctOf(w, l), r = el("div", "brow" + (cls ? " " + cls : ""));
+      const bar = el("div", "bar"), fill = el("i", tone2(w, l)); fill.style.width = pc + "%";
+      bar.append(fill, el("u")); bar.setAttribute("role", "img"); bar.setAttribute("aria-label", name + " " + pc + " percent");
+      r.append(el("span", "nm", name), bar, el("span", "num " + tone2(w, l), w + "-" + l + " · " + pc + "%"));
+      return r;
+    };
     [["conv", "By conviction", false], ["type", "By bet type", true], ["sport", "By sport", true]].forEach(([k, title, sort]) => {
       let rows = Object.keys(h.g[k]).map(n => ({ name: n, w: h.g[k][n].w, l: h.g[k][n].l })).filter(x => x.w + x.l > 0);
       if (k === "conv") { const o = { High: 0, Medium: 1, Low: 2 }; rows.sort((a, b) => (o[a.name] ?? 9) - (o[b.name] ?? 9)); }
@@ -793,16 +814,34 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       if (!rows.length) return;
       const g = el("div"); g.append(el("h4", null, title));
       rows.forEach(x => {
-        const n = x.w + x.l, pc = pctOf(x.w, x.l), r = el("div", "brow" + (n < 15 ? " small" : ""));
-        const bar = el("div", "bar"), fill = el("i", pc < 50 ? "lo" : ""); fill.style.width = pc + "%";
-        bar.append(fill, el("u")); bar.setAttribute("role", "img"); bar.setAttribute("aria-label", x.name + " " + pc + " percent");
-        r.append(el("span", "nm", x.name), bar, el("span", "num", x.w + "-" + x.l + " · " + pc + "%"));
+        const n = x.w + x.l, r = barRow(x.name, x.w, x.l, n < 15 ? "small" : "");
         if (n < 15) r.title = "Small sample (" + n + " picks)";
         g.append(r);
       });
       wrap.append(g);
     });
-    wrap.append(el("p", "fine", "Graded from ESPN. Faded rows have fewer than 15 graded picks, so treat them as noise."));
+    // by week (Sunday-Saturday), newest first, each day underneath (tap a week to open it)
+    const weeks = {};
+    days.forEach(d => { const x = new Date(d + "T12:00:00Z"); x.setUTCDate(x.getUTCDate() - x.getUTCDay()); const k = x.toISOString().slice(0, 10); (weeks[k] = weeks[k] || []).push(d); });
+    const wkeys = Object.keys(weeks).sort().reverse();
+    if (wkeys.length) {
+      const g = el("div"); g.append(el("h4", null, "By week"));
+      st.wkOpen = st.wkOpen || { [wkeys[0]]: true };
+      wkeys.forEach(k => {
+        const ds = weeks[k].slice().sort().reverse();
+        const w = ds.reduce((a, d) => a + h.byDay[d].w, 0), l = ds.reduce((a, d) => a + h.byDay[d].l, 0);
+        const end = new Date(k + "T12:00:00Z"); end.setUTCDate(end.getUTCDate() + 6);
+        const md = x => (x.getUTCMonth() + 1) + "/" + x.getUTCDate();
+        const wr = barRow((st.wkOpen[k] ? "▾ " : "▸ ") + "Wk " + md(new Date(k + "T12:00:00Z")) + " - " + md(end), w, l, "wk");
+        wr.tabIndex = 0; wr.setAttribute("role", "button"); wr.setAttribute("aria-expanded", String(!!st.wkOpen[k]));
+        const toggle = () => { st.wkOpen[k] = !st.wkOpen[k]; render(); };
+        wr.addEventListener("click", toggle); wr.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+        g.append(wr);
+        if (st.wkOpen[k]) ds.forEach(d => g.append(barRow(dl(d), h.byDay[d].w, h.byDay[d].l, "dy")));
+      });
+      wrap.append(g);
+    }
+    wrap.append(el("p", "fine", "Green = over 50%, red = under 50%. Graded from ESPN final scores and box scores; a line KingCap states is used, otherwise the line from his bet slip or DraftKings. Only firm picks count. Faded rows have fewer than 15 graded picks, so treat them as noise."));
     panel.append(head, wrap); panel.style.marginBottom = "16px";
     return panel;
   }
@@ -1963,7 +2002,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   async function load(){
     checkBuild();
     try {
-      const [emails, slips, bot, hist] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/bot.json" : "data/bot.json").catch(() => null), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/history.json" : "data/history.json").catch(() => [])]);
+      const [emails, slips, bot, hist, base] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/bot.json" : "data/bot.json").catch(() => null), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/history.json" : "data/history.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/routine/baseline.json" : "routine/baseline.json").catch(() => [])]);
+      st.base0 = Array.isArray(base) ? base.filter(x => x && x.d && x.t && x.res) : [];
       const hv = Array.isArray(hist) ? hist.filter(x => x && x.d && x.sp && x.t) : [];
       st.hist0 = hv.filter(x => x.t !== "parlay");
       st.parl0 = hv.filter(x => x.t === "parlay" && Array.isArray(x.legs));

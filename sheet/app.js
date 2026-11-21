@@ -835,9 +835,9 @@
     const m = S.meta[sp];
     $('#fresh').textContent = m ? m.games + ' games through ' + fmtShort.format(new Date(m.last + 'T12:00:00Z')) + ' (' + sp.toUpperCase() + ')' : '';
   }
-  const PALETTES = { ice: 'Ice', ember: 'Ember', royal: 'Royal', rose: 'Rose' };
+  const PALETTES = { pink: 'Rox Pink', gold: 'Gold', teal: 'Teal', blue: 'Blue', orange: 'Orange', purple: 'Purple' };
   function setPalette(name, announce) {
-    if (!PALETTES[name]) name = 'ice';
+    if (!PALETTES[name]) name = 'pink';
     document.documentElement.setAttribute('data-palette', name);
     document.querySelectorAll('[data-pal]').forEach((b) => { const on = b.dataset.pal === name; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
     store.set('ss-pal', name);
@@ -912,7 +912,7 @@
   }
 
   async function start() {
-    setPalette(store.get('ss-pal') || 'ember', false);
+    setPalette(store.get('ss-pal') || 'pink', false);
     try { await loadAll(); } catch (err) { $('#view').innerHTML = '<p class="empty err">The data files did not load (' + esc(err.message) + '). Reload the page to try again.</p>'; return; }
     loadParlay();
     if (!readHash()) { const sv = store.get('kc-sp'); if (sv === 'nfl' || sv === 'ncaaf' || sv === 'nhl') S.sp = sv; }

@@ -16,7 +16,8 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from render_picks import (CONV_COLOR, CONV_WORD, SPORT_COLOR, OTHER, WRAP, card, chip, cat_chip, h3, sp_key)  # noqa: E402
+from render_picks import (CONV_COLOR, CONV_WORD, SPORT_COLOR, OTHER, WRAP, card, chip, cat_chip, h3, sp_key,
+                          SITE_LINK_HTML, SITE_LINK_TEXT)  # noqa: E402
 
 E = html.escape
 GREEN, RED, GRAY = '#2E7D32', '#C62828', '#777'
@@ -125,8 +126,8 @@ def main():
     subject = a.subject_prefix + subject
     summary = '%d picks just finished: %d HIT, %d MISS%s.' % (
         len(new), len(hits), len(miss), (', %d push/void' % len(other)) if other else '')
-    h = ["<div style='%s'>" % WRAP, "<p><b style='font-size:17px'>%s</b></p>" % E(head)]
-    t = [head, '']
+    h = ["<div style='%s'>" % WRAP, "<p style='margin-bottom:6px'><b style='font-size:17px'>%s</b></p>" % E(head), SITE_LINK_HTML]
+    t = [head, SITE_LINK_TEXT, '']
     if new:
         h.append('<p>%s</p>' % E(summary))
         t.append(summary)

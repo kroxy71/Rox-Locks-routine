@@ -30,6 +30,15 @@ VERDICT_COLOR = {'agrees': '#2E7D32', 'disagrees': '#C62828', 'neutral': '#777'}
 WRAP = "font-family:Arial,sans-serif;font-size:14px;color:#222;max-width:680px"
 
 
+SITE_URL = 'https://tinyurl.com/RoxLocks'
+# a small dark button under the email title (class rl-site-link: the Rox Locks page hides it, since you are already there)
+SITE_LINK_HTML = ("<p class='rl-site-link' style='margin:0 0 14px'><a href='%s' style='display:inline-block;background:#13202B;"
+                  "color:#FFC21A;text-decoration:none;font-weight:bold;font-size:13px;letter-spacing:.04em;padding:7px 14px;"
+                  "border-radius:6px'>ROX LOCKS SITE &#8250;&nbsp;<span style='color:#F3F5F4;font-weight:normal'>live scores, "
+                  "tracker &amp; parlays</span></a></p>" % SITE_URL)
+SITE_LINK_TEXT = 'Rox Locks site (live scores, tracker, parlays): ' + SITE_URL
+
+
 def sp_key(sp):
     s = (sp or '').upper()
     return {'COLLEGE FOOTBALL': 'NCAAF', 'NCAAB': 'NCAAB'}.get(s, s)
@@ -205,7 +214,7 @@ def render(d, tracker_html='', tracker_txt=''):
     strong.sort(key=lambda p: p.get('sort', ''))
     also.sort(key=lambda p: (order.get(p.get('conv'), 1), p.get('sort', '')))
 
-    h = ["<div style='%s'>" % WRAP]
+    h = ["<div style='%s'>" % WRAP, SITE_LINK_HTML]
     intro = d.get('intro', '')
     h.append('<p>%s</p>' % E(intro))
     for n in d.get('notes', []):
@@ -262,7 +271,7 @@ def render(d, tracker_html='', tracker_txt=''):
     html_out = '\n'.join(h)
 
     # plain text
-    t = [intro]
+    t = [SITE_LINK_TEXT, '', intro]
     t.extend(d.get('notes', []))
     t.append('')
     if rows:

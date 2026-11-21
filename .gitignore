@@ -1,2 +1,3 @@
 sheet/data/cache/
 *key*.txt
+__pycache__/

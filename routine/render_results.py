@@ -49,6 +49,18 @@ def title_of(p):
     if t == 'total':
         line = p.get('line')
         return '%s %s %s' % ('/'.join(p['teams']), p.get('ou', 'over'), ('%g' % line) if line is not None else '')
+    if t == 'h1spread':
+        line = p.get('line')
+        if line is None:
+            m = re.search(r'1H ([+-][0-9.]+)', p.get('detail') or '')
+            line = float(m.group(1)) if m else None
+        return '%s 1st Half %s' % (p['team'], ('%+g' % line) if line is not None else 'spread')
+    if t == 'h1total':
+        line = p.get('line')
+        if line is None:
+            m = re.search(r'vs (?:over|under) ([0-9.]+)', p.get('detail') or '')
+            line = float(m.group(1)) if m else None
+        return '%s 1st Half %s %s' % ('/'.join(p['teams']), p.get('ou', 'over'), ('%g' % line) if line is not None else '')
     if t == 'h1ml':
         return '%s 1st Half ML' % p['team']
     if t == 'spread':

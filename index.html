@@ -359,7 +359,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-21j";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-21k";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -715,7 +715,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   }
   // ---------- season record, graded from ESPN (data/history.json lists every pick KingCap made) ----------
   const HIST_STAT = { sog: "sog", rec: "rec", passYds: "passyds", recYds: "recyds", rushYds: "rushyds", points: "pts", rebounds: "reb", steals: "stl", blocks: "blk", pra: "pra", pr: "pr", threes: "threes" };
-  const HIST_TYPE = { ml: "Moneyline / spread", spread: "Moneyline / spread", h1ml: "1st Half ML", total: "Over/under", atd: "Anytime TD scorer", atg: "Anytime goal scorer", prop: "Other player props" };
+  const HIST_TYPE = { ml: "Moneyline / spread", spread: "Moneyline / spread", h1ml: "1st Half ML", h1spread: "1st Half spread", h1total: "1st Half total", total: "Over/under", atd: "Anytime TD scorer", atg: "Anytime goal scorer", prop: "Other player props" };
   function histPick(h){
     const sp = String(h.sp || "").toUpperCase();
     switch (h.t) {
@@ -1708,6 +1708,13 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const player = d.replace(/\s*anytime.*$/i, "").replace(/\s*[-–—]\s*$/, "").trim();
       return { sp, k: /td|touchdown/i.test(cat + " " + d) ? "atd" : "atg", player, label: d };
     }
+    // 1st-half picks: "Wizards/Bulls first half over (any line)", "Oregon 1st half -10", "Hawks 1st Half ML"
+    if ((m = /^(.+?)(?:\s+(?:@|at|vs\.?)\s+|\s*\/\s*)(.+?)\s+(?:1st|first)[- ]half\s+(over|under)(?:\s+(\d+(?:\.\d+)?))?/i.exec(d)))
+      return { sp, k: "h1total", a: m[1], b: m[2], ou: m[3].toLowerCase(), line: m[4] != null ? +m[4] : null, label: d };
+    if ((m = /^(.+?)\s+(?:1st|first)[- ]half(?:\s+(ML|moneyline|[+\-−]\d+(?:\.\d+)?))?/i.exec(d))) {
+      if (m[2] && /^(ml|moneyline)$/i.test(m[2])) return { sp, k: "h1ml", team: m[1], label: d };
+      return { sp, k: "h1spread", team: m[1], line: m[2] ? parseFloat(m[2].replace("−", "-")) : null, label: d };
+    }
     if ((m = /^(.+?)\s+(?:moneyline|ML)\b/i.exec(d))) return { sp, k: "ml", team: m[1], label: d };
     if ((m = /^(.+?)(?:\s+(?:@|at|vs\.?)\s+|\s*\/\s*)(.+?)\s+(over|under)(?:\s+(\d+(?:\.\d+)?))?\s*$/i.exec(d))) return { sp, k: "total", a: m[1], b: m[2], ou: m[3].toLowerCase(), line: m[4] != null ? +m[4] : null, label: d };
     // "Player over 2.5 threes" must be tried first, or the next pattern swallows "over 2.5" into the player's name
@@ -1772,8 +1779,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const j = await espnJSON(ESPN + L[0] + "/scoreboard?dates=" + day.replace(/-/g, "") + L[1]);
     return (j.events || []).map(e => {
       const c = e.competitions[0], s = e.status.type;
-      return { id: e.id, sp, start: new Date(e.date), state: s.state, detail: s.shortDetail || s.description || "",
-        comps: c.competitors.map(x => ({ team: x.team, score: +x.score || 0, home: x.homeAway === "home" })) };
+      return { id: e.id, sp, start: new Date(e.date), state: s.state, detail: s.shortDetail || s.description || "", period: +(e.status.period || 0),
+        comps: c.competitors.map(x => ({ team: x.team, score: +x.score || 0, home: x.homeAway === "home", qs: (x.linescores || []).map(q => +q.value || 0) })) };
     });
   }
   // When KingCap gives no number, fall back to DraftKings' own line for that player/stat (ESPN carries it, game over or not)
@@ -1865,12 +1872,63 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const sc = g.state === "pre" ? abbr(aw) + " @ " + abbr(hm) : abbr(aw) + " " + aw.score + " @ " + abbr(hm) + " " + hm.score;
     return sc + " · " + (g.state === "pre" ? fmtTime(g.start) + " ET" : g.state === "post" ? "Final" : g.detail);
   }
+  // ---- 1st-half bets: first two quarters (college basketball: first half); line = his, else DraftKings' 1H line on ESPN ----
+  const CORE_LG = { NBA: "basketball/leagues/nba", NFL: "football/leagues/nfl", NCAAF: "football/leagues/college-football" };
+  const halfCache = {};
+  async function dkHalf(g, type, teamId){
+    const lg = CORE_LG[g.sp]; if (!lg) return null;
+    try {
+      const j = halfCache[g.id] || (halfCache[g.id] = await espnJSON("https://sports.core.api.espn.com/v2/sports/" + lg + "/events/" + g.id + "/competitions/" + g.id + "/odds/100/propBets?limit=500"));
+      const it = (j.items || []).find(x => x.type && x.type.id === type && (!teamId || new RegExp("/teams/" + teamId + "(?!\\d)").test((x.team && x.team.$ref) || "")) && x.odds && x.odds.total && x.odds.total.value != null);
+      return it ? parseFloat(it.odds.total.value) : null;
+    } catch (e) { return null; }
+  }
+  // routine's own grade from data/graded.json, used when the page has no line to grade with
+  function gradedHalf(p, g){
+    const G = st.graded && Array.isArray(st.graded.picks) ? st.graded.picks : [];
+    const day = dayKey(g.start), names = p.k === "h1total" ? [p.a, p.b] : [p.team];
+    const hit = G.find(x => x.t === p.k && x.d === day && names.every(n => x.k.toLowerCase().includes(String(n).toLowerCase().split(" ").pop())));
+    return hit ? ({ WIN: "hit", LOSS: "miss", PUSH: "push" })[hit.r] || null : null;
+  }
+  async function gradeHalf(p, games, row){
+    const g = p.k === "h1total" ? games.find(x => x.comps.some(c => teamHit(p.a, c.team)) && x.comps.some(c => teamHit(p.b, c.team)))
+      : games.find(x => x.comps.some(c => teamHit(p.team, c.team)));
+    if (!g) { row.sub = "Game not found on ESPN"; return row; }
+    row.sub = gameText(g); row.live = g.state === "in";
+    if (g.state === "pre") return row;
+    const n = g.sp === "NCAAB" ? 1 : 2, halfOver = g.state === "post" || g.period > n;
+    const h = c => c.qs.slice(0, n).reduce((a, b) => a + b, 0);
+    if (p.k === "h1total") {
+      const tot = g.comps.reduce((a, c) => a + h(c), 0);
+      let line = p.line, src = "";
+      if (line == null) { line = await dkHalf(g, "72"); src = line != null ? " (DraftKings 1H line)" : ""; }
+      row.val = "1H " + tot;
+      if (!halfOver) { row.res = "live"; row.text = "1st half: " + tot + (line != null ? " vs " + line : ""); return row; }
+      if (line == null) { const r = gradedHalf(p, g); row.res = r || "none"; row.text = "1st half total " + tot + (r ? "" : " (no 1H line found)"); return row; }
+      row.text = "1st half total " + tot + " vs " + p.ou + " " + line + src;
+      row.res = tot === line ? "push" : (tot > line) === (p.ou === "over") ? "hit" : "miss";
+      return row;
+    }
+    const mine = g.comps.find(c => teamHit(p.team, c.team)), other = g.comps.find(c => c !== mine);
+    const a = h(mine), b = h(other);
+    row.val = "1H " + abbr(mine) + " " + a + "–" + b;
+    if (!halfOver) { row.res = "live"; row.text = "1st half: " + a + "–" + b; return row; }
+    if (p.k === "h1ml") { row.text = "1st half " + a + "–" + b; row.res = a > b ? "hit" : a < b ? "miss" : "push"; return row; }
+    let line = p.line, src = "";
+    if (line == null) { line = await dkHalf(g, "74", mine.team.id); src = line != null ? " (DraftKings 1H line)" : ""; }
+    if (line == null) { const r = gradedHalf(p, g); row.res = r || "none"; row.text = "1st half " + a + "–" + b + (r ? "" : " (no 1H line found)"); return row; }
+    const diff = a + line - b;
+    row.text = "1st half " + a + "–" + b + " at " + (line > 0 ? "+" : "") + line + src;
+    row.res = diff > 0 ? "hit" : diff < 0 ? "miss" : "push";
+    return row;
+  }
   // grade one pick against the games (and box scores) fetched for its sport
   async function gradePick(p, games){
     const row = { p, res: "pending", text: "", sub: "", live: false };
     if (!games) { row.sub = "Couldn't reach ESPN"; return row; }
     if (p.k === "other") { row.res = "none"; row.sub = "Not graded here"; return row; }
     let g = null;
+    if (p.k === "h1total" || p.k === "h1spread" || p.k === "h1ml") return gradeHalf(p, games, row);
     if (p.k === "ml" || p.k === "spread") g = games.find(x => x.comps.some(c => teamHit(p.team, c.team)));
     else if (p.k === "total") g = games.find(x => x.comps.some(c => teamHit(p.a, c.team)) && x.comps.some(c => teamHit(p.b, c.team)));
     if (g) {

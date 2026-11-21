@@ -9,10 +9,10 @@ BASE='https://site.api.espn.com/apis/site/v2/sports/'
 PATH={'nfl':'football/nfl','ncaaf':'football/college-football','nba':'basketball/nba',
   'nhl':'hockey/nhl','mlb':'baseball/mlb'}
 EXTRA={'ncaaf':'&groups=80&limit=300'}
-CAT={'ml':'Moneyline / spread','spread':'Moneyline / spread','h1ml':'1st Half ML',
+CAT={'ml':'Moneyline / spread','spread':'Moneyline / spread','h1ml':'1st Half ML','h1spread':'1st Half spread','h1total':'1st Half total',
  'total':'Over/under','atd':'Anytime TD scorer','atg':'Anytime goal scorer',
  'prop':'Other player props','parlay':'Parlays'}
-CAT_ORDER=['Anytime TD scorer','Anytime goal scorer','Moneyline / spread','1st Half ML','Over/under','Other player props']
+CAT_ORDER=['Anytime TD scorer','Anytime goal scorer','Moneyline / spread','1st Half ML','1st Half spread','1st Half total','Over/under','Other player props']
 SPORT={'nfl':'NFL','ncaaf':'College football','nba':'NBA','nhl':'NHL','mlb':'MLB'}
 RES={'W':'WIN','L':'LOSS','P':'PUSH','V':'VOID','N':'NOLINE'}
 GREEN,RED,GRAY='#2E7D32','#C62828','#777'
@@ -152,9 +152,66 @@ def num(x):
   return float(str(x).split('-')[0])
  except Exception:
   return 0.0
+CORE={'nba':'basketball/leagues/nba','nfl':'football/leagues/nfl','ncaaf':'football/leagues/college-football'}
+def half(c,sp):
+ """1st-half points for one competitor: the first two quarters (college basketball plays halves)."""
+ ls=[float(x.get('value',0))for x in c.get('linescores',[])]
+ n=1 if sp=='ncaab' else 2
+ return sum(ls[:n])if len(ls)>=n else None
+def dk_half(sp,e,mk,team_id=None):
+ """DraftKings 1st-half line from ESPN (72 = 1st Half Total, 74 = 1st Half Spread); None when ESPN has none."""
+ if sp not in CORE:
+  return None
+ try:
+  eid=e['id']
+  j=get(f"https://sports.core.api.espn.com/v2/sports/{CORE[sp]}/events/{eid}/competitions/{eid}/odds/100/propBets?limit=500")
+  for it in j.get('items',[]):
+   if(it.get('type')or{}).get('id')!=mk:
+    continue
+   if team_id and not re.search(r'/teams/'+str(team_id)+r'\b',(it.get('team')or{}).get('$ref','')):
+    continue
+   v=((it.get('odds')or{}).get('total')or{}).get('value')
+   if v is not None:
+    return float(v)
+ except Exception:
+  return None
+ return None
 def grade(p):
  sp,t=p['sp'],p['t']
  try:
+  if t in('h1spread','h1total'):
+   names=[p['team'],p.get('opp')]if t=='h1spread' else p['teams']
+   e=find_event(sp,p['d'],names)
+   if not e:
+    return 'UNKNOWN','game not found'
+   comps=e['competitions'][0]['competitors']
+   st=e['status']
+   if not(st['type'].get('completed')or(st.get('period')or 0)>=(2 if sp=='ncaab' else 3)):
+    return 'PENDING','1st half not over'
+   if t=='h1spread':
+    mine=next(c for c in comps if tmatch(p['team'],c))
+    oth=next(c for c in comps if c is not mine)
+    a,b=half(mine,sp),half(oth,sp)
+    if a is None or b is None:
+     return 'UNKNOWN','no quarter scores'
+    line,src=p.get('line'),''
+    if line is None:
+     line,src=dk_half(sp,e,'74',mine['team']['id']),' (DraftKings 1H line)'
+    if line is None:
+     return 'NOLINE',f"1H {int(a)}-{int(b)}, no line"
+    d=a-b+line
+    return('WIN' if d>0 else 'LOSS' if d<0 else 'PUSH'),f"1H {line:+g}: {int(a)}-{int(b)}{src}"
+   hs=[half(c,sp)for c in comps]
+   if None in hs:
+    return 'UNKNOWN','no quarter scores'
+   tot=sum(hs)
+   line,src=p.get('line'),''
+   if line is None:
+    line,src=dk_half(sp,e,'72'),' (DraftKings 1H line)'
+   if line is None:
+    return 'NOLINE',f"1H total {int(tot)}, no line"
+   over=p.get('ou','over')=='over'
+   return('PUSH' if tot==line else 'WIN' if(tot>line)==over else 'LOSS'),f"1H total {int(tot)} vs {p.get('ou','over')} {line:g}{src}"
   if t in('ml','spread','h1ml'):
    e=find_event(sp,p['d'],[p['team'],p.get('opp')])
    if not e:

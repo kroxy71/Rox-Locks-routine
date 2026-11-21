@@ -359,7 +359,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-21i";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-21j";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -730,9 +730,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   // same key kctrack.py writes into data/graded.json
   const gradedKey = h => h.t === "parlay" ? [h.d, "parlay", h.title || "", h.at || ""].join("|")
     : [h.d, h.sp, h.t, h.team || "", h.player || "", (h.teams || []).join("/"), h.stat || "", h.ou || ""].join("|");
+  const PROP_NAME = { pra: "PRA", pr: "Pts + Reb", points: "Points", rebounds: "Rebounds", assists: "Assists", steals: "Steals", blocks: "Blocks", threes: "Threes",
+    sog: "Shots on goal", rec: "Receptions", rushYds: "Rushing yards", recYds: "Receiving yards", passYds: "Passing yards" };
   const histKey = h => [h.d, h.sp, h.t, h.team || h.player || (h.teams || []).join("/"), h.stat || "", h.ou || "", h.line == null ? "" : h.line].join("|");
   function histAgg(rows){
-    const a = { w: 0, l: 0, push: 0, none: 0, byDay: {}, g: { conv: {}, type: {}, sport: {} } };
+    const a = { w: 0, l: 0, push: 0, none: 0, byDay: {}, g: { conv: {}, type: {}, prop: {}, sport: {} } };
     rows.forEach(r => {
       if (r.res === "push") { a.push++; return; }
       if (r.res !== "hit" && r.res !== "miss") { a.none++; return; }
@@ -740,6 +742,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       const add = (o, k) => { const x = o[k] || (o[k] = { w: 0, l: 0 }); if (win) x.w++; else x.l++; };
       if (win) a.w++; else a.l++;
       add(a.byDay, r.h.d); add(a.g.conv, r.h.conv || "?"); add(a.g.type, HIST_TYPE[r.h.t] || r.h.t); add(a.g.sport, String(r.h.sp || "").toUpperCase());
+      if (r.h.t === "prop" && r.h.stat) add(a.g.prop, (PROP_NAME[r.h.stat] || r.h.stat) + (String(r.h.sp).toLowerCase() === "nba" || !r.h.sp ? "" : " (" + String(r.h.sp).toUpperCase() + ")"));
     });
     return a;
   }
@@ -825,7 +828,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       r.append(el("span", "nm", name), bar, el("span", "num " + tone2(w, l), w + "-" + l + " · " + pc + "%"));
       return r;
     };
-    [["conv", "By conviction", false], ["type", "By bet type", true], ["sport", "By sport", true]].forEach(([k, title, sort]) => {
+    [["conv", "By conviction", false], ["type", "By bet type", true], ["prop", "By prop type", true], ["sport", "By sport", true]].forEach(([k, title, sort]) => {
       let rows = Object.keys(h.g[k]).map(n => ({ name: n, w: h.g[k][n].w, l: h.g[k][n].l })).filter(x => x.w + x.l > 0);
       if (k === "conv") { const o = { High: 0, Medium: 1, Low: 2 }; rows.sort((a, b) => (o[a.name] ?? 9) - (o[b.name] ?? 9)); }
       else if (sort) rows.sort((a, b) => (b.w + b.l) - (a.w + a.l));

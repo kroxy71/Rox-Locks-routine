@@ -396,6 +396,7 @@ def main(path):
    return '|'.join([p['d'],'parlay',p.get('title')or'',str(p.get('at')or'')])
   return '|'.join(str(x)for x in(p['d'],p['sp'],p['t'],p.get('team')or'',p.get('player')or'','/'.join(p.get('teams')or[]),p.get('stat')or'',p.get('ou')or''))
  mini=[{'k':gkey(p),'d':p['d'],'sp':p['sp'],'t':p['t'],'conv':p.get('conv',''),'r':p['result'],
+   **({'stat':p['stat']}if p['t']=='prop' and p.get('stat') else{}),
    **({'legs':[lg.get('result','')for lg in p.get('legs')or[]]}if p['t']=='parlay' else{})}for p in G]
  json.dump({'at':datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),'picks':mini},
   open(os.path.join(HERE,'graded_min.json'),'w',encoding='utf8'),ensure_ascii=False,separators=(',',':'))

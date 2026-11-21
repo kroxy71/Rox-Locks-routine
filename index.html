@@ -72,7 +72,10 @@ body.stats-mode main,body.stats-mode footer{display:none}
 body.stats-mode .brand,body.stats-mode .tabs{margin-left:auto;margin-right:auto}
 body[data-tab="bot"] main .wrap{grid-template-columns:minmax(0,1fr)!important;max-width:1020px}
 @media (min-width:1340px){body[data-tab="bot"] .brand,body[data-tab="bot"] .tabs{margin-left:auto;margin-right:auto}}
-@media (min-width:860px){body[data-tab="bot"] #view{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}body[data-tab="bot"] #view .tp{margin-bottom:0!important}}
+body[data-tab="bot"] #view .bcol{display:grid;gap:16px;align-content:start;min-width:0}
+body[data-tab="bot"] #view{display:grid;gap:16px}
+body[data-tab="bot"] #view .tp{margin-bottom:0!important}
+@media (min-width:1000px){body[data-tab="bot"] main .wrap{max-width:1340px}body[data-tab="bot"] #view{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}}
 #stats iframe{display:block;width:100%;border:0;background:#000;height:calc(100vh - 120px)}
 .tab{font:700 17px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--head-ink) 60%,transparent);background:none;border:0;border-bottom:3px solid transparent;padding:10px 4px 9px;cursor:pointer;min-height:44px}
 .tab{line-height:1.05}
@@ -298,6 +301,12 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .fresh{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 0;font:600 12px/1.3 "Source Sans 3",system-ui,sans-serif;color:var(--head-ink);opacity:.85}.fresh span.old{color:var(--gold);opacity:1}.fresh span.old::before{content:"⚠ "}
 .score{display:grid;gap:6px;margin-bottom:12px}.score .fine{margin:0;font-size:12px;color:var(--muted)}
 .brk{display:grid;gap:14px;padding:12px 14px 14px;border-top:1px solid var(--line)}.brk h4{margin:0 0 6px;font:800 15px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.parl{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:3px}.parl:first-child{border-top:0;padding-top:0}
+.parl-top{display:flex;gap:8px;align-items:baseline;justify-content:space-between}.parl-top b{font-size:14px;overflow-wrap:anywhere}
+.parl-res{font:800 13px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.parl.hit .parl-res{color:var(--good)}.parl.miss .parl-res{color:var(--bad)}
+.parl-meta{font-size:12px;color:var(--muted)}
+.parl-legs{list-style:none;margin:2px 0 0;padding:0;font-size:13px;display:grid;gap:1px}.parl-legs li.hit{color:var(--good)}.parl-legs li.miss{color:var(--bad)}
 .brow{display:grid;grid-template-columns:minmax(96px,34%) minmax(0,1fr) auto;gap:8px;align-items:center;padding:3px 0;font-size:14px}.brow .nm{overflow-wrap:anywhere}
 .bar{position:relative;height:12px;border-radius:6px;background:color-mix(in srgb,var(--ink) 9%,var(--surface));overflow:hidden}.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:6px}.bar i.lo{background:var(--muted)}.bar u{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--ink);opacity:.55}
 .brow .num{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.brow.small{opacity:.6}
@@ -345,7 +354,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-20k";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-21a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -458,7 +467,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     if (!st.loaded) { view.append(el("div","skel"), el("div","skel")); return; }
     if (t === "slip") { renderBetSlip(view); return; }
     if (t === "results") { renderResults(view); return; }
-    if (t === "bot") { const bk = breakdown(); if (bk) view.append(bk); const tf = trackerFull(); if (tf) view.append(tf); view.append(botPanel(true)); return; }
+    if (t === "bot") {
+      const col = (...xs) => { const c = el("div","bcol"); xs.filter(Boolean).forEach(x => c.append(x)); return c; };
+      view.append(col(botPanel(true)), col(breakdown(), parlayPanel()), col(trackerFull()));
+      return;
+    }
     const list = st.lists[t] || [];
     if (!list.length) { view.append(stateBox({ h: TABS[t].empty, p: "New ones show up here on their own after each KingCap stream." })); return; }
     list.forEach(g => {
@@ -696,7 +709,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     return body;
   }
   // ---------- season record, graded from ESPN (data/history.json lists every pick KingCap made) ----------
-  const HIST_STAT = { passYds: "passyds", recYds: "recyds", rushYds: "rushyds", points: "pts", rebounds: "reb", steals: "stl", blocks: "blk", pra: "pra", pr: "pr", threes: "threes" };
+  const HIST_STAT = { sog: "sog", rec: "rec", passYds: "passyds", recYds: "recyds", rushYds: "rushyds", points: "pts", rebounds: "reb", steals: "stl", blocks: "blk", pra: "pra", pr: "pr", threes: "threes" };
   const HIST_TYPE = { ml: "Moneyline / spread", spread: "Moneyline / spread", total: "Over/under", atd: "Anytime TD scorer", atg: "Anytime goal scorer", prop: "Other player props" };
   function histPick(h){
     const sp = String(h.sp || "").toUpperCase();
@@ -791,6 +804,63 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     });
     wrap.append(el("p", "fine", "Graded from ESPN. Faded rows have fewer than 15 graded picks, so treat them as noise."));
     panel.append(head, wrap); panel.style.marginBottom = "16px";
+    return panel;
+  }
+  // ---------- KingCap parlays (history.json entries with t:"parlay"), graded leg by leg from ESPN ----------
+  async function parlRun(){
+    if (st.parlBusy || !st.parl0 || !st.parl0.length) return;
+    st.parlBusy = true;
+    try {
+      let cache = {}; try { cache = JSON.parse(localStorage.getItem("rlParl1") || "{}") || {}; } catch (e) {}
+      const gamesBy = {};
+      const games = (sp, d) => gamesBy[sp + d] || (gamesBy[sp + d] = getGames(sp, d).catch(() => null));
+      const out = await Promise.all(st.parl0.map(async x => {
+        const key = JSON.stringify([x.d, x.title, x.at, x.legs]);
+        if (cache[key]) return Object.assign({ h: x }, cache[key]);
+        const legs = await Promise.all(x.legs.map(async lg => {
+          const p = histPick(Object.assign({}, lg, { d: x.d, sp: lg.sp || x.sp }));
+          if (!p) return "none";
+          try { const r = await gradePick(p, await games(p.sp, x.d)); return r.live ? "live" : r.res; } catch (e) { return "pending"; }
+        }));
+        let res;
+        if (legs.includes("miss")) res = "miss";
+        else if (legs.some(r => r === "pending" || r === "live")) res = legs.includes("live") ? "live" : "pending";
+        else if (legs.includes("none")) res = "none";
+        else if (legs.every(r => r === "push")) res = "push";
+        else res = "hit";
+        const settled = Date.now() > new Date(x.d + "T00:00:00-05:00").getTime() + 40 * 3600e3;
+        if (settled && res !== "pending" && res !== "live") cache[key] = { res, legs };
+        return { h: x, res, legs };
+      }));
+      try { localStorage.setItem("rlParl1", JSON.stringify(cache)); } catch (e) {}
+      st.parl = out; render();
+    } finally { st.parlBusy = false; }
+  }
+  function parlayPanel(){
+    const panel = el("section","tp"), head = el("div","tp-head"), body = el("div","brk");
+    const rows = (st.parl || []).slice().sort((a, b) => (b.h.d + (b.h.at || "")).localeCompare(a.h.d + (a.h.at || "")));
+    const w = rows.filter(r => r.res === "hit").length, l = rows.filter(r => r.res === "miss").length;
+    head.append(el("span","tp-title","KingCap parlays"), el("span","tp-when", w + l ? w + "-" + l + " · " + pctOf(w, l) + "%" : ""));
+    if (!st.parl0 || !st.parl0.length) {
+      body.append(el("p","fine","Every parlay KingCap shows on a slip or says he is parlaying gets tracked here as one ticket, from the next stream on."));
+    } else if (!st.parl) {
+      body.append(el("p","fine","Grading parlays from ESPN..."));
+    } else {
+      const MARK = { hit: "✓", miss: "✗", push: "P", none: "?", pending: "·", live: "•" };
+      const WORD = { hit: "Hit", miss: "Miss", push: "Push", none: "No grade", pending: "Pending", live: "Live" };
+      rows.slice(0, 20).forEach(r => {
+        const x = r.h, row = el("div","parl " + r.res);
+        const top = el("div","parl-top");
+        top.append(el("b", null, x.title || (x.legs.length + "-leg parlay")), el("span","parl-res", WORD[r.res] || r.res));
+        const meta = el("div","parl-meta", fmtDay(new Date(x.d + "T12:00:00-05:00")) + (x.odds ? " · " + x.odds : "") + " · " + (x.src === "slip" ? "slip on stream" : "said on stream") + " · " + r.legs.filter(v => v === "hit").length + " of " + x.legs.length + " legs hit");
+        const legs = el("ul","parl-legs");
+        x.legs.forEach((lg, i) => { const li = el("li", r.legs[i] || "", (MARK[r.legs[i]] || "·") + " " + (lg.text || lg.player || lg.team || (lg.teams || []).join("/"))); legs.append(li); });
+        row.append(top, meta, legs);
+        body.append(row);
+      });
+      body.append(el("p","fine","Whole tickets: a parlay hits only if every leg hits (pushes drop out). Kept separate from the pick record, since each leg already counts there."));
+    }
+    panel.append(head, body);
     return panel;
   }
   function latestTracker(){
@@ -1894,12 +1964,15 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     checkBuild();
     try {
       const [emails, slips, bot, hist] = await Promise.all([getJSON("data/emails.json"), getJSON("data/slips.json").catch(() => []), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/bot.json" : "data/bot.json").catch(() => null), getJSON(/\/Rox-Locks-uat\//i.test(location.pathname) ? "/Rox-Locks-routine/data/history.json" : "data/history.json").catch(() => [])]);
-      st.hist0 = Array.isArray(hist) ? hist.filter(x => x && x.d && x.sp && x.t) : [];
+      const hv = Array.isArray(hist) ? hist.filter(x => x && x.d && x.sp && x.t) : [];
+      st.hist0 = hv.filter(x => x.t !== "parlay");
+      st.parl0 = hv.filter(x => x.t === "parlay" && Array.isArray(x.legs));
       st.bot = bot && typeof bot === "object" ? bot : null;
       onSlips(slips);
       onEmails(Array.isArray(emails) ? emails : []);
       freshness();
       histRun().catch(() => {});
+      parlRun().catch(() => {});
       refreshBotLive().catch(() => {});
     } catch(e) {
       if (!st.loaded) { $("checked").textContent = "Couldn't load"; st.err = { h: "Couldn't load the picks", p: "Check your connection and try again.", retry: true }; render(); }

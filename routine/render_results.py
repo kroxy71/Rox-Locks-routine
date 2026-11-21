@@ -22,12 +22,17 @@ GREEN, RED, GRAY = '#2E7D32', '#C62828', '#777'
 
 
 def key_of(p):
+    if p['t'] == 'parlay':
+        return '%s|parlay|%s|%s' % (p['d'], p.get('title') or '', p.get('at') or len(p.get('legs') or []))
     name = p.get('player') or p.get('team') or '/'.join(p.get('teams') or [])
     return '%s|%s|%s|%s' % (p['d'], p['t'], name, p.get('stat') or '')
 
 
 def title_of(p):
     t = p['t']
+    if t == 'parlay':
+        return 'Parlay: %s%s' % (p.get('title') or '%d-leg parlay' % len(p.get('legs') or []),
+                                 (' ' + p['odds']) if p.get('odds') else '')
     if t == 'atg':
         return '%s anytime goal' % p['player']
     if t == 'atd':

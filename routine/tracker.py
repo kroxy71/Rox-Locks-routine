@@ -5,6 +5,8 @@ writes OUTDIR/history.json, then runs kctrack.py into OUTDIR (tracker.html, trac
 Run from anywhere; paths are relative to the repo this file lives in."""
 import json, os, subprocess, sys
 
+from parlays import parlay_entries
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 out = os.path.abspath(sys.argv[1])
@@ -28,6 +30,7 @@ for pj in sys.argv[2:]:
             o.setdefault('sp', (p['sp'] or '').lower())
             o.setdefault('conv', p.get('conv', 'Medium'))
             hist.append(o)
+    hist.extend(parlay_entries(d))
 json.dump(hist, open(os.path.join(out, 'history.json'), 'w', encoding='utf-8'), ensure_ascii=False)
 r = subprocess.run([sys.executable, os.path.join(HERE, 'kctrack.py'), os.path.join(out, 'history.json'), out],
                    capture_output=True, text=True, encoding='utf-8')

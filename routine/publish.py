@@ -139,8 +139,17 @@ def main():
                 seen.add(k)
                 hist.append(o)
                 added += 1
+        sys.path.insert(0, HERE)
+        from parlays import parlay_entries
+        nparl = 0
+        for o in parlay_entries(d):
+            k = json.dumps(o, sort_keys=True)
+            if k not in seen:
+                seen.add(k)
+                hist.append(o)
+                nparl += 1
         save('history.json', hist)
-        print('slips:', len(d.get('slips', [])), 'history picks added:', added)
+        print('slips:', len(d.get('slips', [])), 'history picks added:', added, 'parlays added:', nparl)
 
     # 3. state
     if a.reported or a.videos:

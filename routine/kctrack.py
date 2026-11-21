@@ -11,7 +11,7 @@ PATH={'nfl':'football/nfl','ncaaf':'football/college-football','nba':'basketball
 EXTRA={'ncaaf':'&groups=80&limit=300'}
 CAT={'ml':'Moneyline / spread','spread':'Moneyline / spread','h1ml':'Moneyline / spread',
  'total':'Over/under','atd':'Anytime TD scorer','atg':'Anytime goal scorer',
- 'prop':'Other player props'}
+ 'prop':'Other player props','parlay':'Parlays'}
 CAT_ORDER=['Anytime TD scorer','Anytime goal scorer','Moneyline / spread','Over/under','Other player props']
 SPORT={'nfl':'NFL','ncaaf':'College football','nba':'NBA','nhl':'NHL','mlb':'MLB'}
 RES={'W':'WIN','L':'LOSS','P':'PUSH','V':'VOID','N':'NOLINE'}
@@ -168,8 +168,11 @@ def grade(p):
     val={'pra':pts+reb+ast,'pr':pts+reb,'points':pts,'rebounds':reb,'assists':ast,
      'steals':nb('steals'),'blocks':nb('blocks'),
      'threes':nb('threePointFieldGoalsMade-threePointFieldGoalsAttempted')}.get(stat)
+   elif sp=='nhl':
+    val={'sog':sum(num(v)for kk,v in merged.items()if kk.endswith('.shotsTotal')),
+     'points':sum(num(v)for kk,v in merged.items()if kk.endswith('.goals')or kk.endswith('.assists'))}.get(stat)
    else:
-    k={'rushYds':'rushingYards','recYds':'receivingYards','passYds':'passingYards'}.get(stat)
+    k={'rushYds':'rushingYards','recYds':'receivingYards','passYds':'passingYards','rec':'receptions'}.get(stat)
     val=next((num(v)for kk,v in merged.items()if k and kk.endswith('.'+k)),0.0)
    if val is None:
     return 'NOLINE','stat not supported'
@@ -178,6 +181,30 @@ def grade(p):
  except Exception as ex:
   return 'ERROR',repr(ex)[:100]
  return 'PENDING',''
+def grade_parlay(p):
+ """A parlay wins only if every leg wins (push legs drop out); any lost leg loses it."""
+ rs=[]
+ for lg in p.get('legs')or[]:
+  q=dict(lg)
+  q.setdefault('d',p['d'])
+  q['sp']=(q.get('sp')or p.get('sp')or'').lower()
+  r,dt=grade(q)if q['sp']in PATH and q.get('t')in CAT and q.get('t')!='parlay' else('NOLINE','leg not gradable')
+  rs.append((r,dt))
+  lg['result'],lg['detail']=r,dt
+ if not rs:
+  return 'NOLINE','no legs'
+ R=[r for r,_ in rs]
+ n=len(R)
+ if 'LOSS' in R:
+  return 'LOSS',f"{R.count('WIN')} of {n} legs hit"
+ if any(r in('PENDING','UNKNOWN','ERROR')for r in R):
+  return 'PENDING',f"{R.count('WIN')} of {n} legs hit so far"
+ if any(r in('NOLINE',)for r in R):
+  return 'NOLINE',f"{R.count('WIN')} of {n} legs hit, {R.count('NOLINE')} could not be graded"
+ live=[r for r in R if r!='VOID']
+ if not live or all(r=='PUSH' for r in live):
+  return 'PUSH','all legs pushed or void'
+ return 'WIN',f"all {len([r for r in live if r=='WIN'])} legs hit"+(f" ({n-len([r for r in live if r=='WIN'])} push/void)" if n!=len([r for r in live if r=='WIN']) else '')
 def pct(w,l):
  return f"{100 * w / (w + l):.0f}%" if w+l else '-'
 def rec(rows):
@@ -193,7 +220,8 @@ def main(path):
  hist=json.load(open(path,encoding='utf8'))
  seen,G=set(),[]
  for p in hist:
-  key=(p['d'],p['sp'],p['t'],p.get('team'),p.get('player'),tuple(p.get('teams')or[]),p.get('stat'),p.get('ou'))
+  key=(p['d'],p['sp'],p['t'],p.get('team'),p.get('player'),tuple(p.get('teams')or[]),p.get('stat'),p.get('ou'),
+   json.dumps(p.get('legs'),sort_keys=True)if p['t']=='parlay' else '')
   if not p.get('res'):
    if key in seen:
     continue
@@ -201,12 +229,16 @@ def main(path):
   p['cat']=CAT[p['t']]
   if p.get('res'):
    p['result']=RES.get(p['res'],p['res'])
+  elif p['t']=='parlay':
+   p['result'],p['detail']=grade_parlay(p)
   else:
    p['result'],p['detail']=grade(p)
   G.append(p)
- graded=[p for p in G if p['result']in('WIN','LOSS','PUSH')]
- pending=[p for p in G if p['result']=='PENDING']
- other=[p for p in G if p['result']in('NOLINE','VOID','UNKNOWN','ERROR')]
+ PL=[p for p in G if p['t']=='parlay']
+ S=[p for p in G if p['t']!='parlay']
+ graded=[p for p in S if p['result']in('WIN','LOSS','PUSH')]
+ pending=[p for p in S if p['result']=='PENDING']
+ other=[p for p in S if p['result']in('NOLINE','VOID','UNKNOWN','ERROR')]
  W,L,P=rec(graded)
  dates=sorted({p['d']for p in graded})or[datetime.date.today().isoformat()]
  def rows_by(keyfn,order=None):
@@ -267,6 +299,26 @@ def main(path):
  bh,bt=block("4. By sport",lambda p:SPORT[p['sp']],None,'Sport')
  h+=bh
  t+=bt
+ if PL:
+  pg=[p for p in PL if p['result']in('WIN','LOSS','PUSH')]
+  pw,pl_,pp=rec(pg)
+  npend=sum(p['result']=='PENDING' for p in PL)
+  nng=len(PL)-len(pg)-npend
+  summ=f"{pw}-{pl_}"+(f"-{pp}" if pp else '')+f" ({pct(pw, pl_)})"
+  h+=(f"<p style='margin:12px 0 2px'><b>5. KingCap parlays</b></p>"
+   f"<p style='margin:2px 0;font-size:13px'><b style='color:{GREEN if pw and pw >= pl_ else RED}'>{summ}</b> "
+   f"<span style='color:#555'>on {len(pg)} graded parlays ({npend} pending, {nng} could not be graded). Counted as whole tickets, separate from the pick record above.</span></p>")
+  prow=[]
+  t+=f"\n5. KingCap parlays: {summ} on {len(pg)} graded ({npend} pending, {nng} could not be graded)\n"
+  for p in sorted(PL,key=lambda x:(x['d'],x.get('at','')),reverse=True)[:15]:
+   nm=p.get('title')or f"{len(p.get('legs')or[])}-leg parlay"
+   src='slip' if p.get('src')=='slip' else 'said'
+   r=p['result']
+   col=GREEN if r=='WIN' else RED if r=='LOSS' else GRAY
+   prow.append([f"{dfmt(p['d'])}: {html.escape(nm)}"+(f" {html.escape(p['odds'])}" if p.get('odds') else '')+f" <span style='color:#777;font-size:11px'>({src})</span>",
+    html.escape(p.get('detail','')),f"<b style='color:{col}'>{r.title() if r in('WIN','LOSS','PUSH','PENDING') else 'n/a'}</b>"])
+   t+=f"  {dfmt(p['d'])}: {nm} {p.get('odds','')} ({src}) - {r} - {p.get('detail','')}\n"
+  h+=table(prow,['Parlay','Legs','Result'])
  h+=("<p style='font-size:12px;color:#777;margin:10px 0'><b>How it is graded.</b> Final scores and box scores come from ESPN. A line KingCap states is used; "
   "when he gives only the bet (for example \"this game goes over\"), the DraftKings closing line from ESPN is used. Moneyline and 1st-half picks are straight up. "
   "Player props are void if the player did not play, and props with no stated line cannot be graded. Only firm picks count; leans and mentions are not graded. "

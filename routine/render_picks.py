@@ -141,6 +141,21 @@ def slip_html(s):
     return card('#2E7D32', inner)
 
 
+def leg_text(lg):
+    t = lg.get('t')
+    line = lg.get('line')
+    ln = ('%g' % line) if isinstance(line, (int, float)) else ''
+    if t in ('atg', 'atd'):
+        return '%s anytime %s' % (lg.get('player', ''), 'goal' if t == 'atg' else 'TD')
+    if t == 'prop':
+        return '%s %s %s %s' % (lg.get('player', ''), lg.get('stat', ''), lg.get('ou', 'over'), ln)
+    if t == 'total':
+        return '%s %s %s' % ('/'.join(lg.get('teams') or []), lg.get('ou', 'over'), ln)
+    if t == 'spread':
+        return '%s %s' % (lg.get('team', ''), ('%+g' % line) if isinstance(line, (int, float)) else 'spread')
+    return '%s ML' % lg.get('team', '')
+
+
 def pick_text(p):
     sp = sp_key(p['sp'])
     lines = ['[%s] %s - %s' % (sp, p['bet'], CONV_WORD.get(p.get('conf') or p.get('conv', 'Medium'), 'MEDIUM'))]
@@ -212,6 +227,15 @@ def render(d, tracker_html='', tracker_txt=''):
         h.extend(slip_html(s) for s in slips)
     elif d.get('no_slips_note', True):
         h.append("<p style='color:#555;font-size:13px'>No bet slips shown on stream.</p>")
+    spoken = [x for x in d.get('parlays', []) if x.get('src') == 'spoken']
+    if spoken:
+        h.append(h3('#2E7D32', 'PARLAYS HE TALKED ABOUT'))
+        for x in spoken:
+            legs = ''.join('<div>%s %s</div>' % (chip(lg.get('sp', '')), E(lg.get('text') or leg_text(lg))) for lg in x.get('legs', []))
+            head = '<b>%s</b>%s%s' % (E(x.get('title') or '%d-leg parlay' % len(x.get('legs', []))),
+                                     (' · ' + E(x['odds'])) if x.get('odds') else '', (' · [%s]' % E(x['at'])) if x.get('at') else '')
+            q = "<div style='font-size:12px;color:#555'>%s</div>" % E(x['quote']) if x.get('quote') else ''
+            h.append(card('#2E7D32', head + legs + q))
     if strong:
         h.append(h3('#C62828', 'STRONGEST PICKS'))
         h.extend(pick_card_html(p) for p in strong)
@@ -259,6 +283,15 @@ def render(d, tracker_html='', tracker_txt=''):
         t.append('')
     else:
         t.append('No bet slips shown on stream.')
+    spoken_t = [x for x in d.get('parlays', []) if x.get('src') == 'spoken']
+    if spoken_t:
+        t.append('PARLAYS HE TALKED ABOUT')
+        for x in spoken_t:
+            t.append('%s%s%s. Legs: %s.' % (x.get('title') or '%d-leg parlay' % len(x.get('legs', [])),
+                                             (' ' + x['odds']) if x.get('odds') else '', (' [%s]' % x['at']) if x.get('at') else '',
+                                             '; '.join('[%s] %s' % (sp_key(lg.get('sp', '')), lg.get('text') or leg_text(lg))
+                                                       for lg in x.get('legs', []))))
+        t.append('')
         t.append('')
     if leans:
         t.append('LEANS / MENTIONS')

@@ -11,8 +11,8 @@
 :root {
   color-scheme: light;
   --bg: #F3F5F4; --panel: #FFFFFF; --panel-2: #F7F9F8; --pill: #EDF1F2; --ink: #13202B; --ink-2: #2E3D48; --muted: #5B6873; --line: #D9DFE1; --line-2: #E4E9EA;
-  --accent: #C2185B; --accent-2: #E0457F; --accent-ink: #FFFFFF; --accent-soft: #FBE7EF; --accent-line: #E8A3BE; --glow: 194, 24, 91;
-  --hot: #A87700; --hot-ink: #FFFFFF; --hot-soft: #FFF6DB; --hot-glow: 168, 119, 0;
+  --accent: #B07D00; --accent-2: #D49B12; --accent-ink: #FFFFFF; --accent-soft: #FFF4D6; --accent-line: #E5C66E; --glow: 176, 125, 0;
+  --hot: #C2185B; --hot-ink: #FFFFFF; --hot-soft: #FBE7EF; --hot-glow: 194, 24, 91;
   --ok: #2E7D32; --ok-ink: #FFFFFF; --ok-soft: #E6F2E7; --bad: #C62828; --bad-soft: #FBE9E9;
   --away: #5B6873; --track: #E4E9EA;
   --navbg: rgba(243, 245, 244, .92); --th: #EEF2F3; --hover: #F0F3F4; --footbg: #E9EEEF; --slipbg: rgba(255, 255, 255, .97);
@@ -23,8 +23,8 @@
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   color-scheme: dark;
   --bg: #0E1519; --panel: #172127; --panel-2: #131C21; --pill: #1E2A31; --ink: #E6ECEE; --ink-2: #C8D2D6; --muted: #9AA8B1; --line: #2A3740; --line-2: #223038;
-  --accent: #F06292; --accent-2: #F48FB1; --accent-ink: #1A0710; --accent-soft: #2C1820; --accent-line: #7A3550; --glow: 240, 98, 146;
-  --hot: #FFC21A; --hot-ink: #1A1200; --hot-soft: #2A2410; --hot-glow: 255, 194, 26;
+  --accent: #FFC21A; --accent-2: #FFD65C; --accent-ink: #1A1200; --accent-soft: #2A2410; --accent-line: #7A5E10; --glow: 255, 194, 26;
+  --hot: #F06292; --hot-ink: #1A0710; --hot-soft: #2C1820; --hot-glow: 240, 98, 146;
   --ok: #66BB6A; --ok-ink: #04140A; --ok-soft: #15281A; --bad: #EF5350; --bad-soft: #2D1717;
   --away: #3A4A54; --track: #22313A;
   --navbg: rgba(14, 21, 25, .9); --th: #131C21; --hover: #1E2A31; --footbg: #0A1014; --slipbg: rgba(23, 33, 39, .97);
@@ -250,20 +250,6 @@ footer.foot { margin-top: 44px; border-top: 1px solid var(--line-2); background:
 @media (max-width: 520px) { .wm { font-size: 1.55rem; } .tagline { display: none; } .res .big { font-size: 2.8rem; } .gitem summary { grid-template-columns: 50px 1fr 1fr 26px; gap: 8px; padding: 11px 12px; } .gt { font-size: .9rem; } .verdict { margin-left: 0; } }
 @media (prefers-reduced-motion: reduce) { .game { transition: none; } }
 @media (prefers-reduced-motion: no-preference) { .meter span { transition: width .4s ease; } }
-/* TEMPORARY colour picker so Keith can choose the SharpSheet highlight colour (remove once chosen) */
-:root[data-palette="gold"] { --accent: #B07D00; --accent-2: #D49B12; --accent-ink: #FFFFFF; --accent-soft: #FFF4D6; --accent-line: #E5C66E; --glow: 176, 125, 0; --hot: #C2185B; --hot-ink: #FFFFFF; --hot-soft: #FBE7EF; --hot-glow: 194, 24, 91; }
-@media (prefers-color-scheme: dark) { :root[data-palette="gold"]:not([data-theme="light"]) { --accent: #FFC21A; --accent-2: #FFD65C; --accent-ink: #1A1200; --accent-soft: #2A2410; --accent-line: #7A5E10; --glow: 255, 194, 26; --hot: #F06292; --hot-ink: #1A0710; --hot-soft: #2C1820; --hot-glow: 240, 98, 146; } }
-:root[data-palette="teal"] { --accent: #00838F; --accent-2: #26A6B4; --accent-ink: #FFFFFF; --accent-soft: #E0F4F6; --accent-line: #8FD0D6; --glow: 0, 131, 143; }
-@media (prefers-color-scheme: dark) { :root[data-palette="teal"]:not([data-theme="light"]) { --accent: #26C6DA; --accent-2: #80DEEA; --accent-ink: #031A1D; --accent-soft: #0D2A2E; --accent-line: #1F6B75; --glow: 38, 198, 218; } }
-:root[data-palette="blue"] { --accent: #1E5BC6; --accent-2: #4A80E0; --accent-ink: #FFFFFF; --accent-soft: #E6EEFB; --accent-line: #9DB8EA; --glow: 30, 91, 198; }
-@media (prefers-color-scheme: dark) { :root[data-palette="blue"]:not([data-theme="light"]) { --accent: #5C9DFF; --accent-2: #9CC3FF; --accent-ink: #071229; --accent-soft: #14223A; --accent-line: #2D4F86; --glow: 92, 157, 255; } }
-:root[data-palette="orange"] { --accent: #C8500A; --accent-2: #E8732F; --accent-ink: #FFFFFF; --accent-soft: #FDEBDD; --accent-line: #EDB08A; --glow: 200, 80, 10; }
-@media (prefers-color-scheme: dark) { :root[data-palette="orange"]:not([data-theme="light"]) { --accent: #FF8A3D; --accent-2: #FFB07A; --accent-ink: #1A0B00; --accent-soft: #2B1A0E; --accent-line: #7A4317; --glow: 255, 138, 61; } }
-:root[data-palette="purple"] { --accent: #6D4AD8; --accent-2: #8C6FE6; --accent-ink: #FFFFFF; --accent-soft: #EEE9FC; --accent-line: #BBA9F0; --glow: 109, 74, 216; }
-@media (prefers-color-scheme: dark) { :root[data-palette="purple"]:not([data-theme="light"]) { --accent: #A78BFA; --accent-2: #C4B5FD; --accent-ink: #120A26; --accent-soft: #1D1638; --accent-line: #4B3A8F; --glow: 167, 139, 250; } }
-.pal button { width: auto; height: auto; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font: 700 .78rem var(--f-body); padding: 4px 10px 4px 6px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
-.pal button::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--sw); }
-.pal button.on { border-color: var(--ink); box-shadow: none; } .pal { flex-wrap: wrap; }
 </style>
 
 <header class="bar">
@@ -273,7 +259,6 @@ footer.foot { margin-top: 44px; border-top: 1px solid var(--line-2); background:
       <div><div class="wm">Sharp<b>Sheet</b></div><span class="tagline">Model odds for every NFL, NCAAF and NHL game</span></div>
     </div>
     <div class="hctl">
-      <div class="pal" role="group" aria-label="Color to try"><span>Try a color</span><button type="button" data-pal="pink" aria-label="Rox Pink" style="--sw:#F06292">Rox Pink</button><button type="button" data-pal="gold" aria-label="Gold" style="--sw:#FFC21A">Gold</button><button type="button" data-pal="teal" aria-label="Teal" style="--sw:#26C6DA">Teal</button><button type="button" data-pal="blue" aria-label="Blue" style="--sw:#5C9DFF">Blue</button><button type="button" data-pal="orange" aria-label="Orange" style="--sw:#FF8A3D">Orange</button><button type="button" data-pal="purple" aria-label="Purple" style="--sw:#A78BFA">Purple</button></div>
       <div class="sp" role="group" aria-label="Sport"><button type="button" data-sp="nfl" aria-pressed="true">NFL</button><button type="button" data-sp="ncaaf" aria-pressed="false">NCAAF</button><button type="button" data-sp="nhl" aria-pressed="false">NHL</button></div>
     </div>
   </div>
@@ -287,4 +272,4 @@ footer.foot { margin-top: 44px; border-top: 1px solid var(--line-2); background:
 <div id="slip" class="slip" hidden></div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script src="model.js?v=ncaaf1"></script>
-<script src="app.js?v=colors1"></script>
+<script src="app.js?v=gold1"></script>

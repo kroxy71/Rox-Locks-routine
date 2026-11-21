@@ -912,7 +912,7 @@
   }
 
   async function start() {
-    setPalette(store.get('ss-pal') || 'pink', false);
+    document.documentElement.removeAttribute('data-palette');   // one colour scheme now (Rox Locks gold)
     try { await loadAll(); } catch (err) { $('#view').innerHTML = '<p class="empty err">The data files did not load (' + esc(err.message) + '). Reload the page to try again.</p>'; return; }
     loadParlay();
     if (!readHash()) { const sv = store.get('kc-sp'); if (sv === 'nfl' || sv === 'ncaaf' || sv === 'nhl') S.sp = sv; }

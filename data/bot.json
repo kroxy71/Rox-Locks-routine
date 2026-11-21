@@ -1,21 +1,27 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1204.54,
- "at_risk": 80,
- "updated": "2026-11-20T16:15:59Z",
+ "bankroll": 1238.07,
+ "at_risk": 225,
+ "updated": "2026-11-21T16:17:34Z",
  "record": {
-  "w": 33,
-  "l": 42,
+  "w": 36,
+  "l": 44,
   "p": 0
  },
  "public_record": {
-  "w": 39,
-  "l": 18,
+  "w": 42,
+  "l": 20,
   "p": 0
  },
- "public_bankroll": 958.9,
- "note": "Graded 13 (bot 3-5, -$12.01; public 3-2, -$51.06); placed 5 bets, $80 at risk (2 ML incl. 1 lean, 2 parlays, longshot). No NFL/NHL games so no props; NBA/CFB only; Kalshi had no CFB markets.",
+ "public_bankroll": 932.71,
+ "kingcap_record": {
+  "w": 0,
+  "l": 0,
+  "p": 0
+ },
+ "kingcap_profit": 0,
+ "note": "Graded 5 (3-2, +$33.53; public 3-2, -$26.19), no KingCap bets to grade; placed 6 bets, $225 at risk: 2 lean MLs (no side cleared the full bar), 3-leg CFB parlay, 2 NHL anytime-goal props (Olofsson +230 also qualified but skipped for the $225 cap), Rutgers +1600 longshot. No NFL today so no TD props. gather.py missed most CFB/NBA SharpAPI lines, refetched directly; public for Oregon St/Jax St/Army/Penn St from Covers pick consensus.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -3153,8 +3159,8 @@
      "book": "FanDuel",
      "model_p": 0.6987,
      "implied_p": 0.6825,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Cavaliers 128-119"
     }
    ],
    "odds": -215,
@@ -3165,9 +3171,9 @@
    "edge": 0.0162,
    "sources": "Market 66%, Kalshi/Polymarket 67%, ESPN 81%, OddsShark 70%",
    "why": "Model 70% vs FanDuel -215 (68%); ESPN predictor 81% and OddsShark 119-114 lean Cleveland.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 11.63,
+   "result": "Cavaliers 128-119"
   },
   {
    "id": "2026-11-20-2",
@@ -3188,8 +3194,8 @@
      "book": "FanDuel",
      "model_p": 0.45,
      "implied_p": 0.4425,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Wizards 98-94"
     }
    ],
    "odds": 126,
@@ -3200,9 +3206,9 @@
    "edge": 0.0075,
    "sources": "Market 44%, Kalshi/Polymarket 43%, ESPN 41%, OddsShark 47%, sharp money on Wizards",
    "why": "Lean: near fair price at +126 (44%) but 63% of the money vs 39% of bets signals sharp action on Washington.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 31.5,
+   "result": "Wizards 98-94"
   },
   {
    "id": "2026-11-20-3",
@@ -3223,8 +3229,8 @@
      "book": "FanDuel",
      "model_p": 0.6987,
      "implied_p": 0.6825,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Cavaliers 128-119"
     },
     {
      "sp": "NBA",
@@ -3238,8 +3244,8 @@
      "book": "FanDuel",
      "model_p": 0.7024,
      "implied_p": 0.7183,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Hawks 111-97"
     }
    ],
    "odds": 104,
@@ -3250,9 +3256,9 @@
    "edge": 0.0006,
    "sources": "Market 66%, Kalshi/Polymarket 67%, ESPN 81%, OddsShark 70% | Hawks: Market 68%, Kalshi/Polymarket 68%, ESPN 75%, OddsShark 72%",
    "why": "Two of the day's strongest NBA favorites, each 70% by the model.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 10.4,
+   "result": "Cavaliers 128-119; Hawks 111-97"
   },
   {
    "id": "2026-11-20-4",
@@ -3273,8 +3279,8 @@
      "book": "FanDuel",
      "model_p": 0.6987,
      "implied_p": 0.6825,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Cavaliers 128-119"
     },
     {
      "sp": "NBA",
@@ -3288,8 +3294,8 @@
      "book": "FanDuel",
      "model_p": 0.6961,
      "implied_p": 0.7101,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Raptors 105-102"
     }
    ],
    "odds": 106,
@@ -3300,9 +3306,9 @@
    "edge": 0.0009,
    "sources": "Market 66%, Kalshi/Polymarket 67%, ESPN 81%, OddsShark 70% | Pistons: Market 69%, Kalshi/Polymarket 70%, ESPN 70%, OddsShark 69%",
    "why": "Cleveland and Detroit are both ~70% home favorites, second parlay shares only one leg.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -10,
+   "result": "Cavaliers 128-119; Raptors 105-102"
   },
   {
    "id": "2026-11-20-5",
@@ -3324,8 +3330,8 @@
      "book": "FanDuel",
      "model_p": 0.1332,
      "implied_p": 0.122,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Oregon 45-7"
     }
    ],
    "odds": 720,
@@ -3336,6 +3342,249 @@
    "edge": 0.0112,
    "sources": "Market 12%, ESPN 14%, OddsShark 15%",
    "why": "Highest expected return on the board (model 13.3% x 8.2 = 1.09); ESPN and the market agree it is a real longshot but priced a touch high at +720.",
+   "status": "lost",
+   "profit": -10,
+   "result": "Oregon 45-7"
+  },
+  {
+   "id": "2026-11-21-1",
+   "date": "2026-11-21",
+   "placed": "2026-11-21T16:17:25Z",
+   "cat": "ml",
+   "title": "Georgia State ML",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Georgia State Panthers @ Marshall Thundering Herd",
+     "start": "2026-11-21T21:00Z",
+     "sel": "Georgia State Panthers ML",
+     "team": "Georgia State Panthers",
+     "opp": "Marshall Thundering Herd",
+     "odds": 120,
+     "book": "DraftKings",
+     "model_p": 0.4765,
+     "implied_p": 0.4545,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 120,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 30.0,
+   "model_p": 0.4765,
+   "edge": 0.022,
+   "sources": "Market 44%, Kalshi/Poly 42%, ESPN 65%, OddsShark 43% (OS score 26.55-29.01 away-home); public 72% of bets on Marshall",
+   "why": "Lean: model 47.6% vs DraftKings +120 (45.5%), small edge driven by ESPN's 65% for Georgia State; no side cleared the full single-bet bar today.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-2",
+   "date": "2026-11-21",
+   "placed": "2026-11-21T16:17:25Z",
+   "cat": "ml",
+   "title": "Northwestern ML",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Northwestern Wildcats @ Minnesota Golden Gophers",
+     "start": "2026-11-21T17:00Z",
+     "sel": "Northwestern Wildcats ML",
+     "team": "Northwestern Wildcats",
+     "opp": "Minnesota Golden Gophers",
+     "odds": -134,
+     "book": "FanDuel",
+     "model_p": 0.5863,
+     "implied_p": 0.5726,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -134,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 18.66,
+   "model_p": 0.5863,
+   "edge": 0.0137,
+   "sources": "Market 56%, Kalshi/Poly 56%, ESPN 78%, OddsShark 57% (OS score 22.64-20.39 away-home); Dimers NW 23-20; 79% bets/50% money on NW",
+   "why": "Lean: model 58.6% vs FanDuel -134 (57.3%); ESPN 78% and Dimers projects Northwestern 23-20, trimmed for money splitting 50/50 despite 79% of bets on Northwestern.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-3",
+   "date": "2026-11-21",
+   "placed": "2026-11-21T16:17:25Z",
+   "cat": "parlay",
+   "title": "3-leg ML parlay: Oregon State + Jacksonville State + Army",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Utah State Aggies @ Oregon State Beavers",
+     "start": "2026-11-22T03:30Z",
+     "sel": "Oregon State Beavers ML",
+     "team": "Oregon State Beavers",
+     "opp": "Utah State Aggies",
+     "odds": -275,
+     "book": "FanDuel",
+     "model_p": 0.7396,
+     "implied_p": 0.7333,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Missouri State Bears @ Jacksonville State Gamecocks",
+     "start": "2026-11-21T19:00Z",
+     "sel": "Jacksonville State Gamecocks ML",
+     "team": "Jacksonville State Gamecocks",
+     "opp": "Missouri State Bears",
+     "odds": -430,
+     "book": "FanDuel",
+     "model_p": 0.7985,
+     "implied_p": 0.8113,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "East Carolina Pirates @ Army Black Knights",
+     "start": "2026-11-21T17:00Z",
+     "sel": "Army Black Knights ML",
+     "team": "Army Black Knights",
+     "opp": "East Carolina Pirates",
+     "odds": -200,
+     "book": "FanDuel",
+     "model_p": 0.6621,
+     "implied_p": 0.6667,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 152,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 38.03,
+   "model_p": 0.391,
+   "edge": -0.0056,
+   "sources": "Oregon State 74% vs -275; Jacksonville State 80% vs -430; Army 66% vs -200; all four sources agree on each",
+   "why": "Three of the day's steadiest favorites (each 66-80% in the model, all near fair price at FanDuel), from three different games.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-4",
+   "date": "2026-11-21",
+   "placed": "2026-11-21T16:17:25Z",
+   "cat": "prop",
+   "title": "Leon Draisaitl anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Edmonton Oilers @ Carolina Hurricanes",
+     "start": "2026-11-21T18:00Z",
+     "sel": "Leon Draisaitl anytime goal",
+     "team": "Edmonton Oilers",
+     "opp": "Carolina Hurricanes",
+     "player": "Leon Draisaitl",
+     "odds": 150,
+     "book": "FanDuel",
+     "model_p": 0.5449,
+     "implied_p": 0.4,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 150,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 75.0,
+   "model_p": 0.5449,
+   "edge": 0.1449,
+   "sources": "3.83 shots/G, 21 G in 24 GP, model 54% vs FanDuel +150 (40%); DK +145",
+   "why": "Leon Draisaitl is on Oilers's top power play and his shot volume makes him a 54% scorer by the model vs +150 (40%).",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-5",
+   "date": "2026-11-21",
+   "placed": "2026-11-21T16:17:25Z",
+   "cat": "prop",
+   "title": "Cutter Gauthier anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Anaheim Ducks @ Utah Mammoth",
+     "start": "2026-11-22T02:00Z",
+     "sel": "Cutter Gauthier anytime goal",
+     "team": "Anaheim Ducks",
+     "opp": "Utah Mammoth",
+     "player": "Cutter Gauthier",
+     "odds": 115,
+     "book": "FanDuel",
+     "model_p": 0.5803,
+     "implied_p": 0.4651,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 115,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 57.5,
+   "model_p": 0.5803,
+   "edge": 0.1152,
+   "sources": "4.45 shots/G, 21 G in 22 GP, model 58% vs FanDuel +115 (47%); DK +110",
+   "why": "Cutter Gauthier is on Ducks's top power play and his shot volume makes him a 58% scorer by the model vs +115 (47%).",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-6",
+   "date": "2026-11-21",
+   "placed": "2026-11-21T16:17:25Z",
+   "cat": "longshot",
+   "title": "Rutgers ML (longshot)",
+   "call": "Going for it: Rutgers stuns Penn State (+1600) - $50 pays $800.00",
+   "legs": [
+    {
+     "sp": "NCAAF",
+     "kind": "ml",
+     "game": "Rutgers Scarlet Knights @ Penn State Nittany Lions",
+     "start": "2026-11-21T20:30Z",
+     "sel": "Rutgers Scarlet Knights ML",
+     "team": "Rutgers Scarlet Knights",
+     "opp": "Penn State Nittany Lions",
+     "odds": 1600,
+     "book": "FanDuel",
+     "model_p": 0.0708,
+     "implied_p": 0.0588,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 1600,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 800.0,
+   "model_p": 0.0708,
+   "edge": 0.012,
+   "sources": "Market 6%, Kalshi/Poly 4%, ESPN 6%, OddsShark 15% (OS score 12.17-38.71 away-home)",
+   "why": "The long shot the model trusts most: 7.1% vs 5.9% implied, expected return 1.20 per $1 (helped by OddsShark's floor at 15%).",
    "status": "pending",
    "profit": null,
    "result": ""
@@ -4324,9 +4573,9 @@
    "pct_bets": 91,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 11.63,
+   "result": "Cavaliers 128-119"
   },
   {
    "id": "2026-11-20-p2",
@@ -4341,9 +4590,9 @@
    "pct_bets": 61,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Wizards 98-94"
   },
   {
    "id": "2026-11-20-p3",
@@ -4358,9 +4607,9 @@
    "pct_bets": 89,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 9.8,
+   "result": "Hawks 111-97"
   },
   {
    "id": "2026-11-20-p4",
@@ -4375,9 +4624,9 @@
    "pct_bets": 90,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Raptors 105-102"
   },
   {
    "id": "2026-11-20-p5",
@@ -4391,6 +4640,108 @@
    "odds": -1050,
    "pct_bets": 98,
    "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "won",
+   "profit": 2.38,
+   "result": "Oregon 45-7"
+  },
+  {
+   "id": "2026-11-21-p1",
+   "date": "2026-11-21",
+   "sp": "NCAAF",
+   "game": "Georgia State Panthers @ Marshall Thundering Herd",
+   "start": "2026-11-21T21:00Z",
+   "sel": "Marshall Thundering Herd ML",
+   "team": "Marshall Thundering Herd",
+   "opp": "Georgia State Panthers",
+   "odds": -138,
+   "pct_bets": 72,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-p2",
+   "date": "2026-11-21",
+   "sp": "NCAAF",
+   "game": "Northwestern Wildcats @ Minnesota Golden Gophers",
+   "start": "2026-11-21T17:00Z",
+   "sel": "Northwestern Wildcats ML",
+   "team": "Northwestern Wildcats",
+   "opp": "Minnesota Golden Gophers",
+   "odds": -134,
+   "pct_bets": 79,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-p3",
+   "date": "2026-11-21",
+   "sp": "NCAAF",
+   "game": "Utah State Aggies @ Oregon State Beavers",
+   "start": "2026-11-22T03:30Z",
+   "sel": "Oregon State Beavers ML",
+   "team": "Oregon State Beavers",
+   "opp": "Utah State Aggies",
+   "odds": -275,
+   "pct_bets": 70,
+   "source": "Covers",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-p4",
+   "date": "2026-11-21",
+   "sp": "NCAAF",
+   "game": "Missouri State Bears @ Jacksonville State Gamecocks",
+   "start": "2026-11-21T19:00Z",
+   "sel": "Jacksonville State Gamecocks ML",
+   "team": "Jacksonville State Gamecocks",
+   "opp": "Missouri State Bears",
+   "odds": -430,
+   "pct_bets": 75,
+   "source": "Covers",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-p5",
+   "date": "2026-11-21",
+   "sp": "NCAAF",
+   "game": "East Carolina Pirates @ Army Black Knights",
+   "start": "2026-11-21T17:00Z",
+   "sel": "Army Black Knights ML",
+   "team": "Army Black Knights",
+   "opp": "East Carolina Pirates",
+   "odds": -200,
+   "pct_bets": 66,
+   "source": "Covers",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-21-p6",
+   "date": "2026-11-21",
+   "sp": "NCAAF",
+   "game": "Rutgers Scarlet Knights @ Penn State Nittany Lions",
+   "start": "2026-11-21T20:30Z",
+   "sel": "Penn State Nittany Lions ML",
+   "team": "Penn State Nittany Lions",
+   "opp": "Rutgers Scarlet Knights",
+   "odds": -4500,
+   "pct_bets": 52,
+   "source": "Covers",
    "stake": 25,
    "status": "pending",
    "profit": null,
@@ -4407,6 +4758,12 @@
     "profit": -10.0
    },
    "public": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
+   "kingcap": {
     "w": 0,
     "l": 0,
     "p": 0,
@@ -4429,6 +4786,12 @@
     "p": 0,
     "profit": -20.87
    },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
    "bankroll": 1175.18,
    "public_bankroll": 979.13
   },
@@ -4445,6 +4808,12 @@
     "l": 2,
     "p": 0,
     "profit": -24.84
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
    },
    "bankroll": 1194.41,
    "public_bankroll": 954.29
@@ -4463,6 +4832,12 @@
     "p": 0,
     "profit": 20.8
    },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
    "bankroll": 1211.56,
    "public_bankroll": 975.09
   },
@@ -4479,6 +4854,12 @@
     "l": 1,
     "p": 0,
     "profit": 0.66
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
    },
    "bankroll": 1258.75,
    "public_bankroll": 975.75
@@ -4497,6 +4878,12 @@
     "p": 0,
     "profit": -10.88
    },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
    "bankroll": 1251.77,
    "public_bankroll": 964.87
   },
@@ -4513,6 +4900,12 @@
     "l": 4,
     "p": 0,
     "profit": -8.42
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
    },
    "bankroll": 1356.77,
    "public_bankroll": 956.45
@@ -4531,6 +4924,12 @@
     "p": 0,
     "profit": 20.38
    },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
    "bankroll": 1304.54,
    "public_bankroll": 976.83
   },
@@ -4547,6 +4946,12 @@
     "l": 1,
     "p": 0,
     "profit": -2.81
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
    },
    "bankroll": 1307.04,
    "public_bankroll": 974.02
@@ -4565,6 +4970,12 @@
     "p": 0,
     "profit": 59.27
    },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
    "bankroll": 1296.55,
    "public_bankroll": 1033.29
   },
@@ -4581,6 +4992,12 @@
     "l": 2,
     "p": 0,
     "profit": -35.34
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
    },
    "bankroll": 1216.55,
    "public_bankroll": 997.95
@@ -4599,8 +5016,37 @@
     "p": 0,
     "profit": -39.05
    },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
    "bankroll": 1204.54,
    "public_bankroll": 958.9
+  },
+  {
+   "date": "2026-11-20",
+   "bot": {
+    "w": 3,
+    "l": 2,
+    "p": 0,
+    "profit": 33.53
+   },
+   "public": {
+    "w": 3,
+    "l": 2,
+    "p": 0,
+    "profit": -26.19
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
+   "bankroll": 1238.07,
+   "public_bankroll": 932.71
   }
  ]
 }

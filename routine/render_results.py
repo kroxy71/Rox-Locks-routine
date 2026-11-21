@@ -12,6 +12,7 @@ import datetime
 import html
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +40,9 @@ def title_of(p):
         return '%s anytime TD' % p['player']
     if t == 'prop':
         line = p.get('line')
+        if line is None:   # graded from his slip's or DraftKings' line: show that number
+            m = re.search(r'vs (?:over|under) ([0-9.]+)', p.get('detail') or '')
+            line = float(m.group(1)) if m else None
         return '%s %s %s %s' % (p['player'], (p.get('stat') or '').upper() if p.get('stat') == 'pra' else p.get('stat'),
                                 p.get('ou', 'over'), ('%g' % line) if line is not None else '')
     if t == 'total':
@@ -153,13 +157,17 @@ def main():
             yw = sum(p['result'] == 'WIN' for p in yp)
             yl = sum(p['result'] == 'LOSS' for p in yp)
             yd = sum(p['result'] == 'PENDING' for p in yp)
-            line = 'Yesterday: %d hit, %d miss, %d pending' % (yw, yl, yd)
+            line = 'Yesterday overall: %d hit, %d miss%s' % (yw, yl, (', %d pending' % yd) if yd else '')
+            # picks already listed above are not repeated; only ones reported in last night's update emails are listed here
+            shown = {key_of(p) for p in new}
+            rest = [p for p in yp if key_of(p) not in shown and p['result'] in ('WIN', 'LOSS', 'PUSH', 'VOID')]
+            if rest:
+                line += " (the %d below were in last night's updates; the rest are listed above)" % len(rest)
             h.append('<p><b>%s</b></p>' % E(line))
             t.append(line)
-            for p in sorted(yp, key=lambda p: {'WIN': 0, 'LOSS': 1, 'PUSH': 2, 'VOID': 2}.get(p['result'], 3)):
-                if p['result'] in ('WIN', 'LOSS', 'PUSH', 'VOID'):
-                    h.append(result_card(p))
-                    t.append(txt_line(p))
+            for p in sorted(rest, key=lambda p: {'WIN': 0, 'LOSS': 1, 'PUSH': 2, 'VOID': 2}.get(p['result'], 3)):
+                h.append(result_card(p))
+                t.append(txt_line(p))
     status = 'Still pending: %d picks' % len(pending)
     if noline:
         status += ' | Not gradeable (no line stated): %d' % len(noline)

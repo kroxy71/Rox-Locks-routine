@@ -384,9 +384,9 @@ def main(path):
   h+=table(prow,['Parlay','Legs','Result'])
  h+=("<p style='font-size:12px;color:#777;margin:10px 0'><b>How it is graded.</b> Final scores and box scores come from ESPN. A line KingCap states is used; "
   "when he gives only the bet (for example \"this game goes over\"), the DraftKings closing line from ESPN is used. Moneyline and 1st-half picks are straight up. "
-  "Player props are void if the player did not play, and props with no stated line cannot be graded. Only firm picks count; leans and mentions are not graded. "
+  "When he gives no line for a player prop, the line from his bet slip that day is used, else DraftKings' line; props are void if the player did not play. Only firm picks count; leans and mentions are not graded. "
   "Streams are transcribed automatically, so a few names or numbers may be off.</p>")
- t+="\nHow it is graded: ESPN final scores and box scores; stated lines used, otherwise the ESPN/DraftKings closing line; props with no line are not graded; void if player did not play; only firm picks count.\n"
+ t+="\nHow it is graded: ESPN final scores and box scores; stated lines used, otherwise the ESPN/DraftKings closing line; props with no line use his slip's line, else DraftKings'; void if player did not play; only firm picks count.\n"
  open(os.path.join(HERE,'tracker.html'),'w',encoding='utf8').write(h)
  open(os.path.join(HERE,'tracker.txt'),'w',encoding='utf8').write(t)
  json.dump(G,open(os.path.join(HERE,'graded.json'),'w'),indent=1)

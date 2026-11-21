@@ -2,7 +2,7 @@
 """Fetch every public data source once and print only what the picks need.
 
   python3 routine/gather.py fetch --sports nba,nhl [--date YYYY-MM-DD]
-        pulls ESPN, SharpAPI (FanDuel/DraftKings), Polymarket, Kalshi and the scraped pages
+        pulls ESPN, SharpAPI (FanDuel/DraftKings), Polymarket, Kalshi, ProphetX, BettingPros and the scraped pages
         into /tmp/kc/g/ (cache) and writes /tmp/kc/g/games.json
   python3 routine/gather.py show picks.json
         prints one compact record per game that has a pick (lines, no-vig %, market and model %,
@@ -43,6 +43,9 @@ VI = {'nfl': 'nfl', 'ncaaf': 'college-football', 'nba': 'nba', 'nhl': 'nhl', 'ml
 TR = {'nfl': 'nfl', 'ncaaf': 'ncf', 'nba': 'nba'}
 ROTO = {'nfl': 'football/lineups.php', 'ncaaf': 'cfootball/lineups.php', 'nba': 'basketball/nba-lineups.php',
         'nhl': 'hockey/nhl-lineups.php', 'mlb': 'baseball/daily-lineups.php'}
+BP = {'nfl': 'nfl', 'nba': 'nba', 'nhl': 'nhl', 'mlb': 'mlb', 'ncaaf': 'ncaaf'}
+BP_MARKETS = (('', 'spread'), ('moneyline/', 'ml'), ('total/', 'total'))
+PX_TOURN = {'nfl': ('nfl',), 'ncaaf': ('college football', 'ncaa'), 'nba': ('nba',), 'nhl': ('nhl',), 'mlb': ('mlb',)}
 SAO = {'nfl': 'nfl', 'ncaaf': 'ncaaf', 'nba': 'nba', 'nhl': 'nhl', 'mlb': 'mlb'}
 STATS_PROP = {'pra': 'player_points_+_rebounds_+_assists', 'pr': 'player_points_+_rebounds', 'points': 'player_points',
               'rebounds': 'player_rebounds', 'assists': 'player_assists', 'threes': 'player_made_threes',
@@ -235,6 +238,74 @@ def attach_kalshi(games, sp):
                     g['src'].setdefault('kalshi', {})['away'] = round(p, 3)
 
 
+def side_match(name, g, side):
+    """True if a short team name ('Minnesota', 'Trail Blazers', 'Los Angeles Lakers') is the game's home/away team."""
+    a, b = norm(name), norm(g[side])
+    return bool(a) and (a == b or a in b or b in a or bool(nick(g[side]) and nick(g[side]) in a.split()))
+
+
+def attach_bettingpros(games, sp):
+    """BettingPros odds pages (only the games the page itself includes, often about five): its consensus line, the
+    opening line, and its model's projection, cover probability, expected value and 1-5 bet rating for each side."""
+    if sp not in BP:
+        return
+    for path, mk in BP_MARKETS:
+        raw = cached('bp_%s_%s.html' % (sp, mk), lambda: http('https://www.bettingpros.com/%s/odds/%s' % (BP[sp], path)))
+        for blob in re.findall(r'<script type="application/json" class="island-props">(.*?)</script>', raw or '', re.S):
+            try:
+                offers = json.loads(blob).get('offers') or []
+            except Exception:
+                continue
+            for o in offers:
+                parts = {pp['id']: ((pp.get('team') or {}).get('city', '') + ' ' + pp.get('name', '')).strip()
+                         for pp in o.get('participants', [])}
+                for g in games:
+                    if not (any(side_match(n, g, 'home') for n in parts.values()) and any(side_match(n, g, 'away') for n in parts.values())):
+                        continue
+                    for sel in o.get('selections', []):
+                        b0 = next((b for b in sel.get('books', []) if b.get('id') == 0), None)
+                        ln = ((b0 or {}).get('lines') or [{}])[0]
+                        m = ln.get('metrics') or {}
+                        if mk == 'total':
+                            side = (sel.get('selection') or sel.get('label') or '').lower()
+                            if side not in ('over', 'under'):
+                                continue
+                        else:
+                            nm = parts.get(sel.get('participant'), sel.get('label', ''))
+                            side = 'home' if side_match(nm, g, 'home') else 'away' if side_match(nm, g, 'away') else None
+                            if not side:
+                                continue
+                        rec = {'line': ln.get('line'), 'cost': ln.get('cost'), 'open': (sel.get('opening_line') or {}).get('line'),
+                               'proj': m.get('projection'), 'cover_p': m.get('cover_probability'), 'ev': m.get('expected_value'),
+                               'rating': m.get('bet_rating')}
+                        g['src'].setdefault('bettingpros', {}).setdefault(mk, {})[side] = {k: v for k, v in rec.items() if v is not None}
+
+
+def attach_prophetx(games, sp):
+    """ProphetX prediction-exchange best prices from its home page (featured events only, about 20 across sports):
+    moneyline no-vig win chances, stored like Polymarket/Kalshi."""
+    raw = cached('prophetx.html', lambda: http('https://www.prophetx.co/'))
+    t = (raw or '').replace('\\"', '"')
+    events = {}
+    for m in re.finditer(r'"name":"([^"]+?) at ([^"]+?)","displayName":"[^"]*","sport":\{"id":\d+,"name":"[^"]*"\},"tournament":\{"id":\d+,"name":"([^"]+)"', t):
+        i = re.search(r'"id":(\d{8,}),"scheduled"', t[m.end():m.end() + 4000])
+        if i:
+            events[i.group(1)] = (m.group(1), m.group(2), m.group(3).lower())
+    for m in re.finditer(r'"eventId":(\d+),"markets":\[\{"id":\d+,"name":"Moneyline".{0,200}?"selections":\[\[\{[^{}]*?"name":"([^"]+)"[^{}]*?"odds":(-?\d+).*?\],\[\{[^{}]*?"name":"([^"]+)"[^{}]*?"odds":(-?\d+)', t, re.S):
+        ev = events.get(m.group(1))
+        if not ev or not any(k in ev[2] for k in PX_TOURN.get(sp, ())):
+            continue
+        away, home = ev[0], ev[1]
+        for g in games:
+            if side_match(home, g, 'home') and side_match(away, g, 'away'):
+                o = {m.group(2): int(m.group(3)), m.group(4): int(m.group(5))}
+                h = next((v for k, v in o.items() if side_match(k, g, 'home')), None)
+                a = next((v for k, v in o.items() if side_match(k, g, 'away')), None)
+                if h is not None and a is not None:
+                    ph, pa = novig(h, a)
+                    g['src']['prophetx'] = {'home': round(ph, 3), 'away': round(pa, 3), 'ml_home': h, 'ml_away': a}
+
+
 def attach_predictor(g):
     raw = cached('espn_sum_%s.json' % g['id'], lambda: http('%s%s/summary?event=%s' % (ESPN, PATH[g['sp']], g['id'])))
     if not raw:
@@ -319,6 +390,8 @@ def fetch(sports, date):
         attach_sharp(games, sp)
         attach_polymarket(games, sp)
         attach_kalshi(games, sp)
+        attach_prophetx(games, sp)
+        attach_bettingpros(games, sp)
         for name in PAGES:
             txt = page_text(name, sp)
             if not txt:
@@ -408,12 +481,26 @@ def sites_for(p, g):
         if mp:
             pa, pb = (mp[0], mp[1]) if side == 'home' else (mp[1], mp[0])
             out.append(['FD/DK no-vig', '%s %d%%' % (kc['team'], round(pa * 100)), verdict(pa, pb)])
-        for key, label in (('polymarket', 'Polymarket'), ('kalshi', 'Kalshi'), ('espn_pred', 'ESPN predictor')):
+        for key, label in (('polymarket', 'Polymarket'), ('kalshi', 'Kalshi'), ('prophetx', 'ProphetX'), ('espn_pred', 'ESPN predictor')):
             d = src.get(key)
             if d and side in d and other in d:
                 out.append([label, '%s %d%%' % (kc['team'], round(d[side] * 100)), verdict(d[side], d[other])])
+        bp = (src.get('bettingpros') or {}).get('spread' if t == 'spread' else 'ml') or {}
+        if side in bp and 'cover_p' in bp[side]:
+            c = bp[side]['cover_p']
+            what = 'covers' if t == 'spread' else 'wins'
+            out.append(['BettingPros', '%s %s %d%%%s' % (kc['team'], what, round(c * 100),
+                                                          (', rated %s/5' % bp[side]['rating']) if bp[side].get('rating') else ''),
+                        verdict(c, 1 - c)])
     elif t == 'total':
         line = kc.get('line')
+        bpt = (src.get('bettingpros') or {}).get('total') or {}
+        ou = kc.get('ou')
+        if ou in bpt and 'cover_p' in bpt[ou]:
+            c = bpt[ou]['cover_p']
+            out.append(['BettingPros', '%s %s hits %d%%%s' % (ou, bpt[ou].get('line', ''), round(c * 100),
+                                                            (', rated %s/5' % bpt[ou]['rating']) if bpt[ou].get('rating') else ''),
+                        verdict(c, 1 - c)])
         for b, label in (('fd', 'FanDuel'), ('dk', 'DraftKings')):
             s = (src.get('lines') or {}).get(b) or {}
             if 'tot_over' in s:
@@ -458,7 +545,9 @@ def show(path):
                                                                    s_.get('sp_away'), s_.get('sp_home'), s_.get('tot_over'), s_.get('tot_under')))
         if g.get('espn_line'):
             print('  ESPN line: %s total %s (%s)' % (g['espn_line'], g.get('espn_total'), g.get('espn_provider')))
-        for k in ('polymarket', 'kalshi', 'espn_pred'):
+        if g['src'].get('bettingpros'):
+            print('  bettingpros: ' + json.dumps(g['src']['bettingpros'], separators=(',', ':'))[:400])
+        for k in ('polymarket', 'kalshi', 'prophetx', 'espn_pred'):
             if g['src'].get(k):
                 print('  %s (away/home): %s/%s' % (k, g['src'][k].get('away'), g['src'][k].get('home')))
         if g.get('injuries'):

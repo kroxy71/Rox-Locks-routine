@@ -359,7 +359,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-21d";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-21e";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -459,7 +459,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     document.body.classList.toggle("stats-mode", on);
     if (on && !$("stats").firstElementChild) {
       const f = document.createElement("iframe");
-      f.src = "sheet/index.html"; f.title = "Sharp Sheet stats"; f.loading = "lazy";
+      f.src = "sheet/index.html?v=" + encodeURIComponent(BUILD); f.title = "Sharp Sheet stats"; f.loading = "lazy";
       $("stats").append(f);
     }
     if (on) { sizeStats(); window.scrollTo(0, 0); }

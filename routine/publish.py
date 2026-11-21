@@ -15,7 +15,7 @@ Usage (run from a clone of kroxy71/Rox-Locks-routine, GITHUB_TOKEN in the enviro
   --kcbets    picks.json (after gather.py show): the computer's KingCap paper bets go into data/bot.json (kcbets.py)
   --dry       change the files but do not commit or push
 
-Changes only data/emails.json, data/slips.json, data/history.json, data/state.json, data/bot.json (--kcbets) and slips/*.jpg.
+Changes only data/emails.json, data/slips.json, data/history.json, data/state.json, data/graded.json (--graded), data/bot.json (--kcbets) and slips/*.jpg.
 Scrubs email addresses and keys. Never prints the token.
 """
 import argparse
@@ -74,6 +74,7 @@ def main():
     ap.add_argument('--web')
     ap.add_argument('--id', default='')
     ap.add_argument('--picks')
+    ap.add_argument('--graded', help='OUT/graded_min.json from tracker.py: copied to data/graded.json for the page')
     ap.add_argument('--slipdir')
     ap.add_argument('--reported')
     ap.add_argument('--videos', default='')
@@ -150,6 +151,11 @@ def main():
                 nparl += 1
         save('history.json', hist)
         print('slips:', len(d.get('slips', [])), 'history picks added:', added, 'parlays added:', nparl)
+
+    # 2b. the tracker's grades, so the page shows the same record as the emails
+    if a.graded and os.path.exists(a.graded):
+        save('graded.json', json.load(open(a.graded, encoding='utf-8')))
+        print('graded.json updated')
 
     # 3. state
     if a.reported or a.videos:

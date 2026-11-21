@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """KingCap tracker: grade picks with ESPN data and build the accuracy tracker.
 Usage: python3 kctrack.py history.json [outdir]   -> writes tracker.html, tracker.txt, graded.json (and a cache/ folder) into outdir."""
-import json,os,re,sys,html,unicodedata,difflib,datetime,collections,urllib.request
+import json,os,re,sys,html,hashlib,unicodedata,difflib,datetime,collections,urllib.request
 HERE=os.path.abspath(sys.argv[2]) if len(sys.argv)>2 else os.path.dirname(os.path.abspath(__file__))
 CACHE=os.path.join(HERE,'cache')
 os.makedirs(CACHE,exist_ok=True)
@@ -19,7 +19,7 @@ GREEN,RED,GRAY='#2E7D32','#C62828','#777'
 TBL="border-collapse:collapse;width:100%;max-width:380px;table-layout:fixed;font-size:13px"
 CW=['58%','21%','21%']
 def get(url):
- fp=os.path.join(CACHE,re.sub(r'[^A-Za-z0-9]','_',url)[-180:]+'.json')
+ fp=os.path.join(CACHE,re.sub(r'[^A-Za-z0-9]','_',url)[-60:]+'_'+hashlib.md5(url.encode()).hexdigest()[:10]+'.json')
  if os.path.exists(fp):
   return json.load(open(fp,encoding='utf8'))
  d=json.load(urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=40))
@@ -72,7 +72,9 @@ def athletes(sp,eid):
   for grp in t.get('statistics',[]):
    keys=grp.get('keys')or grp.get('names')or[]
    for a in grp.get('athletes',[]):
-    yield t['team']['displayName'],a['athlete']['displayName'],dict(zip(keys,a.get('stats',[]))),grp.get('name','')
+    st=dict(zip(keys,a.get('stats',[])))
+    st['_id']=str(a['athlete'].get('id',''))
+    yield t['team']['displayName'],a['athlete']['displayName'],st,grp.get('name','')
 def find_player(sp,date,player,team):
  n=norm(player)
  hits=[]
@@ -89,6 +91,62 @@ def find_player(sp,date,player,team):
   except Exception:
    continue
  return hits
+# ---- line fallbacks (same rules as the Rox Locks page): his bet slip that day, then DraftKings' line on ESPN ----
+SLIPS=None
+SLIP_STAT=[(r'shots?(?:\s+on\s+goal)?|sog','sog'),(r'pra|pts\+reb\+ast','pra'),(r'threes?|3-?pointers?|3pm','threes'),
+ (r'steals?','steals'),(r'blocks?','blocks'),(r'rec(?:eiving)? (?:yards|yds)','recYds'),(r'rush(?:ing)? (?:yards|yds)','rushYds'),
+ (r'pass(?:ing)? (?:yards|yds)','passYds'),(r'receptions?','rec'),(r'points','points'),(r'rebounds','rebounds'),(r'assists','assists')]
+def slip_line(d,player,stat):
+ global SLIPS
+ if SLIPS is None:
+  try:
+   SLIPS=json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'data','slips.json'),encoding='utf8'))
+  except Exception:
+   SLIPS=[]
+ words='|'.join(w for w,_ in SLIP_STAT)
+ rx=re.compile(r'^(.+?)\s+(\d+)\+\s+('+words+r')\b',re.I)
+ for v in SLIPS:
+  if v.get('date')!=d:
+   continue
+  for lg in v.get('legs')or[]:
+   t=re.sub(r'\s*\(.*$','',re.sub(r'^SGP:\s*','',str(lg.get('text','')).split(' · ')[0],flags=re.I))
+   for part in re.split(r'\s+and\s+',t,flags=re.I):
+    m=rx.match(part.strip())
+    if not m:
+     continue
+    sx=next((k for w,k in SLIP_STAT if re.fullmatch(w,m.group(3),re.I)),None)
+    a,b=norm(player),norm(m.group(1))
+    if sx==stat and(a==b or difflib.SequenceMatcher(None,a,b).ratio()>0.82 or(a.split()[-1:]==b.split()[-1:]and difflib.SequenceMatcher(None,a,b).ratio()>0.6)):
+     return int(m.group(2))-0.5
+ return None
+PROPTYPE={'pra':'90','points':'1','rebounds':'3','assists':'2','threes':'4','steals':'5','blocks':'6'}
+MILETYPE={'steals':'222','blocks':'223'}
+def dk_line(sp,eid,aid,stat):
+ if sp!='nba' or not aid:
+  return None
+ try:
+  items=[]
+  for pg in range(1,5):
+   j=get(f"https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/{eid}/competitions/{eid}/odds/100/propBets?limit=500&page={pg}")
+   items+=j.get('items',[])
+   if pg>=(j.get('pageCount')or 1):
+    break
+  mine=[it for it in items if re.search(r'athletes/'+aid+r'\b',(it.get('athlete')or{}).get('$ref',''))]
+  if stat in PROPTYPE:
+   for it in mine:
+    tot=((it.get('odds')or{}).get('total')or{}).get('value')
+    if (it.get('type')or{}).get('id')==PROPTYPE[stat] and tot is not None:
+     return float(tot)
+  if stat in MILETYPE:
+   ms=[it for it in mine if (it.get('type')or{}).get('id')==MILETYPE[stat] and re.search(r'\d',((it.get('current')or{}).get('target')or{}).get('displayValue',''))]
+   def dec(a):
+    return 1+a/100 if a>0 else 1+100/-a if a else 99
+   ms.sort(key=lambda it:abs(dec(int(((it.get('odds')or{}).get('american')or{}).get('value')or 0))-2))
+   if ms:
+    return int(re.match(r'\d+',ms[0]['current']['target']['displayValue']).group())-0.5
+ except Exception:
+  return None
+ return None
 def num(x):
  try:
   return float(str(x).split('-')[0])
@@ -138,8 +196,6 @@ def grade(p):
    over=p['ou']=='over'
    return('PUSH' if tot==line else 'WIN' if(tot>line)==over else 'LOSS'),f"total {int(tot)} vs {p['ou']} {line:g}"
   if t in('atd','atg','prop'):
-   if t=='prop' and p.get('line')is None:
-    return 'NOLINE','no line stated'
    hits=find_player(sp,p['d'],p['player'],p.get('team'))
    if not hits:
     return('PENDING' if events(sp,p['d'])and not all(x['status']['type'].get('completed')for x in events(sp,p['d']))else 'VOID'),'player not in box score'
@@ -148,6 +204,7 @@ def grade(p):
    if not e['status']['type'].get('completed'):
     return 'PENDING','not final'
    merged={}
+   merged_id=st.get('_id','')
    for h in hits:
     if h[3]==name:
      for k,v in h[4].items():
@@ -176,8 +233,14 @@ def grade(p):
     val=next((num(v)for kk,v in merged.items()if k and kk.endswith('.'+k)),0.0)
    if val is None:
     return 'NOLINE','stat not supported'
-   line,over=p['line'],p.get('ou','over')=='over'
-   return('PUSH' if val==line else 'WIN' if(val>line)==over else 'LOSS'),f"{name}: {stat} {val:g} vs {p.get('ou', 'over')} {line:g}"
+   line,over,src=p.get('line'),p.get('ou','over')=='over',''
+   if line is None:
+    line,src=slip_line(p['d'],p['player'],stat),' (from his bet slip)'
+   if line is None:
+    line,src=dk_line(sp,e['id'],merged_id,stat),' (DraftKings line, none stated)'
+   if line is None:
+    return 'NOLINE','no line stated'
+   return('PUSH' if val==line else 'WIN' if(val>line)==over else 'LOSS'),f"{name}: {stat} {val:g} vs {p.get('ou', 'over')} {line:g}{src}"
  except Exception as ex:
   return 'ERROR',repr(ex)[:100]
  return 'PENDING',''
@@ -327,6 +390,15 @@ def main(path):
  open(os.path.join(HERE,'tracker.html'),'w',encoding='utf8').write(h)
  open(os.path.join(HERE,'tracker.txt'),'w',encoding='utf8').write(t)
  json.dump(G,open(os.path.join(HERE,'graded.json'),'w'),indent=1)
+ # compact copy for the Rox Locks page (data/graded.json): it shows these grades so the page and the emails agree
+ def gkey(p):
+  if p['t']=='parlay':
+   return '|'.join([p['d'],'parlay',p.get('title')or'',str(p.get('at')or'')])
+  return '|'.join(str(x)for x in(p['d'],p['sp'],p['t'],p.get('team')or'',p.get('player')or'','/'.join(p.get('teams')or[]),p.get('stat')or'',p.get('ou')or''))
+ mini=[{'k':gkey(p),'d':p['d'],'sp':p['sp'],'t':p['t'],'conv':p.get('conv',''),'r':p['result'],
+   **({'legs':[lg.get('result','')for lg in p.get('legs')or[]]}if p['t']=='parlay' else{})}for p in G]
+ json.dump({'at':datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),'picks':mini},
+  open(os.path.join(HERE,'graded_min.json'),'w',encoding='utf8'),ensure_ascii=False,separators=(',',':'))
  print(t)
 if __name__=='__main__':
  main(sys.argv[1])

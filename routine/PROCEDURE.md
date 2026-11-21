@@ -45,8 +45,9 @@ python3 /tmp/rl/routine/render_results.py /tmp/kc/trk/graded.json /tmp/rl/data/s
 ```
 Load the Gmail tools (ToolSearch query: gmail). Send the results email (subject = contents of `/tmp/kc/res/subject.txt`, which is exactly `Last Night's Results`; recipients as above). Then:
 ```
-cd /tmp/rl && python3 routine/publish.py --web /tmp/kc/res/web.json --id <message id> --reported /tmp/kc/res/reported.json
+cd /tmp/rl && python3 routine/publish.py --web /tmp/kc/res/web.json --id <message id> --reported /tmp/kc/res/reported.json --graded /tmp/kc/trk/graded_min.json
 ```
+(`--graded` puts the tracker's grades in `data/graded.json`, so the page shows the same record as the email.)
 Finish with `Sent morning results: <the line render_results printed>` plus `push-ok` or the publish error. (`GITHUB_TOKEN` is in the environment; never print it.)
 
 ## B. WEEKDAY EVENING (the 4:45 PM run: it waits for the whole stream and does everything)
@@ -106,7 +107,7 @@ Sunday's show usually starts about 11:05 AM ET and lasts under 30 minutes; Satur
    python3 routine/tracker.py /tmp/kc/trk /tmp/kc/picks.json     # add picks.json only if this run made one
    python3 routine/render_results.py /tmp/kc/trk/graded.json /tmp/rl/data/state.json /tmp/kc/res --mode update --today <YYYY-MM-DD> --time "<h:mm PM ET>" --tracker /tmp/kc/trk
    ```
-   If `/tmp/kc/res/NOTHING` exists, send nothing (`No new results`). Otherwise send the results email (subject from `subject.txt`) and `python3 routine/publish.py --web /tmp/kc/res/web.json --id <message id> --reported /tmp/kc/res/reported.json`.
+   If `/tmp/kc/res/NOTHING` exists, send nothing (`No new results`). Otherwise send the results email (subject from `subject.txt`) and `python3 routine/publish.py --web /tmp/kc/res/web.json --id <message id> --reported /tmp/kc/res/reported.json --graded /tmp/kc/trk/graded_min.json`.
 13. Finish with a one-line summary.
 
 ## picks.json format

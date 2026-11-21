@@ -31,12 +31,12 @@ WRAP = "font-family:Arial,sans-serif;font-size:14px;color:#222;max-width:680px"
 
 
 SITE_URL = 'https://tinyurl.com/RoxLocks'
-# a small dark button under the email title (class rl-site-link: the Rox Locks page hides it, since you are already there)
-SITE_LINK_HTML = ("<p class='rl-site-link' style='margin:0 0 14px'><a href='%s' style='display:inline-block;background:#13202B;"
-                  "color:#FFC21A;text-decoration:none;font-weight:bold;font-size:13px;letter-spacing:.04em;padding:7px 14px;"
-                  "border-radius:6px'>ROX LOCKS SITE &#8250;&nbsp;<span style='color:#F3F5F4;font-weight:normal'>live scores, "
-                  "tracker &amp; parlays</span></a></p>" % SITE_URL)
-SITE_LINK_TEXT = 'Rox Locks site (live scores, tracker, parlays): ' + SITE_URL
+# a gold button under the email title (class rl-site-link: the Rox Locks page hides it, since you are already there)
+SITE_LINK_HTML = ("<p class='rl-site-link' style='margin:0 0 16px'><a href='%s' style='display:inline-block;background:#FFC21A;"
+                  "color:#13202B;text-decoration:none;font-weight:bold;font-size:15px;padding:11px 22px;border-radius:8px;"
+                  "border:1px solid #E0A800'>Try out the website &#8250;</a>"
+                  "<br><span style='font-size:12px;color:#5B6873'>Live scores, accuracy tracker &amp; parlays</span></p>" % SITE_URL)
+SITE_LINK_TEXT = 'Try out the website (live scores, tracker, parlays): ' + SITE_URL
 
 
 def sp_key(sp):

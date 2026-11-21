@@ -367,7 +367,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-21l";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-21m";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -388,7 +388,8 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       out.push([label + " " + fmtDay(d) + " " + fmtTime(d), old]);
     };
     add("Picks", newest("picks"), 0);
-    add("Results", newest("results"), 40);
+    const re = newest("results"), sc = st.scoresAt || null;
+    add("Results", re && sc ? (sc > re ? sc : re) : (re || sc), 40);
     const bu = st.bot && st.bot.updated ? new Date(st.bot.updated) : null;
     add("Computer", bu && !isNaN(bu) ? bu : null, 36);
     box.textContent = "";
@@ -2020,7 +2021,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       soon: all.some(g => g.state === "pre" && g.start - now < 45 * 60 * 1000),
       done: all.length > 0 && all.every(g => g.state === "post"),
       err: sports.some(sp => !games[sp]) };
-    liveCache[day] = c; st.liveAt = c.at; stamp(); return c;
+    liveCache[day] = c; st.liveAt = c.at; if (!c.err) st.scoresAt = c.at; stamp(); freshness(); return c;
   }
   const LRES = { hit: "HIT", miss: "MISS", live: "LIVE", push: "PUSH", pending: "PENDING", none: "—" };
   function fillLive(box, day){
@@ -2072,7 +2073,10 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   }
   // refresh button: pull ESPN again right now (ignores the cache age) and restamp the header
   function forceLive(){
-    if (!liveCur) return Promise.resolve();
+    if (!liveCur) {
+      const g = (st.lists.picks || [])[0], picks = g ? picksOf(g) : [];
+      return picks.length ? refreshLive(dayOf(g), picks).catch(() => {}) : Promise.resolve();
+    }
     const { day, picks, box, fill } = liveCur;
     return refreshLive(day, picks).then(() => { if (liveCur && liveCur.day === day && box.isConnected) fill(); }).catch(() => {});
   }
@@ -2116,9 +2120,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
       onSlips(slips);
       onEmails(Array.isArray(emails) ? emails : []);
       freshness();
-      histRun().catch(() => {});
-      parlRun().catch(() => {});
-      refreshBotLive().catch(() => {});
+      return Promise.all([histRun(), parlRun(), refreshBotLive()].map(x => Promise.resolve(x).catch(() => {})));
     } catch(e) {
       if (!st.loaded) { $("checked").textContent = "Couldn't load"; st.err = { h: "Couldn't load the picks", p: "Check your connection and try again.", retry: true }; render(); }
     }
@@ -2129,7 +2131,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     const b = $("refresh"); if (b.classList.contains("spin")) return;
     b.classList.add("spin"); b.setAttribute("aria-busy", "true");
     const t0 = Date.now();
-    try { await load(); await forceLive(); } finally {
+    try {
+      const jobs = load();   // emails/data files, then ESPN for the tracker, parlays and the computer
+      await Promise.all([jobs.then(j => j), jobs.then(() => forceLive())]);
+      st.scoresAt = st.liveAt = new Date(); freshness(); stamp();
+    } finally {
       setTimeout(() => { b.classList.remove("spin"); b.removeAttribute("aria-busy"); }, Math.max(0, 600 - (Date.now() - t0)));
     }
   });

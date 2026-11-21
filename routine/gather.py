@@ -37,8 +37,8 @@ PATH = {'nfl': 'football/nfl', 'ncaaf': 'football/college-football', 'nba': 'bas
         'mlb': 'baseball/mlb', 'ncaab': 'basketball/mens-college-basketball'}
 EXTRA = {'ncaaf': '&groups=80&limit=300', 'ncaab': '&groups=50&limit=300'}
 SHARP_LEAGUE = {'nfl': 'nfl', 'ncaaf': 'ncaaf', 'nba': 'nba', 'nhl': 'nhl', 'mlb': 'mlb', 'ncaab': 'ncaab'}
-PM_TAG = {'nfl': 'nfl', 'ncaaf': 'cfb', 'nba': 'nba', 'nhl': 'nhl', 'mlb': 'mlb', 'ncaab': 'cbb'}
-KALSHI = {'nfl': 'KXNFLGAME', 'ncaaf': 'KXNCAAFGAME', 'nba': 'KXNBAGAME', 'nhl': 'KXNHLGAME', 'mlb': 'KXMLBGAME'}
+PM_TAG = {'nfl': 'nfl', 'ncaaf': 'cfb', 'nba': 'nba', 'nhl': 'nhl', 'mlb': 'mlb', 'ncaab': 'ncaa-basketball'}
+KALSHI = {'nfl': 'KXNFLGAME', 'ncaaf': 'KXNCAAFGAME', 'nba': 'KXNBAGAME', 'nhl': 'KXNHLGAME', 'mlb': 'KXMLBGAME', 'ncaab': 'KXNCAAMBGAME'}
 VI = {'nfl': 'nfl', 'ncaaf': 'college-football', 'nba': 'nba', 'nhl': 'nhl', 'mlb': 'mlb'}
 TR = {'nfl': 'nfl', 'ncaaf': 'ncf', 'nba': 'nba'}
 ROTO = {'nfl': 'football/lineups.php', 'ncaaf': 'cfootball/lineups.php', 'nba': 'basketball/nba-lineups.php',

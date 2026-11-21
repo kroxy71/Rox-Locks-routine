@@ -7,13 +7,13 @@ CACHE=os.path.join(HERE,'cache')
 os.makedirs(CACHE,exist_ok=True)
 BASE='https://site.api.espn.com/apis/site/v2/sports/'
 PATH={'nfl':'football/nfl','ncaaf':'football/college-football','nba':'basketball/nba',
-  'nhl':'hockey/nhl','mlb':'baseball/mlb'}
-EXTRA={'ncaaf':'&groups=80&limit=300'}
+  'nhl':'hockey/nhl','mlb':'baseball/mlb','ncaab':'basketball/mens-college-basketball'}
+EXTRA={'ncaaf':'&groups=80&limit=300','ncaab':'&groups=50&limit=400'}
 CAT={'ml':'Moneyline / spread','spread':'Moneyline / spread','h1ml':'1st Half ML','h1spread':'1st Half spread','h1total':'1st Half total',
  'total':'Over/under','atd':'Anytime TD scorer','atg':'Anytime goal scorer',
  'prop':'Other player props','parlay':'Parlays'}
 CAT_ORDER=['Anytime TD scorer','Anytime goal scorer','Moneyline / spread','1st Half ML','1st Half spread','1st Half total','Over/under','Other player props']
-SPORT={'nfl':'NFL','ncaaf':'College football','nba':'NBA','nhl':'NHL','mlb':'MLB'}
+SPORT={'nfl':'NFL','ncaaf':'College football','nba':'NBA','nhl':'NHL','mlb':'MLB','ncaab':'College basketball'}
 RES={'W':'WIN','L':'LOSS','P':'PUSH','V':'VOID','N':'NOLINE'}
 GREEN,RED,GRAY='#2E7D32','#C62828','#777'
 TBL="border-collapse:collapse;width:100%;max-width:380px;table-layout:fixed;font-size:13px"
@@ -273,7 +273,7 @@ def grade(p):
     n=sum(num(v)for k,v in merged.items()if 'touchdown' in k.lower()and 'passing' not in k.lower()and 'kicking' not in k.lower())
     return('WIN' if n>=1 else 'LOSS'),f"{name}: {int(n)} TD"
    stat=p['stat']
-   if sp=='nba':
+   if sp in('nba','ncaab'):
     def nb(k):
      return next((num(v)for kk,v in merged.items()if kk.endswith('.'+k)),0.0)
     if nb('minutes')==0:

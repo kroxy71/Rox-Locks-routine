@@ -359,7 +359,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-21h";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-21i";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -715,7 +715,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
   }
   // ---------- season record, graded from ESPN (data/history.json lists every pick KingCap made) ----------
   const HIST_STAT = { sog: "sog", rec: "rec", passYds: "passyds", recYds: "recyds", rushYds: "rushyds", points: "pts", rebounds: "reb", steals: "stl", blocks: "blk", pra: "pra", pr: "pr", threes: "threes" };
-  const HIST_TYPE = { ml: "Moneyline / spread", spread: "Moneyline / spread", total: "Over/under", atd: "Anytime TD scorer", atg: "Anytime goal scorer", prop: "Other player props" };
+  const HIST_TYPE = { ml: "Moneyline / spread", spread: "Moneyline / spread", h1ml: "1st Half ML", total: "Over/under", atd: "Anytime TD scorer", atg: "Anytime goal scorer", prop: "Other player props" };
   function histPick(h){
     const sp = String(h.sp || "").toUpperCase();
     switch (h.t) {

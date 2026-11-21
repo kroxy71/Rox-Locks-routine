@@ -22,10 +22,10 @@ OTHER = '#546E7A'
 CONV_COLOR = {'High': '#2E7D32', 'Medium': '#B8860B', 'Low': '#C62828'}
 CONV_WORD = {'High': 'HIGH', 'Medium': 'MEDIUM', 'Low': 'LOW'}
 CONV_SHORT = {'High': 'HIGH', 'Medium': 'MED', 'Low': 'LOW'}
-CAT = {'ml': 'Moneyline / spread', 'spread': 'Moneyline / spread', 'h1ml': 'Moneyline / spread',
+CAT = {'ml': 'Moneyline / spread', 'spread': 'Moneyline / spread', 'h1ml': '1st Half ML',
        'total': 'Over/under', 'atd': 'Anytime TD scorer', 'atg': 'Anytime goal scorer',
        'prop': 'Other player props'}
-CAT_ORDER = ['Anytime TD scorer', 'Anytime goal scorer', 'Moneyline / spread', 'Over/under', 'Other player props']
+CAT_ORDER = ['Anytime TD scorer', 'Anytime goal scorer', 'Moneyline / spread', '1st Half ML', 'Over/under', 'Other player props']
 VERDICT_COLOR = {'agrees': '#2E7D32', 'disagrees': '#C62828', 'neutral': '#777'}
 WRAP = "font-family:Arial,sans-serif;font-size:14px;color:#222;max-width:680px"
 

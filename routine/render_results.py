@@ -50,7 +50,7 @@ def title_of(p):
         line = p.get('line')
         return '%s %s %s' % ('/'.join(p['teams']), p.get('ou', 'over'), ('%g' % line) if line is not None else '')
     if t == 'h1ml':
-        return '%s 1st half over %s' % (p['team'], p.get('opp', ''))
+        return '%s 1st Half ML' % p['team']
     if t == 'spread':
         line = p.get('line')
         return '%s %s' % (p['team'], ('%+g' % line) if line is not None else 'spread')

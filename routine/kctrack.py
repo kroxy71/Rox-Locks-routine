@@ -9,10 +9,10 @@ BASE='https://site.api.espn.com/apis/site/v2/sports/'
 PATH={'nfl':'football/nfl','ncaaf':'football/college-football','nba':'basketball/nba',
   'nhl':'hockey/nhl','mlb':'baseball/mlb'}
 EXTRA={'ncaaf':'&groups=80&limit=300'}
-CAT={'ml':'Moneyline / spread','spread':'Moneyline / spread','h1ml':'Moneyline / spread',
+CAT={'ml':'Moneyline / spread','spread':'Moneyline / spread','h1ml':'1st Half ML',
  'total':'Over/under','atd':'Anytime TD scorer','atg':'Anytime goal scorer',
  'prop':'Other player props','parlay':'Parlays'}
-CAT_ORDER=['Anytime TD scorer','Anytime goal scorer','Moneyline / spread','Over/under','Other player props']
+CAT_ORDER=['Anytime TD scorer','Anytime goal scorer','Moneyline / spread','1st Half ML','Over/under','Other player props']
 SPORT={'nfl':'NFL','ncaaf':'College football','nba':'NBA','nhl':'NHL','mlb':'MLB'}
 RES={'W':'WIN','L':'LOSS','P':'PUSH','V':'VOID','N':'NOLINE'}
 GREEN,RED,GRAY='#2E7D32','#C62828','#777'

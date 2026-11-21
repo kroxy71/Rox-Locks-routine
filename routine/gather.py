@@ -190,7 +190,24 @@ def attach_sharp(games, sp):
 
 
 def attach_polymarket(games, sp):
-    raw = cached('pm_%s.json' % sp, lambda: http('https://gamma-api.polymarket.com/events?tag_slug=%s&closed=false&limit=100' % PM_TAG[sp]))
+    # only events ending in the slate's window: an unfiltered list is mostly season futures, which crowded out the games
+    days = sorted(datetime.datetime.fromisoformat(g['start'].replace('Z', '+00:00')).astimezone(ET).date() for g in games)
+    if not days:
+        return
+    lo, hi = days[0].isoformat(), (days[-1] + datetime.timedelta(days=2)).isoformat()
+
+    def fetch_all():
+        out = []
+        for off in range(0, 500, 100):
+            page = json.loads(http('https://gamma-api.polymarket.com/events?tag_slug=%s&closed=false&limit=100&offset=%d'
+                                   '&end_date_min=%s&end_date_max=%s' % (PM_TAG[sp], off, lo, hi)))
+            if not isinstance(page, list):
+                break
+            out += page
+            if len(page) < 100:
+                break
+        return json.dumps(out)
+    raw = cached('pm_%s.json' % sp, fetch_all)
     try:
         ev = json.loads(raw) if raw else []
     except Exception:
@@ -204,38 +221,90 @@ def attach_polymarket(games, sp):
             if len(outs) != 2:
                 continue
             for g in games:
-                hn, an = nick(g['home']), nick(g['away'])
-                names = [norm(o) for o in outs]
-                if any(hn in n or n in norm(g['home']) for n in names) and any(an in n or n in norm(g['away']) for n in names):
-                    for o, p in zip(outs, prices):
-                        side = 'home' if (nick(g['home']) in norm(o) or norm(o) in norm(g['home'])) else 'away'
-                        g['src'].setdefault('polymarket', {})[side] = round(p, 3)
+                # each team must match a DIFFERENT outcome ('Florida' must not stand for both South Florida and
+                # Florida Atlantic); keep the event whose names match most closely
+                fit = [(name_fit(o, g['home']), name_fit(o, g['away'])) for o in outs]
+                for hi, ai in ((0, 1), (1, 0)):
+                    sc = fit[hi][0] + fit[ai][1]
+                    if fit[hi][0] and fit[ai][1] and sc > g.get('_pm_fit', 0):
+                        g['_pm_fit'] = sc
+                        g['src']['polymarket'] = {'home': round(prices[hi], 3), 'away': round(prices[ai], 3)}
+    for g in games:
+        g.pop('_pm_fit', None)
+
+
+def name_fit(short, full):
+    """How well a market's team name ('Florida', 'Trail Blazers', '76ers') fits an ESPN name ('Florida Gators'):
+    0 = no match, else the share of the ESPN name it covers (an exact school or nickname match scores highest)."""
+    a, b = norm(short), norm(full)
+    if not a or not b:
+        return 0
+    if a == b:
+        return 1.0
+    bw = b.split()
+    if b.startswith(a + ' ') and len(bw) - len(a.split()) <= 2:
+        return len(a) / len(b)
+    if b.endswith(' ' + a) or nick(full) == a:
+        return 0.9 * len(a) / len(b) + 0.05
+    return 0
 
 
 def attach_kalshi(games, sp):
+    """Kalshi game markets: one market per team ("Sacramento wins", ticker KXNBAGAME-26NOV25SACGSW-SAC), two per game.
+    Pages through every open market, groups them by game, matches by the date in the ticker and by team (city) name.
+    Price = midpoint of yes bid/ask (last trade when there is no quote)."""
     if sp not in KALSHI:
         return
-    raw = cached('kalshi_%s.json' % sp, lambda: http('https://api.elections.kalshi.com/trade-api/v2/markets?status=open&limit=200&series_ticker=%s' % KALSHI[sp]))
+
+    def fetch_all():
+        out, cur = [], ''
+        for _ in range(8):
+            j = json.loads(http('https://api.elections.kalshi.com/trade-api/v2/markets?status=open&limit=200&series_ticker=%s%s'
+                                % (KALSHI[sp], ('&cursor=' + urllib.parse.quote(cur)) if cur else '')))
+            out += j.get('markets') or []
+            cur = j.get('cursor') or ''
+            if not cur:
+                break
+        return json.dumps(out)
+    raw = cached('kalshi_%s.json' % sp, fetch_all)
     try:
-        ms = json.loads(raw).get('markets', []) if raw else []
+        ms = json.loads(raw) if raw else []
     except Exception:
         ms = []
+    if isinstance(ms, dict):
+        ms = ms.get('markets', [])
+    MON = {m: i for i, m in enumerate(['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'], 1)}
+    events = {}
     for m in ms:
-        title = norm(m.get('title', '') + ' ' + m.get('yes_sub_title', ''))
+        t = m.get('ticker', '')
+        ev = t.rsplit('-', 1)[0]
+        d = re.search(r'-(\d\d)([A-Z]{3})(\d\d)', t)
+        if not d or d.group(2) not in MON:
+            continue
+        day = '20%s-%02d-%s' % (d.group(1), MON[d.group(2)], d.group(3))
+
+        def num(k):
+            try:
+                return float(m.get(k) or 0)
+            except Exception:
+                return 0.0
+        bid, ask, last = num('yes_bid_dollars'), num('yes_ask_dollars'), num('last_price_dollars')
+        p = (bid + ask) / 2 if bid > 0 and ask > 0 else last
+        if p <= 0:
+            continue
+        events.setdefault(ev, {'day': day, 'teams': []})['teams'].append((m.get('yes_sub_title') or '', p))
+    for e in events.values():
+        if len(e['teams']) != 2:
+            continue
         for g in games:
-            hn, an = nick(g['home']), nick(g['away'])
-            if hn in title and an in title:
-                who = norm(m.get('yes_sub_title', ''))
-                try:
-                    p = float(m.get('last_price_dollars') or 0) or (float(m.get('yes_bid_dollars') or 0) + float(m.get('yes_ask_dollars') or 0)) / 2
-                except Exception:
-                    continue
-                if p <= 0:
-                    continue
-                if hn in who:
-                    g['src'].setdefault('kalshi', {})['home'] = round(p, 3)
-                elif an in who:
-                    g['src'].setdefault('kalshi', {})['away'] = round(p, 3)
+            gd = datetime.datetime.fromisoformat(g['start'].replace('Z', '+00:00')).astimezone(ET).strftime('%Y-%m-%d')
+            if gd != e['day']:
+                continue
+            h = [p for n, p in e['teams'] if side_match(n, g, 'home')]
+            a = [p for n, p in e['teams'] if side_match(n, g, 'away')]
+            if len(h) == 1 and len(a) == 1 and not any(side_match(n, g, 'home') and side_match(n, g, 'away') for n, _ in e['teams']):
+                tot = h[0] + a[0]
+                g['src']['kalshi'] = {'home': round(h[0] / tot, 3), 'away': round(a[0] / tot, 3)}
 
 
 def side_match(name, g, side):

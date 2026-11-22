@@ -1,27 +1,27 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1238.07,
+ "bankroll": 1988.07,
  "at_risk": 225,
- "updated": "2026-11-21T16:17:34Z",
+ "updated": "2026-11-22T16:19:12Z",
  "record": {
-  "w": 36,
-  "l": 44,
+  "w": 38,
+  "l": 48,
   "p": 0
  },
  "public_record": {
-  "w": 42,
-  "l": 20,
+  "w": 45,
+  "l": 23,
   "p": 0
  },
- "public_bankroll": 932.71,
+ "public_bankroll": 890.73,
  "kingcap_record": {
   "w": 0,
   "l": 0,
   "p": 0
  },
  "kingcap_profit": 0,
- "note": "Graded 5 (3-2, +$33.53; public 3-2, -$26.19), no KingCap bets to grade; placed 6 bets, $225 at risk: 2 lean MLs (no side cleared the full bar), 3-leg CFB parlay, 2 NHL anytime-goal props (Olofsson +230 also qualified but skipped for the $225 cap), Rutgers +1600 longshot. No NFL today so no TD props. gather.py missed most CFB/NBA SharpAPI lines, refetched directly; public for Oregon St/Jax St/Army/Penn St from Covers pick consensus.",
+ "note": "Graded 6 (2-4, +$750.00 thanks to the Rutgers +1600 longshot; public 3-3, -$41.98), no KingCap bets to grade; placed 7 bets, $225 at risk: Panthers ML, lean Wizards ML, JAX+DAL+NYK parlay (+126), Draisaitl and Jack Quinn anytime goal, Isaiah Likely anytime TD, Gavin Bartholomew TD +1100 longshot. SharpAPI has no anytime-TD market today, so TD prices are FanDuel/DraftKings quotes from Covers; ESPN has no NHL predictor; gather.py missed most NFL/NBA lines, refetched directly.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -3365,8 +3365,8 @@
      "book": "DraftKings",
      "model_p": 0.4765,
      "implied_p": 0.4545,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Marshall 28-27"
     }
    ],
    "odds": 120,
@@ -3377,9 +3377,9 @@
    "edge": 0.022,
    "sources": "Market 44%, Kalshi/Poly 42%, ESPN 65%, OddsShark 43% (OS score 26.55-29.01 away-home); public 72% of bets on Marshall",
    "why": "Lean: model 47.6% vs DraftKings +120 (45.5%), small edge driven by ESPN's 65% for Georgia State; no side cleared the full single-bet bar today.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Marshall 28-27"
   },
   {
    "id": "2026-11-21-2",
@@ -3400,8 +3400,8 @@
      "book": "FanDuel",
      "model_p": 0.5863,
      "implied_p": 0.5726,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Minnesota 20-17"
     }
    ],
    "odds": -134,
@@ -3412,9 +3412,9 @@
    "edge": 0.0137,
    "sources": "Market 56%, Kalshi/Poly 56%, ESPN 78%, OddsShark 57% (OS score 22.64-20.39 away-home); Dimers NW 23-20; 79% bets/50% money on NW",
    "why": "Lean: model 58.6% vs FanDuel -134 (57.3%); ESPN 78% and Dimers projects Northwestern 23-20, trimmed for money splitting 50/50 despite 79% of bets on Northwestern.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Minnesota 20-17"
   },
   {
    "id": "2026-11-21-3",
@@ -3435,8 +3435,8 @@
      "book": "FanDuel",
      "model_p": 0.7396,
      "implied_p": 0.7333,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Oregon State 31-24"
     },
     {
      "sp": "NCAAF",
@@ -3450,8 +3450,8 @@
      "book": "FanDuel",
      "model_p": 0.7985,
      "implied_p": 0.8113,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Jacksonville State 25-20"
     },
     {
      "sp": "NCAAF",
@@ -3465,8 +3465,8 @@
      "book": "FanDuel",
      "model_p": 0.6621,
      "implied_p": 0.6667,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "East Carolina 10-6"
     }
    ],
    "odds": 152,
@@ -3477,9 +3477,9 @@
    "edge": -0.0056,
    "sources": "Oregon State 74% vs -275; Jacksonville State 80% vs -430; Army 66% vs -200; all four sources agree on each",
    "why": "Three of the day's steadiest favorites (each 66-80% in the model, all near fair price at FanDuel), from three different games.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Oregon State 31-24; Jacksonville State 25-20; East Carolina 10-6"
   },
   {
    "id": "2026-11-21-4",
@@ -3501,8 +3501,8 @@
      "book": "FanDuel",
      "model_p": 0.5449,
      "implied_p": 0.4,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 goal"
     }
    ],
    "odds": 150,
@@ -3513,9 +3513,9 @@
    "edge": 0.1449,
    "sources": "3.83 shots/G, 21 G in 24 GP, model 54% vs FanDuel +150 (40%); DK +145",
    "why": "Leon Draisaitl is on Oilers's top power play and his shot volume makes him a 54% scorer by the model vs +150 (40%).",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 75.0,
+   "result": "1 goal"
   },
   {
    "id": "2026-11-21-5",
@@ -3537,8 +3537,8 @@
      "book": "FanDuel",
      "model_p": 0.5803,
      "implied_p": 0.4651,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 goals"
     }
    ],
    "odds": 115,
@@ -3549,9 +3549,9 @@
    "edge": 0.1152,
    "sources": "4.45 shots/G, 21 G in 22 GP, model 58% vs FanDuel +115 (47%); DK +110",
    "why": "Cutter Gauthier is on Ducks's top power play and his shot volume makes him a 58% scorer by the model vs +115 (47%).",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -50,
+   "result": "0 goals"
   },
   {
    "id": "2026-11-21-6",
@@ -3573,8 +3573,8 @@
      "book": "FanDuel",
      "model_p": 0.0708,
      "implied_p": 0.0588,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Rutgers 25-24"
     }
    ],
    "odds": 1600,
@@ -3585,6 +3585,286 @@
    "edge": 0.012,
    "sources": "Market 6%, Kalshi/Poly 4%, ESPN 6%, OddsShark 15% (OS score 12.17-38.71 away-home)",
    "why": "The long shot the model trusts most: 7.1% vs 5.9% implied, expected return 1.20 per $1 (helped by OddsShark's floor at 15%).",
+   "status": "won",
+   "profit": 800.0,
+   "result": "Rutgers 25-24"
+  },
+  {
+   "id": "2026-11-22-1",
+   "date": "2026-11-22",
+   "placed": "2026-11-22T16:19:12Z",
+   "cat": "ml",
+   "title": "Panthers ML",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Baltimore Ravens @ Carolina Panthers",
+     "start": "2026-11-22T18:00Z",
+     "sel": "Carolina Panthers ML",
+     "team": "Carolina Panthers",
+     "opp": "Baltimore Ravens",
+     "odds": -140,
+     "book": "DraftKings",
+     "model_p": 0.6002,
+     "implied_p": 0.5833,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -140,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 17.86,
+   "model_p": 0.6002,
+   "edge": 0.0169,
+   "sources": "Market 56%, Kalshi/Polymarket/ProphetX 57%, ESPN 69%, OddsShark CAR 25-21; public 82% of bets on CAR",
+   "why": "Model 60% vs DraftKings -140 (58%): ESPN and OddsShark both rate Carolina well above the market and no source favors Baltimore.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-2",
+   "date": "2026-11-22",
+   "placed": "2026-11-22T16:19:12Z",
+   "cat": "ml",
+   "title": "Wizards ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Orlando Magic @ Washington Wizards",
+     "start": "2026-11-23T00:00Z",
+     "sel": "Washington Wizards ML",
+     "team": "Washington Wizards",
+     "opp": "Orlando Magic",
+     "odds": 170,
+     "book": "DraftKings",
+     "model_p": 0.3833,
+     "implied_p": 0.3704,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 170,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 42.5,
+   "model_p": 0.3833,
+   "edge": 0.0129,
+   "sources": "Market 36%, Kalshi/Polymarket 35%, ESPN 41%; sharp money on Washington (48% of money vs 28% of bets)",
+   "why": "Lean: model 38% vs DraftKings +170 (37%), just under the full edge bar, with ESPN higher on Washington and sharp money on the home dog.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-3",
+   "date": "2026-11-22",
+   "placed": "2026-11-22T16:19:12Z",
+   "cat": "parlay",
+   "title": "3-leg ML parlay: Jaguars + Cowboys + Knicks",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Jacksonville Jaguars @ New York Giants",
+     "start": "2026-11-22T21:25Z",
+     "sel": "Jacksonville Jaguars ML",
+     "team": "Jacksonville Jaguars",
+     "opp": "New York Giants",
+     "odds": -270,
+     "book": "FanDuel",
+     "model_p": 0.7298,
+     "implied_p": 0.7297,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Tennessee Titans @ Dallas Cowboys",
+     "start": "2026-11-22T18:00Z",
+     "sel": "Dallas Cowboys ML",
+     "team": "Dallas Cowboys",
+     "opp": "Tennessee Titans",
+     "odds": -370,
+     "book": "FanDuel",
+     "model_p": 0.7785,
+     "implied_p": 0.7872,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Indiana Pacers @ New York Knicks",
+     "start": "2026-11-23T01:00Z",
+     "sel": "New York Knicks ML",
+     "team": "New York Knicks",
+     "opp": "Indiana Pacers",
+     "odds": -335,
+     "book": "FanDuel",
+     "model_p": 0.7587,
+     "implied_p": 0.7701,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 126,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 31.5,
+   "model_p": 0.4311,
+   "edge": -0.0114,
+   "sources": "JAX model 73% (ESPN 81%), DAL 78% (ESPN 81%, OddsShark 33-23), NYK 76% (ESPN 82%, OddsShark 112-105)",
+   "why": "The three strongest favorites that price near fair (each leg within 1.1 points of the market), combined at FanDuel.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-4",
+   "date": "2026-11-22",
+   "placed": "2026-11-22T16:19:12Z",
+   "cat": "prop",
+   "title": "Leon Draisaitl anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Edmonton Oilers @ St. Louis Blues",
+     "start": "2026-11-23T00:00Z",
+     "sel": "Leon Draisaitl anytime goal",
+     "team": "Edmonton Oilers",
+     "opp": "St. Louis Blues",
+     "odds": 125,
+     "book": "FanDuel",
+     "model_p": 0.548,
+     "implied_p": 0.4444,
+     "status": "pending",
+     "result": "",
+     "player": "Leon Draisaitl"
+    }
+   ],
+   "odds": 125,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 62.5,
+   "model_p": 0.548,
+   "edge": 0.1036,
+   "sources": "3.84 shots/G, 22 G in 25 GP, model 55% vs FanDuel +125 (44%); PP1 per RotoWire",
+   "why": "Draisaitl leads the league in shots and goals and the model gives him 55% to score against a +125 price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-5",
+   "date": "2026-11-22",
+   "placed": "2026-11-22T16:19:12Z",
+   "cat": "prop",
+   "title": "Jack Quinn anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Buffalo Sabres @ Tampa Bay Lightning",
+     "start": "2026-11-22T22:00Z",
+     "sel": "Jack Quinn anytime goal",
+     "team": "Buffalo Sabres",
+     "opp": "Tampa Bay Lightning",
+     "odds": 260,
+     "book": "FanDuel",
+     "model_p": 0.373,
+     "implied_p": 0.2778,
+     "status": "pending",
+     "result": "",
+     "player": "Jack Quinn"
+    }
+   ],
+   "odds": 260,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 65.0,
+   "model_p": 0.373,
+   "edge": 0.0952,
+   "sources": "2.87 shots/G, 12 G in 23 GP, model 37% vs FanDuel +260 (28%); DraftKings +220; PP1 per RotoWire",
+   "why": "Quinn shoots nearly three times a game on the top power play and FanDuel prices him like a 28% scorer (kept at $25 to stay under the $225 daily cap).",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-6",
+   "date": "2026-11-22",
+   "placed": "2026-11-22T16:19:12Z",
+   "cat": "prop",
+   "title": "Isaiah Likely anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Jacksonville Jaguars @ New York Giants",
+     "start": "2026-11-22T21:25Z",
+     "sel": "Isaiah Likely anytime TD",
+     "team": "New York Giants",
+     "opp": "Jacksonville Jaguars",
+     "odds": 230,
+     "book": "DraftKings",
+     "model_p": 0.374,
+     "implied_p": 0.303,
+     "status": "pending",
+     "result": "",
+     "player": "Isaiah Likely"
+    }
+   ],
+   "odds": 230,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 57.5,
+   "model_p": 0.374,
+   "edge": 0.071,
+   "sources": "Covers 0.39 TDs (32%), nflverse 7 TD in 9 G (3 in last 4), 27% target share; model 37% vs DraftKings +230 (30%), FanDuel +220",
+   "why": "Likely is the Giants top red-zone target with 7 TDs in 9 games and the books price him under his model chance.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-7",
+   "date": "2026-11-22",
+   "placed": "2026-11-22T16:19:12Z",
+   "cat": "longshot",
+   "title": "Gavin Bartholomew anytime TD (longshot)",
+   "call": "Going for it: Gavin Bartholomew scores a TD (+1100) - $50 pays $550.00",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Minnesota Vikings @ San Francisco 49ers",
+     "start": "2026-11-23T01:20Z",
+     "sel": "Gavin Bartholomew anytime TD",
+     "team": "Minnesota Vikings",
+     "opp": "San Francisco 49ers",
+     "odds": 1100,
+     "book": "FanDuel",
+     "model_p": 0.21,
+     "implied_p": 0.0833,
+     "status": "pending",
+     "result": "",
+     "player": "Gavin Bartholomew"
+    }
+   ],
+   "odds": 1100,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 550.0,
+   "model_p": 0.21,
+   "edge": 0.1267,
+   "sources": "Covers 0.24 TDs (21%), nflverse 1 TD in 4 G; model 21% vs FanDuel +1100 (8%), expected return 2.5x; Jordan Addison out",
+   "why": "The best expected return of any long shot today: the model gives the Vikings backup tight end about a one-in-five chance to score at +1100 with Jordan Addison out.",
    "status": "pending",
    "profit": null,
    "result": ""
@@ -4658,9 +4938,9 @@
    "pct_bets": 72,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 18.12,
+   "result": "Marshall 28-27"
   },
   {
    "id": "2026-11-21-p2",
@@ -4675,9 +4955,9 @@
    "pct_bets": 79,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Minnesota 20-17"
   },
   {
    "id": "2026-11-21-p3",
@@ -4692,9 +4972,9 @@
    "pct_bets": 70,
    "source": "Covers",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 9.09,
+   "result": "Oregon State 31-24"
   },
   {
    "id": "2026-11-21-p4",
@@ -4709,9 +4989,9 @@
    "pct_bets": 75,
    "source": "Covers",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 5.81,
+   "result": "Jacksonville State 25-20"
   },
   {
    "id": "2026-11-21-p5",
@@ -4726,9 +5006,9 @@
    "pct_bets": 66,
    "source": "Covers",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "East Carolina 10-6"
   },
   {
    "id": "2026-11-21-p6",
@@ -4742,6 +5022,91 @@
    "odds": -4500,
    "pct_bets": 52,
    "source": "Covers",
+   "stake": 25,
+   "status": "lost",
+   "profit": -25,
+   "result": "Rutgers 25-24"
+  },
+  {
+   "id": "2026-11-22-p1",
+   "date": "2026-11-22",
+   "sp": "NFL",
+   "game": "Baltimore Ravens @ Carolina Panthers",
+   "start": "2026-11-22T18:00Z",
+   "sel": "Carolina Panthers ML",
+   "team": "Carolina Panthers",
+   "opp": "Baltimore Ravens",
+   "odds": -142,
+   "pct_bets": 82,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-p2",
+   "date": "2026-11-22",
+   "sp": "NBA",
+   "game": "Orlando Magic @ Washington Wizards",
+   "start": "2026-11-23T00:00Z",
+   "sel": "Orlando Magic ML",
+   "team": "Orlando Magic",
+   "opp": "Washington Wizards",
+   "odds": -198,
+   "pct_bets": 72,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-p3",
+   "date": "2026-11-22",
+   "sp": "NFL",
+   "game": "Jacksonville Jaguars @ New York Giants",
+   "start": "2026-11-22T21:25Z",
+   "sel": "Jacksonville Jaguars ML",
+   "team": "Jacksonville Jaguars",
+   "opp": "New York Giants",
+   "odds": -270,
+   "pct_bets": 97,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-p4",
+   "date": "2026-11-22",
+   "sp": "NFL",
+   "game": "Tennessee Titans @ Dallas Cowboys",
+   "start": "2026-11-22T18:00Z",
+   "sel": "Dallas Cowboys ML",
+   "team": "Dallas Cowboys",
+   "opp": "Tennessee Titans",
+   "odds": -370,
+   "pct_bets": 97,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-22-p5",
+   "date": "2026-11-22",
+   "sp": "NBA",
+   "game": "Indiana Pacers @ New York Knicks",
+   "start": "2026-11-23T01:00Z",
+   "sel": "New York Knicks ML",
+   "team": "New York Knicks",
+   "opp": "Indiana Pacers",
+   "odds": -335,
+   "pct_bets": 93,
+   "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
    "profit": null,
@@ -5047,6 +5412,29 @@
    },
    "bankroll": 1238.07,
    "public_bankroll": 932.71
+  },
+  {
+   "date": "2026-11-21",
+   "bot": {
+    "w": 2,
+    "l": 4,
+    "p": 0,
+    "profit": 750.0
+   },
+   "public": {
+    "w": 3,
+    "l": 3,
+    "p": 0,
+    "profit": -41.98
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
+   "bankroll": 1988.07,
+   "public_bankroll": 890.73
   }
  ]
 }

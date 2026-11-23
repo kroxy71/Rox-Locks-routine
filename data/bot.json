@@ -1,27 +1,27 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 1988.07,
- "at_risk": 225,
- "updated": "2026-11-22T16:19:12Z",
+ "bankroll": 2075.93,
+ "at_risk": 200,
+ "updated": "2026-11-23T16:19:48Z",
  "record": {
-  "w": 38,
-  "l": 48,
+  "w": 42,
+  "l": 51,
   "p": 0
  },
  "public_record": {
-  "w": 45,
-  "l": 23,
+  "w": 48,
+  "l": 25,
   "p": 0
  },
- "public_bankroll": 890.73,
+ "public_bankroll": 872.56,
  "kingcap_record": {
   "w": 0,
   "l": 0,
   "p": 0
  },
  "kingcap_profit": 0,
- "note": "Graded 6 (2-4, +$750.00 thanks to the Rutgers +1600 longshot; public 3-3, -$41.98), no KingCap bets to grade; placed 7 bets, $225 at risk: Panthers ML, lean Wizards ML, JAX+DAL+NYK parlay (+126), Draisaitl and Jack Quinn anytime goal, Isaiah Likely anytime TD, Gavin Bartholomew TD +1100 longshot. SharpAPI has no anytime-TD market today, so TD prices are FanDuel/DraftKings quotes from Covers; ESPN has no NHL predictor; gather.py missed most NFL/NBA lines, refetched directly.",
+ "note": "Graded 7 (4-3, +$87.86 on Draisaitl and Jack Quinn goals plus Panthers and Wizards), public 3-2 (-$18.17), no KingCap bets to grade; placed 7 bets, $200 at risk: Suns ML, lean Grizzlies ML, lean Rockets+Wolves parlay (-279), Cutter Gauthier and Kyle Connor anytime goal, Stefon Diggs anytime TD, Joe Burrow TD +430 longshot. Thin edges on a chalky slate; SharpAPI has no anytime-TD market, so TD prices are FanDuel quotes from Covers; ESPN has no NHL predictor; gather.py missed most NBA lines, refetched from SharpAPI. Public shadow on the 4 NBA games (the Burrow longshot is a prop, so no ML game to shadow).",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -3608,8 +3608,8 @@
      "book": "DraftKings",
      "model_p": 0.6002,
      "implied_p": 0.5833,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Panthers 35-33"
     }
    ],
    "odds": -140,
@@ -3620,9 +3620,9 @@
    "edge": 0.0169,
    "sources": "Market 56%, Kalshi/Polymarket/ProphetX 57%, ESPN 69%, OddsShark CAR 25-21; public 82% of bets on CAR",
    "why": "Model 60% vs DraftKings -140 (58%): ESPN and OddsShark both rate Carolina well above the market and no source favors Baltimore.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 17.86,
+   "result": "Carolina Panthers: Panthers 35-33"
   },
   {
    "id": "2026-11-22-2",
@@ -3643,8 +3643,8 @@
      "book": "DraftKings",
      "model_p": 0.3833,
      "implied_p": 0.3704,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Wizards 116-96"
     }
    ],
    "odds": 170,
@@ -3655,9 +3655,9 @@
    "edge": 0.0129,
    "sources": "Market 36%, Kalshi/Polymarket 35%, ESPN 41%; sharp money on Washington (48% of money vs 28% of bets)",
    "why": "Lean: model 38% vs DraftKings +170 (37%), just under the full edge bar, with ESPN higher on Washington and sharp money on the home dog.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 42.5,
+   "result": "Washington Wizards: Wizards 116-96"
   },
   {
    "id": "2026-11-22-3",
@@ -3678,8 +3678,8 @@
      "book": "FanDuel",
      "model_p": 0.7298,
      "implied_p": 0.7297,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Jaguars 18-23"
     },
     {
      "sp": "NFL",
@@ -3693,8 +3693,8 @@
      "book": "FanDuel",
      "model_p": 0.7785,
      "implied_p": 0.7872,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Cowboys 51-30"
     },
     {
      "sp": "NBA",
@@ -3708,8 +3708,8 @@
      "book": "FanDuel",
      "model_p": 0.7587,
      "implied_p": 0.7701,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Knicks 113-106"
     }
    ],
    "odds": 126,
@@ -3720,9 +3720,9 @@
    "edge": -0.0114,
    "sources": "JAX model 73% (ESPN 81%), DAL 78% (ESPN 81%, OddsShark 33-23), NYK 76% (ESPN 82%, OddsShark 112-105)",
    "why": "The three strongest favorites that price near fair (each leg within 1.1 points of the market), combined at FanDuel.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Jacksonville Jaguars: Jaguars 18-23; Dallas Cowboys: Cowboys 51-30; New York Knicks: Knicks 113-106"
   },
   {
    "id": "2026-11-22-4",
@@ -3743,8 +3743,8 @@
      "book": "FanDuel",
      "model_p": 0.548,
      "implied_p": 0.4444,
-     "status": "pending",
-     "result": "",
+     "status": "won",
+     "result": "1 G (Oilers 4-5)",
      "player": "Leon Draisaitl"
     }
    ],
@@ -3756,9 +3756,9 @@
    "edge": 0.1036,
    "sources": "3.84 shots/G, 22 G in 25 GP, model 55% vs FanDuel +125 (44%); PP1 per RotoWire",
    "why": "Draisaitl leads the league in shots and goals and the model gives him 55% to score against a +125 price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 62.5,
+   "result": "Leon Draisaitl: 1 G (Oilers 4-5)"
   },
   {
    "id": "2026-11-22-5",
@@ -3779,8 +3779,8 @@
      "book": "FanDuel",
      "model_p": 0.373,
      "implied_p": 0.2778,
-     "status": "pending",
-     "result": "",
+     "status": "won",
+     "result": "1 G (Sabres 6-2)",
      "player": "Jack Quinn"
     }
    ],
@@ -3792,9 +3792,9 @@
    "edge": 0.0952,
    "sources": "2.87 shots/G, 12 G in 23 GP, model 37% vs FanDuel +260 (28%); DraftKings +220; PP1 per RotoWire",
    "why": "Quinn shoots nearly three times a game on the top power play and FanDuel prices him like a 28% scorer (kept at $25 to stay under the $225 daily cap).",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 65.0,
+   "result": "Jack Quinn: 1 G (Sabres 6-2)"
   },
   {
    "id": "2026-11-22-6",
@@ -3815,8 +3815,8 @@
      "book": "DraftKings",
      "model_p": 0.374,
      "implied_p": 0.303,
-     "status": "pending",
-     "result": "",
+     "status": "lost",
+     "result": "0 TD (Giants 23-18)",
      "player": "Isaiah Likely"
     }
    ],
@@ -3828,9 +3828,9 @@
    "edge": 0.071,
    "sources": "Covers 0.39 TDs (32%), nflverse 7 TD in 9 G (3 in last 4), 27% target share; model 37% vs DraftKings +230 (30%), FanDuel +220",
    "why": "Likely is the Giants top red-zone target with 7 TDs in 9 games and the books price him under his model chance.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Isaiah Likely: 0 TD (Giants 23-18)"
   },
   {
    "id": "2026-11-22-7",
@@ -3852,8 +3852,8 @@
      "book": "FanDuel",
      "model_p": 0.21,
      "implied_p": 0.0833,
-     "status": "pending",
-     "result": "",
+     "status": "lost",
+     "result": "0 TD (Vikings 10-35)",
      "player": "Gavin Bartholomew"
     }
    ],
@@ -3865,9 +3865,274 @@
    "edge": 0.1267,
    "sources": "Covers 0.24 TDs (21%), nflverse 1 TD in 4 G; model 21% vs FanDuel +1100 (8%), expected return 2.5x; Jordan Addison out",
    "why": "The best expected return of any long shot today: the model gives the Vikings backup tight end about a one-in-five chance to score at +1100 with Jordan Addison out.",
+   "status": "lost",
+   "profit": -50,
+   "result": "Gavin Bartholomew: 0 TD (Vikings 10-35)"
+  },
+  {
+   "id": "2026-11-23-1",
+   "date": "2026-11-23",
+   "placed": "2026-11-23T16:19:26Z",
+   "cat": "ml",
+   "title": "Suns ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Phoenix Suns @ New Orleans Pelicans",
+     "start": "2026-11-24T01:00Z",
+     "sel": "Phoenix Suns ML",
+     "team": "Phoenix Suns",
+     "opp": "New Orleans Pelicans",
+     "odds": -155,
+     "book": "DraftKings",
+     "model_p": 0.625,
+     "implied_p": 0.6078,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -155,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 16.13,
+   "model_p": 0.625,
+   "edge": 0.0172,
+   "sources": "Market 58%, Kalshi/Polymarket 58%, ESPN 74%, OddsShark PHX 119-114; public 87% of bets on PHX",
+   "why": "Model 62.5% vs DraftKings -155 (60.8%); ESPN and OddsShark both higher on Phoenix than the market, Pelicans missing Mathurin.",
    "status": "pending",
    "profit": null,
    "result": ""
+  },
+  {
+   "id": "2026-11-23-2",
+   "date": "2026-11-23",
+   "placed": "2026-11-23T16:19:26Z",
+   "cat": "ml",
+   "title": "Grizzlies ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Memphis Grizzlies @ Charlotte Hornets",
+     "start": "2026-11-24T00:00Z",
+     "sel": "Memphis Grizzlies ML",
+     "team": "Memphis Grizzlies",
+     "opp": "Charlotte Hornets",
+     "odds": -142,
+     "book": "FanDuel",
+     "model_p": 0.598,
+     "implied_p": 0.5868,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -142,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 17.61,
+   "model_p": 0.598,
+   "edge": 0.0112,
+   "sources": "Market 57%, Kalshi/Polymarket 57%, ESPN 66%, OddsShark MEM 112-107, BettingPros 58%",
+   "why": "Lean: model 59.8% vs FanDuel -142 (58.7%), edge just under the 1.5-point bar; all five sources lean Memphis and Charlotte is missing Knueppel, Allen and Schroder.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-3",
+   "date": "2026-11-23",
+   "placed": "2026-11-23T16:19:26Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Rockets + Timberwolves",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "LA Clippers @ Houston Rockets",
+     "start": "2026-11-24T01:30Z",
+     "sel": "Houston Rockets ML",
+     "team": "Houston Rockets",
+     "opp": "LA Clippers",
+     "odds": -620,
+     "book": "FanDuel",
+     "model_p": 0.8419,
+     "implied_p": 0.8611,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Brooklyn Nets @ Minnesota Timberwolves",
+     "start": "2026-11-24T00:30Z",
+     "sel": "Minnesota Timberwolves ML",
+     "team": "Minnesota Timberwolves",
+     "opp": "Brooklyn Nets",
+     "odds": -590,
+     "book": "FanDuel",
+     "model_p": 0.8318,
+     "implied_p": 0.8551,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -279,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 8.95,
+   "model_p": 0.7003,
+   "edge": -0.036,
+   "sources": "Rockets model 84% (ESPN 86%, Polymarket 85%, OddsShark HOU 119-107); Wolves model 83% (ESPN 86%, Kalshi 83%, OddsShark MIN 117-107)",
+   "why": "Lean: no two sides cleared the parlay edge bar today, so this pairs the two highest-probability sides on the board (model 70% vs 74% implied at FanDuel -279).",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-4",
+   "date": "2026-11-23",
+   "placed": "2026-11-23T16:19:26Z",
+   "cat": "prop",
+   "title": "Cutter Gauthier anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Anaheim Ducks @ Seattle Kraken",
+     "start": "2026-11-24T02:40Z",
+     "sel": "Cutter Gauthier anytime goal",
+     "team": "Anaheim Ducks",
+     "opp": "Seattle Kraken",
+     "player": "Cutter Gauthier",
+     "odds": 100,
+     "book": "DraftKings",
+     "model_p": 0.565,
+     "implied_p": 0.5,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 100,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 25.0,
+   "model_p": 0.565,
+   "edge": 0.065,
+   "sources": "4.3 shots/G, 21 G in 23 GP, model 56.5% vs DraftKings +100 (50%); FanDuel -105",
+   "why": "Model 56.5% vs DraftKings +100 (50%): Gauthier leads the NHL pace with 21 goals on 4.3 shots a game and is on the top power-play unit.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-5",
+   "date": "2026-11-23",
+   "placed": "2026-11-23T16:19:26Z",
+   "cat": "prop",
+   "title": "Stefon Diggs anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Cincinnati Bengals @ Washington Commanders",
+     "start": "2026-11-24T01:15Z",
+     "sel": "Stefon Diggs anytime TD",
+     "team": "Washington Commanders",
+     "opp": "Cincinnati Bengals",
+     "player": "Stefon Diggs",
+     "odds": 190,
+     "book": "FanDuel",
+     "model_p": 0.402,
+     "implied_p": 0.3448,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 190,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 47.5,
+   "model_p": 0.402,
+   "edge": 0.0572,
+   "sources": "Covers proj 0.46 TDs (37%), nflverse 6 TD in 8 G, 3 in last 4, 30% target share (season model 48%); model 40% vs FanDuel +190 (34.5%)",
+   "why": "Model 40% vs FanDuel +190 (34.5%): Diggs is Washington's top target with 6 TDs in 8 games and a pass-heavy script as a 6-point home dog.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-6",
+   "date": "2026-11-23",
+   "placed": "2026-11-23T16:19:26Z",
+   "cat": "prop",
+   "title": "Kyle Connor anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Utah Mammoth @ Winnipeg Jets",
+     "start": "2026-11-24T00:30Z",
+     "sel": "Kyle Connor anytime goal",
+     "team": "Winnipeg Jets",
+     "opp": "Utah Mammoth",
+     "player": "Kyle Connor",
+     "odds": 115,
+     "book": "FanDuel",
+     "model_p": 0.518,
+     "implied_p": 0.4651,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 115,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 28.75,
+   "model_p": 0.518,
+   "edge": 0.0529,
+   "sources": "4.2 shots/G, 19 G in 24 GP, model 51.8% vs FanDuel +115 (46.5%); DraftKings -105",
+   "why": "Model 51.8% vs FanDuel +115 (46.5%): Connor has 19 goals in 24 games on 4.2 shots a night and is on the confirmed top power-play unit.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-7",
+   "date": "2026-11-23",
+   "placed": "2026-11-23T16:19:26Z",
+   "cat": "longshot",
+   "title": "Joe Burrow anytime TD (longshot)",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Cincinnati Bengals @ Washington Commanders",
+     "start": "2026-11-24T01:15Z",
+     "sel": "Joe Burrow anytime TD",
+     "team": "Cincinnati Bengals",
+     "opp": "Washington Commanders",
+     "player": "Joe Burrow",
+     "odds": 430,
+     "book": "FanDuel",
+     "model_p": 0.266,
+     "implied_p": 0.1887,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 430,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 215.0,
+   "model_p": 0.266,
+   "edge": 0.0773,
+   "sources": "Covers proj 0.30 TDs (26%), nflverse 3 rush TD in 9 G, 2 in last 4 (season model 28%); model 26.6% vs FanDuel +430 (18.9%), DraftKings +425",
+   "why": "Highest expected return of any +400 shot on the board (model 26.6% x 5.30 = 1.41): Burrow has run in 3 scores this year, 2 in his last 4 games.",
+   "status": "pending",
+   "profit": null,
+   "result": "",
+   "call": "Going for it: Joe Burrow runs one in on Monday night (+430) - $50 pays $215.00"
   }
  ],
  "public": [
@@ -5040,9 +5305,9 @@
    "pct_bets": 82,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 17.61,
+   "result": "Panthers 35-33"
   },
   {
    "id": "2026-11-22-p2",
@@ -5057,9 +5322,9 @@
    "pct_bets": 72,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Magic 96-116"
   },
   {
    "id": "2026-11-22-p3",
@@ -5074,9 +5339,9 @@
    "pct_bets": 97,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Jaguars 18-23"
   },
   {
    "id": "2026-11-22-p4",
@@ -5091,9 +5356,9 @@
    "pct_bets": 97,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 6.76,
+   "result": "Cowboys 51-30"
   },
   {
    "id": "2026-11-22-p5",
@@ -5105,6 +5370,74 @@
    "team": "New York Knicks",
    "opp": "Indiana Pacers",
    "odds": -335,
+   "pct_bets": 93,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "won",
+   "profit": 7.46,
+   "result": "Knicks 113-106"
+  },
+  {
+   "id": "2026-11-23-p1",
+   "date": "2026-11-23",
+   "sp": "NBA",
+   "game": "Phoenix Suns @ New Orleans Pelicans",
+   "start": "2026-11-24T01:00Z",
+   "sel": "Phoenix Suns ML",
+   "team": "Phoenix Suns",
+   "opp": "New Orleans Pelicans",
+   "odds": -155,
+   "pct_bets": 87,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-p2",
+   "date": "2026-11-23",
+   "sp": "NBA",
+   "game": "Memphis Grizzlies @ Charlotte Hornets",
+   "start": "2026-11-24T00:00Z",
+   "sel": "Memphis Grizzlies ML",
+   "team": "Memphis Grizzlies",
+   "opp": "Charlotte Hornets",
+   "odds": -142,
+   "pct_bets": 85,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-p3",
+   "date": "2026-11-23",
+   "sp": "NBA",
+   "game": "LA Clippers @ Houston Rockets",
+   "start": "2026-11-24T01:30Z",
+   "sel": "Houston Rockets ML",
+   "team": "Houston Rockets",
+   "opp": "LA Clippers",
+   "odds": -620,
+   "pct_bets": 94,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-23-p4",
+   "date": "2026-11-23",
+   "sp": "NBA",
+   "game": "Brooklyn Nets @ Minnesota Timberwolves",
+   "start": "2026-11-24T00:30Z",
+   "sel": "Minnesota Timberwolves ML",
+   "team": "Minnesota Timberwolves",
+   "opp": "Brooklyn Nets",
+   "odds": -590,
    "pct_bets": 93,
    "source": "ScoresAndOdds",
    "stake": 25,
@@ -5435,6 +5768,29 @@
    },
    "bankroll": 1988.07,
    "public_bankroll": 890.73
+  },
+  {
+   "date": "2026-11-22",
+   "bot": {
+    "w": 4,
+    "l": 3,
+    "p": 0,
+    "profit": 87.86
+   },
+   "public": {
+    "w": 3,
+    "l": 2,
+    "p": 0,
+    "profit": -18.17
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "profit": 0
+   },
+   "bankroll": 2075.93,
+   "public_bankroll": 872.56
   }
  ]
 }

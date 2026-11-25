@@ -1,27 +1,27 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 2043.12,
- "at_risk": 250,
- "updated": "2026-11-24T23:08:40Z",
+ "bankroll": 2173.74,
+ "at_risk": 225,
+ "updated": "2026-11-25T16:20:11Z",
  "record": {
-  "w": 46,
-  "l": 54,
+  "w": 48,
+  "l": 59,
   "p": 0
  },
  "public_record": {
-  "w": 52,
-  "l": 25,
+  "w": 54,
+  "l": 27,
   "p": 0
  },
- "public_bankroll": 914.57,
+ "public_bankroll": 888.25,
  "kingcap_record": {
   "w": 3,
-  "l": 2,
+  "l": 3,
   "p": 0
  },
- "kingcap_profit": -0.5,
- "note": "Graded 7 (4-3, -$32.31: Suns, Grizzlies, Rockets+Wolves parlay and Gauthier goal won; Diggs TD, Connor goal and Burrow TD longshot lost), KingCap 3-2 (-$0.50), public 4-0 (+$42.01); placed 7 bets, $225 at risk on a thin 6-game Tuesday (2 MAC, 3 NBA Cup, VGK@EDM): lean Pistons ML, lean Oilers ML, lean Celtics+Nuggets parlay (-157), Olofsson/Bouchard/Draisaitl anytime goal, Colton Dach goal +575 longshot. No ML side cleared +1.5% edge, so the singles and parlay are leans. No NFL today, so no TD props. Bouchard trimmed to $25 to stay under the $225 cap. ESPN has no NHL predictor; previews searched, none posted for tonight. Public shadow on the 4 games with ML bets.",
+ "kingcap_profit": -25.5,
+ "note": "Graded 8: own 2-5 but +$155.62 (Pistons ML and Colton Dach +575 longshot goal won; Oilers ML, Celtics+Nuggets parlay, Olofsson/Bouchard/Draisaitl goals lost), KingCap 0-1 (-$25, Flagg 6 reb), public 2-2 (-$26.32). Placed 7 bets, $225 at risk on a 24-game Wednesday (GB@LAR, 9 NBA, 14 NHL): no ML side cleared +1.5% edge, so Bulls ML, Trail Blazers ML and the Rockets+Grizzlies parlay are leans; Hagel ($50) and Gauthier anytime goal have real edges; Watson TD is a lean; Davis Allen TD +700 is the longshot. SharpAPI filled 7 NBA moneylines missing from games.json; Covers had 8 TD projections for GB@LAR (no Jacobs line posted); ESPN has no NHL predictor; no previews posted for tonight in searches. Public shadow on the 4 ML games.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -4333,8 +4333,8 @@
      "book": "FanDuel",
      "model_p": 0.5797,
      "implied_p": 0.5798,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Pistons 104-86"
     }
    ],
    "odds": -138,
@@ -4345,9 +4345,9 @@
    "edge": -0.0001,
    "sources": "Market 56%, Kalshi/Polymarket/ProphetX 55.5%, ESPN 54%, OddsShark DET 108.6-104.7, BettingPros 57%; 86% of money on 69% of bets (sharp lean DET); Banchero out for ORL, Cunningham probable",
    "why": "Lean: model 58.0% vs FanDuel -138 (58.0%), no real edge, but the best ML side on a 6-game slate with sharp money on Detroit.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 18.12,
+   "result": "Pistons 104-86"
   },
   {
    "id": "2026-11-24-2",
@@ -4368,8 +4368,8 @@
      "book": "FanDuel",
      "model_p": 0.497,
      "implied_p": 0.505,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Golden Knights 5-3"
     }
    ],
    "odds": -102,
@@ -4380,9 +4380,9 @@
    "edge": -0.008,
    "sources": "Market 48%, Kalshi/Polymarket 47.5%, OddsShark VGK 3.21-3.12, BettingPros 49%; 90% of money on 63% of bets (sharp lean EDM); RNH and Hyman day-to-day",
    "why": "Lean: model 49.7% vs FanDuel -102 (50.5%), a coin flip where the sharp money sits on Edmonton at home.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Golden Knights 5-3"
   },
   {
    "id": "2026-11-24-3",
@@ -4403,8 +4403,8 @@
      "book": "FanDuel",
      "model_p": 0.7655,
      "implied_p": 0.8182,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Celtics 131-116"
     },
     {
      "sp": "NBA",
@@ -4418,8 +4418,8 @@
      "book": "FanDuel",
      "model_p": 0.7158,
      "implied_p": 0.7468,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Mavericks 120-101"
     }
    ],
    "odds": -157,
@@ -4430,9 +4430,9 @@
    "edge": -0.063,
    "sources": "Celtics: Market 79%, prediction markets 79%, ESPN 76%, OddsShark BOS 112-102; Nuggets: Market 72%, prediction markets 72.5%, ESPN 70%, OddsShark DEN 120-113; Lively out for DAL",
    "why": "Lean: the two strongest sides on the slate (model 76.5% and 71.6%) paired; both priced a bit rich so no true edge.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Celtics 131-116; Mavericks 120-101"
   },
   {
    "id": "2026-11-24-4",
@@ -4454,8 +4454,8 @@
      "book": "FanDuel",
      "model_p": 0.385,
      "implied_p": 0.2941,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 goals"
     }
    ],
    "odds": 240,
@@ -4466,9 +4466,9 @@
    "edge": 0.0909,
    "sources": "NHL stats 2.33 shots/G, 8 G in 12 GP, model 38.5% vs FanDuel +240 (29.4%); RotoWire has him on VGK PP1",
    "why": "Model 38.5% vs FanDuel +240 (29.4%): a first-unit power-play shooter priced like a depth forward.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -50,
+   "result": "0 goals"
   },
   {
    "id": "2026-11-24-5",
@@ -4490,8 +4490,8 @@
      "book": "FanDuel",
      "model_p": 0.338,
      "implied_p": 0.2564,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 goals"
     }
    ],
    "odds": 290,
@@ -4502,9 +4502,9 @@
    "edge": 0.0816,
    "sources": "NHL stats 2.50 shots/G, 12 G in 26 GP, model 33.8% vs FanDuel +290 (25.6%), DK +255",
    "why": "Model 33.8% vs FanDuel +290 (25.6%): a volume-shooting defenseman with 12 goals already.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "0 goals"
   },
   {
    "id": "2026-11-24-6",
@@ -4526,8 +4526,8 @@
      "book": "FanDuel",
      "model_p": 0.55,
      "implied_p": 0.4878,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 goals"
     }
    ],
    "odds": 105,
@@ -4538,9 +4538,9 @@
    "edge": 0.0622,
    "sources": "NHL stats 3.77 shots/G, 23 G in 26 GP, model 55.0% vs FanDuel +105 (48.8%)",
    "why": "Model 55.0% vs FanDuel +105 (48.8%): the league-leading volume shooter at plus money at home.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "0 goals"
   },
   {
    "id": "2026-11-24-7",
@@ -4563,8 +4563,8 @@
      "book": "FanDuel",
      "model_p": 0.198,
      "implied_p": 0.1481,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "1 goal"
     }
    ],
    "odds": 575,
@@ -4575,9 +4575,9 @@
    "edge": 0.0499,
    "sources": "NHL stats 1.70 shots/G, 5 G in 20 GP, model 19.8% vs FanDuel +575 (14.8%), expected return 1.34",
    "why": "Model 19.8% vs FanDuel +575 (14.8%): highest expected return of any +400 shot today (1.34 per dollar).",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 287.5,
+   "result": "1 goal"
   },
   {
    "id": "2026-11-24-k8",
@@ -4590,8 +4590,8 @@
      "sp": "NBA",
      "game": "Dallas Mavericks @ Denver Nuggets",
      "start": "2026-11-25T03:00Z",
-     "status": "pending",
-     "result": "",
+     "status": "lost",
+     "result": "6 rebounds",
      "kind": "prop",
      "sel": "Cooper Flagg rebounds over 6.5",
      "player": "Cooper Flagg",
@@ -4613,6 +4613,271 @@
    "edge": -0.0323,
    "sources": "Prop no-vig 47% | KingCap High, 0 sites agree, 0 disagree",
    "why": "Model 47% vs DraftKings -102 (50%); KingCap confidence High.",
+   "status": "lost",
+   "profit": -25,
+   "result": "6 rebounds"
+  },
+  {
+   "id": "2026-11-25-1",
+   "date": "2026-11-25",
+   "placed": "2026-11-25T16:20:00Z",
+   "cat": "ml",
+   "title": "Bulls ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Chicago Bulls @ Charlotte Hornets",
+     "start": "2026-11-26T00:00Z",
+     "sel": "Chicago Bulls ML",
+     "team": "Chicago Bulls",
+     "opp": "Charlotte Hornets",
+     "odds": 136,
+     "book": "DraftKings",
+     "model_p": 0.4375,
+     "implied_p": 0.4237,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 136,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 34.0,
+   "model_p": 0.4375,
+   "edge": 0.0138,
+   "sources": "Market 41%, Kalshi 40%, Polymarket 40%, ESPN 48%, OddsShark 111.25-114.31, bets 57% / money 77%",
+   "why": "Lean: model 44% vs DraftKings +136 (42%), +1.4% edge is just under the bar; ESPN 48% and sharp money (77% of money on 57% of bets) lean Chicago.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-2",
+   "date": "2026-11-25",
+   "placed": "2026-11-25T16:20:00Z",
+   "cat": "ml",
+   "title": "Trail Blazers ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "San Antonio Spurs @ Portland Trail Blazers",
+     "start": "2026-11-26T03:00Z",
+     "sel": "Portland Trail Blazers ML",
+     "team": "Portland Trail Blazers",
+     "opp": "San Antonio Spurs",
+     "odds": 130,
+     "book": "FanDuel",
+     "model_p": 0.4415,
+     "implied_p": 0.4348,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 130,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 32.5,
+   "model_p": 0.4415,
+   "edge": 0.0067,
+   "sources": "Market 42%, Kalshi 42%, Polymarket 42%, ESPN 51%, bets 21% / money 27%",
+   "why": "Lean: model 44% vs FanDuel +130 (43%); ESPN has Portland 51% with Wembanyama and Fox questionable for San Antonio.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-3",
+   "date": "2026-11-25",
+   "placed": "2026-11-25T16:20:00Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Rockets + Grizzlies",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Phoenix Suns @ Houston Rockets",
+     "start": "2026-11-26T01:30Z",
+     "sel": "Houston Rockets ML",
+     "team": "Houston Rockets",
+     "opp": "Phoenix Suns",
+     "odds": -405,
+     "book": "FanDuel",
+     "model_p": 0.7508,
+     "implied_p": 0.802,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "LA Clippers @ Memphis Grizzlies",
+     "start": "2026-11-26T01:00Z",
+     "sel": "Memphis Grizzlies ML",
+     "team": "Memphis Grizzlies",
+     "opp": "LA Clippers",
+     "odds": -255,
+     "book": "FanDuel",
+     "model_p": 0.6989,
+     "implied_p": 0.7183,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -136,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 18.4,
+   "model_p": 0.5247,
+   "edge": -0.0513,
+   "sources": "Rockets: Market 77%, Kalshi 78%, Polymarket 78%, ESPN 73%, OddsShark 107.41-117.55, bets 90% / money 75% | Grizzlies: Market 70%, Polymarket 70%, ESPN 74%, OddsShark 111.35-116.38, bets 85% / money 78%",
+   "why": "Lean: no side cleared the 65%/edge bar, so this pairs the two highest-probability sides (Rockets 75%, Grizzlies 70%); model 52.5% vs FanDuel -136 (58%).",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-4",
+   "date": "2026-11-25",
+   "placed": "2026-11-25T16:20:00Z",
+   "cat": "prop",
+   "title": "Brandon Hagel anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Carolina Hurricanes @ Tampa Bay Lightning",
+     "start": "2026-11-26T00:00Z",
+     "sel": "Brandon Hagel anytime goal",
+     "team": "Tampa Bay Lightning",
+     "opp": "Carolina Hurricanes",
+     "player": "Brandon Hagel",
+     "odds": 200,
+     "book": "FanDuel",
+     "model_p": 0.451,
+     "implied_p": 0.3333,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 200,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 100.0,
+   "model_p": 0.451,
+   "edge": 0.1177,
+   "sources": "NHL stats 4.0 shots/G, 13 G in 20 GP, model 45% vs FanDuel +200 (33%); DraftKings +200",
+   "why": "Model 45% vs FanDuel +200 (33%): 13 goals in 20 games on 4.0 shots a game, listed on the top power play.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-5",
+   "date": "2026-11-25",
+   "placed": "2026-11-25T16:20:00Z",
+   "cat": "prop",
+   "title": "Cutter Gauthier anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "San Jose Sharks @ Anaheim Ducks",
+     "start": "2026-11-26T03:00Z",
+     "sel": "Cutter Gauthier anytime goal",
+     "team": "Anaheim Ducks",
+     "opp": "San Jose Sharks",
+     "player": "Cutter Gauthier",
+     "odds": 100,
+     "book": "FanDuel",
+     "model_p": 0.567,
+     "implied_p": 0.5,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 100,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 25.0,
+   "model_p": 0.567,
+   "edge": 0.067,
+   "sources": "NHL stats 4.29 shots/G, 22 G in 24 GP, model 57% vs FanDuel +100 (50%); DraftKings -115",
+   "why": "Model 57% vs FanDuel +100 (50%): 22 goals in 24 games on 4.29 shots a game, listed on the top power play.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-6",
+   "date": "2026-11-25",
+   "placed": "2026-11-25T16:20:00Z",
+   "cat": "prop",
+   "title": "Christian Watson anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Green Bay Packers @ Los Angeles Rams",
+     "start": "2026-11-26T01:00Z",
+     "sel": "Christian Watson anytime TD",
+     "team": "Green Bay Packers",
+     "opp": "Los Angeles Rams",
+     "player": "Christian Watson",
+     "odds": 165,
+     "book": "FanDuel",
+     "model_p": 0.427,
+     "implied_p": 0.377,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 165,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 41.25,
+   "model_p": 0.427,
+   "edge": 0.0496,
+   "sources": "nflverse 7 TD in 10 G (1 in last 4), 7.9 touches/G, 22.5% target share; model 43% vs FanDuel +165 (38%); DraftKings +175",
+   "why": "Lean: 7 TDs in 10 games gives a season-rate model of 43% vs FanDuel +165 (38%); Covers has no projection for him, so it falls short of the 6% bar for a season-only number.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-7",
+   "date": "2026-11-25",
+   "placed": "2026-11-25T16:20:00Z",
+   "cat": "longshot",
+   "title": "Davis Allen anytime TD (longshot)",
+   "call": "Going for it: Rams TE Davis Allen scores a TD vs Green Bay (+700) - $50 pays $350.00",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Green Bay Packers @ Los Angeles Rams",
+     "start": "2026-11-26T01:00Z",
+     "sel": "Davis Allen anytime TD",
+     "team": "Los Angeles Rams",
+     "opp": "Green Bay Packers",
+     "player": "Davis Allen",
+     "odds": 700,
+     "book": "FanDuel",
+     "model_p": 0.309,
+     "implied_p": 0.125,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 700,
+   "book": "FanDuel",
+   "stake": 50,
+   "to_win": 350.0,
+   "model_p": 0.309,
+   "edge": 0.184,
+   "sources": "nflverse 3 TD in 9 G (3 in last 4), 2.0 touches/G; season-rate model 31% vs FanDuel +700 (12.5%); DraftKings +650; Covers lists no projection",
+   "why": "Highest expected return of the day's long shots (31% x 8.0 = 2.47); the number leans on 3 TDs (all in his last 4 games) on only about 2 touches a game, so treat it as the daily shot.",
    "status": "pending",
    "profit": null,
    "result": ""
@@ -5941,9 +6206,9 @@
    "pct_bets": 69,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 18.12,
+   "result": "Pistons 104-86"
   },
   {
    "id": "2026-11-24-p2",
@@ -5958,9 +6223,9 @@
    "pct_bets": 63,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Golden Knights 5-3"
   },
   {
    "id": "2026-11-24-p3",
@@ -5975,9 +6240,9 @@
    "pct_bets": 77,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 5.56,
+   "result": "Celtics 131-116"
   },
   {
    "id": "2026-11-24-p4",
@@ -5990,6 +6255,74 @@
    "opp": "Dallas Mavericks",
    "odds": -295,
    "pct_bets": 76,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "lost",
+   "profit": -25,
+   "result": "Mavericks 120-101"
+  },
+  {
+   "id": "2026-11-25-p1",
+   "date": "2026-11-25",
+   "sp": "NBA",
+   "game": "Chicago Bulls @ Charlotte Hornets",
+   "start": "2026-11-26T00:00Z",
+   "sel": "Chicago Bulls ML",
+   "team": "Chicago Bulls",
+   "opp": "Charlotte Hornets",
+   "odds": 132,
+   "pct_bets": 57,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-p2",
+   "date": "2026-11-25",
+   "sp": "NBA",
+   "game": "San Antonio Spurs @ Portland Trail Blazers",
+   "start": "2026-11-26T03:00Z",
+   "sel": "San Antonio Spurs ML",
+   "team": "San Antonio Spurs",
+   "opp": "Portland Trail Blazers",
+   "odds": -154,
+   "pct_bets": 79,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-p3",
+   "date": "2026-11-25",
+   "sp": "NBA",
+   "game": "Phoenix Suns @ Houston Rockets",
+   "start": "2026-11-26T01:30Z",
+   "sel": "Houston Rockets ML",
+   "team": "Houston Rockets",
+   "opp": "Phoenix Suns",
+   "odds": -405,
+   "pct_bets": 90,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-25-p4",
+   "date": "2026-11-25",
+   "sp": "NBA",
+   "game": "LA Clippers @ Memphis Grizzlies",
+   "start": "2026-11-26T01:00Z",
+   "sel": "Memphis Grizzlies ML",
+   "team": "Memphis Grizzlies",
+   "opp": "LA Clippers",
+   "odds": -255,
+   "pct_bets": 85,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -6365,6 +6698,29 @@
    },
    "bankroll": 2043.12,
    "public_bankroll": 914.57
+  },
+  {
+   "date": "2026-11-24",
+   "bot": {
+    "w": 2,
+    "l": 5,
+    "p": 0,
+    "profit": 155.62
+   },
+   "public": {
+    "w": 2,
+    "l": 2,
+    "p": 0,
+    "profit": -26.32
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 1,
+    "p": 0,
+    "profit": -25
+   },
+   "bankroll": 2173.74,
+   "public_bankroll": 888.25
   }
  ]
 }

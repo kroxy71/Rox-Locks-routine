@@ -1,28 +1,18 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nfl,401873070,2026-11-22T18:00Z,Buffalo Bills,Miami Dolphins,BUF -16.5,44.5,-1640,+920
-nfl,401873071,2026-11-22T18:00Z,Chicago Bears,New Orleans Saints,CHI -11.5,48.5,-610,+449
-nfl,401873073,2026-11-22T18:00Z,Dallas Cowboys,Tennessee Titans,DAL -8.5,54.5,-383,+304
-nfl,401873072,2026-11-22T18:00Z,Detroit Lions,Tampa Bay Buccaneers,DET -5.5,45.5,-236,+196
-nfl,401873067,2026-11-22T18:00Z,Kansas City Chiefs,Arizona Cardinals,KC -16.5,40.5,-1660,+930
-nfl,401873076,2026-11-22T18:00Z,Philadelphia Eagles,Pittsburgh Steelers,PIT -3.5,37.5,+165,-197
-nfl,401873068,2026-11-22T18:00Z,Carolina Panthers,Baltimore Ravens,CAR -3,43.5,-150,+127
-nfl,401873074,2026-11-22T21:05Z,Los Angeles Chargers,New York Jets,LAC -3,41.5,-171,+144
-nfl,401873075,2026-11-22T21:25Z,Denver Broncos,Las Vegas Raiders,DEN -10.5,40.5,-581,+435
-nfl,401873069,2026-11-22T21:25Z,New York Giants,Jacksonville Jaguars,JAX -6,46.5,+209,-253
-nfl,401873077,2026-11-23T01:20Z,San Francisco 49ers,Minnesota Vikings,SF -3,46.5,-172,+145
-nfl,401873078,2026-11-24T01:15Z,Washington Commanders,Cincinnati Bengals,CIN -6,53.5,+244,-300
-nfl,401873079,2026-11-26T01:00Z,Los Angeles Rams,Green Bay Packers,LAR -3.5,45.5,-179,+150
-nfl,401873081,2026-11-26T18:00Z,Detroit Lions,Chicago Bears,CHI -2.5,55.5,+126,-149
-nfl,401873080,2026-11-26T21:30Z,Dallas Cowboys,Philadelphia Eagles,DAL -8.5,47.5,-404,+319
-nfl,401873082,2026-11-27T01:20Z,Buffalo Bills,Kansas City Chiefs,BUF -3,50.5,-161,+136
-nfl,401873083,2026-11-27T20:00Z,Pittsburgh Steelers,Denver Broncos,DEN -1.5,40.5,+109,-129
-nfl,401873087,2026-11-29T18:00Z,Cincinnati Bengals,New Orleans Saints,CIN -10,52.5,-540,+409
-nfl,401873088,2026-11-29T18:00Z,Indianapolis Colts,New York Giants,NYG -6.5,43.5,+238,-292
-nfl,401873089,2026-11-29T18:00Z,Miami Dolphins,New York Jets,NYJ -3,41.5,+137,-163
-nfl,401873084,2026-11-29T18:00Z,Minnesota Vikings,Atlanta Falcons,MIN -7,42.5,-341,+274
-nfl,401873090,2026-11-29T18:00Z,Jacksonville Jaguars,Tennessee Titans,JAX -14.5,47.5,-1240,+770
-nfl,401873085,2026-11-29T18:00Z,Houston Texans,Baltimore Ravens,HOU -6.5,44.5,-277,+227
-nfl,401873093,2026-11-29T21:05Z,Los Angeles Chargers,New England Patriots,LAC -4.5,39.5,-229,+190
-nfl,401873092,2026-11-29T21:25Z,Arizona Cardinals,Washington Commanders,WSH -6.5,41.5,+243,-299
-nfl,401873091,2026-11-29T21:25Z,San Francisco 49ers,Seattle Seahawks,SF -2.5,46.5,-141,+119
-nfl,401873086,2026-11-30T01:20Z,Cleveland Browns,Las Vegas Raiders,CLE -4.5,40.5,-199,+167
+nfl,401873079,2026-11-26T01:00Z,Los Angeles Rams,Green Bay Packers,LAR -2.5,44.5,-137,+116
+nfl,401873081,2026-11-26T18:00Z,Detroit Lions,Chicago Bears,CHI -1.5,55.5,+105,-123
+nfl,401873080,2026-11-26T21:30Z,Dallas Cowboys,Philadelphia Eagles,DAL -8.5,48.5,-469,+363
+nfl,401873082,2026-11-27T01:20Z,Buffalo Bills,Kansas City Chiefs,BUF -3,46.5,-150,+127
+nfl,401873083,2026-11-27T20:00Z,Pittsburgh Steelers,Denver Broncos,DEN -3.5,36.5,+170,-204
+nfl,401873087,2026-11-29T18:00Z,Cincinnati Bengals,New Orleans Saints,CIN -10,50.5,-610,+451
+nfl,401873088,2026-11-29T18:00Z,Indianapolis Colts,New York Giants,NYG -6.5,41.5,+246,-303
+nfl,401873089,2026-11-29T18:00Z,Miami Dolphins,New York Jets,NYJ -3.5,40.5,+164,-195
+nfl,401873084,2026-11-29T18:00Z,Minnesota Vikings,Atlanta Falcons,MIN -7,41.5,-324,+262
+nfl,401873090,2026-11-29T18:00Z,Jacksonville Jaguars,Tennessee Titans,JAX -14.5,48.5,-1120,+710
+nfl,401873085,2026-11-29T18:00Z,Houston Texans,Baltimore Ravens,HOU -7,47.5,-326,+262
+nfl,401873093,2026-11-29T21:05Z,Los Angeles Chargers,New England Patriots,LAC -1.5,35.5,-113,-104
+nfl,401873092,2026-11-29T21:25Z,Arizona Cardinals,Washington Commanders,WSH -7,41.5,+271,-337
+nfl,401873091,2026-11-29T21:25Z,San Francisco 49ers,Seattle Seahawks,SF -3,45.5,-177,+149
+nfl,401873086,2026-11-30T01:20Z,Cleveland Browns,Las Vegas Raiders,CLE -4.5,40.5,-219,+182
+nfl,401873094,2026-12-01T01:15Z,Tampa Bay Buccaneers,Carolina Panthers,TB -3,43.5,-155,+131
+nfl,401873096,2026-12-04T01:15Z,Los Angeles Rams,Kansas City Chiefs,LAR -1.5,45.5,-109,-108

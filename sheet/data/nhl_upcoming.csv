@@ -1,33 +1,19 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nhl,401892781,2026-11-26T00:00Z,Boston Bruins,Winnipeg Jets,BOS -162,6.5,-162,+136
-nhl,401892782,2026-11-26T00:00Z,Buffalo Sabres,New York Rangers,BUF -135,6.5,-135,+114
-nhl,401892783,2026-11-26T00:00Z,Tampa Bay Lightning,Carolina Hurricanes,CAR -130,6.5,+110,-130
-nhl,401892784,2026-11-26T00:00Z,Florida Panthers,Ottawa Senators,FLA -130,5.5,-130,+110
-nhl,401892785,2026-11-26T00:00Z,New York Islanders,St. Louis Blues,NYI -120,5.5,-120,+100
-nhl,401892786,2026-11-26T00:00Z,Pittsburgh Penguins,Calgary Flames,PIT -162,6.5,-162,+136
-nhl,401892787,2026-11-26T00:00Z,Washington Capitals,Philadelphia Flyers,WSH -162,6.5,-162,+136
-nhl,401892788,2026-11-26T00:00Z,Columbus Blue Jackets,New Jersey Devils,NJ -162,6.5,+136,-162
-nhl,401892789,2026-11-26T00:30Z,Detroit Red Wings,Vancouver Canucks,DET -230,6.5,-230,+190
-nhl,401892790,2026-11-26T01:00Z,Dallas Stars,Nashville Predators,DAL -170,5.5,-170,+142
-nhl,401892791,2026-11-26T01:00Z,Minnesota Wild,Utah Mammoth,MIN -148,6.5,-148,+124
-nhl,401892792,2026-11-26T02:30Z,Colorado Avalanche,Montreal Canadiens,COL -125,6.5,-125,+105
-nhl,401892794,2026-11-26T02:40Z,Seattle Kraken,Chicago Blackhawks,SEA -166,6.5,-166,+140
-nhl,401892793,2026-11-26T03:00Z,Anaheim Ducks,San Jose Sharks,ANA -148,6.5,-148,+124
-nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,,,,
-nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,,,,
-nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,,,,
-nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,,,,
-nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,,,,
-nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,,,,
-nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,,,,
-nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,,,,
-nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,,,,
-nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,,,,
-nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,,,,
-nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,,,,
-nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,,,,
-nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,,,,
-nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,,,,
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,BOS -155,6.5,-155,+130
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,NJ -285,6.5,-285,+230
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,UTAH -118,6.5,-102,-118
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,DAL -142,5.5,+120,-142
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,TB -142,5.5,-142,+120
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,PHI -245,6.5,-245,+200
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,FLA -115,6.5,-105,-115
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,CBJ -130,5.5,-130,+110
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,MIN -125,6.5,-125,+105
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,LA -115,6.5,-105,-115
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,VGK -218,6.5,+180,-218
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,NYR -175,6.5,+145,-175
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,NYI -135,6.5,-135,+114
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,BUF -155,6.5,-155,+130
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,EDM -218,6.5,-218,+180
 nhl,401892810,2026-11-28T21:00Z,Vegas Golden Knights,Montreal Canadiens,,,,
 nhl,401892811,2026-11-28T23:00Z,Florida Panthers,Tampa Bay Lightning,,,,
 nhl,401892812,2026-11-29T00:00Z,Detroit Red Wings,Nashville Predators,,,,
@@ -73,3 +59,19 @@ nhl,401892851,2026-12-04T01:00Z,Edmonton Oilers,Washington Capitals,,,,
 nhl,401892852,2026-12-04T03:00Z,Seattle Kraken,Dallas Stars,,,,
 nhl,401892853,2026-12-04T03:00Z,Vegas Golden Knights,Utah Mammoth,,,,
 nhl,401892854,2026-12-04T03:00Z,Los Angeles Kings,Minnesota Wild,,,,
+nhl,401892855,2026-12-05T00:00Z,New York Islanders,San Jose Sharks,,,,
+nhl,401892856,2026-12-05T01:00Z,St. Louis Blues,Chicago Blackhawks,,,,
+nhl,401892857,2026-12-05T02:00Z,Vancouver Canucks,Buffalo Sabres,,,,
+nhl,401892858,2026-12-05T03:00Z,Anaheim Ducks,Seattle Kraken,,,,
+nhl,401892859,2026-12-05T18:00Z,Boston Bruins,Detroit Red Wings,,,,
+nhl,401892860,2026-12-05T18:00Z,Montreal Canadiens,Florida Panthers,,,,
+nhl,401892861,2026-12-05T19:00Z,Nashville Predators,Columbus Blue Jackets,,,,
+nhl,401892862,2026-12-05T20:00Z,Pittsburgh Penguins,New Jersey Devils,,,,
+nhl,401892863,2026-12-05T20:30Z,Calgary Flames,Washington Capitals,,,,
+nhl,401892864,2026-12-06T00:00Z,Ottawa Senators,Tampa Bay Lightning,,,,
+nhl,401892865,2026-12-06T00:00Z,New York Rangers,Colorado Avalanche,,,,
+nhl,401892866,2026-12-06T00:00Z,Carolina Hurricanes,Toronto Maple Leafs,,,,
+nhl,401892867,2026-12-06T00:00Z,Vegas Golden Knights,Winnipeg Jets,,,,
+nhl,401892868,2026-12-06T01:00Z,Minnesota Wild,Philadelphia Flyers,,,,
+nhl,401892869,2026-12-06T03:00Z,Los Angeles Kings,Utah Mammoth,,,,
+nhl,401892870,2026-12-06T03:00Z,Vancouver Canucks,Dallas Stars,,,,

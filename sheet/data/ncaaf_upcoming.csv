@@ -1,68 +1,77 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-ncaaf,401856879,2026-11-27T01:00Z,Texas Tech Red Raiders,TCU Horned Frogs,TTU -14,47.5,-650,+470
-ncaaf,401858536,2026-11-27T17:00Z,Iowa Hawkeyes,Nebraska Cornhuskers,IOWA -4.5,40.5,-205,+170
-ncaaf,401856762,2026-11-27T17:00Z,Ole Miss Rebels,Mississippi State Bulldogs,MISS -19.5,56.5,-1100,+700
-ncaaf,401862840,2026-11-27T17:00Z,UTSA Roadrunners,Tulsa Golden Hurricane,UTSA -1.5,57.5,-115,-105
+ncaaf,401856762,2026-11-27T17:00Z,Ole Miss Rebels,Mississippi State Bulldogs,MISS -17.5,56.5,-950,+625
+ncaaf,401862840,2026-11-27T17:00Z,UTSA Roadrunners,Tulsa Golden Hurricane,TLSA -1.5,57.5,+102,-122
 ncaaf,401866472,2026-11-27T17:00Z,Akron Zips,Buffalo Bulls,BUF -7.5,48.5,+245,-305
-ncaaf,401866473,2026-11-27T17:00Z,Ohio Bobcats,Toledo Rockets,TOL -3,45.5,+130,-155
+ncaaf,401866473,2026-11-27T17:00Z,Ohio Bobcats,Toledo Rockets,TOL -3,44.5,+130,-155
+ncaaf,401858536,2026-11-27T17:08Z,Iowa Hawkeyes,Nebraska Cornhuskers,IOWA -3.5,40.5,-198,+164
 ncaaf,401869930,2026-11-27T20:00Z,South Alabama Jaguars,App State Mountaineers,USA -3.5,56.5,-166,+140
-ncaaf,401856759,2026-11-27T20:30Z,Florida State Seminoles,Florida Gators,FLA -6,53.5,+190,-230
-ncaaf,401862838,2026-11-27T20:30Z,Memphis Tigers,Temple Owls,MEM -17.5,66.5,-950,+625
-ncaaf,401864549,2026-11-27T20:30Z,San José State Spartans,North Dakota State Bison,NDSU -8.5,40.5,+285,-360
-ncaaf,401864546,2026-11-27T21:30Z,New Mexico Lobos,Air Force Falcons,UNM -6.5,41.5,-258,+210
-ncaaf,401856756,2026-11-28T00:30Z,Texas A&M Aggies,Texas Longhorns,TEX -11.5,40.5,+350,-455
-ncaaf,401858544,2026-11-28T00:30Z,Wisconsin Badgers,Minnesota Golden Gophers,WIS -7.5,37.5,-305,+245
-ncaaf,401856880,2026-11-28T02:00Z,Utah Utes,West Virginia Mountaineers,UTAH -25.5,67.5,-2800,+1300
-ncaaf,401858314,2026-11-28T17:00Z,Syracuse Orange,Notre Dame Fighting Irish,ND -24.5,52.5,+1300,-2800
+ncaaf,401856759,2026-11-27T20:30Z,Florida State Seminoles,Florida Gators,FLA -6.5,53.5,+195,-238
+ncaaf,401862838,2026-11-27T20:30Z,Memphis Tigers,Temple Owls,MEM -18.5,65.5,-1050,+675
+ncaaf,401864549,2026-11-27T20:30Z,San José State Spartans,North Dakota State Bison,NDSU -8.5,39.5,+275,-345
+ncaaf,401864546,2026-11-27T21:30Z,New Mexico Lobos,Air Force Falcons,UNM -6.5,42.5,-258,+210
+ncaaf,401856756,2026-11-28T00:30Z,Texas A&M Aggies,Texas Longhorns,TEX -10.5,40.5,+350,-455
+ncaaf,401858544,2026-11-28T00:30Z,Wisconsin Badgers,Minnesota Golden Gophers,WIS -9.5,37.5,-340,+270
+ncaaf,401856880,2026-11-28T02:00Z,Utah Utes,West Virginia Mountaineers,UTAH -25.5,66.5,-2800,+1300
+ncaaf,401858314,2026-11-28T17:00Z,Syracuse Orange,Notre Dame Fighting Irish,ND -25.5,53.5,+1300,-2800
 ncaaf,401858311,2026-11-28T17:00Z,Miami Hurricanes,Boston College Eagles,MIA -25.5,53.5,-2800,+1300
-ncaaf,401856761,2026-11-28T17:00Z,Kentucky Wildcats,Louisville Cardinals,LOU -3,54.5,+120,-142
-ncaaf,401858540,2026-11-28T17:00Z,Ohio State Buckeyes,Michigan Wolverines,OSU -10.5,37.5,-425,+330
-ncaaf,401858313,2026-11-28T17:00Z,North Carolina Tar Heels,NC State Wolfpack,UNC -5.5,54.5,-218,+180
-ncaaf,401861969,2026-11-28T17:00Z,Wyoming Cowboys,UConn Huskies,CONN -3,45.5,+130,-155
-ncaaf,401862842,2026-11-28T17:00Z,Charlotte 49ers,Navy Midshipmen,NAVY -16.5,54.5,+575,-850
-ncaaf,401866474,2026-11-28T17:00Z,Ball State Cardinals,Central Michigan Chippewas,CMU -4,50.5,+160,-192
-ncaaf,401869954,2026-11-28T17:00Z,Georgia Southern Eagles,Louisiana Tech Bulldogs,GASO -2.5,54.5,-135,+114
-ncaaf,401858537,2026-11-28T17:30Z,Northwestern Wildcats,Illinois Fighting Illini,NU -3,50.5,-148,+124
+ncaaf,401856761,2026-11-28T17:00Z,Kentucky Wildcats,Louisville Cardinals,LOU -3,53.5,+120,-142
+ncaaf,401858540,2026-11-28T17:00Z,Ohio State Buckeyes,Michigan Wolverines,OSU -10,37.5,-425,+330
+ncaaf,401858313,2026-11-28T17:00Z,North Carolina Tar Heels,NC State Wolfpack,UNC -5.5,53.5,-225,+185
+ncaaf,401861969,2026-11-28T17:00Z,Wyoming Cowboys,UConn Huskies,CONN -3.5,44.5,+142,-170
+ncaaf,401862842,2026-11-28T17:00Z,Charlotte 49ers,Navy Midshipmen,NAVY -16.5,53.5,+550,-800
+ncaaf,401866474,2026-11-28T17:00Z,Ball State Cardinals,Central Michigan Chippewas,CMU -3.5,50.5,+150,-180
+ncaaf,401869954,2026-11-28T17:00Z,Georgia Southern Eagles,Louisiana Tech Bulldogs,GASO -2.5,53.5,-135,+114
+ncaaf,401858537,2026-11-28T17:30Z,Northwestern Wildcats,Illinois Fighting Illini,NU -2.5,50.5,-142,+120
 ncaaf,401856758,2026-11-28T17:45Z,Arkansas Razorbacks,LSU Tigers,LSU -14.5,49.5,+455,-625
 ncaaf,401862837,2026-11-28T18:00Z,East Carolina Pirates,Florida Atlantic Owls,ECU -1.5,57.5,-118,-102
 ncaaf,401870804,2026-11-28T18:00Z,Western Kentucky Hilltoppers,Kennesaw State Owls,KENN -3.5,53.5,+142,-170
-ncaaf,401871102,2026-11-28T18:00Z,UL Monroe Warhawks,Marshall Thundering Herd,MRSH -5.5,51.5,+170,-205
-ncaaf,401871103,2026-11-28T18:00Z,Old Dominion Monarchs,Southern Miss Golden Eagles,ODU -5.5,50.5,-230,+190
+ncaaf,401871102,2026-11-28T18:00Z,UL Monroe Warhawks,Marshall Thundering Herd,MRSH -5.5,51.5,+180,-218
+ncaaf,401871103,2026-11-28T18:00Z,Old Dominion Monarchs,Southern Miss Golden Eagles,ODU -6,50.5,-230,+190
 ncaaf,401856875,2026-11-28T19:00Z,Colorado Buffaloes,UCF Knights,COLO -2.5,49.5,-125,+105
-ncaaf,401856878,2026-11-28T19:00Z,Iowa State Cyclones,Kansas State Wildcats,ISU -3.5,53.5,-180,+150
-ncaaf,401862841,2026-11-28T19:00Z,Rice Owls,Army Black Knights,ARMY -6,48.5,+170,-205
-ncaaf,401869947,2026-11-28T19:00Z,James Madison Dukes,Coastal Carolina Chanticleers,JMU -17.5,54.5,-850,+575
-ncaaf,401869959,2026-11-28T19:00Z,Georgia State Panthers,Louisiana Ragin' Cajuns,UL -5.5,55.5,+170,-205
-ncaaf,401871063,2026-11-28T19:00Z,Missouri State Bears,Liberty Flames,LIB -17.5,53.5,+575,-850
-ncaaf,401871082,2026-11-28T19:00Z,Florida International Panthers,Sam Houston Bearkats,FIU -11.5,41.5,-455,+350
-ncaaf,401871083,2026-11-28T19:00Z,Middle Tennessee Blue Raiders,New Mexico State Aggies,MTSU -3,51.5,-155,+130
-ncaaf,401856764,2026-11-28T20:00Z,Clemson Tigers,South Carolina Gamecocks,SC -6,41.5,+190,-230
-ncaaf,401858317,2026-11-28T20:00Z,Virginia Tech Hokies,Virginia Cavaliers,VT -3,51.5,-155,+130
+ncaaf,401856878,2026-11-28T19:00Z,Iowa State Cyclones,Kansas State Wildcats,ISU -4,53.5,-185,+154
+ncaaf,401862841,2026-11-28T19:00Z,Rice Owls,Army Black Knights,ARMY -5.5,47.5,+164,-198
+ncaaf,401869947,2026-11-28T19:00Z,James Madison Dukes,Coastal Carolina Chanticleers,JMU -17.5,54.5,-950,+625
+ncaaf,401869959,2026-11-28T19:00Z,Georgia State Panthers,Louisiana Ragin' Cajuns,UL -4.5,55.5,+164,-198
+ncaaf,401871063,2026-11-28T19:00Z,Missouri State Bears,Liberty Flames,LIB -18.5,52.5,+650,-1000
+ncaaf,401871082,2026-11-28T19:00Z,Florida International Panthers,Sam Houston Bearkats,FIU -11.5,40.5,-455,+350
+ncaaf,401871083,2026-11-28T19:00Z,Middle Tennessee Blue Raiders,New Mexico State Aggies,MTSU -3,51.5,-166,+140
+ncaaf,401856764,2026-11-28T20:00Z,Clemson Tigers,South Carolina Gamecocks,SC -6.5,42.5,+190,-230
+ncaaf,401858317,2026-11-28T20:00Z,Virginia Tech Hokies,Virginia Cavaliers,VT -3,50.5,-155,+130
 ncaaf,401869939,2026-11-28T20:00Z,Arkansas State Red Wolves,Troy Trojans,ARST -3.5,46.5,-185,+154
 ncaaf,401856760,2026-11-28T20:30Z,Georgia Bulldogs,Georgia Tech Yellow Jackets,UGA -35.5,55.5,-8000,+2200
-ncaaf,401858312,2026-11-28T20:30Z,Wake Forest Demon Deacons,Duke Blue Devils,WAKE -14.5,55.5,-625,+455
-ncaaf,401858543,2026-11-28T20:30Z,UCLA Bruins,USC Trojans,USC -7,45.5,+215,-265
-ncaaf,401856876,2026-11-28T20:30Z,BYU Cougars,Cincinnati Bearcats,BYU -15.5,56.5,-675,+490
-ncaaf,401858316,2026-11-28T20:30Z,Stanford Cardinal,SMU Mustangs,SMU -7.5,60.5,+250,-310
-ncaaf,401858539,2026-11-28T20:30Z,Maryland Terrapins,Penn State Nittany Lions,PSU -7,49.5,+225,-278
-ncaaf,401862839,2026-11-28T20:30Z,South Florida Bulls,Tulane Green Wave,USF -6.5,43.5,-238,+195
+ncaaf,401858312,2026-11-28T20:30Z,Wake Forest Demon Deacons,Duke Blue Devils,WAKE -14.5,55.5,-650,+470
+ncaaf,401858543,2026-11-28T20:30Z,UCLA Bruins,USC Trojans,USC -6.5,46.5,+205,-250
+ncaaf,401856876,2026-11-28T20:30Z,BYU Cougars,Cincinnati Bearcats,BYU -15.5,56.5,-700,+500
+ncaaf,401858316,2026-11-28T20:30Z,Stanford Cardinal,SMU Mustangs,SMU -7,61.5,+230,-285
+ncaaf,401858539,2026-11-28T20:30Z,Maryland Terrapins,Penn State Nittany Lions,PSU -7,48.5,+225,-278
+ncaaf,401862839,2026-11-28T20:30Z,South Florida Bulls,Tulane Green Wave,USF -6.5,44.5,-238,+195
 ncaaf,401864550,2026-11-28T20:30Z,Northern Illinois Huskies,UTEP Miners,NIU -4.5,50.5,-192,+160
-ncaaf,401866475,2026-11-28T20:30Z,Bowling Green Falcons,Massachusetts Minutemen,BGSU -3,42.5,-155,+130
+ncaaf,401866475,2026-11-28T20:30Z,Bowling Green Falcons,Massachusetts Minutemen,BGSU -3,41.5,-162,+136
 ncaaf,401871062,2026-11-28T20:30Z,Delaware Blue Hens,Jacksonville State Gamecocks,DEL -2.5,58.5,-142,+120
-ncaaf,401862843,2026-11-28T21:00Z,North Texas Mean Green,UAB Blazers,UNT -3.5,46.5,-162,+136
-ncaaf,401856763,2026-11-28T21:15Z,Missouri Tigers,Oklahoma Sooners,MIZ -2.5,41.5,-122,+102
-ncaaf,401858542,2026-11-28T21:15Z,Rutgers Scarlet Knights,Michigan State Spartans,MSU -3.5,47.5,+142,-170
+ncaaf,401862843,2026-11-28T21:00Z,North Texas Mean Green,UAB Blazers,UNT -2.5,45.5,-142,+120
+ncaaf,401856763,2026-11-28T21:15Z,Missouri Tigers,Oklahoma Sooners,MIZ -2.5,41.5,-125,+105
+ncaaf,401858542,2026-11-28T21:15Z,Rutgers Scarlet Knights,Michigan State Spartans,MSU -3,46.5,+120,-142
 ncaaf,401860926,2026-11-28T23:00Z,Colorado State Rams,Boise State Broncos,BOIS -21,76.5,+1000,-1800
-ncaaf,401856877,2026-11-28T23:15Z,Oklahoma State Cowboys,Kansas Jayhawks,OKST -6.5,65.5,-238,+195
+ncaaf,401856877,2026-11-28T23:15Z,Oklahoma State Cowboys,Kansas Jayhawks,OKST -6,64.5,-230,+190
 ncaaf,401860929,2026-11-28T23:30Z,Washington State Cougars,San Diego State Aztecs,WSU -2.5,46.5,-142,+120
-ncaaf,401856765,2026-11-29T00:00Z,Vanderbilt Commodores,Tennessee Volunteers,TENN -13.5,43.5,+410,-550
-ncaaf,401858538,2026-11-29T00:00Z,Indiana Hoosiers,Purdue Boilermakers,IU -22.5,52.5,-2100,+1100
-ncaaf,401856757,2026-11-29T00:30Z,Alabama Crimson Tide,Auburn Tigers,ALA -14.5,49.5,-700,+500
-ncaaf,401858541,2026-11-29T00:30Z,Oregon Ducks,Washington Huskies,ORE -14,50.5,-600,+440
+ncaaf,401856765,2026-11-29T00:00Z,Vanderbilt Commodores,Tennessee Volunteers,TENN -13.5,42.5,+410,-550
+ncaaf,401858538,2026-11-29T00:00Z,Indiana Hoosiers,Purdue Boilermakers,IU -23.5,52.5,-2100,+1100
+ncaaf,401856757,2026-11-29T00:30Z,Alabama Crimson Tide,Auburn Tigers,ALA -15.5,49.5,-750,+525
+ncaaf,401858541,2026-11-29T00:30Z,Oregon Ducks,Washington Huskies,ORE -13.5,50.5,-625,+455
 ncaaf,401858315,2026-11-29T00:30Z,California Golden Bears,Pittsburgh Panthers,PITT -9.5,47.5,+280,-355
-ncaaf,401856873,2026-11-29T02:00Z,Arizona Wildcats,Arizona State Sun Devils,ARIZ -8.5,53.5,-325,+260
+ncaaf,401856873,2026-11-29T02:00Z,Arizona Wildcats,Arizona State Sun Devils,ARIZ -7.5,53.5,-310,+250
 ncaaf,401864548,2026-11-29T02:00Z,UNLV Rebels,Nevada Wolf Pack,UNLV -5.5,44.5,-225,+185
 ncaaf,401856874,2026-11-29T02:30Z,Houston Cougars,Baylor Bears,HOU -4.5,55.5,-198,+164
-ncaaf,401860928,2026-11-29T02:30Z,Utah State Aggies,Texas State Bobcats,TXST -7,52.5,+220,-270
+ncaaf,401860928,2026-11-29T02:30Z,Utah State Aggies,Texas State Bobcats,TXST -7,52.5,+230,-285
 ncaaf,401860927,2026-11-29T03:00Z,Fresno State Bulldogs,Oregon State Beavers,FRES -3,58.5,-155,+130
 ncaaf,401864547,2026-11-29T04:00Z,Hawai'i Rainbow Warriors,Sacramento State Hornets,HAW -13.5,39.5,-575,+425
+ncaaf,401869535,2026-12-05T00:00Z,Liberty Flames,Jacksonville State Gamecocks,,,,
+ncaaf,401869546,2026-12-05T00:00Z,TBD,Louisiana Tech,,,,
+ncaaf,401869533,2026-12-05T01:00Z,Utah Utes,Texas Tech Red Raiders,UTAH -2.5,56.5,-130,+110
+ncaaf,401869542,2026-12-05T01:00Z,Boise State Broncos,San Diego State Aztecs,BOIS -15.5,58.5,-750,+525
+ncaaf,401874049,2026-12-05T02:00Z,TBD,TBD,,,,
+ncaaf,401858318,2026-12-05T17:00Z,Miami Hurricanes,Wake Forest Demon Deacons,MIA -2.5,57.5,-142,+120
+ncaaf,401869536,2026-12-05T17:00Z,TBD,TBD,,,,
+ncaaf,401869545,2026-12-05T21:00Z,Georgia Bulldogs,TBD,,,,
+ncaaf,401869532,2026-12-06T01:00Z,TBD,TBD,,,,
+ncaaf,401869534,2026-12-06T01:00Z,TBD,TBD,,,,

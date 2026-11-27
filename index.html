@@ -280,6 +280,21 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
 .bot-days th:first-child,.bot-days td:first-child{text-align:left}
 .bot-days th{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-top:0}
 .bot-empty{font-size:14px;color:var(--muted);margin-top:10px}
+.bot-days td{white-space:nowrap} .bot-days td:first-child{white-space:normal} .bot-days td.mut{color:var(--muted)} .bot-days tr.tot td{font-weight:700}
+.bot-chart{position:relative;margin-top:4px}
+.bot-chart svg{display:block;width:100%;height:auto;overflow:visible;touch-action:pan-y}
+.bot-chart .gl{stroke:var(--line);stroke-width:1}
+.bot-chart .ax{fill:var(--muted);font:11px var(--f-body);font-variant-numeric:tabular-nums}
+.bot-chart .lc{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.bot-chart .lp{fill:none;stroke:var(--other);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:5 3}
+.bot-chart .dl{font:700 11px var(--f-body);fill:var(--ink)}
+.bot-chart .xh{stroke:var(--muted);stroke-width:1}
+.bot-chart .dc{fill:var(--accent);stroke:var(--surface);stroke-width:2} .bot-chart .dp{fill:var(--other);stroke:var(--surface);stroke-width:2}
+.bot-legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-top:2px}
+.bot-legend i{display:inline-block;width:16px;height:0;border-top:2px solid var(--accent);vertical-align:middle;margin-right:5px}
+.bot-legend i.p{border-top:2px dashed var(--other)}
+.bot-tip{position:absolute;top:0;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font-size:12px;line-height:1.4;box-shadow:0 2px 8px rgba(0,0,0,.15);white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink)}
+.bot-tip b{display:block}
 #bot{display:none}
 @media (min-width:1000px){
   .wrap{max-width:1020px}
@@ -370,7 +385,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     bot:    { name: "Accuracy Tracker", empty: "" },
     stats:  { name: "SharpSheet", empty: "" }
   };
-  const BUILD = "2026-11-21m";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
+  const BUILD = "2026-11-27a";   // bump on every index.html change; open pages compare this with the published copy and reload themselves
   const st = { tab: "picks", lists: {}, err: null, sel: {}, msgs: {}, checked: null, loaded: false, slips: {}, betslip: [], betslipSeq: 0, betBudget: "" };
   const $ = id => document.getElementById(id);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -1663,6 +1678,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     }
     daySection("Today's bets", todays);
     daySection("Yesterday's bets", ydays);
+    botStats(d, more, start);
     const days = Array.isArray(d.days) ? d.days.slice().sort((a,b) => String(b.date).localeCompare(String(a.date))) : [];
     if (days.length) {
       more.append(el("div","bot-sec","By day"));
@@ -1682,6 +1698,99 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-bottom:24px}
     more.append(el("div","bot-meta","KingCap bets = the 5 KingCap picks the computer's model likes best each day, placed right after the picks email. Public = $25 on whichever side most bettors took, on the computer's own games. Paper money only; not betting advice."));
     box.append(tog, more);
     return box;
+  }
+  // settled-bet totals for a list of bets (void bets count as nothing)
+  function betAgg(list){
+    const a = { w: 0, l: 0, p: 0, n: 0, staked: 0, profit: 0 };
+    list.forEach(b => { const s = b.status; if (!s || s === "pending" || s === "void") return;
+      a.n++; if (s === "won") a.w++; else if (s === "lost") a.l++; else if (s === "push") a.p++;
+      a.staked += Number(b.stake) || 0; a.profit += Number(b.profit) || 0; });
+    return a;
+  }
+  const money0 = n => { const v = Math.round(Number(n) || 0); return (v < 0 ? "−" : "") + "$" + Math.abs(v).toLocaleString("en-US"); };
+  const signed0 = n => { const v = Math.round(Number(n) || 0); return (v > 0 ? "+" : v < 0 ? "−" : "") + "$" + Math.abs(v).toLocaleString("en-US"); };
+  const roiTxt = a => a.staked ? (a.profit >= 0 ? "+" : "−") + Math.abs(Math.round(a.profit / a.staked * 100)) + "%" : "";
+  function botStats(d, more, start){
+    // 1. bankroll over time: computer vs simply betting with the public
+    const days = (Array.isArray(d.days) ? d.days : []).filter(x => x && x.date && isFinite(+x.bankroll)).slice().sort((a,b) => String(a.date).localeCompare(String(b.date)));
+    if (days.length >= 2) {
+      more.append(el("div","bot-sec","Bankroll over time"));
+      more.append(bankChart(days, start));
+    }
+    // 2. by bet type
+    const cats = [["ml","Single MLs"],["parlay","Parlays"],["prop","Props"],["longshot","Long shots"],["kingcap","KingCap picks"]];
+    const rows = cats.map(([k, name]) => [name, betAgg(d.bets.filter(b => b.cat === k))]).filter(([, a]) => a.n);
+    if (rows.length) {
+      more.append(el("div","bot-sec","By bet type"));
+      const t = el("table","bot-days"), hr = el("tr");
+      ["Type","W-L","Staked","Profit","ROI"].forEach(x => hr.append(el("th",null,x))); t.append(hr);
+      rows.forEach(([name, a]) => { const tr = el("tr");
+        tr.append(el("td",null,name), el("td",null,recTxt(a)), el("td","mut",money0(a.staked)), el("td",tone(a.profit),signed0(a.profit)), el("td",tone(a.profit),roiTxt(a)));
+        t.append(tr); });
+      more.append(t);
+    }
+    // 3. computer (own bets) vs KingCap's picks, on days that had settled KingCap bets
+    const kcDays = Array.from(new Set(d.bets.filter(b => b.cat === "kingcap" && b.status && b.status !== "pending").map(b => b.date))).sort().reverse();
+    if (kcDays.length) {
+      more.append(el("div","bot-sec","Computer vs KingCap (same days)"));
+      const t = el("table","bot-days"), hr = el("tr");
+      ["Day","Computer","KingCap"].forEach(x => hr.append(el("th",null,x))); t.append(hr);
+      const cAll = [], kAll = [];
+      kcDays.forEach(day => {
+        const c = d.bets.filter(b => b.date === day && b.cat !== "kingcap"), k = d.bets.filter(b => b.date === day && b.cat === "kingcap");
+        cAll.push(...c); kAll.push(...k);
+        const ca = betAgg(c), ka = betAgg(k), tr = el("tr");
+        tr.append(el("td",null, fmtDay(new Date(day + "T12:00:00"))), el("td", tone(ca.profit), signed(ca.profit) + " (" + recTxt(ca) + ")"), el("td", tone(ka.profit), signed(ka.profit) + " (" + recTxt(ka) + ")"));
+        t.append(tr);
+      });
+      const ca = betAgg(cAll), ka = betAgg(kAll), tr = el("tr","tot");
+      tr.append(el("td",null,"Total"), el("td", tone(ca.profit), signed0(ca.profit) + " (" + roiTxt(ca) + " ROI)"), el("td", tone(ka.profit), signed0(ka.profit) + " (" + roiTxt(ka) + " ROI)"));
+      t.append(tr);
+      more.append(t);
+      more.append(el("div","bot-meta","ROI = profit ÷ money staked, so the computer's bigger card and KingCap's 5 bets compare fairly."));
+    }
+  }
+  function bankChart(days, start){
+    const pts = [{ date: null, c: start, p: start }].concat(days.map(x => ({ date: x.date, c: +x.bankroll, p: isFinite(+x.public_bankroll) ? +x.public_bankroll : start })));
+    const W = 340, H = 150, L = 44, R = 64, T = 10, B = 20, n = pts.length;
+    const vals = pts.flatMap(q => [q.c, q.p]);
+    let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.08 || 50; lo -= pad; hi += pad;
+    const step = [100,200,250,500,1000,2000].find(s => (hi - lo) / s <= 4) || 5000;
+    const x = i => L + (W - L - R) * i / (n - 1), y = v => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
+    const NS = "http://www.w3.org/2000/svg", mk = (tag, at) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); return e; };
+    const svg = mk("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Bankroll over time: computer " + money(pts[n-1].c) + ", public " + money(pts[n-1].p) });
+    for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) {
+      svg.append(mk("line", { class: "gl", x1: L, x2: W - R, y1: y(v), y2: y(v) }));
+      const tx = mk("text", { class: "ax", x: L - 6, y: y(v) + 4, "text-anchor": "end" }); tx.textContent = "$" + (v >= 1000 ? (v / 1000) + "k" : v); svg.append(tx);
+    }
+    const lab = (i, anchor) => { const t = mk("text", { class: "ax", x: x(i), y: H - 4, "text-anchor": anchor }); t.textContent = pts[i].date ? fmtDay(new Date(pts[i].date + "T12:00:00")) : "Start"; svg.append(t); };
+    lab(0, "start"); lab(n - 1, "end");
+    const path = k => pts.map((q, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(q[k]).toFixed(1)).join("");
+    svg.append(mk("path", { class: "lp", d: path("p") }), mk("path", { class: "lc", d: path("c") }));
+    // direct labels at the line ends, nudged apart if they would collide
+    let yc = y(pts[n-1].c), yp = y(pts[n-1].p); if (Math.abs(yc - yp) < 13) { const m = (yc + yp) / 2, s = yc <= yp ? -1 : 1; yc = m + s * 6.5; yp = m - s * 6.5; }
+    [["Computer", yc], ["Public", yp]].forEach(([t, yy]) => { const e = mk("text", { class: "dl", x: W - R + 6, y: yy + 4 }); e.textContent = t; svg.append(e); });
+    const xh = mk("line", { class: "xh", y1: T, y2: H - B, visibility: "hidden" }), dc = mk("circle", { class: "dc", r: 4, visibility: "hidden" }), dp = mk("circle", { class: "dp", r: 4, visibility: "hidden" });
+    const hit = mk("rect", { x: L, y: 0, width: W - L - R, height: H, fill: "transparent" });
+    svg.append(xh, dp, dc, hit);
+    const wrap = el("div","bot-chart"), tip = el("div","bot-tip"); tip.hidden = true;
+    const show = ev => {
+      const r = svg.getBoundingClientRect(), sx = (ev.clientX - r.left) * W / r.width;
+      const i = Math.max(0, Math.min(n - 1, Math.round((sx - L) / (W - L - R) * (n - 1)))), q = pts[i];
+      xh.setAttribute("x1", x(i)); xh.setAttribute("x2", x(i)); xh.setAttribute("visibility", "visible");
+      dc.setAttribute("cx", x(i)); dc.setAttribute("cy", y(q.c)); dp.setAttribute("cx", x(i)); dp.setAttribute("cy", y(q.p));
+      dc.setAttribute("visibility", "visible"); dp.setAttribute("visibility", "visible");
+      tip.replaceChildren(el("b", null, q.date ? fmtDay(new Date(q.date + "T12:00:00")) : "Start"), el("div", null, "Computer " + money(q.c)), el("div", null, "Public " + money(q.p)));
+      tip.hidden = false;
+      const px = x(i) * r.width / W, tw = tip.offsetWidth;
+      tip.style.left = Math.max(0, Math.min(r.width - tw, px + (px > r.width / 2 ? -tw - 10 : 10))) + "px";
+    };
+    const hide = () => { tip.hidden = true; [xh, dc, dp].forEach(e => e.setAttribute("visibility", "hidden")); };
+    hit.addEventListener("pointermove", show); hit.addEventListener("pointerdown", show); hit.addEventListener("pointerleave", hide);
+    const lg = el("div","bot-legend"), a = el("span"), b = el("span");
+    a.append(el("i"), "Computer"); b.append(el("i","p"), "Betting with the public"); lg.append(a, b);
+    wrap.append(svg, tip, lg);
+    return wrap;
   }
   function renderBotSide(){ const a = $("bot"); a.replaceChildren(); if (st.tab !== "bot") a.append(botPanel(false)); }
 

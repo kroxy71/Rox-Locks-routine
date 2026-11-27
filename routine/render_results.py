@@ -48,6 +48,9 @@ def title_of(p):
                                 p.get('ou', 'over'), ('%g' % line) if line is not None else '')
     if t == 'total':
         line = p.get('line')
+        if line is None:   # no line stated: show the DraftKings line it was graded against
+            m = re.search(r'vs (?:over|under) ([0-9.]+)', p.get('detail') or '')
+            line = float(m.group(1)) if m else None
         return '%s %s %s' % ('/'.join(p['teams']), p.get('ou', 'over'), ('%g' % line) if line is not None else '')
     if t == 'h1spread':
         line = p.get('line')
@@ -65,6 +68,9 @@ def title_of(p):
         return '%s 1st Half ML' % p['team']
     if t == 'spread':
         line = p.get('line')
+        if line is None:
+            m = re.match(r'([+-][0-9.]+):', p.get('detail') or '')
+            line = float(m.group(1)) if m else None
         return '%s %s' % (p['team'], ('%+g' % line) if line is not None else 'spread')
     return '%s ML' % p['team']
 

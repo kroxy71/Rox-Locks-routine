@@ -1,27 +1,27 @@
 {
  "version": 1,
  "start": 1000,
- "bankroll": 2272.12,
- "at_risk": 200,
- "updated": "2026-11-27T00:54:53Z",
+ "bankroll": 2072.12,
+ "at_risk": 225,
+ "updated": "2026-11-27T16:20:53Z",
  "record": {
   "w": 53,
-  "l": 61,
+  "l": 67,
   "p": 0
  },
  "public_record": {
-  "w": 57,
-  "l": 28,
+  "w": 59,
+  "l": 30,
   "p": 0
  },
- "public_bankroll": 912.22,
+ "public_bankroll": 881.72,
  "kingcap_record": {
   "w": 5,
-  "l": 3,
+  "l": 4,
   "p": 0
  },
- "kingcap_profit": 21.73,
- "note": "Graded 9: own 5-2 +$51.15 (Bulls, Blazers, Rockets+Grizzlies parlay, Gauthier goal, Watson TD won; Hagel goal and Davis Allen longshot lost), KingCap 2-0 +$47.23, public 3-1 +$23.97. Placed 6 bets, $175 at risk on Thanksgiving (CHI@DET, PHI@DAL, KC@BUF, TCU@Texas Tech; no NBA/NHL today): no ML side cleared the 1.5% bar, so Lions ML (+1.47%), Chiefs ML (+1.1%, sharp money) and the Texas Tech+Cowboys parlay are leans; D.J. Moore +250 and Jameson Williams +195 TD props have real edges (Covers TD projections parsed for all 3 NFL games; most TD prices were shorter than the model); Xavier Worthy TD +500 is the longshot. SharpAPI filled CHI@DET FanDuel, KC@BUF DraftKings and TCU@TTU lines missing from games.json. CHI@DET public split 50/50 on bets, so the shadow takes the Lions (51% of money). Public shadow on the 4 ML games.",
+ "kingcap_profit": -3.27,
+ "note": "Graded 7: own 0-6 -$175 (Lions, Chiefs, Texas Tech+Cowboys parlay, D.J. Moore, Jameson Williams TDs and Worthy longshot all lost), KingCap 0-1 -$25 (KC/BUF over 45.5, game ended 13-10), public 2-2 -$30.50. Placed 8 bets, $225 at risk on Black Friday: Knicks ML is the only side that cleared every bar (+2.2%, sharp money); Steelers ML is a lean (ESPN 51% vs market 33%). Two NBA parlays (Knicks+Spurs, Spurs+Blazers). Props: Tuch and Gauthier anytime goals (NHL model edges 9-10%), Germie Bernard TD +600 (Covers parsed for DEN@PIT, the only NFL game). Longshot: Freiermuth TD +650. SharpAPI filled moneylines games.json lacked; DraftKings DEN@PIT price from ESPN. Noon college games were skipped as too close to kickoff. Public shadow on the 4 ML games.",
  "bets": [
   {
    "id": "2026-11-08-1",
@@ -4974,8 +4974,8 @@
      "book": "FanDuel",
      "model_p": 0.5099,
      "implied_p": 0.495,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Bears 39-35"
     }
    ],
    "odds": 102,
@@ -4986,9 +4986,9 @@
    "edge": 0.0149,
    "sources": "Market 47.9%, Kalshi/Polymarket/ProphetX 49.3%, ESPN 55.9%, OddsShark DET 28.8-25.9, BettingPros 46%; public 50/50 bets, 51% money on DET",
    "why": "Lean: model 51.0% vs FanDuel +102 (49.5%), a +1.5% edge driven by ESPN and OddsShark favoring Detroit at home while the market and exchanges call it a coin flip.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Bears 39-35"
   },
   {
    "id": "2026-11-26-2",
@@ -5009,8 +5009,8 @@
      "book": "FanDuel",
      "model_p": 0.4416,
      "implied_p": 0.431,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Bills 13-10"
     }
    ],
    "odds": 132,
@@ -5021,9 +5021,9 @@
    "edge": 0.0106,
    "sources": "Market 41.7%, Kalshi/Polymarket/ProphetX 40.1%, ESPN 47.2%, OddsShark BUF 23.3-21.0; sharp money on KC (28% of bets, 40% of money)",
    "why": "Lean: model 44.2% vs FanDuel +132 (43.1%); ESPN and OddsShark see a closer game than the 3-point line and the money is on Kansas City.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Bills 13-10"
   },
   {
    "id": "2026-11-26-3",
@@ -5044,8 +5044,8 @@
      "book": "FanDuel",
      "model_p": 0.8446,
      "implied_p": 0.878,
-     "status": "pending",
-     "result": ""
+     "status": "won",
+     "result": "Texas Tech 48-27"
     },
     {
      "sp": "NFL",
@@ -5059,8 +5059,8 @@
      "book": "FanDuel",
      "model_p": 0.7937,
      "implied_p": 0.8305,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "Eagles 39-38"
     }
    ],
    "odds": -269,
@@ -5071,9 +5071,9 @@
    "edge": -0.0589,
    "sources": "Texas Tech: market 84.3%, Kalshi 86.5%, ESPN 82.3%, OddsShark 31.9-15.8; Dallas: market 79.7%, exchanges 79.7%, ESPN 82.2%, OddsShark 30.1-22.2",
    "why": "Lean: the two highest-probability sides on the slate (84.5% and 79.4%) combine for 67% at FanDuel -269 (73%), priced a bit short of the model.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Texas Tech 48-27; Eagles 39-38"
   },
   {
    "id": "2026-11-26-4",
@@ -5095,8 +5095,8 @@
      "book": "FanDuel",
      "model_p": 0.3596,
      "implied_p": 0.2857,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD"
     }
    ],
    "odds": 250,
@@ -5107,9 +5107,9 @@
    "edge": 0.0739,
    "sources": "Covers 0.43 TDs (35%), nflverse 4 TD in 8 G (3 in last 4), 6.6 touches/G; model 36.0% vs FanDuel +250 (28.6%)",
    "why": "Model 36% vs +250 (29%): Covers projects 0.43 TDs and Moore has scored 3 times in his last 4 games.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "0 TD"
   },
   {
    "id": "2026-11-26-5",
@@ -5131,8 +5131,8 @@
      "book": "FanDuel",
      "model_p": 0.4063,
      "implied_p": 0.339,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD"
     }
    ],
    "odds": 195,
@@ -5143,9 +5143,9 @@
    "edge": 0.0673,
    "sources": "No Covers projection; nflverse 6 TD in 10 G (2 in last 4), 5.8 touches/G; season model 40.6% vs FanDuel +195 (33.9%) in a 56.5-total game",
    "why": "Model 41% vs +195 (34%) on his season scoring rate in the highest-total game of the day (edge 6.7%, clears the 6% bar without a Covers number).",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "0 TD"
   },
   {
    "id": "2026-11-26-6",
@@ -5168,8 +5168,8 @@
      "book": "FanDuel",
      "model_p": 0.1813,
      "implied_p": 0.1667,
-     "status": "pending",
-     "result": ""
+     "status": "lost",
+     "result": "0 TD"
     }
    ],
    "odds": 500,
@@ -5180,9 +5180,9 @@
    "edge": 0.0146,
    "sources": "nflverse 2 TD in 10 G (1 in last 4), 5.4 touches/G; season model 18.1% vs FanDuel +500 (16.7%); expected return 1.09 (TCU ML +530 0.98, 4-leg ML parlay +543 0.97)",
    "why": "The highest expected return of any +400 or longer option (1.09): Worthy scores about 18% of the time by his season rate against a +500 price.",
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -50,
+   "result": "0 TD"
   },
   {
    "id": "2026-11-26-k7",
@@ -5195,8 +5195,8 @@
      "sp": "NFL",
      "game": "Kansas City Chiefs @ Buffalo Bills",
      "start": "2026-11-27T01:20Z",
-     "status": "pending",
-     "result": "",
+     "status": "lost",
+     "result": "23 total (Bills 13-10)",
      "kind": "total",
      "sel": "Kansas City Chiefs/Buffalo Bills over 45.5",
      "ou": "over",
@@ -5217,6 +5217,321 @@
    "edge": -0.024,
    "sources": "Total no-vig 51% | KingCap Medium, 0 sites agree, 1 disagree",
    "why": "Model 51% vs FanDuel -116 (54%); KingCap confidence Medium.",
+   "status": "lost",
+   "profit": -25,
+   "result": "23 total (Bills 13-10)"
+  },
+  {
+   "id": "2026-11-27-1",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "ml",
+   "title": "Knicks ML",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Miami Heat @ New York Knicks",
+     "start": "2026-11-28T00:00Z",
+     "sel": "New York Knicks ML",
+     "team": "New York Knicks",
+     "opp": "Miami Heat",
+     "odds": -174,
+     "book": "FanDuel",
+     "model_p": 0.6574,
+     "implied_p": 0.635,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -174,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 14.37,
+   "model_p": 0.6574,
+   "edge": 0.0224,
+   "sources": "Market 61%, Kalshi/Polymarket 61%, ESPN 77%, OddsShark 115-111, BettingPros 63%; money 82% vs bets 72% (sharp on NY)",
+   "why": "Model 65.7% vs FanDuel -174 (63.5%): every source has New York, ESPN strongly, and the money is heavier than the tickets on the Knicks.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-2",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "ml",
+   "title": "Steelers ML",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "ml",
+     "game": "Denver Broncos @ Pittsburgh Steelers",
+     "start": "2026-11-27T20:00Z",
+     "sel": "Pittsburgh Steelers ML",
+     "team": "Pittsburgh Steelers",
+     "opp": "Denver Broncos",
+     "odds": 196,
+     "book": "DraftKings",
+     "model_p": 0.3745,
+     "implied_p": 0.3378,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 196,
+   "book": "DraftKings",
+   "stake": 25,
+   "to_win": 49.0,
+   "model_p": 0.3745,
+   "edge": 0.0367,
+   "sources": "Market 33%, Kalshi/Polymarket/ProphetX 31-32%, ESPN 51%, OddsShark DEN 19-17, BettingPros 32%; 89% of bets on Denver",
+   "why": "Lean: model 37.5% vs DraftKings +196 (33.8%), driven mostly by ESPN rating it a coin flip; the prediction markets agree with the line, so this is the second-single fill.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-3",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Knicks + Spurs",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Miami Heat @ New York Knicks",
+     "start": "2026-11-28T00:00Z",
+     "sel": "New York Knicks ML",
+     "team": "New York Knicks",
+     "opp": "Miami Heat",
+     "odds": -174,
+     "book": "FanDuel",
+     "model_p": 0.6574,
+     "implied_p": 0.635,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Los Angeles Lakers @ San Antonio Spurs",
+     "start": "2026-11-28T02:30Z",
+     "sel": "San Antonio Spurs ML",
+     "team": "San Antonio Spurs",
+     "opp": "Los Angeles Lakers",
+     "odds": -220,
+     "book": "FanDuel",
+     "model_p": 0.6756,
+     "implied_p": 0.6875,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 129,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 32.26,
+   "model_p": 0.4441,
+   "edge": 0.0076,
+   "sources": "Knicks model 67% (FD -174); Spurs model 68% (FD -220), ESPN 72%, OddsShark 115-109, Lakers without Reaves",
+   "why": "Two home favorites the model rates at or above their price; joint model 44.4% vs about 43.6% implied.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-4",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "parlay",
+   "title": "2-leg ML parlay: Spurs + Trail Blazers",
+   "legs": [
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Los Angeles Lakers @ San Antonio Spurs",
+     "start": "2026-11-28T02:30Z",
+     "sel": "San Antonio Spurs ML",
+     "team": "San Antonio Spurs",
+     "opp": "Los Angeles Lakers",
+     "odds": -220,
+     "book": "FanDuel",
+     "model_p": 0.6756,
+     "implied_p": 0.6875,
+     "status": "pending",
+     "result": ""
+    },
+    {
+     "sp": "NBA",
+     "kind": "ml",
+     "game": "Golden State Warriors @ Portland Trail Blazers",
+     "start": "2026-11-28T02:30Z",
+     "sel": "Portland Trail Blazers ML",
+     "team": "Portland Trail Blazers",
+     "opp": "Golden State Warriors",
+     "odds": -360,
+     "book": "FanDuel",
+     "model_p": 0.7749,
+     "implied_p": 0.7826,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": -116,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 21.46,
+   "model_p": 0.5235,
+   "edge": -0.0145,
+   "sources": "Spurs model 68% (FD -220); Blazers model 77.5% (FD -360), ESPN 81%, OddsShark 116-107, Warriors without Curry, Butler, Porzingis, Moody",
+   "why": "Spurs plus a Portland side facing a badly short-handed Warriors team; both legs within a point of fair price.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-5",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "longshot",
+   "title": "Pat Freiermuth anytime TD (longshot)",
+   "call": "Going for it: Pat Freiermuth scores a touchdown (+650) - $50 pays $325.00",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Denver Broncos @ Pittsburgh Steelers",
+     "start": "2026-11-27T20:00Z",
+     "sel": "Pat Freiermuth anytime TD",
+     "team": "Pittsburgh Steelers",
+     "opp": "Denver Broncos",
+     "player": "Pat Freiermuth",
+     "odds": 650,
+     "book": "DraftKings",
+     "model_p": 0.225,
+     "implied_p": 0.1333,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 650,
+   "book": "DraftKings",
+   "stake": 50,
+   "to_win": 325.0,
+   "model_p": 0.225,
+   "edge": 0.0917,
+   "sources": "Covers 0.16 TDs (14.8%); nflverse 6 TDs in 10 games, 2 in last 4 (season 40.6%); model 22.5% vs DK +650 (13.3%); FanDuel +600",
+   "why": "Highest expected return of any long shot today (0.225 x 7.5 = 1.69): Freiermuth has six touchdowns this year and Pittsburgh should be throwing as an underdog.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-6",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "prop",
+   "title": "Alex Tuch anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Florida Panthers @ Washington Capitals",
+     "start": "2026-11-27T20:00Z",
+     "sel": "Alex Tuch anytime goal",
+     "team": "Washington Capitals",
+     "opp": "Florida Panthers",
+     "player": "Alex Tuch",
+     "odds": 195,
+     "book": "FanDuel",
+     "model_p": 0.4356,
+     "implied_p": 0.339,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 195,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 48.75,
+   "model_p": 0.4356,
+   "edge": 0.0966,
+   "sources": "2.6 shots/G, 15 G in 22 GP, PP1; model 43.6% vs FanDuel +195 (33.9%)",
+   "why": "Tuch is scoring on a big share of his shots and plays the top power play; the price assumes about one goal in three games.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-7",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "prop",
+   "title": "Cutter Gauthier anytime goal",
+   "legs": [
+    {
+     "sp": "NHL",
+     "kind": "atg",
+     "game": "Los Angeles Kings @ Anaheim Ducks",
+     "start": "2026-11-27T21:00Z",
+     "sel": "Cutter Gauthier anytime goal",
+     "team": "Anaheim Ducks",
+     "opp": "Los Angeles Kings",
+     "player": "Cutter Gauthier",
+     "odds": 110,
+     "book": "FanDuel",
+     "model_p": 0.5683,
+     "implied_p": 0.4762,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 110,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 27.5,
+   "model_p": 0.5683,
+   "edge": 0.0921,
+   "sources": "4.2 shots/G, 23 G in 25 GP, PP1; model 56.8% vs FanDuel +110 (47.6%)",
+   "why": "The NHL goal leader at plus money: 4.2 shots a game makes him a better-than-even scorer by the model.",
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-8",
+   "date": "2026-11-27",
+   "placed": "2026-11-27T16:20:53Z",
+   "cat": "prop",
+   "title": "Germie Bernard anytime TD",
+   "legs": [
+    {
+     "sp": "NFL",
+     "kind": "atd",
+     "game": "Denver Broncos @ Pittsburgh Steelers",
+     "start": "2026-11-27T20:00Z",
+     "sel": "Germie Bernard anytime TD",
+     "team": "Pittsburgh Steelers",
+     "opp": "Denver Broncos",
+     "player": "Germie Bernard",
+     "odds": 600,
+     "book": "FanDuel",
+     "model_p": 0.183,
+     "implied_p": 0.1429,
+     "status": "pending",
+     "result": ""
+    }
+   ],
+   "odds": 600,
+   "book": "FanDuel",
+   "stake": 25,
+   "to_win": 150.0,
+   "model_p": 0.183,
+   "edge": 0.0401,
+   "sources": "Covers 0.25 TDs (22.1%); nflverse 1 TD in 9 games (9.5%); model 18.3% vs FanDuel +600 (14.3%)",
+   "why": "Covers projects a quarter of a touchdown for Pittsburgh's starting receiver, enough to beat +600 even after blending in his thin season rate.",
    "status": "pending",
    "profit": null,
    "result": ""
@@ -6681,9 +6996,9 @@
    "pct_bets": 50,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Bears 39-35"
   },
   {
    "id": "2026-11-26-p2",
@@ -6698,9 +7013,9 @@
    "pct_bets": 72,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "won",
+   "profit": 16.03,
+   "result": "Bills 13-10"
   },
   {
    "id": "2026-11-26-p3",
@@ -6715,9 +7030,9 @@
    "pct_bets": 86,
    "source": "ScoresAndOdds",
    "stake": 25,
-   "status": "pending",
-   "profit": null,
-   "result": ""
+   "status": "lost",
+   "profit": -25,
+   "result": "Eagles 39-38"
   },
   {
    "id": "2026-11-26-p4",
@@ -6730,6 +7045,74 @@
    "opp": "TCU Horned Frogs",
    "odds": -720,
    "pct_bets": 97,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "won",
+   "profit": 3.47,
+   "result": "Texas Tech 48-27"
+  },
+  {
+   "id": "2026-11-27-p1",
+   "date": "2026-11-27",
+   "sp": "NBA",
+   "game": "Miami Heat @ New York Knicks",
+   "start": "2026-11-28T00:00Z",
+   "sel": "New York Knicks ML",
+   "team": "New York Knicks",
+   "opp": "Miami Heat",
+   "odds": -174,
+   "pct_bets": 72,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-p2",
+   "date": "2026-11-27",
+   "sp": "NFL",
+   "game": "Denver Broncos @ Pittsburgh Steelers",
+   "start": "2026-11-27T20:00Z",
+   "sel": "Denver Broncos ML",
+   "team": "Denver Broncos",
+   "opp": "Pittsburgh Steelers",
+   "odds": -230,
+   "pct_bets": 89,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-p3",
+   "date": "2026-11-27",
+   "sp": "NBA",
+   "game": "Los Angeles Lakers @ San Antonio Spurs",
+   "start": "2026-11-28T02:30Z",
+   "sel": "San Antonio Spurs ML",
+   "team": "San Antonio Spurs",
+   "opp": "Los Angeles Lakers",
+   "odds": -220,
+   "pct_bets": 67,
+   "source": "ScoresAndOdds",
+   "stake": 25,
+   "status": "pending",
+   "profit": null,
+   "result": ""
+  },
+  {
+   "id": "2026-11-27-p4",
+   "date": "2026-11-27",
+   "sp": "NBA",
+   "game": "Golden State Warriors @ Portland Trail Blazers",
+   "start": "2026-11-28T02:30Z",
+   "sel": "Portland Trail Blazers ML",
+   "team": "Portland Trail Blazers",
+   "opp": "Golden State Warriors",
+   "odds": -360,
+   "pct_bets": 89,
    "source": "ScoresAndOdds",
    "stake": 25,
    "status": "pending",
@@ -7151,6 +7534,29 @@
    },
    "bankroll": 2272.12,
    "public_bankroll": 912.22
+  },
+  {
+   "date": "2026-11-26",
+   "bot": {
+    "w": 0,
+    "l": 6,
+    "p": 0,
+    "profit": -175
+   },
+   "public": {
+    "w": 2,
+    "l": 2,
+    "p": 0,
+    "profit": -30.5
+   },
+   "kingcap": {
+    "w": 0,
+    "l": 1,
+    "p": 0,
+    "profit": -25
+   },
+   "bankroll": 2072.12,
+   "public_bankroll": 881.72
   }
  ]
 }

@@ -139,7 +139,7 @@ nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,4894222,Adam 
 nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,2968772,Filip Forsberg,LW,19.5,5.4,0.0,1.0,2.0,2.0,0.0,0.0,0,0,0
 nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,4565263,Nils Hoglander,LW,10.5,1.1,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,3069394,Alexander Kerfoot,C,13.3,2.9,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
-nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,2967072,Jonathan Marchessault,RW,17.3,3.4,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,2967072,Jonathan Marchessault,C,17.3,3.4,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,5208,Ryan O'Reilly,C,21.5,4.7,0.0,0.0,4.0,2.0,0.0,0.0,0,0,0
 nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,5080180,Reid Schaefer,LW,11.6,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
 nhl,401891816,2026-10-02T00:00Z,Nashville Predators,Minnesota Wild,5037,Steven Stamkos,C,18.8,5.0,0.0,1.0,1.0,1.0,0.0,0.0,0,0,0
@@ -629,7 +629,7 @@ nhl,401892434,2026-10-03T23:00Z,Ottawa Senators,Toronto Maple Leafs,5216868,Cart
 nhl,401892434,2026-10-03T23:00Z,Ottawa Senators,Toronto Maple Leafs,3069285,Linus Ullmark,G,60.0,0,0,0,0,0,0,0,27.0,29.0,2.0
 nhl,401892434,2026-10-03T23:00Z,Toronto Maple Leafs,Ottawa Senators,3024916,Teddy Blueger,C,10.4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401892434,2026-10-03T23:00Z,Toronto Maple Leafs,Ottawa Senators,5149211,Easton Cowan,RW,12.1,0.9,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
-nhl,401892434,2026-10-03T23:00Z,Toronto Maple Leafs,Ottawa Senators,4197009,Brandon Duhaime,RW,9.8,0.0,0.0,0.0,0.0,4.0,1.0,0.0,0,0,0
+nhl,401892434,2026-10-03T23:00Z,Toronto Maple Leafs,Ottawa Senators,4197009,Brandon Duhaime,LW,9.8,0.0,0.0,0.0,0.0,4.0,1.0,0.0,0,0,0
 nhl,401892434,2026-10-03T23:00Z,Toronto Maple Leafs,Ottawa Senators,4378685,Bo Groulx,C,7.4,0.0,0.0,0.0,1.0,4.0,1.0,0.0,0,0,0
 nhl,401892434,2026-10-03T23:00Z,Toronto Maple Leafs,Ottawa Senators,4587996,Kirill Marchenko,RW,19.4,4.6,1.0,0.0,2.0,2.0,1.0,0.0,0,0,0
 nhl,401892434,2026-10-03T23:00Z,Toronto Maple Leafs,Ottawa Senators,4024123,Auston Matthews,C,21.8,5.4,1.0,0.0,6.0,0.0,1.0,1.0,0,0,0
@@ -862,7 +862,7 @@ nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,4894222,Adam Ed
 nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,2968772,Filip Forsberg,LW,21.7,3.9,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
 nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,4565263,Nils Hoglander,LW,11.6,1.2,1.0,0.0,2.0,1.0,0.0,0.0,0,0,0
 nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,3069394,Alexander Kerfoot,C,16.4,1.4,0.0,1.0,1.0,0.0,1.0,0.0,0,0,0
-nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,2967072,Jonathan Marchessault,RW,16.4,2.0,0.0,0.0,3.0,2.0,0.0,0.0,0,0,0
+nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,2967072,Jonathan Marchessault,C,16.4,2.0,0.0,0.0,3.0,2.0,0.0,0.0,0,0,0
 nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,5208,Ryan O'Reilly,C,19.9,3.2,0.0,1.0,1.0,0.0,1.0,0.0,0,0,0
 nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,5037,Steven Stamkos,C,20.0,3.7,1.0,0.0,4.0,2.0,0.0,0.0,0,0,0
 nhl,401892438,2026-10-04T00:00Z,Nashville Predators,Dallas Stars,5149189,Matthew Wood,RW,16.1,3.4,0.0,0.0,3.0,1.0,0.0,0.0,0,0,0
@@ -1376,7 +1376,7 @@ nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,4894222,
 nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,2968772,Filip Forsberg,LW,21.0,1.7,0.0,2.0,2.0,1.0,1.0,1.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,4565263,Nils Hoglander,LW,10.6,0.0,2.0,0.0,2.0,2.0,0.0,1.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,3069394,Alexander Kerfoot,C,18.8,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
-nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,2967072,Jonathan Marchessault,RW,13.3,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,2967072,Jonathan Marchessault,C,13.3,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,5208,Ryan O'Reilly,C,23.7,1.7,0.0,1.0,1.0,0.0,1.0,0.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,5037,Steven Stamkos,C,19.7,1.7,2.0,0.0,3.0,0.0,1.0,0.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,5149189,Matthew Wood,RW,16.9,1.7,0.0,1.0,1.0,1.0,0.0,0.0,0,0,0
@@ -1390,7 +1390,7 @@ nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,4697765,
 nhl,401892449,2026-10-06T23:00Z,Nashville Predators,Toronto Maple Leafs,3042109,Juuse Saros,G,64.6,0,0,0,0,0,0,0,32.0,37.0,5.0
 nhl,401892449,2026-10-06T23:00Z,Toronto Maple Leafs,Nashville Predators,3024916,Teddy Blueger,C,9.9,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Toronto Maple Leafs,Nashville Predators,5149211,Easton Cowan,RW,16.0,1.2,0.0,0.0,3.0,3.0,0.0,0.0,0,0,0
-nhl,401892449,2026-10-06T23:00Z,Toronto Maple Leafs,Nashville Predators,4197009,Brandon Duhaime,RW,11.4,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892449,2026-10-06T23:00Z,Toronto Maple Leafs,Nashville Predators,4197009,Brandon Duhaime,LW,11.4,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Toronto Maple Leafs,Nashville Predators,4378685,Bo Groulx,C,7.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Toronto Maple Leafs,Nashville Predators,4587996,Kirill Marchenko,RW,21.6,4.3,0.0,1.0,3.0,0.0,1.0,0.0,0,0,0
 nhl,401892449,2026-10-06T23:00Z,Toronto Maple Leafs,Nashville Predators,4024123,Auston Matthews,C,25.1,4.2,1.0,3.0,4.0,1.0,1.0,2.0,0,0,0
@@ -1911,7 +1911,7 @@ nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,4894222,A
 nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,2968772,Filip Forsberg,LW,19.8,6.0,0.0,1.0,3.0,1.0,1.0,2.0,0,0,0
 nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,4565263,Nils Hoglander,LW,12.8,0.7,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
 nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,3069394,Alexander Kerfoot,C,14.8,1.1,1.0,1.0,1.0,0.0,0.0,2.0,0,0,0
-nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,2967072,Jonathan Marchessault,RW,18.1,4.6,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,2967072,Jonathan Marchessault,C,18.1,4.6,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
 nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,5208,Ryan O'Reilly,C,23.1,5.6,1.0,0.0,2.0,1.0,2.0,0.0,0,0,0
 nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,5080180,Reid Schaefer,LW,9.6,0.0,0.0,0.0,2.0,1.0,1.0,0.0,0,0,0
 nhl,401892459,2026-10-08T23:00Z,Nashville Predators,Montreal Canadiens,5037,Steven Stamkos,C,20.8,6.0,0.0,2.0,2.0,2.0,0.0,0.0,0,0,0
@@ -2135,7 +2135,7 @@ nhl,401892463,2026-10-09T01:00Z,Calgary Flames,Colorado Avalanche,4312877,Zach W
 nhl,401892463,2026-10-09T01:00Z,Calgary Flames,Colorado Avalanche,4319911,Devin Cooley,G,60.0,0,0,0,0,0,0,0,23.0,30.0,7.0
 nhl,401892464,2026-10-09T02:00Z,Toronto Maple Leafs,Vegas Golden Knights,3024916,Teddy Blueger,C,11.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0,0,0
 nhl,401892464,2026-10-09T02:00Z,Toronto Maple Leafs,Vegas Golden Knights,5149211,Easton Cowan,RW,14.0,0.3,1.0,0.0,4.0,1.0,1.0,0.0,0,0,0
-nhl,401892464,2026-10-09T02:00Z,Toronto Maple Leafs,Vegas Golden Knights,4197009,Brandon Duhaime,RW,12.1,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892464,2026-10-09T02:00Z,Toronto Maple Leafs,Vegas Golden Knights,4197009,Brandon Duhaime,LW,12.1,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
 nhl,401892464,2026-10-09T02:00Z,Toronto Maple Leafs,Vegas Golden Knights,4378685,Bo Groulx,C,6.2,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0,0,0
 nhl,401892464,2026-10-09T02:00Z,Toronto Maple Leafs,Vegas Golden Knights,4587996,Kirill Marchenko,RW,18.3,1.6,0.0,1.0,3.0,0.0,0.0,1.0,0,0,0
 nhl,401892464,2026-10-09T02:00Z,Toronto Maple Leafs,Vegas Golden Knights,4024123,Auston Matthews,C,21.5,1.6,0.0,1.0,2.0,2.0,0.0,1.0,0,0,0
@@ -2560,7 +2560,7 @@ nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,4894222,Adam
 nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,2968772,Filip Forsberg,LW,20.6,4.7,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
 nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,4565263,Nils Hoglander,LW,12.6,1.4,0.0,0.0,2.0,1.0,1.0,0.0,0,0,0
 nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,3069394,Alexander Kerfoot,C,14.8,2.3,0.0,1.0,0.0,1.0,2.0,1.0,0,0,0
-nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,2967072,Jonathan Marchessault,RW,17.9,4.8,1.0,0.0,3.0,3.0,0.0,0.0,0,0,0
+nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,2967072,Jonathan Marchessault,C,17.9,4.8,1.0,0.0,3.0,3.0,0.0,0.0,0,0,0
 nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,5208,Ryan O'Reilly,C,22.1,5.0,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
 nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,5346852,Vitali Pinchuk,C,11.2,2.2,0.0,1.0,0.0,0.0,0.0,1.0,0,0,0
 nhl,401892474,2026-10-10T23:00Z,Nashville Predators,Ottawa Senators,5080180,Reid Schaefer,LW,10.7,0.1,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
@@ -2708,7 +2708,7 @@ nhl,401892477,2026-10-10T23:00Z,St. Louis Blues,Columbus Blue Jackets,3069341,Co
 nhl,401892477,2026-10-10T23:00Z,St. Louis Blues,Columbus Blue Jackets,2590874,Jordan Binnington,G,59.9,0,0,0,0,0,0,0,20.0,23.0,3.0
 nhl,401892478,2026-10-10T23:00Z,Toronto Maple Leafs,Colorado Avalanche,3024916,Teddy Blueger,C,14.0,0.1,0.0,0.0,1.0,0.0,0.0,1.0,0,0,0
 nhl,401892478,2026-10-10T23:00Z,Toronto Maple Leafs,Colorado Avalanche,5149211,Easton Cowan,RW,16.1,0.5,1.0,0.0,2.0,0.0,2.0,1.0,0,0,0
-nhl,401892478,2026-10-10T23:00Z,Toronto Maple Leafs,Colorado Avalanche,4197009,Brandon Duhaime,RW,11.0,0.2,0.0,0.0,1.0,3.0,1.0,0.0,0,0,0
+nhl,401892478,2026-10-10T23:00Z,Toronto Maple Leafs,Colorado Avalanche,4197009,Brandon Duhaime,LW,11.0,0.2,0.0,0.0,1.0,3.0,1.0,0.0,0,0,0
 nhl,401892478,2026-10-10T23:00Z,Toronto Maple Leafs,Colorado Avalanche,4378685,Bo Groulx,C,9.1,0.0,0.0,0.0,0.0,2.0,2.0,0.0,0,0,0
 nhl,401892478,2026-10-10T23:00Z,Toronto Maple Leafs,Colorado Avalanche,4587996,Kirill Marchenko,RW,16.9,3.6,0.0,1.0,0.0,1.0,0.0,0.0,0,0,0
 nhl,401892478,2026-10-10T23:00Z,Toronto Maple Leafs,Colorado Avalanche,4024123,Auston Matthews,C,22.1,4.1,2.0,2.0,5.0,0.0,3.0,0.0,0,0,0
@@ -3531,7 +3531,7 @@ nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,4894222
 nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,2968772,Filip Forsberg,LW,23.1,4.7,0.0,1.0,7.0,0.0,1.0,0.0,0,0,0
 nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,4565263,Nils Hoglander,LW,12.3,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
 nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,3069394,Alexander Kerfoot,C,16.5,1.4,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
-nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,2967072,Jonathan Marchessault,RW,17.0,4.5,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,2967072,Jonathan Marchessault,C,17.0,4.5,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
 nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,5208,Ryan O'Reilly,C,20.4,4.5,1.0,1.0,2.0,0.0,0.0,1.0,0,0,0
 nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,5346852,Vitali Pinchuk,C,11.4,1.3,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
 nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,5037,Steven Stamkos,C,18.9,4.6,0.0,0.0,1.0,0.0,0.0,1.0,0,0,0
@@ -3546,7 +3546,7 @@ nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,4697765
 nhl,401892499,2026-10-14T00:45Z,Nashville Predators,Vegas Golden Knights,3042109,Juuse Saros,G,60.0,0,0,0,0,0,0,0,20.0,25.0,5.0
 nhl,401892500,2026-10-14T01:00Z,Toronto Maple Leafs,Utah Mammoth,3024916,Teddy Blueger,C,11.8,0.1,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
 nhl,401892500,2026-10-14T01:00Z,Toronto Maple Leafs,Utah Mammoth,5149211,Easton Cowan,RW,16.9,0.4,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
-nhl,401892500,2026-10-14T01:00Z,Toronto Maple Leafs,Utah Mammoth,4197009,Brandon Duhaime,RW,9.3,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892500,2026-10-14T01:00Z,Toronto Maple Leafs,Utah Mammoth,4197009,Brandon Duhaime,LW,9.3,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
 nhl,401892500,2026-10-14T01:00Z,Toronto Maple Leafs,Utah Mammoth,4587996,Kirill Marchenko,RW,18.7,5.2,0.0,1.0,2.0,0.0,0.0,1.0,0,0,0
 nhl,401892500,2026-10-14T01:00Z,Toronto Maple Leafs,Utah Mammoth,4024123,Auston Matthews,C,20.2,5.0,1.0,1.0,4.0,0.0,0.0,1.0,0,0,0
 nhl,401892500,2026-10-14T01:00Z,Toronto Maple Leafs,Utah Mammoth,5342529,Gavin McKenna,LW,17.1,2.2,1.0,0.0,2.0,0.0,0.0,0.0,0,0,0
@@ -3794,7 +3794,7 @@ nhl,401892506,2026-10-15T23:00Z,Buffalo Sabres,Toronto Maple Leafs,4874863,Olen 
 nhl,401892506,2026-10-15T23:00Z,Buffalo Sabres,Toronto Maple Leafs,4233889,Ukko-Pekka Luukkonen,G,63.2,0,0,0,0,0,0,0,26.0,30.0,4.0
 nhl,401892506,2026-10-15T23:00Z,Toronto Maple Leafs,Buffalo Sabres,3024916,Teddy Blueger,C,14.7,0.0,0.0,0.0,3.0,4.0,0.0,0.0,0,0,0
 nhl,401892506,2026-10-15T23:00Z,Toronto Maple Leafs,Buffalo Sabres,5149211,Easton Cowan,RW,16.6,0.2,0.0,1.0,2.0,3.0,1.0,0.0,0,0,0
-nhl,401892506,2026-10-15T23:00Z,Toronto Maple Leafs,Buffalo Sabres,4197009,Brandon Duhaime,RW,11.7,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892506,2026-10-15T23:00Z,Toronto Maple Leafs,Buffalo Sabres,4197009,Brandon Duhaime,LW,11.7,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
 nhl,401892506,2026-10-15T23:00Z,Toronto Maple Leafs,Buffalo Sabres,4063569,Zack MacEwen,C,5.5,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
 nhl,401892506,2026-10-15T23:00Z,Toronto Maple Leafs,Buffalo Sabres,4587996,Kirill Marchenko,RW,18.6,2.2,3.0,0.0,3.0,3.0,0.0,0.0,0,0,0
 nhl,401892506,2026-10-15T23:00Z,Toronto Maple Leafs,Buffalo Sabres,4024123,Auston Matthews,C,22.2,3.1,1.0,0.0,1.0,1.0,0.0,0.0,0,0,0
@@ -4065,7 +4065,7 @@ nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,4894222,Adam
 nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,2968772,Filip Forsberg,LW,24.3,4.7,0.0,1.0,6.0,2.0,1.0,1.0,0,0,0
 nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,4565263,Nils Hoglander,LW,8.2,0.0,0.0,0.0,2.0,3.0,1.0,0.0,0,0,0
 nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,3069394,Alexander Kerfoot,C,20.1,2.9,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
-nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,2967072,Jonathan Marchessault,RW,17.8,4.2,0.0,1.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,2967072,Jonathan Marchessault,C,17.8,4.2,0.0,1.0,2.0,1.0,0.0,0.0,0,0,0
 nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,5208,Ryan O'Reilly,C,21.7,4.1,1.0,0.0,4.0,0.0,1.0,0.0,0,0,0
 nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,5346852,Vitali Pinchuk,C,8.3,2.2,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
 nhl,401892513,2026-10-16T00:00Z,Nashville Predators,San Jose Sharks,5080180,Reid Schaefer,LW,10.6,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
@@ -4441,7 +4441,7 @@ nhl,401892523,2026-10-17T23:00Z,New York Islanders,Toronto Maple Leafs,4024968,L
 nhl,401892523,2026-10-17T23:00Z,New York Islanders,Toronto Maple Leafs,3151981,Ilya Sorokin,G,60.0,0,0,0,0,0,0,0,28.0,29.0,1.0
 nhl,401892523,2026-10-17T23:00Z,Toronto Maple Leafs,New York Islanders,3024916,Teddy Blueger,C,14.8,0.0,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
 nhl,401892523,2026-10-17T23:00Z,Toronto Maple Leafs,New York Islanders,5149211,Easton Cowan,RW,14.7,0.8,0.0,1.0,2.0,0.0,1.0,0.0,0,0,0
-nhl,401892523,2026-10-17T23:00Z,Toronto Maple Leafs,New York Islanders,4197009,Brandon Duhaime,RW,11.9,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892523,2026-10-17T23:00Z,Toronto Maple Leafs,New York Islanders,4197009,Brandon Duhaime,LW,11.9,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
 nhl,401892523,2026-10-17T23:00Z,Toronto Maple Leafs,New York Islanders,4378685,Bo Groulx,C,10.0,0.8,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
 nhl,401892523,2026-10-17T23:00Z,Toronto Maple Leafs,New York Islanders,4063569,Zack MacEwen,C,9.7,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0,0,0
 nhl,401892523,2026-10-17T23:00Z,Toronto Maple Leafs,New York Islanders,4587996,Kirill Marchenko,RW,16.8,5.1,0.0,0.0,5.0,0.0,0.0,0.0,0,0,0
@@ -4673,7 +4673,7 @@ nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,4894222,Adam
 nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,2968772,Filip Forsberg,LW,19.2,1.8,1.0,1.0,2.0,1.0,0.0,2.0,0,0,0
 nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,4565263,Nils Hoglander,LW,9.3,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
 nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,3069394,Alexander Kerfoot,C,18.4,0.2,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
-nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,2967072,Jonathan Marchessault,RW,15.6,1.8,1.0,0.0,4.0,0.0,0.0,0.0,0,0,0
+nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,2967072,Jonathan Marchessault,C,15.6,1.8,1.0,0.0,4.0,0.0,0.0,0.0,0,0,0
 nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,5208,Ryan O'Reilly,C,20.6,1.9,1.0,0.0,4.0,0.0,1.0,3.0,0,0,0
 nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,5346852,Vitali Pinchuk,C,4.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
 nhl,401892529,2026-10-18T00:00Z,Nashville Predators,St. Louis Blues,5080180,Reid Schaefer,LW,9.7,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
@@ -4974,7 +4974,7 @@ nhl,401892537,2026-10-19T23:30Z,San Jose Sharks,Toronto Maple Leafs,2976839,Jaco
 nhl,401892537,2026-10-19T23:30Z,San Jose Sharks,Toronto Maple Leafs,4697394,Yaroslav Askarov,G,59.0,0,0,0,0,0,0,0,29.0,31.0,2.0
 nhl,401892537,2026-10-19T23:30Z,Toronto Maple Leafs,San Jose Sharks,3024916,Teddy Blueger,C,11.9,0.0,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
 nhl,401892537,2026-10-19T23:30Z,Toronto Maple Leafs,San Jose Sharks,5149211,Easton Cowan,RW,15.3,1.1,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
-nhl,401892537,2026-10-19T23:30Z,Toronto Maple Leafs,San Jose Sharks,4197009,Brandon Duhaime,RW,10.7,0.2,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892537,2026-10-19T23:30Z,Toronto Maple Leafs,San Jose Sharks,4197009,Brandon Duhaime,LW,10.7,0.2,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
 nhl,401892537,2026-10-19T23:30Z,Toronto Maple Leafs,San Jose Sharks,3095892,Vinni Lettieri,C,9.3,1.8,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
 nhl,401892537,2026-10-19T23:30Z,Toronto Maple Leafs,San Jose Sharks,4063569,Zack MacEwen,C,5.9,0.0,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
 nhl,401892537,2026-10-19T23:30Z,Toronto Maple Leafs,San Jose Sharks,4587996,Kirill Marchenko,RW,17.4,5.2,0.0,1.0,2.0,1.0,0.0,0.0,0,0,0
@@ -5183,7 +5183,7 @@ nhl,401892542,2026-10-20T23:00Z,Washington Capitals,Los Angeles Kings,3942924,Ma
 nhl,401892542,2026-10-20T23:00Z,Washington Capitals,Los Angeles Kings,4272888,Logan Thompson,G,58.0,0,0,0,0,0,0,0,21.0,25.0,4.0
 nhl,401892543,2026-10-20T23:00Z,Toronto Maple Leafs,Columbus Blue Jackets,3024916,Teddy Blueger,C,16.1,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
 nhl,401892543,2026-10-20T23:00Z,Toronto Maple Leafs,Columbus Blue Jackets,5149211,Easton Cowan,RW,13.6,2.4,1.0,2.0,2.0,0.0,0.0,3.0,0,0,0
-nhl,401892543,2026-10-20T23:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4197009,Brandon Duhaime,RW,13.6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892543,2026-10-20T23:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4197009,Brandon Duhaime,LW,13.6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401892543,2026-10-20T23:00Z,Toronto Maple Leafs,Columbus Blue Jackets,3095892,Vinni Lettieri,C,8.8,2.0,0.0,0.0,0.0,4.0,0.0,0.0,0,0,0
 nhl,401892543,2026-10-20T23:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4063569,Zack MacEwen,C,5.3,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0,0,0
 nhl,401892543,2026-10-20T23:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4587996,Kirill Marchenko,RW,19.3,4.4,1.0,0.0,2.0,3.0,0.0,0.0,0,0,0
@@ -5532,7 +5532,7 @@ nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,4894222,Adam E
 nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,2968772,Filip Forsberg,LW,17.5,1.1,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
 nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,4565263,Nils Hoglander,LW,12.2,1.0,0.0,0.0,4.0,0.0,0.0,0.0,0,0,0
 nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,3069394,Alexander Kerfoot,C,17.0,0.9,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
-nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,2967072,Jonathan Marchessault,RW,16.2,1.9,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
+nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,2967072,Jonathan Marchessault,C,16.2,1.9,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
 nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,5208,Ryan O'Reilly,C,16.6,1.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
 nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,5080180,Reid Schaefer,LW,11.6,0.0,0.0,0.0,1.0,3.0,1.0,0.0,0,0,0
 nhl,401892552,2026-10-22T23:00Z,Nashville Predators,Boston Bruins,5037,Steven Stamkos,C,14.1,1.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
@@ -5584,7 +5584,7 @@ nhl,401892553,2026-10-22T23:00Z,New York Rangers,Toronto Maple Leafs,5334662,Alb
 nhl,401892553,2026-10-22T23:00Z,New York Rangers,Toronto Maple Leafs,4697705,Dylan Garand,G,59.5,0,0,0,0,0,0,0,30.0,35.0,5.0
 nhl,401892553,2026-10-22T23:00Z,Toronto Maple Leafs,New York Rangers,3024916,Teddy Blueger,C,15.3,0.0,1.0,1.0,1.0,0.0,1.0,1.0,0,0,0
 nhl,401892553,2026-10-22T23:00Z,Toronto Maple Leafs,New York Rangers,5149211,Easton Cowan,RW,16.8,0.6,1.0,0.0,4.0,0.0,1.0,0.0,0,0,0
-nhl,401892553,2026-10-22T23:00Z,Toronto Maple Leafs,New York Rangers,4197009,Brandon Duhaime,RW,14.2,0.0,1.0,2.0,2.0,5.0,0.0,2.0,0,0,0
+nhl,401892553,2026-10-22T23:00Z,Toronto Maple Leafs,New York Rangers,4197009,Brandon Duhaime,LW,14.2,0.0,1.0,2.0,2.0,5.0,0.0,2.0,0,0,0
 nhl,401892553,2026-10-22T23:00Z,Toronto Maple Leafs,New York Rangers,3095892,Vinni Lettieri,C,10.1,0.7,0.0,0.0,0.0,2.0,3.0,0.0,0,0,0
 nhl,401892553,2026-10-22T23:00Z,Toronto Maple Leafs,New York Rangers,4063569,Zack MacEwen,C,7.1,0.0,0.0,2.0,2.0,1.0,0.0,2.0,0,0,0
 nhl,401892553,2026-10-22T23:00Z,Toronto Maple Leafs,New York Rangers,4587996,Kirill Marchenko,RW,18.4,2.5,1.0,0.0,4.0,4.0,2.0,0.0,0,0,0
@@ -6217,7 +6217,7 @@ nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,4894222,
 nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,2968772,Filip Forsberg,LW,19.5,1.6,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
 nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,4565263,Nils Hoglander,LW,9.5,0.0,0.0,1.0,0.0,2.0,1.0,1.0,0,0,0
 nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,3069394,Alexander Kerfoot,C,17.3,0.7,0.0,0.0,0.0,1.0,2.0,0.0,0,0,0
-nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,2967072,Jonathan Marchessault,RW,15.9,1.1,0.0,0.0,0.0,5.0,1.0,0.0,0,0,0
+nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,2967072,Jonathan Marchessault,C,15.9,1.1,0.0,0.0,0.0,5.0,1.0,0.0,0,0,0
 nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,5208,Ryan O'Reilly,C,19.7,1.1,0.0,1.0,2.0,1.0,2.0,0.0,0,0,0
 nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,5346852,Vitali Pinchuk,C,5.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401892570,2026-10-24T23:00Z,Nashville Predators,Pittsburgh Penguins,5037,Steven Stamkos,C,19.0,1.8,1.0,0.0,3.0,0.0,0.0,0.0,0,0,0
@@ -6364,7 +6364,7 @@ nhl,401892573,2026-10-24T23:00Z,St. Louis Blues,Carolina Hurricanes,3069341,Colt
 nhl,401892573,2026-10-24T23:00Z,St. Louis Blues,Carolina Hurricanes,4587909,Joel Hofer,G,60.0,0,0,0,0,0,0,0,35.0,39.0,4.0
 nhl,401892574,2026-10-24T23:00Z,Toronto Maple Leafs,Edmonton Oilers,3024916,Teddy Blueger,C,14.6,0.0,0.0,0.0,1.0,4.0,2.0,2.0,0,0,0
 nhl,401892574,2026-10-24T23:00Z,Toronto Maple Leafs,Edmonton Oilers,5149211,Easton Cowan,RW,15.3,0.0,0.0,1.0,1.0,1.0,0.0,2.0,0,0,0
-nhl,401892574,2026-10-24T23:00Z,Toronto Maple Leafs,Edmonton Oilers,4197009,Brandon Duhaime,RW,13.5,0.0,0.0,1.0,3.0,5.0,0.0,1.0,0,0,0
+nhl,401892574,2026-10-24T23:00Z,Toronto Maple Leafs,Edmonton Oilers,4197009,Brandon Duhaime,LW,13.5,0.0,0.0,1.0,3.0,5.0,0.0,1.0,0,0,0
 nhl,401892574,2026-10-24T23:00Z,Toronto Maple Leafs,Edmonton Oilers,3095892,Vinni Lettieri,C,10.9,0.0,1.0,0.0,5.0,1.0,0.0,1.0,0,0,0
 nhl,401892574,2026-10-24T23:00Z,Toronto Maple Leafs,Edmonton Oilers,4063569,Zack MacEwen,C,9.7,0.0,1.0,0.0,2.0,3.0,0.0,1.0,0,0,0
 nhl,401892574,2026-10-24T23:00Z,Toronto Maple Leafs,Edmonton Oilers,4587996,Kirill Marchenko,RW,15.8,0.2,0.0,2.0,1.0,0.0,1.0,1.0,0,0,0
@@ -6654,7 +6654,7 @@ nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,4894222,A
 nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,2968772,Filip Forsberg,LW,18.8,6.3,1.0,2.0,3.0,0.0,0.0,0.0,0,0,0
 nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,4565263,Nils Hoglander,LW,11.2,1.1,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
 nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,3069394,Alexander Kerfoot,C,17.5,1.6,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
-nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,2967072,Jonathan Marchessault,RW,17.3,6.4,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,2967072,Jonathan Marchessault,C,17.3,6.4,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
 nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,5208,Ryan O'Reilly,C,20.8,6.5,2.0,2.0,5.0,0.0,1.0,1.0,0,0,0
 nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,5037,Steven Stamkos,C,17.8,6.5,2.0,1.0,4.0,0.0,1.0,1.0,0,0,0
 nhl,401892580,2026-10-26T00:00Z,Nashville Predators,Colorado Avalanche,5149189,Matthew Wood,RW,12.5,1.9,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
@@ -6745,7 +6745,7 @@ nhl,401892582,2026-10-26T23:00Z,New York Rangers,Los Angeles Kings,4697705,Dylan
 nhl,401892582,2026-10-26T23:00Z,New York Rangers,Los Angeles Kings,3870,James Reimer,G,20.0,0,0,0,0,0,0,0,5.0,8.0,3.0
 nhl,401892583,2026-10-27T00:30Z,Toronto Maple Leafs,Calgary Flames,3024916,Teddy Blueger,C,14.4,0.0,0.0,0.0,3.0,1.0,1.0,0.0,0,0,0
 nhl,401892583,2026-10-27T00:30Z,Toronto Maple Leafs,Calgary Flames,5149211,Easton Cowan,RW,15.5,1.1,1.0,0.0,1.0,2.0,0.0,0.0,0,0,0
-nhl,401892583,2026-10-27T00:30Z,Toronto Maple Leafs,Calgary Flames,4197009,Brandon Duhaime,RW,11.2,0.0,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
+nhl,401892583,2026-10-27T00:30Z,Toronto Maple Leafs,Calgary Flames,4197009,Brandon Duhaime,LW,11.2,0.0,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
 nhl,401892583,2026-10-27T00:30Z,Toronto Maple Leafs,Calgary Flames,3095892,Vinni Lettieri,C,11.9,1.3,0.0,0.0,1.0,3.0,1.0,0.0,0,0,0
 nhl,401892583,2026-10-27T00:30Z,Toronto Maple Leafs,Calgary Flames,4063569,Zack MacEwen,C,10.2,0.0,0.0,0.0,2.0,3.0,1.0,0.0,0,0,0
 nhl,401892583,2026-10-27T00:30Z,Toronto Maple Leafs,Calgary Flames,4587996,Kirill Marchenko,RW,7.1,2.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
@@ -6997,7 +6997,7 @@ nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,4894222,A
 nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,2968772,Filip Forsberg,LW,22.8,5.1,1.0,1.0,4.0,3.0,1.0,0.0,0,0,0
 nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,4565263,Nils Hoglander,LW,6.2,0.1,0.0,1.0,2.0,0.0,0.0,1.0,0,0,0
 nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,3069394,Alexander Kerfoot,C,16.5,1.6,1.0,0.0,3.0,0.0,4.0,1.0,0,0,0
-nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,2967072,Jonathan Marchessault,RW,17.4,4.9,0.0,1.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,2967072,Jonathan Marchessault,C,17.4,4.9,0.0,1.0,1.0,0.0,0.0,0.0,0,0,0
 nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,5208,Ryan O'Reilly,C,24.2,4.7,1.0,0.0,1.0,0.0,3.0,0.0,0,0,0
 nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,5037,Steven Stamkos,C,20.7,5.4,0.0,1.0,1.0,1.0,0.0,0.0,0,0,0
 nhl,401892589,2026-10-28T00:00Z,Nashville Predators,New York Islanders,5149189,Matthew Wood,RW,10.7,1.2,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
@@ -7354,7 +7354,7 @@ nhl,401892598,2026-10-29T01:00Z,Colorado Avalanche,New Jersey Devils,3096249,Dev
 nhl,401892598,2026-10-29T01:00Z,Colorado Avalanche,New Jersey Devils,3904177,Mackenzie Blackwood,G,59.5,0,0,0,0,0,0,0,20.0,22.0,2.0
 nhl,401892599,2026-10-29T02:00Z,Toronto Maple Leafs,Seattle Kraken,3024916,Teddy Blueger,C,13.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
 nhl,401892599,2026-10-29T02:00Z,Toronto Maple Leafs,Seattle Kraken,5149211,Easton Cowan,RW,19.1,0.3,0.0,1.0,3.0,0.0,0.0,1.0,0,0,0
-nhl,401892599,2026-10-29T02:00Z,Toronto Maple Leafs,Seattle Kraken,4197009,Brandon Duhaime,RW,13.6,0.0,0.0,0.0,0.0,6.0,2.0,0.0,0,0,0
+nhl,401892599,2026-10-29T02:00Z,Toronto Maple Leafs,Seattle Kraken,4197009,Brandon Duhaime,LW,13.6,0.0,0.0,0.0,0.0,6.0,2.0,0.0,0,0,0
 nhl,401892599,2026-10-29T02:00Z,Toronto Maple Leafs,Seattle Kraken,4378685,Bo Groulx,C,6.4,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
 nhl,401892599,2026-10-29T02:00Z,Toronto Maple Leafs,Seattle Kraken,3095892,Vinni Lettieri,C,9.2,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
 nhl,401892599,2026-10-29T02:00Z,Toronto Maple Leafs,Seattle Kraken,4063569,Zack MacEwen,C,8.3,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
@@ -7607,7 +7607,7 @@ nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,4894222,
 nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,2968772,Filip Forsberg,LW,21.6,3.5,2.0,0.0,3.0,1.0,1.0,1.0,0,0,0
 nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,4565263,Nils Hoglander,LW,10.0,0.3,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
 nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,3069394,Alexander Kerfoot,C,12.5,0.6,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
-nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,2967072,Jonathan Marchessault,RW,17.2,3.1,0.0,0.0,5.0,1.0,0.0,0.0,0,0,0
+nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,2967072,Jonathan Marchessault,C,17.2,3.1,0.0,0.0,5.0,1.0,0.0,0.0,0,0,0
 nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,5208,Ryan O'Reilly,C,21.7,3.5,0.0,1.0,0.0,1.0,0.0,0.0,0,0,0
 nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,5037,Steven Stamkos,C,20.4,3.6,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
 nhl,401892605,2026-10-30T00:00Z,Nashville Predators,Washington Capitals,5149189,Matthew Wood,RW,12.5,0.6,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
@@ -8027,7 +8027,7 @@ nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,4894222,
 nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,2968772,Filip Forsberg,LW,20.8,3.1,0.0,2.0,2.0,0.0,0.0,0.0,0,0,0
 nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,4565263,Nils Hoglander,LW,10.2,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0,0,0
 nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,3069394,Alexander Kerfoot,C,19.2,1.9,0.0,1.0,0.0,0.0,0.0,1.0,0,0,0
-nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,2967072,Jonathan Marchessault,RW,15.3,2.5,0.0,0.0,4.0,1.0,0.0,0.0,0,0,0
+nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,2967072,Jonathan Marchessault,C,15.3,2.5,0.0,0.0,4.0,1.0,0.0,0.0,0,0,0
 nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,5208,Ryan O'Reilly,C,18.0,2.4,0.0,1.0,0.0,2.0,1.0,0.0,0,0,0
 nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,5080180,Reid Schaefer,LW,12.0,0.0,1.0,0.0,2.0,4.0,0.0,2.0,0,0,0
 nhl,401892616,2026-10-31T18:00Z,Nashville Predators,Tampa Bay Lightning,5037,Steven Stamkos,C,16.3,3.2,1.0,0.0,6.0,0.0,0.0,0.0,0,0,0
@@ -8193,7 +8193,7 @@ nhl,401892620,2026-10-31T23:00Z,Montreal Canadiens,Pittsburgh Penguins,4893969,A
 nhl,401892620,2026-10-31T23:00Z,Montreal Canadiens,Pittsburgh Penguins,5188437,Jacob Fowler,G,60.0,0,0,0,0,0,0,0,25.0,29.0,4.0
 nhl,401892621,2026-10-31T23:00Z,Toronto Maple Leafs,Vancouver Canucks,3024916,Teddy Blueger,C,15.4,0.0,1.0,1.0,2.0,3.0,1.0,2.0,0,0,0
 nhl,401892621,2026-10-31T23:00Z,Toronto Maple Leafs,Vancouver Canucks,5149211,Easton Cowan,RW,13.0,0.4,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
-nhl,401892621,2026-10-31T23:00Z,Toronto Maple Leafs,Vancouver Canucks,4197009,Brandon Duhaime,RW,12.5,0.0,0.0,0.0,0.0,2.0,0.0,1.0,0,0,0
+nhl,401892621,2026-10-31T23:00Z,Toronto Maple Leafs,Vancouver Canucks,4197009,Brandon Duhaime,LW,12.5,0.0,0.0,0.0,0.0,2.0,0.0,1.0,0,0,0
 nhl,401892621,2026-10-31T23:00Z,Toronto Maple Leafs,Vancouver Canucks,4588638,Dakota Joshua,C,11.0,0.0,0.0,0.0,5.0,7.0,0.0,1.0,0,0,0
 nhl,401892621,2026-10-31T23:00Z,Toronto Maple Leafs,Vancouver Canucks,3095892,Vinni Lettieri,C,10.7,0.3,0.0,0.0,1.0,5.0,3.0,0.0,0,0,0
 nhl,401892621,2026-10-31T23:00Z,Toronto Maple Leafs,Vancouver Canucks,4063569,Zack MacEwen,C,9.3,0.0,1.0,0.0,3.0,1.0,0.0,1.0,0,0,0
@@ -8669,7 +8669,7 @@ nhl,401892633,2026-11-04T00:00Z,Utah Mammoth,Toronto Maple Leafs,3042269,MacKenz
 nhl,401892633,2026-11-04T00:00Z,Utah Mammoth,Toronto Maple Leafs,4874732,Sebastian Cossa,G,60.0,0,0,0,0,0,0,0,27.0,29.0,2.0
 nhl,401892633,2026-11-04T00:00Z,Toronto Maple Leafs,Utah Mammoth,3024916,Teddy Blueger,C,14.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401892633,2026-11-04T00:00Z,Toronto Maple Leafs,Utah Mammoth,5149211,Easton Cowan,RW,19.5,1.3,0.0,0.0,2.0,2.0,0.0,2.0,0,0,0
-nhl,401892633,2026-11-04T00:00Z,Toronto Maple Leafs,Utah Mammoth,4197009,Brandon Duhaime,RW,12.2,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892633,2026-11-04T00:00Z,Toronto Maple Leafs,Utah Mammoth,4197009,Brandon Duhaime,LW,12.2,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
 nhl,401892633,2026-11-04T00:00Z,Toronto Maple Leafs,Utah Mammoth,4588638,Dakota Joshua,C,11.8,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0,0,0
 nhl,401892633,2026-11-04T00:00Z,Toronto Maple Leafs,Utah Mammoth,3095892,Vinni Lettieri,C,8.1,1.3,0.0,0.0,0.0,3.0,2.0,0.0,0,0,0
 nhl,401892633,2026-11-04T00:00Z,Toronto Maple Leafs,Utah Mammoth,4063569,Zack MacEwen,C,10.5,0.0,0.0,0.0,1.0,5.0,1.0,0.0,0,0,0
@@ -9890,7 +9890,7 @@ nhl,401892665,2026-11-08T00:00Z,Montreal Canadiens,Toronto Maple Leafs,4893969,A
 nhl,401892665,2026-11-08T00:00Z,Montreal Canadiens,Toronto Maple Leafs,5188437,Jacob Fowler,G,60.0,0,0,0,0,0,0,0,26.0,28.0,2.0
 nhl,401892665,2026-11-08T00:00Z,Toronto Maple Leafs,Montreal Canadiens,3024916,Teddy Blueger,C,10.8,0.2,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
 nhl,401892665,2026-11-08T00:00Z,Toronto Maple Leafs,Montreal Canadiens,5149211,Easton Cowan,RW,16.0,0.7,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
-nhl,401892665,2026-11-08T00:00Z,Toronto Maple Leafs,Montreal Canadiens,4197009,Brandon Duhaime,RW,9.7,0.2,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
+nhl,401892665,2026-11-08T00:00Z,Toronto Maple Leafs,Montreal Canadiens,4197009,Brandon Duhaime,LW,9.7,0.2,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
 nhl,401892665,2026-11-08T00:00Z,Toronto Maple Leafs,Montreal Canadiens,4588638,Dakota Joshua,C,9.6,0.0,0.0,1.0,0.0,2.0,0.0,1.0,0,0,0
 nhl,401892665,2026-11-08T00:00Z,Toronto Maple Leafs,Montreal Canadiens,4063569,Zack MacEwen,C,8.7,0.2,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
 nhl,401892665,2026-11-08T00:00Z,Toronto Maple Leafs,Montreal Canadiens,4024123,Auston Matthews,C,22.9,7.0,0.0,1.0,3.0,1.0,2.0,0.0,0,0,0
@@ -10347,7 +10347,7 @@ nhl,401892676,2026-11-09T00:00Z,New Jersey Devils,Toronto Maple Leafs,3904190,Jo
 nhl,401892676,2026-11-09T00:00Z,New Jersey Devils,Toronto Maple Leafs,3020225,Connor Hellebuyck,G,60.0,0,0,0,0,0,0,0,23.0,23.0,0.0
 nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,3024916,Teddy Blueger,C,15.7,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
 nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,5149211,Easton Cowan,RW,17.2,0.0,0.0,0.0,1.0,4.0,0.0,0.0,0,0,0
-nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,4197009,Brandon Duhaime,RW,12.8,0.0,0.0,0.0,1.0,3.0,1.0,0.0,0,0,0
+nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,4197009,Brandon Duhaime,LW,12.8,0.0,0.0,0.0,1.0,3.0,1.0,0.0,0,0,0
 nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,4588638,Dakota Joshua,C,12.3,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
 nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,3095892,Vinni Lettieri,C,8.5,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
 nhl,401892676,2026-11-09T00:00Z,Toronto Maple Leafs,New Jersey Devils,4063569,Zack MacEwen,C,11.3,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
@@ -10575,7 +10575,7 @@ nhl,401892683,2026-11-11T00:00Z,Colorado Avalanche,Toronto Maple Leafs,3096249,D
 nhl,401892683,2026-11-11T00:00Z,Colorado Avalanche,Toronto Maple Leafs,3904177,Mackenzie Blackwood,G,59.4,0,0,0,0,0,0,0,28.0,31.0,3.0
 nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,3024916,Teddy Blueger,C,14.4,0.0,0.0,0.0,2.0,2.0,0.0,0.0,0,0,0
 nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,5149211,Easton Cowan,RW,19.1,0.6,1.0,1.0,4.0,3.0,0.0,1.0,0,0,0
-nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,4197009,Brandon Duhaime,RW,13.3,0.0,0.0,0.0,0.0,3.0,2.0,0.0,0,0,0
+nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,4197009,Brandon Duhaime,LW,13.3,0.0,0.0,0.0,0.0,3.0,2.0,0.0,0,0,0
 nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,4588638,Dakota Joshua,C,11.1,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
 nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,4063569,Zack MacEwen,C,9.2,0.0,0.0,0.0,1.0,4.0,2.0,0.0,0,0,0
 nhl,401892683,2026-11-11T00:00Z,Toronto Maple Leafs,Colorado Avalanche,4024123,Auston Matthews,C,17.8,1.4,0.0,1.0,4.0,3.0,3.0,1.0,0,0,0
@@ -11147,7 +11147,7 @@ nhl,401892697,2026-11-13T00:00Z,Minnesota Wild,Toronto Maple Leafs,5079,Jared Sp
 nhl,401892697,2026-11-13T00:00Z,Minnesota Wild,Toronto Maple Leafs,4874737,Jesper Wallstedt,G,60.0,0,0,0,0,0,0,0,26.0,28.0,2.0
 nhl,401892697,2026-11-13T00:00Z,Toronto Maple Leafs,Minnesota Wild,3024916,Teddy Blueger,C,13.9,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0,0,0
 nhl,401892697,2026-11-13T00:00Z,Toronto Maple Leafs,Minnesota Wild,5149211,Easton Cowan,RW,18.7,1.1,0.0,0.0,1.0,3.0,1.0,0.0,0,0,0
-nhl,401892697,2026-11-13T00:00Z,Toronto Maple Leafs,Minnesota Wild,4197009,Brandon Duhaime,RW,12.6,0.0,0.0,0.0,1.0,2.0,2.0,0.0,0,0,0
+nhl,401892697,2026-11-13T00:00Z,Toronto Maple Leafs,Minnesota Wild,4197009,Brandon Duhaime,LW,12.6,0.0,0.0,0.0,1.0,2.0,2.0,0.0,0,0,0
 nhl,401892697,2026-11-13T00:00Z,Toronto Maple Leafs,Minnesota Wild,4588638,Dakota Joshua,C,8.3,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
 nhl,401892697,2026-11-13T00:00Z,Toronto Maple Leafs,Minnesota Wild,4063569,Zack MacEwen,C,10.1,0.0,1.0,1.0,1.0,2.0,0.0,1.0,0,0,0
 nhl,401892697,2026-11-13T00:00Z,Toronto Maple Leafs,Minnesota Wild,4024123,Auston Matthews,C,21.7,2.9,1.0,0.0,2.0,1.0,1.0,0.0,0,0,0
@@ -11682,7 +11682,7 @@ nhl,401892710,2026-11-15T00:00Z,Edmonton Oilers,Toronto Maple Leafs,3942033,Ryan
 nhl,401892710,2026-11-15T00:00Z,Edmonton Oilers,Toronto Maple Leafs,4894487,Devon Levi,G,60.0,0,0,0,0,0,0,0,19.0,19.0,0.0
 nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,3024916,Teddy Blueger,C,12.3,0.0,0.0,0.0,0.0,1.0,3.0,0.0,0,0,0
 nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,5149211,Easton Cowan,RW,20.7,1.0,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
-nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,4197009,Brandon Duhaime,RW,9.3,0.0,0.0,0.0,0.0,4.0,2.0,0.0,0,0,0
+nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,4197009,Brandon Duhaime,LW,9.3,0.0,0.0,0.0,0.0,4.0,2.0,0.0,0,0,0
 nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,4588638,Dakota Joshua,C,12.4,0.0,0.0,0.0,0.0,4.0,1.0,0.0,0,0,0
 nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,4063569,Zack MacEwen,C,11.0,0.0,0.0,0.0,2.0,0.0,3.0,0.0,0,0,0
 nhl,401892710,2026-11-15T00:00Z,Toronto Maple Leafs,Edmonton Oilers,4024123,Auston Matthews,C,19.7,1.0,0.0,0.0,2.0,1.0,1.0,0.0,0,0,0
@@ -12575,7 +12575,7 @@ nhl,401892729,2026-11-18T00:30Z,Tampa Bay Lightning,Washington Capitals,4874929,
 nhl,401892729,2026-11-18T00:30Z,Tampa Bay Lightning,Washington Capitals,2976847,Andrei Vasilevskiy,G,60.0,0,0,0,0,0,0,0,25.0,27.0,2.0
 nhl,401892733,2026-11-18T00:30Z,Toronto Maple Leafs,Chicago Blackhawks,3024916,Teddy Blueger,C,11.4,0.0,1.0,0.0,2.0,0.0,0.0,0.0,0,0,0
 nhl,401892733,2026-11-18T00:30Z,Toronto Maple Leafs,Chicago Blackhawks,5149211,Easton Cowan,RW,20.5,2.5,1.0,0.0,3.0,1.0,1.0,0.0,0,0,0
-nhl,401892733,2026-11-18T00:30Z,Toronto Maple Leafs,Chicago Blackhawks,4197009,Brandon Duhaime,RW,10.9,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892733,2026-11-18T00:30Z,Toronto Maple Leafs,Chicago Blackhawks,4197009,Brandon Duhaime,LW,10.9,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
 nhl,401892733,2026-11-18T00:30Z,Toronto Maple Leafs,Chicago Blackhawks,4588638,Dakota Joshua,C,10.8,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0,0,0
 nhl,401892733,2026-11-18T00:30Z,Toronto Maple Leafs,Chicago Blackhawks,4063569,Zack MacEwen,C,9.5,0.0,0.0,0.0,1.0,6.0,0.0,0.0,0,0,0
 nhl,401892733,2026-11-18T00:30Z,Toronto Maple Leafs,Chicago Blackhawks,4024123,Auston Matthews,C,21.9,4.3,0.0,1.0,6.0,6.0,2.0,0.0,0,0,0
@@ -12657,7 +12657,7 @@ nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,4894222,Adam 
 nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,2968772,Filip Forsberg,LW,17.7,3.0,1.0,0.0,3.0,2.0,0.0,0.0,0,0,0
 nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,4565263,Nils Hoglander,LW,13.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0,0,0
 nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,3069394,Alexander Kerfoot,C,17.0,1.1,0.0,1.0,0.0,0.0,0.0,0.0,0,0,0
-nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,2967072,Jonathan Marchessault,RW,17.1,3.0,1.0,0.0,3.0,1.0,0.0,0.0,0,0,0
+nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,2967072,Jonathan Marchessault,C,17.1,3.0,1.0,0.0,3.0,1.0,0.0,0.0,0,0,0
 nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,5208,Ryan O'Reilly,C,18.5,3.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
 nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,5080180,Reid Schaefer,LW,13.3,0.0,0.0,1.0,2.0,0.0,1.0,0.0,0,0,0
 nhl,401892735,2026-11-18T01:00Z,Nashville Predators,Minnesota Wild,5037,Steven Stamkos,C,14.8,2.8,0.0,1.0,2.0,1.0,1.0,0.0,0,0,0
@@ -12900,7 +12900,7 @@ nhl,401892742,2026-11-20T00:00Z,Los Angeles Kings,Toronto Maple Leafs,3891922,Er
 nhl,401892742,2026-11-20T00:00Z,Los Angeles Kings,Toronto Maple Leafs,2610321,Darcy Kuemper,G,65.0,0,0,0,0,0,0,0,24.0,27.0,3.0
 nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,3024916,Teddy Blueger,C,11.6,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
 nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,5149211,Easton Cowan,RW,22.5,1.8,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
-nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,4197009,Brandon Duhaime,RW,10.2,0.0,0.0,0.0,3.0,2.0,0.0,0.0,0,0,0
+nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,4197009,Brandon Duhaime,LW,10.2,0.0,0.0,0.0,3.0,2.0,0.0,0.0,0,0,0
 nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,4588638,Dakota Joshua,C,8.7,0.3,1.0,0.0,1.0,4.0,0.0,1.0,0,0,0
 nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,4063569,Zack MacEwen,C,11.4,0.0,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
 nhl,401892742,2026-11-20T00:00Z,Toronto Maple Leafs,Los Angeles Kings,4024123,Auston Matthews,C,25.1,4.8,1.0,1.0,5.0,0.0,0.0,1.0,0,0,0
@@ -13476,7 +13476,7 @@ nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,4894222,
 nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,2968772,Filip Forsberg,LW,20.1,3.0,1.0,0.0,3.0,1.0,0.0,0.0,0,0,0
 nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,4565263,Nils Hoglander,LW,12.9,0.8,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
 nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,3069394,Alexander Kerfoot,C,15.7,1.1,0.0,0.0,0.0,3.0,4.0,2.0,0,0,0
-nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,2967072,Jonathan Marchessault,RW,15.3,3.0,1.0,1.0,5.0,2.0,0.0,2.0,0,0,0
+nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,2967072,Jonathan Marchessault,C,15.3,3.0,1.0,1.0,5.0,2.0,0.0,2.0,0,0,0
 nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,5208,Ryan O'Reilly,C,17.5,2.8,0.0,1.0,0.0,0.0,1.0,0.0,0,0,0
 nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,5080180,Reid Schaefer,LW,12.6,0.0,1.0,0.0,2.0,2.0,1.0,2.0,0,0,0
 nhl,401892757,2026-11-21T23:00Z,Nashville Predators,Pittsburgh Penguins,5037,Steven Stamkos,C,17.3,3.0,0.0,1.0,3.0,0.0,2.0,0.0,0,0,0
@@ -13548,7 +13548,7 @@ nhl,401892759,2026-11-22T00:00Z,Columbus Blue Jackets,Toronto Maple Leafs,389997
 nhl,401892759,2026-11-22T00:00Z,Columbus Blue Jackets,Toronto Maple Leafs,5734,Cam Talbot,G,59.8,0,0,0,0,0,0,0,23.0,26.0,3.0
 nhl,401892759,2026-11-22T00:00Z,Toronto Maple Leafs,Columbus Blue Jackets,3024916,Teddy Blueger,C,14.5,0.0,1.0,0.0,2.0,3.0,0.0,0.0,0,0,0
 nhl,401892759,2026-11-22T00:00Z,Toronto Maple Leafs,Columbus Blue Jackets,5149211,Easton Cowan,RW,19.1,1.4,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
-nhl,401892759,2026-11-22T00:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4197009,Brandon Duhaime,RW,14.8,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892759,2026-11-22T00:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4197009,Brandon Duhaime,LW,14.8,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
 nhl,401892759,2026-11-22T00:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4588638,Dakota Joshua,C,12.6,0.5,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
 nhl,401892759,2026-11-22T00:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4063569,Zack MacEwen,C,6.6,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
 nhl,401892759,2026-11-22T00:00Z,Toronto Maple Leafs,Columbus Blue Jackets,4024123,Auston Matthews,C,23.1,4.7,1.0,0.0,4.0,1.0,0.0,1.0,0,0,0
@@ -14177,7 +14177,7 @@ nhl,401892775,2026-11-24T00:30Z,Ottawa Senators,Calgary Flames,4712021,Artem Zub
 nhl,401892775,2026-11-24T00:30Z,Ottawa Senators,Calgary Flames,3069285,Linus Ullmark,G,60.0,0,0,0,0,0,0,0,34.0,35.0,1.0
 nhl,401892776,2026-11-24T00:30Z,Toronto Maple Leafs,New York Islanders,3024916,Teddy Blueger,C,16.2,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
 nhl,401892776,2026-11-24T00:30Z,Toronto Maple Leafs,New York Islanders,5149211,Easton Cowan,RW,18.4,1.0,1.0,0.0,1.0,1.0,0.0,1.0,0,0,0
-nhl,401892776,2026-11-24T00:30Z,Toronto Maple Leafs,New York Islanders,4197009,Brandon Duhaime,RW,13.1,0.0,0.0,0.0,3.0,7.0,0.0,0.0,0,0,0
+nhl,401892776,2026-11-24T00:30Z,Toronto Maple Leafs,New York Islanders,4197009,Brandon Duhaime,LW,13.1,0.0,0.0,0.0,3.0,7.0,0.0,0.0,0,0,0
 nhl,401892776,2026-11-24T00:30Z,Toronto Maple Leafs,New York Islanders,4588638,Dakota Joshua,C,14.4,0.0,1.0,0.0,2.0,3.0,2.0,0.0,0,0,0
 nhl,401892776,2026-11-24T00:30Z,Toronto Maple Leafs,New York Islanders,4063569,Zack MacEwen,C,11.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
 nhl,401892776,2026-11-24T00:30Z,Toronto Maple Leafs,New York Islanders,4024123,Auston Matthews,C,20.4,1.0,0.0,1.0,1.0,2.0,0.0,3.0,0,0,0
@@ -14715,7 +14715,7 @@ nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,4894222,Adam Ed
 nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,2968772,Filip Forsberg,LW,18.0,3.7,0.0,1.0,3.0,3.0,0.0,2.0,0,0,0
 nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,4565263,Nils Hoglander,LW,10.0,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
 nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,3069394,Alexander Kerfoot,C,12.8,0.4,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
-nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,2967072,Jonathan Marchessault,RW,15.9,3.7,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,2967072,Jonathan Marchessault,C,15.9,3.7,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
 nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,5208,Ryan O'Reilly,C,19.9,3.8,0.0,2.0,1.0,0.0,0.0,2.0,0,0,0
 nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,5080180,Reid Schaefer,LW,13.0,0.0,0.0,0.0,2.0,2.0,2.0,0.0,0,0,0
 nhl,401892790,2026-11-26T01:00Z,Nashville Predators,Dallas Stars,5037,Steven Stamkos,C,19.7,3.8,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
@@ -14898,3 +14898,575 @@ nhl,401892793,2026-11-26T03:00Z,Anaheim Ducks,San Jose Sharks,5080154,Pavel Mint
 nhl,401892793,2026-11-26T03:00Z,Anaheim Ducks,San Jose Sharks,4997137,Ian Moore,D,17.0,0.0,1.0,1.0,2.0,0.0,0.0,2.0,0,0,0
 nhl,401892793,2026-11-26T03:00Z,Anaheim Ducks,San Jose Sharks,5216891,Stian Solberg,D,19.2,0.6,0.0,0.0,4.0,2.0,0.0,1.0,0,0,0
 nhl,401892793,2026-11-26T03:00Z,Anaheim Ducks,San Jose Sharks,3026526,Laurent Brossoit,G,60.0,0,0,0,0,0,0,0,23.0,23.0,0.0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,3024916,Teddy Blueger,C,13.3,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,5149211,Easton Cowan,RW,15.1,1.6,0.0,1.0,2.0,2.0,1.0,1.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,4197009,Brandon Duhaime,LW,10.3,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,4063569,Zack MacEwen,C,7.8,0.0,0.0,0.0,0.0,2.0,0.0,1.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,4587996,Kirill Marchenko,RW,15.5,3.5,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,4024123,Auston Matthews,C,19.6,3.3,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,5342529,Gavin McKenna,LW,14.4,3.2,0.0,1.0,0.0,0.0,1.0,1.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,3114736,William Nylander,RW,14.8,1.7,0.0,0.0,3.0,0.0,0.0,1.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,3042111,Nick Paul,LW,18.1,1.5,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,4874912,Aatu Raty,C,13.4,0.3,0.0,0.0,1.0,6.0,2.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,2993474,Colton Sissons,C,15.9,0.0,1.0,1.0,1.0,2.0,2.0,2.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,5160,John Tavares,C,15.5,3.5,0.0,0.0,2.0,2.0,0.0,1.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,5488,Oliver Ekman-Larsson,D,22.4,1.6,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,3020803,Jake McCabe,D,22.7,0.2,0.0,0.0,1.0,4.0,3.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,3149843,Darren Raddysh,D,22.3,3.5,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,2976833,Morgan Rielly,D,18.9,1.6,2.0,0.0,3.0,0.0,0.0,3.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,3096102,Troy Stecher,D,22.6,0.0,0.0,1.0,0.0,2.0,0.0,3.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,5592,Chris Tanev,D,7.9,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Toronto Maple Leafs,Boston Bruins,3067313,Anthony Stolarz,G,60.0,0,0,0,0,0,0,0,28.0,29.0,1.0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4268466,Morgan Geekie,C,19.4,5.7,0.0,0.0,3.0,1.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4064780,Tanner Jeannot,LW,12.2,0.0,0.0,0.0,3.0,3.0,2.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4587985,Mark Kastelic,C,9.9,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4697442,Marat Khusnutdinov,C,16.1,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,2564154,Sean Kuraly,C,9.4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,3041994,Elias Lindholm,C,20.6,5.7,0.0,0.0,4.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,5080207,Fraser Minten,C,18.6,1.1,0.0,0.0,3.0,3.0,1.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4233575,Casey Mittelstadt,C,16.8,1.6,1.0,0.0,1.0,2.0,1.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,3114778,David Pastrnak,RW,5.8,2.7,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4697438,JJ Peterka,RW,20.0,3.6,0.0,1.0,5.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,5080221,Matthew Poitras,C,16.8,0.6,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,3899949,Pavel Zacha,C,19.7,5.6,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,3941946,Will Borgen,D,16.7,0.2,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,3042191,Connor Clifton,D,15.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,2968818,Hampus Lindholm,D,18.3,0.0,0.0,0.0,0.0,1.0,2.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4697461,Mason Lohrei,D,15.5,0.9,0.0,1.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,3988803,Charlie McAvoy,D,26.8,5.8,0.0,0.0,1.0,0.0,2.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,3042021,Nikita Zadorov,D,19.9,0.0,0.0,0.0,2.0,2.0,2.0,0.0,0,0,0
+nhl,401892795,2026-11-27T18:00Z,Boston Bruins,Toronto Maple Leafs,4712036,Jeremy Swayman,G,56.4,0,0,0,0,0,0,0,15.0,18.0,3.0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,3797,Mikael Backlund,C,18.1,0.3,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,5188608,Jonathan Castagna,C,11.0,0.0,0.0,0.0,3.0,1.0,4.0,1.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4874730,Matt Coronato,RW,21.7,3.7,1.0,0.0,5.0,1.0,1.0,1.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4352750,Joel Farabee,LW,19.1,3.7,0.0,0.0,5.0,1.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4233685,Morgan Frost,C,16.1,2.7,0.0,1.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,5216897,Matvei Gridin,RW,11.2,2.8,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,5073306,Adam Klapka,RW,14.8,1.4,0.0,0.0,3.0,5.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4874733,Brennan Othmann,LW,11.3,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4587843,Yegor Sharangovich,C,20.2,1.9,0.0,2.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,2562636,Ryan Strome,C,14.2,0.3,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,5188613,Aydar Suniev,LW,12.8,0.3,0.0,1.0,2.0,0.0,2.0,1.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,5212753,Maxim Tsyplakov,RW,10.9,0.0,0.0,0.0,2.0,2.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,3149612,Joel Hanley,D,18.0,0.0,1.0,0.0,1.0,1.0,2.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4697453,Yan Kuznetsov,D,19.1,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,3149839,Jake Middleton,D,20.7,0.0,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4915344,Simon Nemec,D,17.9,1.6,0.0,2.0,0.0,0.0,0.0,1.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,5216878,Zayne Parekh,D,20.0,2.4,0.0,0.0,0.0,0.0,3.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4312877,Zach Whitecloud,D,20.2,0.0,1.0,0.0,1.0,2.0,2.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,Calgary Flames,New Jersey Devils,4319911,Devin Cooley,G,58.8,0,0,0,0,0,0,0,29.0,33.0,4.0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4233872,Jesper Boqvist,C,12.1,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4268771,Jesper Bratt,LW,16.3,2.5,0.0,0.0,2.0,2.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,3067951,Connor Brown,RW,18.7,2.5,1.0,0.0,4.0,0.0,1.0,4.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4697446,Luke Evangelista,RW,14.5,1.6,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4233568,Cody Glass,C,11.1,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4915855,Arseny Gritsyuk,RW,15.2,1.2,0.0,1.0,4.0,3.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4233555,Nico Hischier,C,18.8,2.4,0.0,1.0,2.0,1.0,0.0,1.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4565222,Jack Hughes,C,18.5,2.4,1.0,3.0,3.0,0.0,1.0,3.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,5173500,Amadeus Lombardi,C,11.1,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,3899978,Timo Meier,RW,16.6,1.5,1.0,1.0,5.0,2.0,0.0,3.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,2562623,Stefan Noesen,RW,11.4,0.0,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,3648008,Evan Rodrigues,C,15.4,1.6,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,2562605,Dougie Hamilton,D,21.6,1.6,0.0,2.0,2.0,2.0,2.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4874719,Luke Hughes,D,26.5,2.4,2.0,0.0,2.0,0.0,0.0,3.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,4565274,Vladislav Kolyachonok,D,13.5,0.0,0.0,0.0,0.0,2.0,3.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,3025535,Brett Pesce,D,21.5,0.0,0.0,0.0,1.0,0.0,2.0,2.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,3904190,Jonas Siegenthaler,D,19.4,0.3,0.0,0.0,1.0,0.0,1.0,2.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,5216879,Anton Silaev,D,13.9,0.0,0.0,0.0,3.0,4.0,1.0,0.0,0,0,0
+nhl,401892796,2026-11-27T18:00Z,New Jersey Devils,Calgary Flames,5111,Jake Allen,G,60.0,0,0,0,0,0,0,0,26.0,29.0,3.0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,5149183,Daniil But,LW,9.8,0.7,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,5080143,Logan Cooley,C,17.9,2.5,0.0,1.0,1.0,0.0,0.0,2.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,3899951,Lawson Crouse,LW,16.1,0.0,1.0,0.0,2.0,1.0,0.0,2.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4874723,Dylan Guenther,RW,20.7,2.4,0.0,1.0,2.0,2.0,0.0,1.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4352699,Barrett Hayton,C,13.7,0.7,0.0,0.0,4.0,1.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4024857,Clayton Keller,RW,21.7,3.3,1.0,1.0,4.0,1.0,1.0,2.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,5793,Anders Lee,LW,17.5,1.6,2.0,0.0,4.0,1.0,0.0,1.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4755695,Jack McBain,C,14.3,0.0,0.0,0.0,1.0,3.0,2.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,3150468,Liam O'Brien,C,10.1,0.0,0.0,0.0,0.0,5.0,1.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,3904191,Kevin Stenlund,C,12.3,0.0,0.0,0.0,3.0,0.0,3.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,2563036,Vincent Trocheck,C,22.5,2.1,0.0,1.0,2.0,1.0,1.0,1.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4233648,Kailer Yamamoto,RW,15.4,0.7,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,5310523,Gregor Biber,D,9.6,0.0,0.0,0.0,2.0,0.0,0.0,1.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4781635,Zac Jones,D,15.0,1.3,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4064936,Andrew Peeke,D,20.5,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,4024868,Mikhail Sergachev,D,26.3,2.7,1.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,5149158,Dmitri Simashev,D,27.2,0.0,0.0,1.0,1.0,0.0,2.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,3042269,MacKenzie Weegar,D,24.4,0.0,0.0,3.0,4.0,3.0,1.0,2.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Utah Mammoth,Nashville Predators,3942065,Karel Vejmelka,G,65.0,0,0,0,0,0,0,0,16.0,21.0,5.0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4697413,Mavrik Bourque,C,18.4,0.8,1.0,0.0,4.0,1.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4392471,Ross Colton,C,13.6,0.0,1.0,0.0,3.0,7.0,2.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4378671,Jack Drury,C,16.6,0.1,0.0,1.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4894222,Adam Edstrom,C,14.7,0.0,0.0,1.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,2968772,Filip Forsberg,LW,18.5,1.2,1.0,0.0,3.0,1.0,1.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4565263,Nils Hoglander,LW,11.6,0.8,0.0,1.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,3069394,Alexander Kerfoot,C,15.2,0.8,1.0,0.0,3.0,0.0,2.0,1.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,2967072,Jonathan Marchessault,C,14.2,1.2,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,5208,Ryan O'Reilly,C,21.5,1.2,0.0,1.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,5080180,Reid Schaefer,LW,12.3,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,5037,Steven Stamkos,C,17.4,1.2,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,5080144,Shane Wright,C,13.8,0.7,0.0,1.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4233870,Nicolas Hague,D,16.3,0.0,0.0,1.0,1.0,0.0,0.0,2.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,5436,Roman Josi,D,23.9,1.2,1.0,0.0,1.0,0.0,2.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4419638,Nick Perbix,D,22.1,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,2976856,Brady Skjei,D,22.4,0.8,0.0,0.0,2.0,1.0,4.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4565269,Jayden Struble,D,18.5,0.1,0.0,0.0,0.0,0.0,1.0,2.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,4697765,Adam Wilsby,D,22.4,0.0,0.0,1.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892797,2026-11-27T18:00Z,Nashville Predators,Utah Mammoth,3042109,Juuse Saros,G,65.0,0,0,0,0,0,0,0,30.0,35.0,5.0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,3998,Jamie Benn,LW,12.2,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,2976842,Radek Faksa,C,12.1,0.1,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,3904183,Roope Hintz,C,18.4,5.1,1.0,1.0,2.0,4.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,5229176,Justin Hryckowian,C,16.1,0.8,0.0,0.0,5.0,5.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,5209793,Arttu Hyry,RW,12.6,0.0,0.0,1.0,2.0,3.0,1.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,4874740,Wyatt Johnston,C,19.1,5.4,0.0,1.0,3.0,1.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,4587910,Joel Kiviranta,LW,9.2,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,3792,David Perron,LW,10.2,0.8,0.0,0.0,0.0,4.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,3899938,Mikko Rantanen,RW,21.8,5.4,0.0,1.0,3.0,4.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,4233875,Jason Robertson,LW,21.6,6.0,2.0,1.0,6.0,2.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,5430,Tyler Seguin,C,15.6,0.8,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,4024998,Sam Steel,C,14.4,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,3042255,Kyle Burroughs,D,9.9,0.0,0.0,0.0,0.0,1.0,2.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,4565239,Thomas Harley,D,23.9,1.0,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,4233536,Miro Heiskanen,D,28.0,5.3,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,3069352,Esa Lindell,D,21.5,0.0,0.0,0.0,1.0,0.0,2.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,4352800,Nils Lundkvist,D,17.8,0.3,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,5052,Tyler Myers,D,12.3,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,Dallas Stars,St. Louis Blues,3025540,Casey DeSmith,G,58.0,0,0,0,0,0,0,0,15.0,19.0,4.0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4378660,Jonatan Berggren,RW,11.2,0.0,0.0,1.0,0.0,1.0,0.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,3042081,Pavel Buchnevich,LW,15.8,0.6,0.0,2.0,0.0,0.0,0.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,5149178,Dalibor Dvorsky,RW,11.2,0.8,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4697397,Dylan Holloway,LW,19.0,2.6,2.0,1.0,4.0,3.0,0.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,5188510,Aleksanteri Kaskimaki,C,13.7,0.0,1.0,1.0,1.0,0.0,0.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4565246,Connor McMichael,LW,11.8,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4874718,Mason McTavish,C,12.4,3.4,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4697409,Jake Neighbours,LW,17.4,3.2,0.0,3.0,2.0,2.0,1.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,5149208,Otto Stenberg,C,11.2,0.2,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4271732,Pius Suter,C,15.4,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4233637,Robert Thomas,C,21.4,2.4,1.0,2.0,1.0,1.0,0.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4392454,Alexey Toropchenko,RW,13.5,0.0,0.0,0.0,2.0,3.0,1.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4697408,Justin Barron,D,16.0,0.2,0.0,0.0,1.0,2.0,1.0,1.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4565229,Philip Broberg,D,28.8,2.7,1.0,0.0,3.0,0.0,3.0,1.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,5495,Cam Fowler,D,19.1,0.0,0.0,0.0,0.0,0.0,1.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,5216884,Adam Jiricek,D,11.2,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4874748,Logan Mailloux,D,18.7,0.6,0.0,0.0,2.0,3.0,1.0,0.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,3069341,Colton Parayko,D,23.4,0.1,0.0,0.0,2.0,1.0,2.0,2.0,0,0,0
+nhl,401892798,2026-11-27T19:00Z,St. Louis Blues,Dallas Stars,4587909,Joel Hofer,G,60.0,0,0,0,0,0,0,0,25.0,28.0,3.0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,3149829,Michael Amadio,RW,15.3,0.3,1.0,2.0,3.0,0.0,0.0,4.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4271734,Drake Batherson,RW,16.7,3.1,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,3042044,Andre Burakovsky,LW,10.9,1.8,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,2563027,Nick Cousins,C,10.9,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4565228,Dylan Cozens,C,17.1,1.8,0.0,1.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,3775,Claude Giroux,RW,15.8,2.2,1.0,1.0,2.0,0.0,1.0,3.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4697411,Ridly Greig,C,16.3,1.4,1.0,1.0,2.0,1.0,1.0,3.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,5136706,Stephen Halliday,C,12.4,2.5,0.0,0.0,0.0,1.0,1.0,1.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4565255,Shane Pinto,C,20.3,3.1,0.0,0.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4697384,Tim Stutzle,C,17.4,3.9,2.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4565245,Philip Tomasino,RW,10.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4587837,Fabian Zetterlund,LW,15.2,0.7,0.0,1.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,3900219,Thomas Chabot,D,23.7,2.1,0.0,1.0,1.0,1.0,1.0,2.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4697448,Tyler Kleven,D,16.2,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,5174232,Nikolas Matinpalo,D,16.3,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4697386,Jake Sanderson,D,22.0,4.0,0.0,1.0,0.0,0.0,1.0,4.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4588190,Jordan Spence,D,21.1,2.2,0.0,0.0,1.0,2.0,2.0,2.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,4712021,Artem Zub,D,18.1,0.9,1.0,0.0,1.0,0.0,1.0,4.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Ottawa Senators,Tampa Bay Lightning,3069285,Linus Ullmark,G,60.0,0,0,0,0,0,0,0,18.0,20.0,2.0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,3941973,Anthony Cirelli,C,18.4,0.7,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,2968829,Zemgus Girgensons,C,14.7,0.0,0.0,0.0,2.0,2.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,4697470,Gage Goncalves,C,14.2,0.7,0.0,0.0,1.0,4.0,2.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,3094261,Yanni Gourde,C,14.9,0.7,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,3042083,Jake Guentzel,C,16.6,1.3,2.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,4065019,Brandon Hagel,LW,19.6,1.1,0.0,1.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,2563060,Nikita Kucherov,RW,19.1,1.3,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,4422415,Ilya Mikheyev,RW,14.3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,5216901,Sam O'Reilly,RW,14.4,1.1,0.0,0.0,0.0,4.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,3151187,Brayden Point,C,15.8,1.2,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,4588188,Jeffrey Viel,LW,11.6,0.0,0.0,0.0,1.0,4.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,5118,John Carlson,D,18.1,0.9,0.0,0.0,1.0,1.0,3.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,5104716,Max Crozier,D,19.0,0.0,0.0,1.0,0.0,4.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,4588175,Charle-Edouard D'Astous,D,17.1,1.1,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,5157,Victor Hedman,D,3.7,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,5146599,Emil Lilleberg,D,21.1,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,4954,Ryan McDonagh,D,19.2,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,4874929,JJ Moser,D,20.1,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892799,2026-11-27T20:00Z,Tampa Bay Lightning,Ottawa Senators,5174160,Dennis Hildeby,G,60.0,0,0,0,0,0,0,0,15.0,21.0,6.0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,3899979,Brock Boeser,RW,19.2,5.2,0.0,0.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4233643,Filip Chytil,C,5.3,1.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4331579,Paul Cotter,LW,13.4,1.6,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,3900240,Jake DeBrusk,LW,15.2,5.2,1.0,0.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4587713,Linus Karlsson,C,14.9,2.6,0.0,0.0,2.0,1.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,5080159,Jonathan Lekkerimaki,RW,14.6,5.2,0.0,1.0,1.0,2.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,5188640,Ty Mueller,C,18.1,0.1,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4712146,Drew O'Connor,LW,18.6,2.7,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,5080163,Liam Ohgren,LW,13.8,2.5,0.0,1.0,2.0,1.0,0.0,1.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4997056,Jacob Quillan,C,12.5,0.1,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4894702,Cole Reinhardt,LW,13.9,0.1,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4697391,Marco Rossi,C,23.0,5.4,0.0,0.0,2.0,2.0,1.0,1.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,5206642,Zeev Buium,D,24.6,3.8,0.0,1.0,0.0,3.0,2.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4063607,Filip Hronek,D,28.7,4.3,1.0,0.0,3.0,3.0,2.0,1.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,2562625,Jamie Oleksiak,D,14.7,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,5238086,Elias N. Pettersson,D,15.3,0.0,0.0,0.0,0.0,5.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,5092,Luke Schenn,D,11.8,0.0,0.0,1.0,1.0,8.0,5.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,5149180,Tom Willander,D,17.2,0.1,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Vancouver Canucks,Philadelphia Flyers,4894703,Leevi Merilainen,G,58.6,0,0,0,0,0,0,0,24.0,28.0,4.0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,3096237,Noel Acciari,C,12.3,0.0,0.0,0.0,1.0,0.0,4.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,5173105,Denver Barkey,C,17.2,4.4,0.0,1.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,3149603,Michael Bunting,LW,16.0,3.4,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,4419682,Noah Cates,LW,15.2,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,2562601,Sean Couturier,C,16.8,0.0,1.0,0.0,5.0,0.0,0.0,1.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,3115035,Christian Dvorak,C,18.1,3.2,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,4697406,Tyson Foerster,RW,17.1,3.1,1.0,1.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,5188341,Cole Knuble,RW,12.9,0.0,0.0,0.0,3.0,1.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,3900169,Travis Konecny,RW,16.4,3.4,1.0,1.0,4.0,5.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,5291941,Porter Martone,RW,15.9,3.5,1.0,0.0,5.0,2.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,4565230,Trevor Zegras,C,18.5,3.8,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,4392642,Simon Benoit,D,10.4,0.0,0.0,1.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,4697387,Jamie Drysdale,D,16.2,3.2,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,5080147,David Jiricek,D,9.7,3.5,0.0,1.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,3041999,Rasmus Ristolainen,D,19.9,0.0,0.0,1.0,0.0,3.0,0.0,1.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,3114757,Travis Sanheim,D,23.5,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,2564164,Nick Seeler,D,15.9,0.0,0.0,1.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,4565235,Cam York,D,20.0,2.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892800,2026-11-27T20:00Z,Philadelphia Flyers,Vancouver Canucks,3942459,Dan Vladar,G,60.0,0,0,0,0,0,0,0,18.0,20.0,2.0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3041970,Aleksander Barkov,C,18.7,0.5,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3114732,Sam Bennett,C,15.7,0.3,1.0,0.0,4.0,1.0,1.0,1.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3946,Lars Eller,C,7.5,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3149633,Garnet Hathaway,RW,5.4,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,4697395,Anton Lundell,C,15.8,0.3,0.0,1.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,4233877,Eetu Luostarinen,C,15.6,0.3,1.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3852,Brad Marchand,LW,15.5,0.2,0.0,1.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3114722,Sam Reinhart,C,22.6,3.6,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,4024854,Matthew Tkachuk,LW,17.4,3.6,0.0,2.0,3.0,3.0,0.0,1.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,4319858,Brady Tkachuk,LW,17.1,3.1,0.0,2.0,2.0,4.0,0.0,1.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3042088,Carter Verhaeghe,C,18.9,2.8,0.0,0.0,5.0,1.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,5103599,Sandis Vilmanis,LW,6.5,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3114717,Aaron Ekblad,D,24.5,1.0,1.0,0.0,2.0,0.0,2.0,1.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3151784,Gustav Forsling,D,23.7,0.2,0.0,0.0,2.0,1.0,1.0,1.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,5502,Radko Gudas,D,12.3,0.0,0.0,0.0,1.0,3.0,2.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3041992,Seth Jones,D,22.4,2.9,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,5328,Dmitry Kulikov,D,13.2,0.1,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,3942354,Niko Mikkola,D,20.7,0.1,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Florida Panthers,Washington Capitals,5452,Jacob Markstrom,G,60.0,0,0,0,0,0,0,0,24.0,26.0,2.0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,3904107,Anthony Beauvillier,LW,10.7,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4024833,Pierre-Luc Dubois,LW,13.7,2.2,0.0,1.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,2563054,Boone Jenner,C,16.6,0.0,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,5149172,Ryan Leonard,RW,13.9,2.6,0.0,1.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,5080168,Ivan Miroshnichenko,LW,11.6,0.0,0.0,1.0,3.0,4.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,3101,Alex Ovechkin,LW,7.8,0.6,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4587943,Aliaksei Protas,C,18.1,0.0,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,5229146,Ilya Protas,LW,16.1,1.6,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4697783,Justin Sourdif,RW,12.6,1.0,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,3899933,Dylan Strome,C,13.7,1.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,3114766,Alex Tuch,RW,21.9,2.2,0.0,0.0,2.0,1.0,2.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,2970615,Tom Wilson,RW,19.4,1.0,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4024950,Jakob Chychrun,D,25.9,1.5,0.0,0.0,4.0,0.0,1.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4392260,Vincent Desharnais,D,12.5,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4378677,Martin Fehervary,D,21.6,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,5216918,Cole Hutson,D,16.8,2.3,2.0,0.0,4.0,0.0,0.0,1.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4233618,Timothy Liljegren,D,15.2,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,3942924,Matt Roy,D,24.9,0.0,0.0,0.0,1.0,5.0,4.0,0.0,0,0,0
+nhl,401892801,2026-11-27T20:00Z,Washington Capitals,Florida Panthers,4272888,Logan Thompson,G,59.7,0,0,0,0,0,0,0,28.0,31.0,3.0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,3942043,Mason Appleton,C,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,3120307,Viktor Arvidsson,LW,15.5,0.2,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,5216883,Michael Brandsegg-Nygard,RW,12.8,0.0,0.0,0.0,1.0,6.0,1.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,3041995,J.T. Compher,LW,14.2,0.0,1.0,0.0,3.0,1.0,0.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,3042114,Andrew Copp,C,18.6,0.5,0.0,0.0,1.0,1.0,0.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,4565224,Kirby Dach,C,13.8,0.0,0.0,0.0,0.0,0.0,2.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,4063433,Alex DeBrincat,RW,18.6,0.5,1.0,0.0,2.0,0.0,2.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,5188599,Emmitt Finnie,C,16.3,0.0,0.0,0.0,1.0,1.0,2.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,5080152,Marco Kasper,C,13.6,0.0,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,3941546,Keegan Kolesar,RW,11.2,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,4233576,Michael Rasmussen,C,10.2,0.0,0.0,0.0,2.0,3.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,4697385,Lucas Raymond,LW,17.6,0.5,0.0,1.0,0.0,0.0,0.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,5246,Ben Chiarot,D,24.7,0.0,0.0,1.0,1.0,1.0,5.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,3114997,Andreas Englund,D,14.1,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,5746,Justin Faulk,D,20.4,0.3,0.0,0.0,2.0,3.0,1.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,4565282,Albert Johansson,D,20.4,0.0,0.0,1.0,2.0,0.0,1.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,5188582,Anton Johansson,D,14.1,0.0,0.0,0.0,2.0,2.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,4565227,Moritz Seider,D,25.9,0.5,0.0,1.0,1.0,0.0,3.0,1.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Detroit Red Wings,Columbus Blue Jackets,2590824,John Gibson,G,60.0,0,0,0,0,0,0,0,18.0,18.0,0.0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,2555315,Charlie Coyle,C,20.3,2.0,0.0,0.0,1.0,1.0,2.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,5080211,Luca Del Bel Belluz,C,15.7,0.5,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,5136617,Adam Fantilli,C,21.7,2.1,0.0,0.0,2.0,5.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4781553,Kent Johnson,C,20.6,2.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4874919,Matthew Knies,LW,21.0,2.1,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,3942548,Ryan Lomberg,LW,6.6,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4352775,Isac Lundestrom,C,8.1,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,3041996,Sean Monahan,C,12.9,0.4,0.0,0.0,3.0,2.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,3042003,Valeri Nichushkin,RW,19.4,0.4,0.0,0.0,3.0,1.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4697824,Mikael Pyyhtia,LW,7.5,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4874725,Cole Sillinger,C,14.9,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,5275582,Jack Williams,RW,12.0,0.0,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4392782,Jake Christiansen,D,13.1,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4024959,Dante Fabbro,D,17.9,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,5503,Erik Gudbranson,D,12.7,0.0,0.0,0.0,0.0,4.0,2.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,3899939,Ivan Provorov,D,23.9,0.5,0.0,0.0,0.0,1.0,2.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,3068087,Damon Severson,D,23.0,0.4,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,3899972,Zach Werenski,D,27.6,2.1,0.0,0.0,3.0,1.0,1.0,0.0,0,0,0
+nhl,401892802,2026-11-27T20:00Z,Columbus Blue Jackets,Detroit Red Wings,4894366,Jet Greaves,G,57.0,0,0,0,0,0,0,0,19.0,21.0,2.0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,4894056,Adam Beckman,LW,11.8,1.3,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,5136616,T.J. Hughes,RW,17.4,2.7,1.0,1.0,6.0,0.0,0.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,5349,Nazem Kadri,C,17.9,1.3,0.0,1.0,3.0,0.0,1.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,4392309,Parker Kelly,C,13.2,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,2562609,Gabriel Landeskog,LW,18.8,1.4,0.0,0.0,2.0,1.0,0.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,3042050,Artturi Lehkonen,LW,22.8,2.6,1.0,1.0,5.0,1.0,1.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,4997080,Taylor Makar,LW,7.5,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,5798,Brock Nelson,C,24.6,2.6,0.0,1.0,2.0,3.0,1.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,3988782,Logan O'Connor,RW,13.7,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,3943996,Nicolas Roy,C,15.7,1.4,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,5835,Jaden Schwartz,C,18.4,2.7,0.0,0.0,3.0,0.0,0.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,4874736,Fedor Svechkov,C,11.6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,2300,Brent Burns,D,14.0,0.0,0.0,0.0,1.0,0.0,2.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,3068665,Brett Kulak,D,17.4,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,4233563,Cale Makar,D,27.4,1.3,0.0,1.0,3.0,1.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,5136735,Sam Malinski,D,20.1,0.1,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,2563077,Mike Reilly,D,10.7,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,3096249,Devon Toews,D,27.5,2.7,1.0,0.0,1.0,0.0,2.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Colorado Avalanche,Minnesota Wild,3904177,Mackenzie Blackwood,G,61.5,0,0,0,0,0,0,0,19.0,22.0,3.0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,4565233,Matt Boldy,LW,23.3,4.1,0.0,1.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,4565257,Bobby Brink,RW,14.2,1.9,0.0,0.0,1.0,1.0,0.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,2563026,Blake Coleman,LW,19.1,2.2,1.0,1.0,4.0,0.0,1.0,3.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,3904091,Joel Eriksson Ek,C,22.8,3.6,2.0,0.0,5.0,2.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,3535,Nick Foligno,LW,9.7,0.1,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,5172,Marcus Foligno,LW,8.5,0.1,0.0,0.0,1.0,3.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,3042063,Ryan Hartman,RW,11.5,1.9,0.0,0.0,2.0,2.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,3942335,Kirill Kaprizov,LW,24.1,4.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,3042048,Michael McCarron,C,14.0,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,5302535,Maxim Shabanov,RW,14.5,4.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,3904188,Yakov Trenin,C,11.4,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,5080172,Danila Yurov,RW,16.6,1.8,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,4002,Zach Bogosian,D,12.8,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,2562600,Jonas Brodin,D,25.3,0.2,0.0,1.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,4697449,Brock Faber,D,29.2,3.0,0.0,1.0,2.0,0.0,2.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,4799741,Matt Kiersted,D,20.1,0.0,0.0,0.0,0.0,1.0,3.0,2.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,5103533,David Spacek,D,10.3,0.7,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,5079,Jared Spurgeon,D,21.6,2.3,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892803,2026-11-27T21:00Z,Minnesota Wild,Colorado Avalanche,4874737,Jesper Wallstedt,G,65.0,0,0,0,0,0,0,0,28.0,31.0,3.0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,2562596,Joel Armia,RW,12.7,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,4697383,Quinton Byfield,RW,21.6,2.9,0.0,0.0,3.0,1.0,0.0,2.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,3114743,Kevin Fiala,LW,15.0,1.1,0.0,2.0,0.0,0.0,0.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,2593311,Erik Haula,LW,16.6,1.1,0.0,1.0,2.0,4.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,3114802,Adrian Kempe,RW,17.6,2.8,1.0,0.0,4.0,1.0,1.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,4697725,Alex Laferriere,RW,19.7,3.1,0.0,0.0,3.0,6.0,1.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,4997131,Andre Lee,LW,8.9,0.0,1.0,0.0,1.0,2.0,0.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,3096186,Trevor Moore,LW,14.7,0.0,1.0,0.0,1.0,1.0,1.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,3891952,Artemi Panarin,LW,17.3,2.9,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,2273,Corey Perry,RW,9.1,0.9,0.0,0.0,0.0,0.0,2.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,4565226,Alex Turcotte,C,7.8,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,5560,Mats Zuccarello,RW,15.4,0.9,2.0,0.0,2.0,0.0,1.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,4588178,Mikey Anderson,D,22.4,0.3,0.0,0.0,0.0,1.0,2.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,2976843,Cody Ceci,D,14.7,0.0,0.0,0.0,0.0,0.0,3.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,4874722,Brandt Clarke,D,21.0,2.7,0.0,0.0,0.0,1.0,1.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,3995,Drew Doughty,D,23.7,1.3,0.0,2.0,0.0,1.0,2.0,2.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,5738,Brian Dumoulin,D,16.7,0.0,0.0,2.0,1.0,0.0,1.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,2563034,Joel Edmundson,D,17.9,0.0,0.0,1.0,0.0,1.0,2.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Los Angeles Kings,Anaheim Ducks,2610321,Darcy Kuemper,G,60.0,0,0,0,0,0,0,0,25.0,28.0,3.0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4755684,Judd Caulfield,RW,16.2,1.8,0.0,0.0,2.0,4.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5080145,Cutter Gauthier,LW,19.2,4.6,0.0,0.0,5.0,1.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5831,Mikael Granlund,C,21.5,4.5,0.0,2.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4968,Alex Killorn,LW,21.2,4.2,0.0,1.0,0.0,0.0,0.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4895214,Jeff Malott,LW,11.6,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5291946,Roger McQueen,C,15.3,1.4,0.0,0.0,1.0,4.0,3.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5149221,Nico Myatovic,LW,10.1,1.3,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4755696,Nikita Nesterenko,C,9.3,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5216858,Beckett Sennecke,RW,19.3,4.6,1.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,3942905,Troy Terry,RW,16.0,1.4,0.0,0.0,2.0,0.0,0.0,1.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,3527554,Frank Vatrano,RW,9.2,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4996085,Tim Washe,C,14.6,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4565270,Drew Helleson,D,14.5,0.1,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4565262,Jackson LaCombe,D,26.9,4.6,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5080220,Tristan Luneau,D,21.5,0.0,0.0,1.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5080154,Pavel Mintyukov,D,14.3,0.0,0.0,0.0,3.0,1.0,2.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,4997137,Ian Moore,D,17.1,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,5216891,Stian Solberg,D,20.1,1.4,2.0,0.0,4.0,0.0,3.0,0.0,0,0,0
+nhl,401892804,2026-11-27T21:00Z,Anaheim Ducks,Los Angeles Kings,3026526,Laurent Brossoit,G,58.1,0,0,0,0,0,0,0,16.0,20.0,4.0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3114985,Ivan Barbashev,LW,11.4,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,5272307,Braeden Bowman,RW,12.8,2.2,0.0,0.0,1.0,1.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,5216887,Trevor Connelly,LW,17.2,0.6,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3025616,Nic Dowd,C,10.7,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3648002,Jack Eichel,C,22.6,5.9,1.0,0.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,5103547,Marc Gatcomb,C,10.8,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,2976844,Tomas Hertl,C,19.5,6.1,0.0,1.0,4.0,1.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,4024989,Brett Howden,C,11.8,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,2563057,William Karlsson,C,14.7,0.5,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3899937,Mitch Marner,RW,22.7,6.4,0.0,1.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3151096,Victor Olofsson,LW,17.9,6.1,0.0,0.0,6.0,1.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,5545,Mark Stone,RW,15.2,3.8,0.0,0.0,3.0,0.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3904186,Rasmus Andersson,D,18.0,1.1,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,4063606,Dylan Coghlan,D,15.6,0.0,0.0,0.0,4.0,0.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3904185,Jeremy Lauzon,D,17.1,0.0,0.0,0.0,0.0,4.0,2.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,5202,Brayden McNabb,D,18.5,0.4,0.0,0.0,0.0,3.0,3.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3042055,Shea Theodore,D,22.0,1.9,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,3942638,Parker Wotherspoon,D,17.2,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,Vegas Golden Knights,San Jose Sharks,4064582,Carter Hart,G,58.3,0,0,0,0,0,0,0,29.0,32.0,3.0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5206628,Macklin Celebrini,C,20.4,3.9,1.0,1.0,4.0,0.0,0.0,2.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,4352747,Ty Dellandrea,C,13.3,0.0,0.0,0.0,0.0,3.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,3942868,Adam Gaudette,RW,17.6,2.1,1.0,1.0,3.0,2.0,0.0,2.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,3069411,Barclay Goodrow,C,12.5,0.0,0.0,1.0,0.0,2.0,1.0,2.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5136607,Collin Graf,RW,12.9,0.0,0.0,1.0,0.0,3.0,0.0,1.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,4272192,Mason Marchment,LW,15.8,2.7,0.0,0.0,4.0,2.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5291934,Michael Misa,C,13.6,2.7,1.0,0.0,2.0,1.0,0.0,1.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,4874881,Zack Ostapchuk,C,10.6,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5149155,Will Smith,C,14.3,2.4,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5361709,Ivar Stenberg,LW,18.9,3.3,0.0,1.0,2.0,0.0,2.0,1.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5550,Tyler Toffoli,C,12.7,3.3,0.0,1.0,2.0,0.0,0.0,1.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,3042017,Alexander Wennberg,C,16.2,3.3,0.0,1.0,4.0,2.0,0.0,1.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,4874749,Nolan Allan,D,17.8,0.0,0.0,0.0,2.0,1.0,1.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5188591,Luca Cagnoni,D,18.1,2.6,0.0,0.0,3.0,0.0,1.0,2.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5216880,Sam Dickinson,D,17.8,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,4331604,Michael Kesselring,D,20.5,0.3,0.0,0.0,1.0,1.0,2.0,2.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,3041997,Darnell Nurse,D,22.4,0.0,0.0,0.0,0.0,0.0,1.0,2.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,5646,Dmitry Orlov,D,17.8,3.4,0.0,1.0,2.0,0.0,0.0,2.0,0,0,0
+nhl,401892805,2026-11-27T21:00Z,San Jose Sharks,Vegas Golden Knights,4697394,Yaroslav Askarov,G,60.0,0,0,0,0,0,0,0,27.0,28.0,1.0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,5188348,Jaroslav Chmelar,RW,10.8,0.0,0.0,0.0,4.0,4.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4697468,Will Cuylle,LW,19.8,1.6,0.0,0.0,1.0,8.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,3942352,Glenn Gawdin,C,6.1,0.0,0.0,0.0,3.0,2.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4588750,Tye Kartye,LW,20.4,1.9,0.0,0.0,4.0,1.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,5188370,Noah Laba,C,11.4,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4697382,Alexis Lafreniere,LW,22.0,2.6,0.0,0.0,4.0,3.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,2590852,J.T. Miller,LW,21.6,2.6,0.0,1.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4063502,Taylor Raddysh,RW,15.9,1.7,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4697820,Matt Rempe,C,5.4,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4996099,Max Sasson,C,14.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4233720,Eeli Tolvanen,RW,13.1,1.6,0.0,0.0,3.0,7.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,2562637,Mika Zibanejad,C,21.9,2.6,1.0,0.0,4.0,2.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4378683,Sean Durzi,D,20.7,1.6,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4197146,Adam Fox,D,25.3,2.7,0.0,1.0,2.0,0.0,2.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,3942292,Vladislav Gavrikov,D,21.3,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4874882,Scott Morrow,D,14.9,1.5,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,3114995,Marcus Pettersson,D,20.1,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4697402,Braden Schneider,D,13.9,0.0,0.0,0.0,1.0,6.0,1.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,New York Rangers,Chicago Blackhawks,4697705,Dylan Garand,G,58.7,0,0,0,0,0,0,0,8.0,10.0,2.0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5090524,Dillon Boucher,LW,6.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,3115033,Ryan Donato,C,15.8,0.7,0.0,1.0,2.0,1.0,2.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5291935,Anton Frondell,C,18.3,1.9,0.0,0.0,1.0,0.0,3.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,2335062,Luke Glendening,C,14.8,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5080227,Ryan Greene,C,12.4,1.9,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5149231,Roman Kantserov,RW,18.2,2.0,0.0,0.0,0.0,2.0,3.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,3149619,Andrew Mangiapane,LW,13.9,0.6,2.0,0.0,2.0,1.0,2.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5149194,Oliver Moore,C,15.1,0.7,0.0,2.0,2.0,2.0,1.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5080157,Frank Nazar,C,19.2,2.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,4697787,Landon Slaggert,LW,10.2,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,4197130,Cole Smith,RW,16.8,0.0,0.0,0.0,0.0,9.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,2592095,Teuvo Teravainen,C,17.1,0.7,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,4991,Ian Cole,D,26.4,0.0,0.0,0.0,0.0,2.0,2.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,4894726,Ethan Del Mastro,D,16.2,0.0,0.0,0.0,0.0,1.0,2.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5080148,Kevin Korchinski,D,8.3,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5206648,Artyom Levshunov,D,14.3,0.6,0.0,0.0,1.0,2.0,2.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,5080173,Sam Rinzel,D,25.5,2.1,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,4565266,Alex Vlasic,D,27.2,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0,0,0
+nhl,401892806,2026-11-27T22:30Z,Chicago Blackhawks,New York Rangers,4565234,Spencer Knight,G,60.0,0,0,0,0,0,0,0,30.0,31.0,1.0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4316970,Morgan Barron,C,15.6,0.0,0.0,0.0,5.0,0.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,5361711,Viggo Bjorck,C,14.5,0.5,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,3899952,Kyle Connor,LW,21.1,3.3,2.0,1.0,9.0,0.0,0.0,2.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,3652598,Alex Iafallo,LW,15.0,0.5,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4419679,Cole Koepke,LW,9.1,0.0,0.0,0.0,3.0,6.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,2563066,Adam Lowry,C,14.8,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4697401,Dawson Mercer,C,17.0,0.5,0.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4697392,Cole Perfetti,C,17.1,3.3,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,2562632,Mark Scheifele,C,20.4,3.3,0.0,1.0,2.0,0.0,2.0,2.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4233583,Gabriel Vilardi,C,20.2,3.3,1.0,1.0,2.0,0.0,0.0,2.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,5149188,Brayden Yager,C,9.6,0.5,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4697648,Tyrel Bauer,D,4.9,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4233884,Mario Ferraro,D,20.7,0.0,0.0,0.0,3.0,2.0,2.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,3042016,Josh Morrissey,D,23.1,3.3,0.0,2.0,1.0,0.0,1.0,2.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,3988847,Neal Pionk,D,19.3,0.5,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,5080223,Elias Salomonsson,D,17.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4233878,Dylan Samberg,D,21.2,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4997138,Henry Thrun,D,15.4,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,Winnipeg Jets,New York Islanders,4268767,Stuart Skinner,G,60.0,0,0,0,0,0,0,0,26.0,27.0,1.0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,3899946,Mathew Barzal,C,20.2,2.8,0.0,0.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,5262,Casey Cizikas,C,10.3,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,3042086,Anthony Duclair,LW,12.0,1.1,0.0,1.0,3.0,0.0,0.0,1.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,5291952,Victor Eklund,RW,17.7,2.6,0.0,0.0,0.0,4.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,4697447,Emil Heineman,LW,14.9,0.1,0.0,0.0,2.0,4.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,4565244,Simon Holmstrom,RW,19.1,1.1,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,3042002,Bo Horvat,C,22.3,2.6,0.0,0.0,4.0,2.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,4587580,Matias Maccelli,LW,14.8,1.4,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,2593131,Jean-Gabriel Pageau,C,13.9,0.1,0.0,0.0,0.0,2.0,1.0,1.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,2590389,Ondrej Palat,LW,11.4,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,5149210,Calum Ritchie,C,13.3,1.3,0.0,0.0,3.0,1.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,5219,Brayden Schenn,C,14.1,2.6,0.0,1.0,0.0,1.0,0.0,1.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,3114769,Tony DeAngelo,D,19.8,1.2,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,3571762,Ben Hutton,D,16.1,0.2,0.0,0.0,2.0,0.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,4697719,Matthew Kessel,D,14.7,0.1,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,3069621,Adam Pelech,D,16.9,0.0,0.0,0.0,3.0,0.0,2.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,5291933,Matthew Schaefer,D,27.4,2.7,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,4024968,Logan Stanley,D,19.2,0.1,1.0,0.0,4.0,0.0,0.0,1.0,0,0,0
+nhl,401892807,2026-11-28T00:30Z,New York Islanders,Winnipeg Jets,3759,Semyon Varlamov,G,58.3,0,0,0,0,0,0,0,34.0,37.0,3.0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,5237802,Atley Calvert,C,9.2,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,3114,Sidney Crosby,C,16.9,1.6,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,4588004,Connor Dewar,C,12.5,0.0,0.0,1.0,2.0,3.0,0.0,2.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,5172806,Avery Hayes,RW,15.3,0.3,0.0,0.0,1.0,0.0,1.0,1.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,5291947,Ben Kindel,C,16.4,0.4,1.0,1.0,5.0,0.0,0.0,2.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,4874911,Ville Koivunen,RW,11.7,0.4,1.0,1.0,2.0,1.0,0.0,2.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,4697405,Hendrix Lapierre,C,13.8,0.4,0.0,0.0,1.0,2.0,0.0,2.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,4316983,Blake Lizotte,C,15.0,0.0,1.0,0.0,2.0,1.0,1.0,1.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,3124,Evgeni Malkin,C,17.4,1.6,1.0,1.0,3.0,0.0,0.0,1.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,5080158,Rutger McGroarty,RW,12.8,0.0,1.0,1.0,2.0,1.0,0.0,2.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,3942061,Tommy Novak,C,16.7,1.6,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,2562629,Rickard Rakell,RW,17.5,1.6,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,5103825,Declan Carlile,D,16.9,0.0,0.0,1.0,3.0,1.0,3.0,2.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,4063401,Samuel Girard,D,21.1,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,5164,Erik Karlsson,D,21.0,1.6,0.0,1.0,1.0,0.0,2.0,3.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,4565264,Kaedan Korczak,D,21.3,0.0,0.0,1.0,1.0,2.0,1.0,1.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,3539,Kris Letang,D,18.3,0.4,1.0,0.0,3.0,1.0,0.0,3.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,3025524,Trevor van Riemsdyk,D,19.6,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Pittsburgh Penguins,Buffalo Sabres,5188366,Sergei Murashov,G,60.0,0,0,0,0,0,0,0,20.0,23.0,3.0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,5474,Sam Carrick,C,8.9,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4894355,Justin Danforth,RW,9.3,0.0,0.0,0.0,0.0,3.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4874870,Josh Doan,RW,17.4,2.7,0.0,1.0,2.0,1.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4565238,Peyton Krebs,C,16.6,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,5080176,Jiri Kulich,C,17.3,2.1,1.0,0.0,2.0,3.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4063240,Beck Malenstyn,LW,10.9,0.0,0.0,0.0,2.0,2.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4378669,Ryan McLeod,C,19.7,1.4,0.0,1.0,2.0,0.0,0.0,1.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4233627,Josh Norris,C,15.6,1.8,1.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4697389,Jack Quinn,RW,21.3,3.1,0.0,1.0,4.0,1.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,3149827,Conor Sheary,LW,9.7,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4024988,Tage Thompson,C,18.9,2.6,0.0,1.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,2593315,Jason Zucker,LW,14.9,2.4,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4697681,Louis Crevier,D,11.4,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4294163,Rasmus Dahlin,D,27.1,3.3,1.0,1.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4781556,Owen Power,D,25.5,1.1,0.0,0.0,3.0,1.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4378656,Mattias Samuelsson,D,25.0,1.9,0.0,1.0,4.0,1.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4233868,Conor Timmins,D,14.2,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4874863,Olen Zellweger,D,14.4,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0,0,0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,4233889,Ukko-Pekka Luukkonen,G,23.2,0,0,0,0,0,0,0,6.0,10.0,4.0
+nhl,401892808,2026-11-28T01:00Z,Buffalo Sabres,Pittsburgh Penguins,3654006,Alex Lyon,G,34.6,0,0,0,0,0,0,0,17.0,18.0,1.0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4781552,Matty Beniers,C,21.2,3.9,0.0,2.0,5.0,0.0,1.0,1.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,5216877,Berkly Catton,C,13.2,2.2,0.0,0.0,2.0,0.0,2.0,1.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,5032,Jordan Eberle,RW,13.8,3.7,1.0,0.0,3.0,1.0,1.0,2.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,3149649,Frederick Gaudreau,C,17.8,0.0,0.0,1.0,0.0,0.0,2.0,1.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4565223,Kaapo Kakko,RW,12.6,1.6,2.0,0.0,2.0,0.0,0.0,1.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,5048894,Bobby McMann,C,15.4,3.7,0.0,0.0,1.0,0.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4894747,Jacob Melanson,RW,5.8,0.0,0.0,0.0,3.0,6.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4755729,Ben Meyers,C,12.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4874741,Mackie Samoskevich,RW,13.4,1.7,0.0,1.0,1.0,0.0,0.0,1.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,3067858,Chandler Stephenson,C,18.0,3.8,0.0,1.0,1.0,0.0,1.0,2.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4894928,Ryan Winterton,C,13.2,0.0,0.0,0.0,2.0,0.0,2.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,5149189,Matthew Wood,RW,13.3,1.4,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,3904189,Vince Dunn,D,19.9,3.6,1.0,0.0,5.0,1.0,0.0,3.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4874864,Ryker Evans,D,22.3,0.3,0.0,0.0,1.0,1.0,4.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,2562610,Adam Larsson,D,20.6,0.1,0.0,0.0,1.0,0.0,1.0,3.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4271998,Ryan Lindgren,D,16.4,0.3,0.0,0.0,1.0,0.0,1.0,1.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,4063504,Joshua Mahura,D,11.1,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,3115032,Brandon Montour,D,25.2,2.3,0.0,0.0,3.0,1.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,3942073,Joey Daccord,G,19.4,0,0,0,0,0,0,0,9.0,9.0,0.0
+nhl,401892809,2026-11-28T01:00Z,Seattle Kraken,Edmonton Oilers,5657,Philipp Grubauer,G,40.0,0,0,0,0,0,0,0,16.0,18.0,2.0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,4874940,Colton Dach,C,13.2,2.7,0.0,0.0,1.0,6.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3042062,Jason Dickinson,C,13.8,0.0,0.0,0.0,1.0,2.0,1.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3114727,Leon Draisaitl,C,24.7,10.7,1.0,0.0,4.0,0.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,4233882,Alex Formenton,LW,13.3,0.0,0.0,0.0,2.0,2.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,4024997,Trent Frederic,C,9.2,2.6,0.0,0.0,0.0,4.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,4024980,Max Jones,LW,5.7,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3941965,Mathieu Joseph,RW,10.9,0.0,0.0,0.0,0.0,6.0,2.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3114775,Kasperi Kapanen,RW,22.2,9.0,0.0,0.0,4.0,3.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3895074,Connor McDavid,C,24.3,10.5,1.0,0.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,5206840,Owen Michaels,C,6.2,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,2562624,Ryan Nugent-Hopkins,C,23.8,10.3,0.0,1.0,1.0,0.0,2.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,4565231,Vasily Podkolzin,RW,17.7,4.3,0.0,1.0,0.0,5.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,4352722,Evan Bouchard,D,25.9,10.9,0.0,1.0,2.0,0.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,2558631,Mattias Ekholm,D,16.1,0.0,0.0,1.0,1.0,4.0,1.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,4587566,Ty Emberson,D,10.9,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,2562618,Connor Murphy,D,19.5,0.0,0.0,0.0,2.0,2.0,1.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3942033,Ryan Shea,D,23.5,2.4,0.0,0.0,1.0,1.0,2.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3151136,Jake Walman,D,13.4,2.2,0.0,0.0,4.0,0.0,1.0,0.0,0,0,0
+nhl,401892809,2026-11-28T01:00Z,Edmonton Oilers,Seattle Kraken,3042020,Tristan Jarry,G,57.7,0,0,0,0,0,0,0,28.0,31.0,3.0

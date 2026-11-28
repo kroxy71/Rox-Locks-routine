@@ -1,14 +1,25 @@
 sport,game_id,date,home,away,spread_detail,over_under,home_ml,away_ml
-nfl,401873083,2026-11-27T20:00Z,Pittsburgh Steelers,Denver Broncos,DEN -4.5,37.5,+205,-248
-nfl,401873087,2026-11-29T18:00Z,Cincinnati Bengals,New Orleans Saints,CIN -10,49.5,-561,+422
-nfl,401873088,2026-11-29T18:00Z,Indianapolis Colts,New York Giants,NYG -6,41.5,+236,-287
-nfl,401873089,2026-11-29T18:00Z,Miami Dolphins,New York Jets,NYJ -5.5,39.5,+204,-246
-nfl,401873084,2026-11-29T18:00Z,Minnesota Vikings,Atlanta Falcons,MIN -7,41.5,-311,+253
-nfl,401873090,2026-11-29T18:00Z,Jacksonville Jaguars,Tennessee Titans,JAX -14.5,49.5,-1260,+770
-nfl,401873085,2026-11-29T18:00Z,Houston Texans,Baltimore Ravens,HOU -6.5,47.5,-332,+267
-nfl,401873093,2026-11-29T21:05Z,Los Angeles Chargers,New England Patriots,NE -2.5,35.5,+115,-137
-nfl,401873092,2026-11-29T21:25Z,Arizona Cardinals,Washington Commanders,WSH -6.5,41.5,+281,-350
-nfl,401873091,2026-11-29T21:25Z,San Francisco 49ers,Seattle Seahawks,SF -3,43.5,-152,+129
-nfl,401873086,2026-11-30T01:20Z,Cleveland Browns,Las Vegas Raiders,CLE -4.5,40.5,-244,+201
-nfl,401873094,2026-12-01T01:15Z,Tampa Bay Buccaneers,Carolina Panthers,TB -3,43.5,-157,+132
+nfl,401873087,2026-11-29T18:00Z,Cincinnati Bengals,New Orleans Saints,CIN -9.5,48.5,-550,+418
+nfl,401873088,2026-11-29T18:00Z,Indianapolis Colts,New York Giants,NYG -5.5,41.5,+221,-267
+nfl,401873089,2026-11-29T18:00Z,Miami Dolphins,New York Jets,NYJ -5.5,39.5,+212,-258
+nfl,401873084,2026-11-29T18:00Z,Minnesota Vikings,Atlanta Falcons,MIN -7,41.5,-310,+252
+nfl,401873090,2026-11-29T18:00Z,Jacksonville Jaguars,Tennessee Titans,JAX -14,48.5,-930,+630
+nfl,401873085,2026-11-29T18:00Z,Houston Texans,Baltimore Ravens,HOU -6.5,47.5,-333,+267
+nfl,401873093,2026-11-29T21:05Z,Los Angeles Chargers,New England Patriots,NE -3,34.5,+127,-150
+nfl,401873092,2026-11-29T21:25Z,Arizona Cardinals,Washington Commanders,WSH -6.5,41.5,+278,-345
+nfl,401873091,2026-11-29T21:25Z,San Francisco 49ers,Seattle Seahawks,SEA -1.5,42.5,+103,-121
+nfl,401873086,2026-11-30T01:20Z,Cleveland Browns,Las Vegas Raiders,CLE -4.5,38.5,-241,+199
+nfl,401873094,2026-12-01T01:15Z,Tampa Bay Buccaneers,Carolina Panthers,TB -3,43.5,-159,+134
 nfl,401873096,2026-12-04T01:15Z,Los Angeles Rams,Kansas City Chiefs,LAR -1.5,44.5,-109,-108
+nfl,401873098,2026-12-06T18:00Z,Atlanta Falcons,Detroit Lions,DET -3.5,49.5,+168,-201
+nfl,401873100,2026-12-06T18:00Z,Chicago Bears,Jacksonville Jaguars,CHI -3,49.5,-153,+129
+nfl,401873097,2026-12-06T18:00Z,Cleveland Browns,Cincinnati Bengals,CIN -6,46.5,+213,-259
+nfl,401873102,2026-12-06T18:00Z,Tennessee Titans,Washington Commanders,WSH -4.5,47.5,+192,-231
+nfl,401873099,2026-12-06T18:00Z,New Orleans Saints,Green Bay Packers,GB -4.5,46.5,+190,-228
+nfl,401873095,2026-12-06T18:00Z,New York Giants,San Francisco 49ers,,,,
+nfl,401873101,2026-12-06T18:00Z,Tampa Bay Buccaneers,Los Angeles Chargers,TB -5.5,40.5,-255,+210
+nfl,401873103,2026-12-06T21:05Z,Denver Broncos,Miami Dolphins,,,,
+nfl,401873104,2026-12-06T21:05Z,Arizona Cardinals,Philadelphia Eagles,PHI -3,37.5,+141,-167
+nfl,401873106,2026-12-06T21:25Z,Minnesota Vikings,Carolina Panthers,MIN -5.5,43.5,-247,+204
+nfl,401873105,2026-12-06T21:25Z,New England Patriots,Buffalo Bills,BUF -12.5,44.5,+554,-790
+nfl,401873107,2026-12-07T01:20Z,Pittsburgh Steelers,Houston Texans,,,,
